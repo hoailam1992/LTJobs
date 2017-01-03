@@ -1,0 +1,116 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Shopping</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="fonts/glyphicons-halflings-regular.ttf" />
+    <link rel="stylesheet" href="fonts/glyphicons-halflings-regular.woff" />
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/custom.css">
+    <script src="lib/jquery.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="container">
+        <img src="img/love.jpg" style="width: 100%; height: 300px; margin-bottom: 2px" class="img-thumbnail" />
+    </div>
+    <div class="container">
+        <nav class="navbar navbar-default" style="margin-bottom: 2px">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="Default.aspx">Home <span class="sr-only">(current)</span></a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                aria-expanded="false">Products <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Miền Bắc</a></li>
+                                <li><a href="#">Miền Nam</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="about.aspx">About Us</a></li>
+                        <li><a href="contact.aspx">Contact</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Booking Status</a></li>
+                        <li><a href="#">Account</a></li>
+                        <li><a href="register.aspx">Register</a></li>
+                        <li><a href="login.aspx">Log In</a></li>
+                        <li><a class="glyphicon glyphicon-search" style="font-size: 24px; cursor: pointer;"></a></li>
+                    </ul>
+                    </ul>
+
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+    </div>
+    <div class="container">
+        <header id="myCarousel" class="carousel slide">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active ">
+                    <div class="fill" style="background-image: url('img/silde.jpg');"></div>
+                    <div class="carousel-caption">
+                        <h2>Caption 1</h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="fill" style="background-image: url('img/silde1.jpg');"></div>
+                    <div class="carousel-caption">
+                        <h2>Caption 2</h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="fill" style="background-image: url('img/silde2.jpg');"></div>
+                    <div class="carousel-caption">
+                        <h2>Caption 3</h2>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="icon-prev"></span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="icon-next"></span>
+            </a>
+        </header>
+    </div>
+    <div class="container" style="margin-top: 10px; margin-bottom: 30px">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <script>
+        $('.carousel').carousel({
+            interval: 3000 //changes the speed
+        })
+    </script>
+</body>
+</html>
