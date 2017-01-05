@@ -11,13 +11,17 @@ namespace Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class sysdiagram
+    using System.Runtime.Serialization;
+
+    public partial class deliveryprice
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        [DataMember]
+        public Nullable<long> deliverytypeid { get; set; }
+        [DataMember]
+        public Nullable<decimal> price { get; set; }
+        [DataMember]
+        public Nullable<bool> active { get; set; }
+        [DataMember]
+        public virtual deliverytype deliverytype { get; set; }
     }
 }

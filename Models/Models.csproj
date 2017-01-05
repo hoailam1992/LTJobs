@@ -65,6 +65,9 @@
     <Compile Include="delivery.cs">
       <DependentUpon>WebModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="deliveryprice.cs">
+      <DependentUpon>WebModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="deliverytype.cs">
       <DependentUpon>WebModel.tt</DependentUpon>
     </Compile>
@@ -94,9 +97,6 @@
       <DependentUpon>WebModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ReturnType.cs" />
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>WebModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="user.cs">
       <DependentUpon>WebModel.tt</DependentUpon>
     </Compile>
