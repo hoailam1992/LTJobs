@@ -21,8 +21,7 @@ namespace Models
         {
             this.reports = new HashSet<report>();
         }
-        [DataMember]
-        public long id { get; set; }
+       
         [DataMember]
         public long clientid { get; set; }
         [DataMember]

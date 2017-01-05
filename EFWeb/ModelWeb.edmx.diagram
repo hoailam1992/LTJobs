@@ -36,6 +36,9 @@
         <AssociationConnector Association="dbwebModel.FK_product_user" ManuallyRouted="false" />
         <AssociationConnector Association="dbwebModel.FK_video_product" ManuallyRouted="false" />
         <AssociationConnector Association="dbwebModel.FK_productprice_producttype" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="dbwebModel.deliveryprice" Width="1.5" PointX="8" PointY="1.125" />
+        <AssociationConnector Association="dbwebModel.FK_DeliveryPrice_deliverytype" />
+        <AssociationConnector Association="dbwebModel.FK_deliverytype_delivery" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

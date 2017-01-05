@@ -22,8 +22,7 @@ namespace Models
             this.clientcomments = new HashSet<clientcomment>();
             this.videos = new HashSet<video>();
         }
-        [DataMember]
-        public long id { get; set; }
+       
         [DataMember]
         public string productcode { get; set; }
         [DataMember]

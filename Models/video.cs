@@ -16,8 +16,7 @@ namespace Models
 
     public partial class video : ModelBase
     {
-        [DataMember]
-        public long id { get; set; }
+       
         [DataMember]
         public long memberid { get; set; }
         [DataMember]

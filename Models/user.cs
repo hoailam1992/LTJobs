@@ -26,9 +26,7 @@ namespace Models
             this.moneytransactions1 = new HashSet<moneytransaction>();
             this.photos = new HashSet<photo>();
             this.products = new HashSet<product>();
-        }
-        [DataMember]
-        public long id { get; set; }
+        }        
         [DataMember]
         public string username { get; set; }
         [DataMember]

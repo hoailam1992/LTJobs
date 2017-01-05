@@ -34,3 +34,15 @@ E:\Desmond_Website\20161231\Models\bin\Debug\EntityFramework.SqlServer.xml
 E:\Desmond_Website\20161231\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
 E:\Desmond_Website\20161231\Models\obj\Debug\Models.dll
 E:\Desmond_Website\20161231\Models\obj\Debug\Models.pdb
+D:\Users\HoaiLam\Source\Repos\LTJobs\Models\bin\Debug\Models.dll.config
+D:\Users\HoaiLam\Source\Repos\LTJobs\Models\bin\Debug\Models.dll
+D:\Users\HoaiLam\Source\Repos\LTJobs\Models\bin\Debug\Models.pdb
+D:\Users\HoaiLam\Source\Repos\LTJobs\Models\bin\Debug\EFWeb.dll
+D:\Users\HoaiLam\Source\Repos\LTJobs\Models\bin\Debug\EntityFramework.dll
+D:\Users\HoaiLam\Source\Repos\LTJobs\Models\bin\Debug\EntityFramework.SqlServer.dll
+D:\Users\HoaiLam\Source\Repos\LTJobs\Models\bin\Debug\EFWeb.pdb
+D:\Users\HoaiLam\Source\Repos\LTJobs\Models\bin\Debug\EntityFramework.xml
+D:\Users\HoaiLam\Source\Repos\LTJobs\Models\bin\Debug\EntityFramework.SqlServer.xml
+D:\Users\HoaiLam\Source\Repos\LTJobs\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+D:\Users\HoaiLam\Source\Repos\LTJobs\Models\obj\Debug\Models.dll
+D:\Users\HoaiLam\Source\Repos\LTJobs\Models\obj\Debug\Models.pdb

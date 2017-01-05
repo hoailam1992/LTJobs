@@ -196,7 +196,7 @@
       <EntityTypeMapping TypeName="dbwebModel.producttype">
         <MappingFragment StoreEntitySet="producttype">
           <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="producttype1" ColumnName="producttype" />
+          <ScalarProperty Name="producttypecode" ColumnName="producttype" />
           <ScalarProperty Name="actvice" ColumnName="actvice" />
           <ScalarProperty Name="flag" ColumnName="flag" />
         </MappingFragment>
@@ -250,6 +250,16 @@
           <ScalarProperty Name="isvisible" ColumnName="isvisible" />
           <ScalarProperty Name="vipmemberonly" ColumnName="vipmemberonly" />
           <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="deliveryprices">
+      <EntityTypeMapping TypeName="dbwebModel.deliveryprice">
+        <MappingFragment StoreEntitySet="deliveryprice">
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="deliverytypeid" ColumnName="deliverytypeid" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

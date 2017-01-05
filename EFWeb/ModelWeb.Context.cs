@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Models
+namespace EFWeb
 {
     using System;
     using System.Data.Entity;
@@ -19,6 +19,7 @@ namespace Models
             : base("name=dbwebEntities")
         {
             this.Configuration.LazyLoadingEnabled = false;
+            this.Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -38,8 +39,9 @@ namespace Models
         public virtual DbSet<product> products { get; set; }
         public virtual DbSet<productprice> productprices { get; set; }
         public virtual DbSet<producttype> producttypes { get; set; }
-        public virtual DbSet<report> reports { get; set; }        
+        public virtual DbSet<report> reports { get; set; }
         public virtual DbSet<user> users { get; set; }
         public virtual DbSet<video> videos { get; set; }
+        public virtual DbSet<deliveryprice> deliveryprices { get; set; }
     }
 }

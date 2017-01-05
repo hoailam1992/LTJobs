@@ -16,8 +16,7 @@ namespace Models
 
     public partial class productprice : ModelBase
     {
-        [DataMember]
-        public long id { get; set; }
+     
         [DataMember]
         public long producttypeid { get; set; }
         [DataMember]

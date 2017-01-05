@@ -16,8 +16,7 @@ namespace Models
 
     public partial class photo : ModelBase
     {
-        [DataMember]
-        public long id { get; set; }
+        
         [DataMember]
         public long userid { get; set; }
         [DataMember]

@@ -16,8 +16,7 @@ namespace Models
 
     public partial class feedback : ModelBase
     {
-        [DataMember]
-        public long id { get; set; }
+       
         [DataMember]
         public string title { get; set; }
         [DataMember]

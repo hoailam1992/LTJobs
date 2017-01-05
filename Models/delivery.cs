@@ -22,8 +22,7 @@ namespace Models
             this.bookings = new HashSet<booking>();
             this.clientcomments = new HashSet<clientcomment>();
         }
-        [DataMember]
-        public long id { get; set; }
+        
         [DataMember]
         public string deliverycode { get; set; }
         [DataMember]

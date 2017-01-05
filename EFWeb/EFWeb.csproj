@@ -51,12 +51,70 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="booking.cs">
+      <DependentUpon>ModelWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="client.cs">
+      <DependentUpon>ModelWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="clientcomment.cs">
+      <DependentUpon>ModelWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="delivery.cs">
+      <DependentUpon>ModelWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="deliveryprice.cs">
+      <DependentUpon>ModelWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="deliverytype.cs">
+      <DependentUpon>ModelWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="feedback.cs">
+      <DependentUpon>ModelWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="message.cs">
+      <DependentUpon>ModelWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelWeb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelWeb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelWeb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelWeb.tt</DependentUpon>
+    </Compile>
     <Compile Include="ModelWeb.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelWeb.edmx</DependentUpon>
     </Compile>
+    <Compile Include="moneytransaction.cs">
+      <DependentUpon>ModelWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="photo.cs">
+      <DependentUpon>ModelWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="product.cs">
+      <DependentUpon>ModelWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="productprice.cs">
+      <DependentUpon>ModelWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="producttype.cs">
+      <DependentUpon>ModelWeb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="report.cs">
+      <DependentUpon>ModelWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="user.cs">
+      <DependentUpon>ModelWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="video.cs">
+      <DependentUpon>ModelWeb.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -71,6 +129,18 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ModelWeb.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelWeb.Context.cs</LastGenOutput>
+      <DependentUpon>ModelWeb.edmx</DependentUpon>
+    </Content>
+    <Content Include="ModelWeb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelWeb.cs</LastGenOutput>
+      <DependentUpon>ModelWeb.edmx</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

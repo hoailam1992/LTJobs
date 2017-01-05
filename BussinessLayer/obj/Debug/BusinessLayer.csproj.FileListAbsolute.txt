@@ -40,3 +40,17 @@ E:\Desmond_Website\20161231\BussinessLayer\bin\Debug\EntityFramework.SqlServer.x
 E:\Desmond_Website\20161231\BussinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
 E:\Desmond_Website\20161231\BussinessLayer\obj\Debug\BussinessLayer.dll
 E:\Desmond_Website\20161231\BussinessLayer\obj\Debug\BussinessLayer.pdb
+D:\Users\HoaiLam\Source\Repos\LTJobs\BussinessLayer\bin\Debug\BussinessLayer.dll.config
+D:\Users\HoaiLam\Source\Repos\LTJobs\BussinessLayer\bin\Debug\BussinessLayer.dll
+D:\Users\HoaiLam\Source\Repos\LTJobs\BussinessLayer\bin\Debug\BussinessLayer.pdb
+D:\Users\HoaiLam\Source\Repos\LTJobs\BussinessLayer\bin\Debug\DataAccess.dll
+D:\Users\HoaiLam\Source\Repos\LTJobs\BussinessLayer\bin\Debug\EntityFramework.dll
+D:\Users\HoaiLam\Source\Repos\LTJobs\BussinessLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\Users\HoaiLam\Source\Repos\LTJobs\BussinessLayer\bin\Debug\Models.dll
+D:\Users\HoaiLam\Source\Repos\LTJobs\BussinessLayer\bin\Debug\DataAccess.pdb
+D:\Users\HoaiLam\Source\Repos\LTJobs\BussinessLayer\bin\Debug\Models.pdb
+D:\Users\HoaiLam\Source\Repos\LTJobs\BussinessLayer\bin\Debug\EntityFramework.xml
+D:\Users\HoaiLam\Source\Repos\LTJobs\BussinessLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\Users\HoaiLam\Source\Repos\LTJobs\BussinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
+D:\Users\HoaiLam\Source\Repos\LTJobs\BussinessLayer\obj\Debug\BussinessLayer.dll
+D:\Users\HoaiLam\Source\Repos\LTJobs\BussinessLayer\obj\Debug\BussinessLayer.pdb

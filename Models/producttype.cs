@@ -21,8 +21,7 @@ namespace Models
         {
             this.productprices = new HashSet<productprice>();
         }
-        [DataMember]
-        public long id { get; set; }
+       
         [DataMember]
         public string producttype1 { get; set; }
         [DataMember]

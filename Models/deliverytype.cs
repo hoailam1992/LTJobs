@@ -16,8 +16,7 @@ namespace Models
 
     public partial class deliverytype : ModelBase
     {
-        [DataMember]
-        public long id { get; set; }
+      
         [DataMember]
         public long deliveryid { get; set; }
         [DataMember]

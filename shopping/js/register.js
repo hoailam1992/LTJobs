@@ -9,7 +9,7 @@ jQuery(document).ready(function () {
     var accountType = ['memberInfomation', 'hotelInformation', 'clientInformation'];
     $('input:radio[name="accounttyperadio"]').change(function (radio) {
         switch (this.value) {
-            case 'client':
+            case 'client':                
                 $('div.clientInformation').show();
                 break;
             case 'member':

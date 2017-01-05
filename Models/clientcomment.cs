@@ -16,8 +16,7 @@ namespace Models
 
     public partial class clientcomment : ModelBase
     {
-        [DataMember]
-        public long id { get; set; }
+       
         [DataMember]
         public long clientid { get; set; }
         [DataMember]

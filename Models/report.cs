@@ -16,8 +16,7 @@ namespace Models
 
     public partial class report : ModelBase
     {
-        [DataMember]
-        public long id { get; set; }
+       
         [DataMember]
         public long bookingid { get; set; }
         [DataMember]

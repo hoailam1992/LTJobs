@@ -7,6 +7,7 @@ using Models;
 using BusinessLayer.Common;
 using System.Collections.ObjectModel;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 
 namespace ServiceLibrary
 {
@@ -14,6 +15,7 @@ namespace ServiceLibrary
     public partial interface IMasterService
     {
         [OperationContract]
+        [WebInvoke(RequestFormat =WebMessageFormat.Json,Method ="POST")]
         ReturnType<IList<booking>> GetAllBooking();
         [OperationContract]
         ReturnType<IList<booking>> GetBookingByClientId(long id);

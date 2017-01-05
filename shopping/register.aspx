@@ -50,35 +50,35 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <legend style="text-align: center">Register</legend>
-    <form class="form-horizontal">
+    <form class="form-horizontal" runat="server">
         <div class="form-group">
             <label for="inputDisplay" class="col-sm-4 control-label">Display Name</label>
             <div class="col-sm-8 required">
-                <input type="text" class="form-control" id="inputDisplay" />
+                <input type="text" class="form-control" runat="server" id="inputDisplay" />
             </div>
         </div>
         <div class="form-group">
             <label for="inputUsername" class="col-sm-4 control-label">User Name</label>
             <div class="col-sm-8  required">
-                <input type="text" class="form-control" id="inputUsername" />
+                <input type="text" class="form-control" runat="server" id="inputUsername" />
             </div>
         </div>
         <div class="form-group">
             <label for="inputPass" class="col-sm-4 control-label">Password</label>
             <div class="col-sm-8  required">
-                <input type="password" class="form-control" id="inputPass" />
+                <input type="password" class="form-control" runat="server" id="inputPass" />
             </div>
         </div>
         <div class="form-group">
             <label for="inputRetypePass" class="col-sm-4 control-label">Retype-Password</label>
             <div class="col-sm-8  required">
-                <input type="password" class="form-control" id="inputRetypePass" />
+                <input type="password" class="form-control" runat="server" id="inputRetypePass" />
             </div>
         </div>
         <div class="form-group">
             <label for="selectQuestion" class="col-sm-4 control-label">Security Question</label>
             <div class="col-sm-8">
-                <select class="custom-select form-control" id="selectQuestion">
+                <select class="custom-select form-control" runat="server" id="selectQuestion">
                     <option value="">Please Choose...</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
@@ -89,47 +89,47 @@
         <div class="form-group">
             <label for="inputAnswer" class="col-sm-4 control-label">Your Answer</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="inputAnswer" />
+                <input type="text" class="form-control" runat="server" id="inputAnswer" />
             </div>
         </div>
         <div class="form-group">
             <label for="inputBirthDay" class="col-sm-4 control-label">Birthday</label>
             <div class="col-sm-8  required">
-                <input type="text" class="form-control" id="inputBirthDay" placeholder="dd/mm/YYYY" />
+                <input type="text" class="form-control" runat="server" id="inputBirthDay" placeholder="dd/MM/YYYY" />
             </div>
         </div>
         <div class="form-group">
             <label for="inputPhoneNumber" class="col-sm-4 control-label">Phone Number</label>
             <div class="col-sm-8  required">
-                <input type="text" class="form-control" id="inputPhoneNumber" />
+                <input type="text" class="form-control" runat="server" id="inputPhoneNumber" />
             </div>
         </div>
         <div class="form-group">
             <label for="inputEmail" class="col-sm-4 control-label">Email</label>
             <div class="col-sm-8">
-                <input type="email" class="form-control" id="inputEmail" />
+                <input type="email" class="form-control" runat="server" id="inputEmail" />
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-4 control-label">Account Type</label>
             <div class="col-sm-8">
                 <label class="radio-inline">
-                    <input type="radio" name="accounttyperadio" value="client" />Client</label>
+                    <input type="radio" name="accounttyperadio" id="rdClient" value="client" />Client</label>
                 <label class="radio-inline">
-                    <input type="radio" name="accounttyperadio" value="member" />Member</label>
+                    <input type="radio" name="accounttyperadio" id="rdProduct" value="member" />Product</label>
                 <label class="radio-inline">
-                    <input type="radio" name="accounttyperadio" value="hotel" />Hotel</label>
+                    <input type="radio" name="accounttyperadio" id="rdDelivery" value="hotel" />Delivery</label>
             </div>
         </div>
         <!-- client register -->
         <div class="clientInformation">
-            <span class="title">Building Information</span>
+            <span class="title">Billing Information</span>
             <div class="form-group">
                 <div class="col-sm-12">
                     <label class="radio-inline">
-                        <input type="radio" name="paymentradio" />Credit Card</label>
+                        <input type="radio" name="paymentradio"  id="rdCCard"/>Credit Card</label>
                     <label class="radio-inline">
-                        <input type="radio" name="paymentradio" />Cash</label>
+                        <input type="radio" name="paymentradio"  id="rdCash"/>Cash</label>
                     <label class="radio-inline">(Please make payment on deposit later)</label>
                 </div>
             </div>
@@ -137,61 +137,61 @@
             <div class="form-group">
                 <label for="inputCreditCard" class="col-sm-3 control-label">Credit Card Name</label>
                 <div class="col-sm-8 required">
-                    <input type="text" class="form-control" id="inputCreditCard" />
+                    <input type="text" class="form-control" runat="server" id="inputCreditCard" />
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputCreditCardNumber" class="col-sm-3 control-label">Credit Card Number</label>
                 <div class="col-sm-8 required">
-                    <input type="text" class="form-control" id="inputCreditCardNumber" />
+                    <input type="text" class="form-control" runat="server" id="inputCreditCardNumber" />
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputExp" class="col-sm-3 control-label">Expired</label>
                 <div class="col-sm-8 form-inline">
-                    <input type="text" class="form-control expiredWidth" placeholder="Month" />
+                    <input type="text" id="inputMonth" runat="server" class="form-control expiredWidth" placeholder="Month" />
                     <div class="slash">/</div>
-                    <input type="text" class="form-control expiredWidth" placeholder="Year" />
+                    <input type="text" id="inputYear" runat="server" class="form-control expiredWidth" placeholder="Year" />
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputSecPin" class="col-sm-3 control-label">Security PIN</label>
                 <div class="col-sm-8  required">
-                    <input type="text" class="form-control" id="inputSecPin" />
+                    <input type="text" class="form-control" runat="server" id="inputSecPin" />
                 </div>
             </div>
         </div>
-        <!-- hotel register -->
+        <!-- delivery register -->
         <div class="hotelInformation">
             <span class="title">Hotel Information</span>
             <div class="form-group">
                 <label for="inputHotelName" class="col-sm-3 control-label">Hotel Name</label>
                 <div class="col-sm-8 required">
-                    <input type="text" class="form-control" id="inputHotelName" />
+                    <input type="text" class="form-control" runat="server" id="inputHotelName" />
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputAddress" class="col-sm-3 control-label">Address</label>
                 <div class="col-sm-8 required">
-                    <input type="text" class="form-control" id="inputAddress" />
+                    <input type="text" class="form-control" runat="server" id="inputAddress" />
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputDistrict" class="col-sm-3 control-label">District</label>
                 <div class="col-sm-8 required">
-                    <input type="text" class="form-control" id="inputDistrict" />
+                    <input type="text" class="form-control" runat="server" id="inputDistrict" />
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputCity" class="col-sm-3 control-label">City</label>
                 <div class="col-sm-8 required">
-                    <input type="text" class="form-control" id="inputCity" />
+                    <input type="text" class="form-control" runat="server" id="inputCity" />
                 </div>
             </div>
             <div class="form-group">
                 <label for="selectProductType" class="col-sm-3 control-label">Product Type</label>
                 <div class="col-sm-8">
-                    <select class="custom-select form-control" id="selectProductType">
+                    <select class="custom-select form-control" runat="server" id="selectDeliveryType">
                         <option value="">Please Choose...</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
@@ -202,14 +202,14 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">Price Range</label>
                 <div class="col-sm-8 form-inline">
-                    <input type="text" class="form-control expiredWidth" style="margin-right: 3%;" placeholder="Lowest" />
-                    <input type="text" class="form-control expiredWidth" placeholder="Highest" />
+                    <input type="text" id="inputLowest" runat="server" class="form-control expiredWidth" style="margin-right: 3%;" placeholder="Lowest" />
+                    <input type="text" id="inputHighest" runat="server" class="form-control expiredWidth" placeholder="Highest" />
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputHotelPhoneNumber" class="col-sm-3 control-label">Phone Number</label>
                 <div class="col-sm-8  required">
-                    <input type="text" class="form-control" id="inputHotelPhoneNumber" />
+                    <input type="text" class="form-control" runat="server" id="inputHotelPhoneNumber" />
                 </div>
             </div>
             <div class="form-group">
@@ -233,12 +233,13 @@
             </div>
 
         </div>
+        <!-- product register -->
         <div class="memberInfomation">
             <span class="title">Member Information</span>
             <div class="form-group">
                 <label for="inputprdDes" class="col-sm-3 control-label">Product Description</label>
                 <div class="col-sm-8 required">
-                    <input type="text" class="form-control" id="inputprdDes" />
+                    <input type="text" class="form-control" id="inputPrdDes" />
                 </div>
             </div>
             <div class="form-group">
@@ -341,11 +342,14 @@
         </div>
         <div class="form-group" style="margin: 0 auto; width: 31%">
             <div class="col-sm-12">
-                <button>Register</button>
+                <asp:Button runat="server" id="btnRegister" OnClick="BtnRegister_Click" Text="Register"/>
                 <button>Clear All</button>
             </div>
         </div>
     </form>
-    <script src="js/register.js"></script>
+    <script src="js/register.js">
+       
+    
+    </script>
 </asp:Content>
 

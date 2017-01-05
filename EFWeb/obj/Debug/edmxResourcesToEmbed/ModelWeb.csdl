@@ -16,11 +16,11 @@
     <Property Name="producttype" Type="Int64" Nullable="false" />
     <Property Name="productrespond" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
     <Property Name="deliveryrespond" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-    <Property Name="datetime" Type="DateTime" />
-    <Property Name="createddate" Type="DateTime" />
+    <Property Name="datetime" Type="DateTime" Precision="3" />
+    <Property Name="createddate" Type="DateTime" Precision="3" />
     <Property Name="status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
     <Property Name="isdeleted" Type="Boolean" />
-    <Property Name="modifieddate" Type="DateTime" Nullable="false" />
+    <Property Name="modifieddate" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="client" Relationship="Self.FK_booking_client" FromRole="booking" ToRole="client" />
     <NavigationProperty Name="delivery" Relationship="Self.FK_booking_delivery" FromRole="booking" ToRole="delivery" />
     <NavigationProperty Name="product" Relationship="Self.FK_booking_product" FromRole="booking" ToRole="product" />
@@ -31,17 +31,17 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int64" Nullable="false" />
-    <Property Name="clientcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="clientcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="paymentmode" Type="Int32" Nullable="false" />
-    <Property Name="ccholder" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="ccnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ccholder" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ccnumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="ccexpiredmonth" Type="Int32" />
     <Property Name="ccexpiredyear" Type="Int32" />
     <Property Name="ccpin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="userid" Type="Int64" Nullable="false" />
     <Property Name="isvalid" Type="Boolean" Nullable="false" />
-    <Property Name="createddate" Type="DateTime" Nullable="false" />
-    <Property Name="modifieddate" Type="DateTime" />
+    <Property Name="createddate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="modifieddate" Type="DateTime" Precision="3" />
     <Property Name="balance" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
     <Property Name="cancelcount" Type="Int32" Nullable="false" />
     <NavigationProperty Name="bookings" Relationship="Self.FK_booking_client" FromRole="client" ToRole="booking" />
@@ -58,7 +58,7 @@
     <Property Name="deliveryid" Type="Int64" />
     <Property Name="rate" Type="Int32" />
     <Property Name="note" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="createddate" Type="DateTime" Nullable="false" />
+    <Property Name="createddate" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="client" Relationship="Self.FK_clientcomment_client" FromRole="clientcomment" ToRole="client" />
     <NavigationProperty Name="delivery" Relationship="Self.FK_clientcomment_delivery" FromRole="clientcomment" ToRole="delivery" />
     <NavigationProperty Name="product" Relationship="Self.FK_clientcomment_product" FromRole="clientcomment" ToRole="product" />
@@ -83,6 +83,7 @@
     <NavigationProperty Name="bookings" Relationship="Self.FK_booking_delivery" FromRole="delivery" ToRole="booking" />
     <NavigationProperty Name="clientcomments" Relationship="Self.FK_clientcomment_delivery" FromRole="delivery" ToRole="clientcomment" />
     <NavigationProperty Name="user" Relationship="Self.FK_delivery_user" FromRole="delivery" ToRole="user" />
+    <NavigationProperty Name="deliverytypes" Relationship="dbwebModel.FK_deliverytype_delivery" FromRole="delivery" ToRole="deliverytype" />
   </EntityType>
   <EntityType Name="deliverytype">
     <Key>
@@ -94,8 +95,10 @@
     <Property Name="deliverydescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="active" Type="Boolean" Nullable="false" />
     <Property Name="extrafee" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="createddate" Type="DateTime" Nullable="false" />
-    <Property Name="modifieddate" Type="DateTime" Nullable="false" />
+    <Property Name="createddate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="modifieddate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="deliveryprices" Relationship="dbwebModel.FK_DeliveryPrice_deliverytype" FromRole="deliverytype" ToRole="deliveryprice" />
+    <NavigationProperty Name="delivery" Relationship="dbwebModel.FK_deliverytype_delivery" FromRole="deliverytype" ToRole="delivery" />
   </EntityType>
   <EntityType Name="feedback">
     <Key>
@@ -114,7 +117,7 @@
     <Property Name="to" Type="Int64" Nullable="false" />
     <Property Name="subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="datetime" Type="DateTime" Nullable="false" />
+    <Property Name="datetime" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="status" Type="Boolean" Nullable="false" />
     <Property Name="isdeleted" Type="Boolean" />
     <NavigationProperty Name="user" Relationship="Self.FK_message_user" FromRole="message" ToRole="user" />
@@ -127,19 +130,19 @@
     <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="receiptphoto" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="value" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
-    <Property Name="trandate" Type="DateTime" Nullable="false" />
+    <Property Name="trandate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="sourceid" Type="Int64" Nullable="false" />
     <Property Name="destinationid" Type="Int64" Nullable="false" />
-    <Property Name="paymentdate" Type="DateTime" />
+    <Property Name="paymentdate" Type="DateTime" Precision="3" />
     <Property Name="ccname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="ccno" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="ccexpiredmonth" Type="Int32" />
     <Property Name="ccexpiredyear" Type="Int32" />
     <Property Name="ccpin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="createddate" Type="DateTime" Nullable="false" />
-    <Property Name="modifieddate" Type="DateTime" />
+    <Property Name="createddate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="modifieddate" Type="DateTime" Precision="3" />
     <NavigationProperty Name="user" Relationship="Self.FK_moneytransaction_user" FromRole="moneytransaction" ToRole="user" />
     <NavigationProperty Name="user1" Relationship="Self.FK_moneytransaction_user1" FromRole="moneytransaction" ToRole="user" />
   </EntityType>
@@ -151,10 +154,10 @@
     <Property Name="userid" Type="Int64" Nullable="false" />
     <Property Name="data" Type="Binary" MaxLength="1" FixedLength="true" Nullable="false" />
     <Property Name="photolink" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="uploadeddate" Type="DateTime" Nullable="false" />
+    <Property Name="uploadeddate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="photodescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="createddate" Type="DateTime" Nullable="false" />
-    <Property Name="modifieddate" Type="DateTime" />
+    <Property Name="createddate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="modifieddate" Type="DateTime" Precision="3" />
     <Property Name="isvisble" Type="Boolean" />
     <Property Name="vipmemberonly" Type="Boolean" />
     <Property Name="status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
@@ -174,8 +177,8 @@
     <Property Name="bankname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="bankaccount" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="bankaccnumber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="createddate" Type="DateTime" Nullable="false" />
-    <Property Name="modifeddate" Type="DateTime" />
+    <Property Name="createddate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="modifeddate" Type="DateTime" Precision="3" />
     <Property Name="isactive" Type="Boolean" Nullable="false" />
     <Property Name="isblocked" Type="Boolean" Nullable="false" />
     <Property Name="isavailable" Type="Boolean" />
@@ -207,7 +210,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int64" Nullable="false" />
-    <Property Name="producttype1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="producttypecode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="actvice" Type="Boolean" Nullable="false" />
     <Property Name="flag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
     <NavigationProperty Name="productprices" Relationship="Self.FK_productprice_producttype" FromRole="producttype" ToRole="productprice" />
@@ -231,7 +234,7 @@
     <Property Name="username" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="fullname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="dateofbirth" Type="DateTime" Nullable="false" />
+    <Property Name="dateofbirth" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="active" Type="Boolean" Nullable="false" />
     <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
@@ -241,9 +244,9 @@
     <Property Name="isnotify" Type="Boolean" />
     <Property Name="securityquestionid" Type="Int16" Nullable="false" />
     <Property Name="securityanswer" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="createddate" Type="DateTime" />
-    <Property Name="modifieddate" Type="DateTime" />
-    <Property Name="lastlogin" Type="DateTime" />
+    <Property Name="createddate" Type="DateTime" Precision="3" />
+    <Property Name="modifieddate" Type="DateTime" Precision="3" />
+    <Property Name="lastlogin" Type="DateTime" Precision="3" />
     <NavigationProperty Name="clients" Relationship="Self.FK_client_user1" FromRole="user" ToRole="client" />
     <NavigationProperty Name="deliveries" Relationship="Self.FK_delivery_user" FromRole="user" ToRole="delivery" />
     <NavigationProperty Name="messages" Relationship="Self.FK_message_user" FromRole="user" ToRole="message" />
@@ -260,10 +263,10 @@
     <Property Name="memberid" Type="Int64" Nullable="false" />
     <Property Name="data" Type="Binary" MaxLength="1" FixedLength="true" />
     <Property Name="videolink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="uploadeddate" Type="DateTime" Nullable="false" />
+    <Property Name="uploadeddate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="videodescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="createddate" Type="DateTime" />
-    <Property Name="modifieddate" Type="DateTime" />
+    <Property Name="createddate" Type="DateTime" Precision="3" />
+    <Property Name="modifieddate" Type="DateTime" Precision="3" />
     <Property Name="isvisible" Type="Boolean" />
     <Property Name="vipmemberonly" Type="Boolean" />
     <Property Name="status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
@@ -541,5 +544,48 @@
       <End Role="producttype" EntitySet="producttypes" />
       <End Role="productprice" EntitySet="productprices" />
     </AssociationSet>
+    <EntitySet Name="deliveryprices" EntityType="dbwebModel.deliveryprice" />
+    <AssociationSet Name="FK_DeliveryPrice_deliverytype" Association="dbwebModel.FK_DeliveryPrice_deliverytype">
+      <End Role="deliverytype" EntitySet="deliverytypes" />
+      <End Role="deliveryprice" EntitySet="deliveryprices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_deliverytype_delivery" Association="dbwebModel.FK_deliverytype_delivery">
+      <End Role="delivery" EntitySet="deliveries" />
+      <End Role="deliverytype" EntitySet="deliverytypes" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="deliveryprice">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" />
+    <Property Name="deliverytypeid" Type="Int64" />
+    <Property Name="price" Type="Decimal" Precision="16" Scale="2" />
+    <Property Name="active" Type="Boolean" />
+    <NavigationProperty Name="deliverytype" Relationship="dbwebModel.FK_DeliveryPrice_deliverytype" FromRole="deliveryprice" ToRole="deliverytype" />
+  </EntityType>
+  <Association Name="FK_DeliveryPrice_deliverytype">
+    <End Type="dbwebModel.deliverytype" Role="deliverytype" Multiplicity="0..1" />
+    <End Type="dbwebModel.deliveryprice" Role="deliveryprice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="deliverytype">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="deliveryprice">
+        <PropertyRef Name="deliverytypeid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_deliverytype_delivery">
+    <End Type="dbwebModel.delivery" Role="delivery" Multiplicity="1" />
+    <End Type="dbwebModel.deliverytype" Role="deliverytype" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="delivery">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="deliverytype">
+        <PropertyRef Name="deliveryid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

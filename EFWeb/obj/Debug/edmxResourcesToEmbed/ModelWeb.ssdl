@@ -27,10 +27,10 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="bigint" Nullable="false" />
-    <Property Name="clientcode" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="clientcode" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="paymentmode" Type="int" Nullable="false" />
-    <Property Name="ccholder" Type="varchar" MaxLength="50" />
-    <Property Name="ccnumber" Type="varchar" MaxLength="50" />
+    <Property Name="ccholder" Type="nvarchar" MaxLength="50" />
+    <Property Name="ccnumber" Type="nvarchar(max)" />
     <Property Name="ccexpiredmonth" Type="int" />
     <Property Name="ccexpiredyear" Type="int" />
     <Property Name="ccpin" Type="nvarchar(max)" />
@@ -70,6 +70,15 @@
     <Property Name="city" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="userid" Type="bigint" Nullable="false" />
     <Property Name="commission" Type="decimal" Precision="16" Scale="2" />
+  </EntityType>
+  <EntityType Name="deliveryprice">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" />
+    <Property Name="deliverytypeid" Type="bigint" />
+    <Property Name="price" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="active" Type="bit" />
   </EntityType>
   <EntityType Name="deliverytype">
     <Key>
@@ -333,6 +342,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_DeliveryPrice_deliverytype">
+    <End Role="deliverytype" Type="Self.deliverytype" Multiplicity="0..1" />
+    <End Role="deliveryprice" Type="Self.deliveryprice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="deliverytype">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="deliveryprice">
+        <PropertyRef Name="deliverytypeid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_deliverytype_delivery">
+    <End Role="delivery" Type="Self.delivery" Multiplicity="1" />
+    <End Role="deliverytype" Type="Self.deliverytype" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="delivery">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="deliverytype">
+        <PropertyRef Name="deliveryid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_message_user">
     <End Role="user" Type="Self.user" Multiplicity="1" />
     <End Role="message" Type="Self.message" Multiplicity="*" />
@@ -434,6 +467,7 @@
     <EntitySet Name="client" EntityType="Self.client" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="clientcomment" EntityType="Self.clientcomment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="delivery" EntityType="Self.delivery" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="deliveryprice" EntityType="Self.deliveryprice" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="deliverytype" EntityType="Self.deliverytype" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="feedback" EntityType="Self.feedback" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="message" EntityType="Self.message" Schema="dbo" store:Type="Tables" />
@@ -476,6 +510,14 @@
     <AssociationSet Name="FK_delivery_user" Association="Self.FK_delivery_user">
       <End Role="user" EntitySet="user" />
       <End Role="delivery" EntitySet="delivery" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeliveryPrice_deliverytype" Association="Self.FK_DeliveryPrice_deliverytype">
+      <End Role="deliverytype" EntitySet="deliverytype" />
+      <End Role="deliveryprice" EntitySet="deliveryprice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_deliverytype_delivery" Association="Self.FK_deliverytype_delivery">
+      <End Role="delivery" EntitySet="delivery" />
+      <End Role="deliverytype" EntitySet="deliverytype" />
     </AssociationSet>
     <AssociationSet Name="FK_message_user" Association="Self.FK_message_user">
       <End Role="user" EntitySet="user" />

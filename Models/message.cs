@@ -16,8 +16,7 @@ namespace Models
 
     public partial class message :ModelBase
     {
-        [DataMember]
-        public long id { get; set; }
+      
         [DataMember]
         public string from { get; set; }
         [DataMember]

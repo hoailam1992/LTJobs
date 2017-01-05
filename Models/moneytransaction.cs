@@ -16,8 +16,7 @@ namespace Models
 
     public partial class moneytransaction : ModelBase
     {
-        [DataMember]
-        public long id { get; set; }
+        
         [DataMember]
         public string code { get; set; }
         [DataMember]
