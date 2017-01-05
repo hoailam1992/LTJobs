@@ -9,11 +9,12 @@
 
 namespace Models
 {
+    using Common;
     using System;
     using System.Collections.Generic;
     using System.Runtime.Serialization;
 
-    public partial class deliverytype
+    public partial class deliverytype : ModelBase
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public deliverytype()

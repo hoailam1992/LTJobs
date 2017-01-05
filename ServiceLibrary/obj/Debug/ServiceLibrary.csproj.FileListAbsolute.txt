@@ -54,3 +54,5 @@ D:\Users\HoaiLam\Source\Repos\LTJobs\ServiceLibrary\bin\Debug\EntityFramework.xm
 D:\Users\HoaiLam\Source\Repos\LTJobs\ServiceLibrary\obj\Debug\ServiceLibrary.csprojResolveAssemblyReference.cache
 D:\Users\HoaiLam\Source\Repos\LTJobs\ServiceLibrary\obj\Debug\ServiceLibrary.dll
 D:\Users\HoaiLam\Source\Repos\LTJobs\ServiceLibrary\obj\Debug\ServiceLibrary.pdb
+D:\Users\HoaiLam\Source\Repos\LTJobs\ServiceLibrary\bin\Debug\EFWeb.dll
+D:\Users\HoaiLam\Source\Repos\LTJobs\ServiceLibrary\bin\Debug\EFWeb.pdb

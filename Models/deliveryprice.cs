@@ -9,11 +9,12 @@
 
 namespace Models
 {
+    using Common;
     using System;
     using System.Collections.Generic;
     using System.Runtime.Serialization;
 
-    public partial class deliveryprice
+    public partial class deliveryprice : ModelBase
     {
         [DataMember]
         public Nullable<long> deliverytypeid { get; set; }

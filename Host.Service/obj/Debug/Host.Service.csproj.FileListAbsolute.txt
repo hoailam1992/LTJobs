@@ -211,3 +211,5 @@ D:\Users\HoaiLam\Source\Repos\LTJobs\Host.Service\bin\zh-Hant\System.Spatial.res
 D:\Users\HoaiLam\Source\Repos\LTJobs\Host.Service\obj\Debug\Host.Service.csprojResolveAssemblyReference.cache
 D:\Users\HoaiLam\Source\Repos\LTJobs\Host.Service\obj\Debug\Host.Service.dll
 D:\Users\HoaiLam\Source\Repos\LTJobs\Host.Service\obj\Debug\Host.Service.pdb
+D:\Users\HoaiLam\Source\Repos\LTJobs\Host.Service\bin\EFWeb.dll
+D:\Users\HoaiLam\Source\Repos\LTJobs\Host.Service\bin\EFWeb.pdb
