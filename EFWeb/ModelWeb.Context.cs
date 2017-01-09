@@ -12,14 +12,12 @@ namespace EFWeb
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-   
+    
     public partial class dbwebEntities : DbContext
     {
         public dbwebEntities()
             : base("name=dbwebEntities")
         {
-            this.Configuration.LazyLoadingEnabled = false;
-            this.Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -31,6 +29,7 @@ namespace EFWeb
         public virtual DbSet<client> clients { get; set; }
         public virtual DbSet<clientcomment> clientcomments { get; set; }
         public virtual DbSet<delivery> deliveries { get; set; }
+        public virtual DbSet<deliveryprice> deliveryprices { get; set; }
         public virtual DbSet<deliverytype> deliverytypes { get; set; }
         public virtual DbSet<feedback> feedbacks { get; set; }
         public virtual DbSet<message> messages { get; set; }
@@ -42,6 +41,5 @@ namespace EFWeb
         public virtual DbSet<report> reports { get; set; }
         public virtual DbSet<user> users { get; set; }
         public virtual DbSet<video> videos { get; set; }
-        public virtual DbSet<deliveryprice> deliveryprices { get; set; }
     }
 }

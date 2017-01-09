@@ -16,7 +16,7 @@ namespace EFWeb
     {
         public long id { get; set; }
         public long userid { get; set; }
-        public byte[] data { get; set; }
+        public byte[] photo1 { get; set; }
         public string photolink { get; set; }
         public System.DateTime uploadeddate { get; set; }
         public string photodescription { get; set; }

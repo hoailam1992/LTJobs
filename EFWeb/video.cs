@@ -16,7 +16,7 @@ namespace EFWeb
     {
         public long id { get; set; }
         public long memberid { get; set; }
-        public byte[] data { get; set; }
+        public byte[] video1 { get; set; }
         public string videolink { get; set; }
         public System.DateTime uploadeddate { get; set; }
         public string videodescription { get; set; }

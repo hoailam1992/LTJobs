@@ -13,7 +13,7 @@ namespace Models
     using System.Collections.Generic;
     using Models.Common;
     using System.Runtime.Serialization;
-
+    [DataContract(IsReference = true)]
     public partial class booking : ModelBase
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]

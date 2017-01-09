@@ -142,3 +142,7 @@ D:\Users\HoaiLam\Source\Repos\LTJobs\DataAccess\bin\Debug\zh-Hant\Microsoft.Data
 D:\Users\HoaiLam\Source\Repos\LTJobs\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
 D:\Users\HoaiLam\Source\Repos\LTJobs\DataAccess\obj\Debug\DataAccess.dll
 D:\Users\HoaiLam\Source\Repos\LTJobs\DataAccess\obj\Debug\DataAccess.pdb
+D:\Users\HoaiLam\Source\Repos\LTJobs\DataAccess\bin\Debug\MySql.Data.dll
+D:\Users\HoaiLam\Source\Repos\LTJobs\DataAccess\bin\Debug\MySql.Data.Entity.EF6.dll
+D:\Users\HoaiLam\Source\Repos\LTJobs\DataAccess\bin\Debug\EntityFramework.SqlServerCompact.dll
+D:\Users\HoaiLam\Source\Repos\LTJobs\DataAccess\bin\Debug\EntityFramework.SqlServerCompact.xml

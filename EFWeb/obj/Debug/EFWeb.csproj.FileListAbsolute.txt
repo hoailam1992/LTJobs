@@ -38,3 +38,6 @@ D:\Users\HoaiLam\Source\Repos\LTJobs\EFWeb\bin\Debug\EntityFramework.SqlServer.x
 D:\Users\HoaiLam\Source\Repos\LTJobs\EFWeb\obj\Debug\EFWeb.csprojResolveAssemblyReference.cache
 D:\Users\HoaiLam\Source\Repos\LTJobs\EFWeb\obj\Debug\EFWeb.dll
 D:\Users\HoaiLam\Source\Repos\LTJobs\EFWeb\obj\Debug\EFWeb.pdb
+D:\Users\HoaiLam\Source\Repos\LTJobs\EFWeb\bin\Debug\EntityFramework.SqlServerCompact.dll
+D:\Users\HoaiLam\Source\Repos\LTJobs\EFWeb\bin\Debug\System.Data.SqlServerCe.dll
+D:\Users\HoaiLam\Source\Repos\LTJobs\EFWeb\bin\Debug\EntityFramework.SqlServerCompact.xml

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="dbwebModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="dbwebModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="booking">
           <Key>
             <PropertyRef Name="id" />
@@ -557,7 +557,8 @@
             <End Role="video" EntitySet="video" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="dbwebModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -644,7 +645,17 @@
           <NavigationProperty Name="bookings" Relationship="Self.FK_booking_delivery" FromRole="delivery" ToRole="booking" />
           <NavigationProperty Name="clientcomments" Relationship="Self.FK_clientcomment_delivery" FromRole="delivery" ToRole="clientcomment" />
           <NavigationProperty Name="user" Relationship="Self.FK_delivery_user" FromRole="delivery" ToRole="user" />
-          <NavigationProperty Name="deliverytypes" Relationship="dbwebModel.FK_deliverytype_delivery" FromRole="delivery" ToRole="deliverytype" />
+          <NavigationProperty Name="deliverytypes" Relationship="Self.FK_deliverytype_delivery" FromRole="delivery" ToRole="deliverytype" />
+        </EntityType>
+        <EntityType Name="deliveryprice">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="deliverytypeid" Type="Int64" />
+          <Property Name="price" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="active" Type="Boolean" />
+          <NavigationProperty Name="deliverytype" Relationship="Self.FK_DeliveryPrice_deliverytype" FromRole="deliveryprice" ToRole="deliverytype" />
         </EntityType>
         <EntityType Name="deliverytype">
           <Key>
@@ -652,14 +663,14 @@
           </Key>
           <Property Name="id" Type="Int64" Nullable="false" />
           <Property Name="deliveryid" Type="Int64" Nullable="false" />
-          <Property Name="deliverycode" Type="Int64" Nullable="false" />
+          <Property Name="deliverytype1" Type="Int64" Nullable="false" />
           <Property Name="deliverydescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="active" Type="Boolean" Nullable="false" />
           <Property Name="extrafee" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="createddate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="modifieddate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="deliveryprices" Relationship="dbwebModel.FK_DeliveryPrice_deliverytype" FromRole="deliverytype" ToRole="deliveryprice" />
-          <NavigationProperty Name="delivery" Relationship="dbwebModel.FK_deliverytype_delivery" FromRole="deliverytype" ToRole="delivery" />
+          <NavigationProperty Name="delivery" Relationship="Self.FK_deliverytype_delivery" FromRole="deliverytype" ToRole="delivery" />
+          <NavigationProperty Name="deliveryprices" Relationship="Self.FK_DeliveryPrice_deliverytype" FromRole="deliverytype" ToRole="deliveryprice" />
         </EntityType>
         <EntityType Name="feedback">
           <Key>
@@ -713,7 +724,7 @@
           </Key>
           <Property Name="id" Type="Int64" Nullable="false" />
           <Property Name="userid" Type="Int64" Nullable="false" />
-          <Property Name="data" Type="Binary" MaxLength="1" FixedLength="true" Nullable="false" />
+          <Property Name="photo1" Type="Binary" MaxLength="1" FixedLength="true" Nullable="false" />
           <Property Name="photolink" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="uploadeddate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="photodescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
@@ -771,7 +782,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int64" Nullable="false" />
-          <Property Name="producttypecode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="producttype1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="actvice" Type="Boolean" Nullable="false" />
           <Property Name="flag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
           <NavigationProperty Name="productprices" Relationship="Self.FK_productprice_producttype" FromRole="producttype" ToRole="productprice" />
@@ -782,7 +793,7 @@
           </Key>
           <Property Name="id" Type="Int64" Nullable="false" />
           <Property Name="bookingid" Type="Int64" Nullable="false" />
-          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="report1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="systemrespond" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="refundamount" Type="Decimal" Precision="16" Scale="2" />
           <NavigationProperty Name="booking" Relationship="Self.FK_report_booking" FromRole="report" ToRole="booking" />
@@ -822,7 +833,7 @@
           </Key>
           <Property Name="id" Type="Int64" Nullable="false" />
           <Property Name="memberid" Type="Int64" Nullable="false" />
-          <Property Name="data" Type="Binary" MaxLength="1" FixedLength="true" />
+          <Property Name="video1" Type="Binary" MaxLength="1" FixedLength="true" />
           <Property Name="videolink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="uploadeddate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="videodescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
@@ -941,6 +952,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_deliverytype_delivery">
+          <End Role="delivery" Type="Self.delivery" Multiplicity="1" />
+          <End Role="deliverytype" Type="Self.deliverytype" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="delivery">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="deliverytype">
+              <PropertyRef Name="deliveryid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryPrice_deliverytype">
+          <End Role="deliverytype" Type="Self.deliverytype" Multiplicity="0..1" />
+          <End Role="deliveryprice" Type="Self.deliveryprice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="deliverytype">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="deliveryprice">
+              <PropertyRef Name="deliverytypeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_message_user">
           <End Role="user" Type="Self.user" Multiplicity="1" />
           <End Role="message" Type="Self.message" Multiplicity="*" />
@@ -1025,11 +1060,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="dbwebEntities" annotation:LazyLoadingEnabled="false">
+        <EntityContainer Name="dbwebEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="bookings" EntityType="Self.booking" />
           <EntitySet Name="clients" EntityType="Self.client" />
           <EntitySet Name="clientcomments" EntityType="Self.clientcomment" />
           <EntitySet Name="deliveries" EntityType="Self.delivery" />
+          <EntitySet Name="deliveryprices" EntityType="Self.deliveryprice" />
           <EntitySet Name="deliverytypes" EntityType="Self.deliverytype" />
           <EntitySet Name="feedbacks" EntityType="Self.feedback" />
           <EntitySet Name="messages" EntityType="Self.message" />
@@ -1077,6 +1113,14 @@
             <End Role="user" EntitySet="users" />
             <End Role="delivery" EntitySet="deliveries" />
           </AssociationSet>
+          <AssociationSet Name="FK_deliverytype_delivery" Association="Self.FK_deliverytype_delivery">
+            <End Role="delivery" EntitySet="deliveries" />
+            <End Role="deliverytype" EntitySet="deliverytypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryPrice_deliverytype" Association="Self.FK_DeliveryPrice_deliverytype">
+            <End Role="deliverytype" EntitySet="deliverytypes" />
+            <End Role="deliveryprice" EntitySet="deliveryprices" />
+          </AssociationSet>
           <AssociationSet Name="FK_message_user" Association="Self.FK_message_user">
             <End Role="user" EntitySet="users" />
             <End Role="message" EntitySet="messages" />
@@ -1105,56 +1149,13 @@
             <End Role="producttype" EntitySet="producttypes" />
             <End Role="productprice" EntitySet="productprices" />
           </AssociationSet>
-          <EntitySet Name="deliveryprices" EntityType="dbwebModel.deliveryprice" />
-          <AssociationSet Name="FK_DeliveryPrice_deliverytype" Association="dbwebModel.FK_DeliveryPrice_deliverytype">
-            <End Role="deliverytype" EntitySet="deliverytypes" />
-            <End Role="deliveryprice" EntitySet="deliveryprices" />
-          </AssociationSet>
-          <AssociationSet Name="FK_deliverytype_delivery" Association="dbwebModel.FK_deliverytype_delivery">
-            <End Role="delivery" EntitySet="deliveries" />
-            <End Role="deliverytype" EntitySet="deliverytypes" />
-          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="deliveryprice">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int64" Nullable="false" />
-          <Property Name="deliverytypeid" Type="Int64" />
-          <Property Name="price" Type="Decimal" Precision="16" Scale="2" />
-          <Property Name="active" Type="Boolean" />
-          <NavigationProperty Name="deliverytype" Relationship="dbwebModel.FK_DeliveryPrice_deliverytype" FromRole="deliveryprice" ToRole="deliverytype" />
-        </EntityType>
-        <Association Name="FK_DeliveryPrice_deliverytype">
-          <End Type="dbwebModel.deliverytype" Role="deliverytype" Multiplicity="0..1" />
-          <End Type="dbwebModel.deliveryprice" Role="deliveryprice" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="deliverytype">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="deliveryprice">
-              <PropertyRef Name="deliverytypeid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_deliverytype_delivery">
-          <End Type="dbwebModel.delivery" Role="delivery" Multiplicity="1" />
-          <End Type="dbwebModel.deliverytype" Role="deliverytype" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="delivery">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="deliverytype">
-              <PropertyRef Name="deliveryid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="dbwebModelStoreContainer" CdmEntityContainer="dbwebEntities">
+        <EntityContainerMapping StorageEntityContainer="dbwebModelStoreContainer" CdmEntityContainer="dbwebEntities1">
           <EntitySetMapping Name="bookings">
             <EntityTypeMapping TypeName="dbwebModel.booking">
               <MappingFragment StoreEntitySet="booking">
@@ -1230,12 +1231,22 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="deliveryprices">
+            <EntityTypeMapping TypeName="dbwebModel.deliveryprice">
+              <MappingFragment StoreEntitySet="deliveryprice">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="deliverytypeid" ColumnName="deliverytypeid" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="active" ColumnName="active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="deliverytypes">
             <EntityTypeMapping TypeName="dbwebModel.deliverytype">
               <MappingFragment StoreEntitySet="deliverytype">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="deliveryid" ColumnName="deliveryid" />
-                <ScalarProperty Name="deliverycode" ColumnName="deliverytype" />
+                <ScalarProperty Name="deliverytype1" ColumnName="deliverytype" />
                 <ScalarProperty Name="deliverydescription" ColumnName="deliverydescription" />
                 <ScalarProperty Name="active" ColumnName="active" />
                 <ScalarProperty Name="extrafee" ColumnName="extrafee" />
@@ -1295,7 +1306,7 @@
               <MappingFragment StoreEntitySet="photo">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="userid" ColumnName="userid" />
-                <ScalarProperty Name="data" ColumnName="photo" />
+                <ScalarProperty Name="photo1" ColumnName="photo" />
                 <ScalarProperty Name="photolink" ColumnName="photolink" />
                 <ScalarProperty Name="uploadeddate" ColumnName="uploadeddate" />
                 <ScalarProperty Name="photodescription" ColumnName="photodescription" />
@@ -1350,7 +1361,7 @@
             <EntityTypeMapping TypeName="dbwebModel.producttype">
               <MappingFragment StoreEntitySet="producttype">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="producttypecode" ColumnName="producttype" />
+                <ScalarProperty Name="producttype1" ColumnName="producttype" />
                 <ScalarProperty Name="actvice" ColumnName="actvice" />
                 <ScalarProperty Name="flag" ColumnName="flag" />
               </MappingFragment>
@@ -1361,7 +1372,7 @@
               <MappingFragment StoreEntitySet="report">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="bookingid" ColumnName="bookingid" />
-                <ScalarProperty Name="content" ColumnName="report" />
+                <ScalarProperty Name="report1" ColumnName="report" />
                 <ScalarProperty Name="systemrespond" ColumnName="systemrespond" />
                 <ScalarProperty Name="refundamount" ColumnName="refundamount" />
               </MappingFragment>
@@ -1395,7 +1406,7 @@
               <MappingFragment StoreEntitySet="video">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="memberid" ColumnName="memberid" />
-                <ScalarProperty Name="data" ColumnName="video" />
+                <ScalarProperty Name="video1" ColumnName="video" />
                 <ScalarProperty Name="videolink" ColumnName="videolink" />
                 <ScalarProperty Name="uploadeddate" ColumnName="uploadeddate" />
                 <ScalarProperty Name="videodescription" ColumnName="videodescription" />
@@ -1404,16 +1415,6 @@
                 <ScalarProperty Name="isvisible" ColumnName="isvisible" />
                 <ScalarProperty Name="vipmemberonly" ColumnName="vipmemberonly" />
                 <ScalarProperty Name="status" ColumnName="status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="deliveryprices">
-            <EntityTypeMapping TypeName="dbwebModel.deliveryprice">
-              <MappingFragment StoreEntitySet="deliveryprice">
-                <ScalarProperty Name="active" ColumnName="active" />
-                <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="deliverytypeid" ColumnName="deliverytypeid" />
-                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

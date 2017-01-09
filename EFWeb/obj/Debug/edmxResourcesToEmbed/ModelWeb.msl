@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="dbwebModelStoreContainer" CdmEntityContainer="dbwebEntities">
+  <EntityContainerMapping StorageEntityContainer="dbwebModelStoreContainer" CdmEntityContainer="dbwebEntities1">
     <EntitySetMapping Name="bookings">
       <EntityTypeMapping TypeName="dbwebModel.booking">
         <MappingFragment StoreEntitySet="booking">
@@ -76,12 +76,22 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="deliveryprices">
+      <EntityTypeMapping TypeName="dbwebModel.deliveryprice">
+        <MappingFragment StoreEntitySet="deliveryprice">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="deliverytypeid" ColumnName="deliverytypeid" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="active" ColumnName="active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="deliverytypes">
       <EntityTypeMapping TypeName="dbwebModel.deliverytype">
         <MappingFragment StoreEntitySet="deliverytype">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="deliveryid" ColumnName="deliveryid" />
-          <ScalarProperty Name="deliverycode" ColumnName="deliverytype" />
+          <ScalarProperty Name="deliverytype1" ColumnName="deliverytype" />
           <ScalarProperty Name="deliverydescription" ColumnName="deliverydescription" />
           <ScalarProperty Name="active" ColumnName="active" />
           <ScalarProperty Name="extrafee" ColumnName="extrafee" />
@@ -141,7 +151,7 @@
         <MappingFragment StoreEntitySet="photo">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="userid" ColumnName="userid" />
-          <ScalarProperty Name="data" ColumnName="photo" />
+          <ScalarProperty Name="photo1" ColumnName="photo" />
           <ScalarProperty Name="photolink" ColumnName="photolink" />
           <ScalarProperty Name="uploadeddate" ColumnName="uploadeddate" />
           <ScalarProperty Name="photodescription" ColumnName="photodescription" />
@@ -196,7 +206,7 @@
       <EntityTypeMapping TypeName="dbwebModel.producttype">
         <MappingFragment StoreEntitySet="producttype">
           <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="producttypecode" ColumnName="producttype" />
+          <ScalarProperty Name="producttype1" ColumnName="producttype" />
           <ScalarProperty Name="actvice" ColumnName="actvice" />
           <ScalarProperty Name="flag" ColumnName="flag" />
         </MappingFragment>
@@ -207,7 +217,7 @@
         <MappingFragment StoreEntitySet="report">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="bookingid" ColumnName="bookingid" />
-          <ScalarProperty Name="content" ColumnName="report" />
+          <ScalarProperty Name="report1" ColumnName="report" />
           <ScalarProperty Name="systemrespond" ColumnName="systemrespond" />
           <ScalarProperty Name="refundamount" ColumnName="refundamount" />
         </MappingFragment>
@@ -241,7 +251,7 @@
         <MappingFragment StoreEntitySet="video">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="memberid" ColumnName="memberid" />
-          <ScalarProperty Name="data" ColumnName="video" />
+          <ScalarProperty Name="video1" ColumnName="video" />
           <ScalarProperty Name="videolink" ColumnName="videolink" />
           <ScalarProperty Name="uploadeddate" ColumnName="uploadeddate" />
           <ScalarProperty Name="videodescription" ColumnName="videodescription" />
@@ -250,16 +260,6 @@
           <ScalarProperty Name="isvisible" ColumnName="isvisible" />
           <ScalarProperty Name="vipmemberonly" ColumnName="vipmemberonly" />
           <ScalarProperty Name="status" ColumnName="status" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="deliveryprices">
-      <EntityTypeMapping TypeName="dbwebModel.deliveryprice">
-        <MappingFragment StoreEntitySet="deliveryprice">
-          <ScalarProperty Name="active" ColumnName="active" />
-          <ScalarProperty Name="price" ColumnName="price" />
-          <ScalarProperty Name="deliverytypeid" ColumnName="deliverytypeid" />
-          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

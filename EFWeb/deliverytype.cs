@@ -22,15 +22,15 @@ namespace EFWeb
     
         public long id { get; set; }
         public long deliveryid { get; set; }
-        public long deliverycode { get; set; }
+        public long deliverytype1 { get; set; }
         public string deliverydescription { get; set; }
         public bool active { get; set; }
         public string extrafee { get; set; }
         public System.DateTime createddate { get; set; }
         public System.DateTime modifieddate { get; set; }
     
+        public virtual delivery delivery { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<deliveryprice> deliveryprices { get; set; }
-        public virtual delivery delivery { get; set; }
     }
 }
