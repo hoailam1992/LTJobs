@@ -8,115 +8,18 @@ using MasterService;
 public partial class register : System.Web.UI.Page
 {
     MasterService.MasterServiceClient tempClient;
-    TextBox txtUsername;
-    TextBox txtFullname;
-    TextBox txtPassword;
-    TextBox txtRePassword;
-    TextBox txtAnswers;
-    TextBox txtBirthday;
-    TextBox txtPhone;
-    TextBox txtEmail;
-    RadioButton rdClient;
-    RadioButton rdProduct;
-    RadioButton rdDelivery;
-    DropDownList drdQuestion;
-    //Client
-    #region Client
-    RadioButton rdCash;
-    RadioButton rdCCard;
-    TextBox txtCreditCard;
-    TextBox txtCreditCardNumber;
-    TextBox txtMonth;
-    TextBox txtYear;
-    TextBox txtSecPin;
-    #endregion
-    //Product
-    #region Product
-    TextBox txtProDes;
-    DropDownList drpLanguage1;
-    DropDownList drpLanguage2;
-    DropDownList drpProductType;
-    DropDownList drpPreferrableArea;
-    DropDownList drpBankName;
-    TextBox txtPrice;
-    TextBox txtPhotoLink;
-    TextBox txtVideoLink;
-    TextBox txtBankAccount;
-    TextBox txtAccName;
-    #endregion
-    //Delivery
-    #region Delivery
-    TextBox txtDeliveryName;
-    TextBox txtAddress;
-    TextBox txtDistrict;
-    TextBox txtCity;
-    DropDownList drpDeliveryType;
-    TextBox txtLowestPrice;
-    TextBox txtHighestPrice;
-    TextBox txtDeliveryPhone;
-    TextBox txtDeliveryEmail;
-    TextBox txtDeliveryType;
-    #endregion
     protected void Page_Load(object sender, EventArgs e)
     {
         tempClient = new MasterService.MasterServiceClient(); 
-        #region Register
-        txtUsername = FindControl("inputUsername") as TextBox;
-        txtFullname = FindControl("inputDisplay") as TextBox;
-        txtPassword = FindControl("inputPass") as TextBox;
-        txtRePassword = FindControl("inputRetypePass") as TextBox;
-        txtAnswers = FindControl("inputAnswer") as TextBox;
-        txtBirthday = FindControl("inputBirthday") as TextBox;
-        txtPhone = FindControl("inputPhoneNumber") as TextBox;
-        txtEmail = FindControl("inputEmail") as TextBox;
-        rdClient = FindControl("rdClient") as RadioButton;
-        rdProduct = FindControl("rdProduct") as RadioButton;
-        rdDelivery = FindControl("rdDelivery") as RadioButton;
-        #endregion
-        #region Client
-        txtCreditCard = FindControl("inputCreditCard") as TextBox;
-        txtCreditCardNumber = FindControl("inputCreditCardNumber") as TextBox;
-        txtMonth = FindControl("inputMonth") as TextBox;
-        txtYear = FindControl("inputYear") as TextBox;
-        txtSecPin = FindControl("inputSecPin") as TextBox;
-        rdCash = FindControl("rdCash") as RadioButton;
-        rdCCard = FindControl("rdCCard") as RadioButton;
-        #endregion
-        #region Product
-        txtProDes = FindControl("inputPrdDes") as TextBox;
-        drpLanguage1 = FindControl("selectLanguage1") as DropDownList;
-        drpLanguage2 = FindControl("selectLanguage2") as DropDownList;
-        drpProductType = FindControl("selectPrTypeMember") as DropDownList;
-        drpPreferrableArea = FindControl("selectPreferrableArea") as DropDownList;
-        drpBankName = FindControl("selectBankName") as DropDownList;
-        txtPrice = FindControl("inputPriceMember") as TextBox;
-        txtPhotoLink = FindControl("inputPhotoMember") as TextBox;
-        txtVideoLink = FindControl("inputVideoMember") as TextBox;
-        txtBankAccount = FindControl("inputBankAccount") as TextBox;
-        txtAccName = FindControl("inputAccountName") as TextBox;
-        #endregion
-        #region Delivery
-        txtDeliveryName = FindControl("inputHotelName") as TextBox;
-        txtAddress = FindControl("inputAddress") as TextBox;
-        txtDistrict = FindControl("inputDistrict") as TextBox;
-        txtCity = FindControl("inputCity") as TextBox;
-        txtLowestPrice = FindControl("inputLowest") as TextBox;
-        txtHighestPrice = FindControl("inputHighest") as TextBox;
-        drpDeliveryType = FindControl("selectDeliveryType") as DropDownList;
-        txtDeliveryPhone = FindControl("inputHotelPhoneNumber") as TextBox;
-        txtDeliveryName = FindControl("inputHotelEmail") as TextBox;
-        
-        #endregion
     }
 
     public void BtnRegister_Click(object sender, EventArgs e)
     {
-        User RegisterUser = new User();
-        //RegisterUser.username = txtUsername.Text;        
-        RegisterUser.username = inputDisplay.Value;
-        RegisterUser.fullname = txtFullname.Text;
-        RegisterUser.email = txtEmail.Text;
-        RegisterUser.id = 0;
+        User RegisterUser = new User();     
+        RegisterUser.UserName = inputDisplay.Value;
+        RegisterUser.FullName = txtFullname.Text;
+        RegisterUser.Email = txtEmail.Text;
+        RegisterUser.Id = 0;
         RegisterUser.isblocked = false;
         RegisterUser.phone = txtPhone.Text;
         //RegisterUser.securityquestionid = (short)drdQuestion.SelectedIndex;

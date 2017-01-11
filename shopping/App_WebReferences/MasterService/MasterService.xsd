@@ -34,7 +34,6 @@
           <xs:element minOccurs="0" name="DeliveryId" nillable="true" type="xs:long" />
           <xs:element minOccurs="0" name="DeliveryPrice" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="DeliveryRespond" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Id" type="xs:long" />
           <xs:element minOccurs="0" name="IsDeleted" nillable="true" type="xs:boolean" />
           <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
@@ -118,7 +117,6 @@
           <xs:element minOccurs="0" name="ClientComments" nillable="true" type="tns:ArrayOfClientComment" />
           <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="Id" type="xs:long" />
           <xs:element minOccurs="0" name="IsValid" type="xs:boolean" />
           <xs:element minOccurs="0" name="ModifiedDate" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="PaymentMode" type="xs:int" />
@@ -144,7 +142,6 @@
           <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
           <xs:element minOccurs="0" name="Delivery" nillable="true" type="tns:Delivery" />
           <xs:element minOccurs="0" name="DeliveryId" nillable="true" type="xs:long" />
-          <xs:element minOccurs="0" name="Id" type="xs:long" />
           <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
           <xs:element minOccurs="0" name="ProductId" nillable="true" type="xs:long" />
@@ -168,7 +165,6 @@
           <xs:element minOccurs="0" name="Disctrict" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="HighestPrice" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="Id" type="xs:long" />
           <xs:element minOccurs="0" name="LowestPrice" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
@@ -198,7 +194,6 @@
           <xs:element minOccurs="0" name="DeliveryId" type="xs:long" />
           <xs:element minOccurs="0" name="DeliveryPrices" nillable="true" type="tns:ArrayOfDeliveryPrice" />
           <xs:element minOccurs="0" name="ExtraFee" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Id" type="xs:long" />
           <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
           <xs:element minOccurs="0" name="Price" nillable="true" type="xs:decimal" />
         </xs:sequence>
@@ -219,7 +214,6 @@
           <xs:element minOccurs="0" name="Active" nillable="true" type="xs:boolean" />
           <xs:element minOccurs="0" name="DeliveryId" nillable="true" type="xs:long" />
           <xs:element minOccurs="0" name="DeliveryType" nillable="true" type="tns:DeliveryType" />
-          <xs:element minOccurs="0" name="Id" type="xs:long" />
           <xs:element minOccurs="0" name="Price" nillable="true" type="xs:decimal" />
         </xs:sequence>
       </xs:extension>
@@ -239,7 +233,6 @@
           <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="GCMkey" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Id" type="xs:long" />
           <xs:element minOccurs="0" name="IsBlocked" type="xs:boolean" />
           <xs:element minOccurs="0" name="IsNotify" nillable="true" type="xs:boolean" />
           <xs:element minOccurs="0" name="LastLogin" nillable="true" type="xs:dateTime" />
@@ -284,7 +277,6 @@
           <xs:element minOccurs="0" name="Body" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="DateTime" type="xs:dateTime" />
           <xs:element minOccurs="0" name="From" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Id" type="xs:long" />
           <xs:element minOccurs="0" name="IsDeleted" nillable="true" type="xs:boolean" />
           <xs:element minOccurs="0" name="Status" type="xs:boolean" />
           <xs:element minOccurs="0" name="Subject" nillable="true" type="xs:string" />
@@ -313,7 +305,6 @@
           <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
           <xs:element minOccurs="0" name="DestinationId" type="xs:long" />
-          <xs:element minOccurs="0" name="Id" type="xs:long" />
           <xs:element minOccurs="0" name="ModifiedDate" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="PaymentDate" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="ReceiptPhoto" nillable="true" type="xs:base64Binary" />
@@ -340,7 +331,6 @@
       <xs:extension base="tns:ModelBase">
         <xs:sequence>
           <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="Id" type="xs:long" />
           <xs:element minOccurs="0" name="Image" nillable="true" type="xs:base64Binary" />
           <xs:element minOccurs="0" name="IsVisble" nillable="true" type="xs:boolean" />
           <xs:element minOccurs="0" name="ModifiedDate" nillable="true" type="xs:dateTime" />
@@ -377,7 +367,6 @@
           <xs:element minOccurs="0" name="Commission" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
           <xs:element minOccurs="0" name="Group" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Id" type="xs:long" />
           <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
           <xs:element minOccurs="0" name="IsAvailable" nillable="true" type="xs:boolean" />
           <xs:element minOccurs="0" name="IsBlocked" type="xs:boolean" />
@@ -408,7 +397,6 @@
       <xs:extension base="tns:ModelBase">
         <xs:sequence>
           <xs:element minOccurs="0" name="Active" type="xs:boolean" />
-          <xs:element minOccurs="0" name="Id" type="xs:long" />
           <xs:element minOccurs="0" name="Price" type="xs:decimal" />
           <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
           <xs:element minOccurs="0" name="ProductId" nillable="true" type="xs:long" />
@@ -427,7 +415,6 @@
           <xs:element minOccurs="0" name="Active" type="xs:boolean" />
           <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Flag" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Id" type="xs:long" />
           <xs:element minOccurs="0" name="ProductPrices" nillable="true" type="tns:ArrayOfProductPrice" />
         </xs:sequence>
       </xs:extension>
@@ -445,7 +432,6 @@
       <xs:extension base="tns:ModelBase">
         <xs:sequence>
           <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="Id" type="xs:long" />
           <xs:element minOccurs="0" name="IsVisible" nillable="true" type="xs:boolean" />
           <xs:element minOccurs="0" name="ModifiedDate" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
@@ -474,7 +460,6 @@
           <xs:element minOccurs="0" name="Booking" nillable="true" type="tns:Booking" />
           <xs:element minOccurs="0" name="BookingId" type="xs:long" />
           <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Id" type="xs:long" />
           <xs:element minOccurs="0" name="RefundAmount" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="SystemRespond" nillable="true" type="xs:string" />
         </xs:sequence>
@@ -592,7 +577,6 @@
       <xs:extension base="tns:ModelBase">
         <xs:sequence>
           <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Id" type="xs:long" />
           <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>
