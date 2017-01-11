@@ -8,11 +8,11 @@ using BusinessLayer.Common;
 using Models;
 namespace BusinessLayer.Service
 {
-    public class VideoBusinessService : BusinessServiceBase<video>, IVideoBusinessService
+    public class VideoBusinessService : BusinessServiceBase<Video>, IVideoBusinessService
     {
-        public ReturnType<IList<video>> GetVideoByProductId(long id)
+        public ReturnType<IList<Video>> GetVideoByProductId(long id)
         {
-            return GetList(c => c.memberid == id);
+            return GetList(c => c.ProductId == id);
         }
     }
 }

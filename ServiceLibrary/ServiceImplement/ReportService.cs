@@ -10,7 +10,7 @@ namespace ServiceLibrary
 {
     public partial class MasterService
     {
-        public ReturnType<report> SaveReport(report entity)
+        public ReturnType<Report> SaveReport(Report entity)
         {
             return (new ReportBusinessService()).Save(entity);
         }
@@ -18,11 +18,11 @@ namespace ServiceLibrary
         {
             return (new ReportBusinessService()).DeleteById(id);
         }
-        public ReturnType<report> GetReportByBookingId(long id)
+        public ReturnType<Report> GetReportByBookingId(long id)
         {
             return (new ReportBusinessService()).GetReportByBookingId(id);
         }
-        public ReturnType<report> GetReportById(long id)
+        public ReturnType<Report> GetReportById(long id)
         {
             return (new ReportBusinessService()).GetById(id);
         }

@@ -8,17 +8,17 @@ using BusinessLayer.Common;
 using Models;
 namespace BusinessLayer.Service
 {
-    public class ProductBusinessService : BusinessServiceBase<product>, IProductBusinessService
+    public class ProductBusinessService : BusinessServiceBase<Product>, IProductBusinessService
     {
-        public ReturnType<product> GetProductByUserId(long id) {
-            return GetSingle(c => c.userid == id,c=>c.clientcomments,c=>c.videos);
+        public ReturnType<Product> GetProductByUserId(long id) {
+            return GetSingle(c => c.UserId == id,c=>c.ClientComments,c=>c.Videos);
         }
-        public ReturnType<IList<product>> GetActiveProduct() {
-            return GetList(c => c.isactive);
+        public ReturnType<IList<Product>> GetActiveProduct() {
+            return GetList(c => c.IsActive);
         }
-        public ReturnType<product> GetProductByPCode(string id)
+        public ReturnType<Product> GetProductByPCode(string id)
         {
-            return GetSingle(c => c.productcode == id);
+            return GetSingle(c => c.Code == id);
         }       
     }
 }

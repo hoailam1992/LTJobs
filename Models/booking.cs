@@ -11,57 +11,58 @@ namespace Models
 {
     using System;
     using System.Collections.Generic;
-    using Models.Common;
     using System.Runtime.Serialization;
+
     [DataContract(IsReference = true)]
-    public partial class booking : ModelBase
+    public partial class Booking : ModelBase
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public booking()
+        public Booking()
         {
-            this.reports = new HashSet<report>();
+            this.Reports = new HashSet<Report>();
         }
        
         [DataMember]
-        public long clientid { get; set; }
+        public long ClientId { get; set; }
         [DataMember]
-        public long productid { get; set; }
+        public long ProductId { get; set; }
         [DataMember]
-        public Nullable<long> deliveryid { get; set; }
+        public Nullable<long> DeliveryId { get; set; }
         [DataMember]
-        public Nullable<decimal> productprice { get; set; }
+        public Nullable<decimal> ProductPrice { get; set; }
         [DataMember]
-        public Nullable<decimal> deliveryprice { get; set; }
+        public Nullable<decimal> DeliveryPrice { get; set; }
         [DataMember]
-        public string location { get; set; }
+        public string Location { get; set; }
         [DataMember]
-        public string paymentmode { get; set; }
+        public string PaymentMode { get; set; }
         [DataMember]
-        public decimal totalcost { get; set; }
+        public decimal TotalCost { get; set; }
         [DataMember]
-        public long producttype { get; set; }
+        public long ProductType { get; set; }
         [DataMember]
-        public string productrespond { get; set; }
+        public string ProductRespond { get; set; }
         [DataMember]
-        public string deliveryrespond { get; set; }
+        public string DeliveryRespond { get; set; }
         [DataMember]
-        public Nullable<System.DateTime> datetime { get; set; }
+        public Nullable<System.DateTime> DateTime { get; set; }
         [DataMember]
-        public Nullable<System.DateTime> createddate { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
         [DataMember]
-        public string status { get; set; }
+        public string Status { get; set; }
         [DataMember]
-        public Nullable<bool> isdeleted { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
         [DataMember]
-        public System.DateTime modifieddate { get; set; }
+        public System.DateTime ModifiedDate { get; set; }
         [DataMember]
 
-        public virtual client client { get; set; }
+        public virtual Client Client { get; set; }
         [DataMember]
-        public virtual delivery delivery { get; set; }
+        public virtual Delivery Delivery { get; set; }
         [DataMember]
-        public virtual product product { get; set; }
+        public virtual Product Product { get; set; }
         [DataMember]
-        public virtual ICollection<report> reports { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Report> Reports { get; set; }
     }
 }

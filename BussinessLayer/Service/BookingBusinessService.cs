@@ -8,7 +8,7 @@ using BusinessLayer.Common;
 using Models;
 namespace BusinessLayer.Service
 {
-    public class BookingBusinessService : BusinessServiceBase<booking>, IBookingBusinessService
+    public class BookingBusinessService : BusinessServiceBase<Booking>, IBookingBusinessService
     {
         public ReturnType<bool> DeleteBookingById(long enity)
         {
@@ -25,21 +25,21 @@ namespace BusinessLayer.Service
             }
             return result;
         }
-        public ReturnType<booking> GetBookingById(long id)
+        public ReturnType<Booking> GetBookingById(long id)
         {
             return GetById(id);
         }
-        public ReturnType<IList<booking>> GetBookingByClientId(long id)
+        public ReturnType<IList<Booking>> GetBookingByClientId(long id)
         {
-            return GetList(c => c.clientid == id,c=>c.product,c=>c.delivery,c=>c.client);
+            return GetList(c => c.ClientId == id,c=>c.Product,c=>c.Delivery,c=>c.Client);
         }
-        public ReturnType<IList<booking>> GetBookingByProductId(long id)
+        public ReturnType<IList<Booking>> GetBookingByProductId(long id)
         {
-            return GetList(c => c.productid == id, c => c.product, c => c.delivery, c => c.client);
+            return GetList(c => c.ProductId == id, c => c.Product, c => c.Delivery, c => c.Client);
         }
-        public ReturnType<IList<booking>> GetBookingByDeliveryId(long id)
+        public ReturnType<IList<Booking>> GetBookingByDeliveryId(long id)
         {
-            return GetList(c => c.deliveryid == id, c => c.product, c => c.delivery, c => c.client);
+            return GetList(c => c.DeliveryId == id, c => c.Product, c => c.Delivery, c => c.Client);
         }
       
     }

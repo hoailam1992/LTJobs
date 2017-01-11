@@ -11,22 +11,21 @@ namespace Models
 {
     using System;
     using System.Collections.Generic;
-    using Models.Common;
     using System.Runtime.Serialization;
 
-    public partial class report : ModelBase
+    [DataContract(IsReference = true)]
+    public partial class Report : ModelBase
     {
        
         [DataMember]
-        public long bookingid { get; set; }
+        public long BookingId { get; set; }
         [DataMember]
-        public string content { get; set; }
+        public string Content { get; set; }
         [DataMember]
-        public string systemrespond { get; set; }
+        public string SystemRespond { get; set; }
         [DataMember]
-        public Nullable<decimal> refundamount { get; set; }
+        public Nullable<decimal> RefundAmount { get; set; }
         [DataMember]
-
-        public virtual booking booking { get; set; }
+        public virtual Booking Booking { get; set; }
     }
 }

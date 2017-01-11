@@ -11,25 +11,26 @@ namespace Models
 {
     using System;
     using System.Collections.Generic;
-    using Models.Common;
     using System.Runtime.Serialization;
 
-    public partial class producttype : ModelBase
+    [DataContract(IsReference = true)]
+    public partial class ProductType : ModelBase
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public producttype()
+        public ProductType()
         {
-            this.productprices = new HashSet<productprice>();
+            this.ProductPrices = new HashSet<ProductPrice>();
         }
-       
+        
         [DataMember]
-        public string producttype1 { get; set; }
+        public string Code { get; set; }
         [DataMember]
-        public bool actvice { get; set; }
+        public bool Active { get; set; }
         [DataMember]
-        public string flag { get; set; }
+        public string Flag { get; set; }
         [DataMember]
 
-        public virtual ICollection<productprice> productprices { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProductPrice> ProductPrices { get; set; }
     }
 }

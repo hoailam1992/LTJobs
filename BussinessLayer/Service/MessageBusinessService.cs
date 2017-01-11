@@ -8,7 +8,7 @@ using BusinessLayer.Common;
 using Models;
 namespace BusinessLayer.Service
 {
-    public class MessageBusinessService : BusinessServiceBase<message>, IMessageService
+    public class MessageBusinessService : BusinessServiceBase<Message>, IMessageService
     {
         public ReturnType<bool> DeleteMessageById(long enity)
         {
@@ -26,9 +26,9 @@ namespace BusinessLayer.Service
             return result;
         }
 
-        public ReturnType<IList<message>> GetMessageByToId(long id)
+        public ReturnType<IList<Message>> GetMessageByToId(long id)
         {
-            return GetList(c => c.to == id);
+            return GetList(c => c.To == id);
         }
 
         

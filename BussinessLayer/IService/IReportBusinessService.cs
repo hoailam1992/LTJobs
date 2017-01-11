@@ -7,9 +7,9 @@ using Models;
 using BusinessLayer.Common;
 namespace BusinessLayer.IService
 {
-    public interface IReportBusinessService : IBusinessServiceBase<report>
+    public interface IReportBusinessService : IBusinessServiceBase<Report>
     {
-        ReturnType<report> GetReportByBookingId(long id);
+        ReturnType<Report> GetReportByBookingId(long id);
         
     }
 }

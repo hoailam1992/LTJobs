@@ -12,12 +12,14 @@ namespace EFWeb
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+    using Models;
     public partial class dbwebEntities : DbContext
     {
         public dbwebEntities()
             : base("name=dbwebEntities")
         {
+            this.Configuration.LazyLoadingEnabled = false;
+            this.Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -25,21 +27,21 @@ namespace EFWeb
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<booking> bookings { get; set; }
-        public virtual DbSet<client> clients { get; set; }
-        public virtual DbSet<clientcomment> clientcomments { get; set; }
-        public virtual DbSet<delivery> deliveries { get; set; }
-        public virtual DbSet<deliveryprice> deliveryprices { get; set; }
-        public virtual DbSet<deliverytype> deliverytypes { get; set; }
-        public virtual DbSet<feedback> feedbacks { get; set; }
-        public virtual DbSet<message> messages { get; set; }
-        public virtual DbSet<moneytransaction> moneytransactions { get; set; }
-        public virtual DbSet<photo> photos { get; set; }
-        public virtual DbSet<product> products { get; set; }
-        public virtual DbSet<productprice> productprices { get; set; }
-        public virtual DbSet<producttype> producttypes { get; set; }
-        public virtual DbSet<report> reports { get; set; }
-        public virtual DbSet<user> users { get; set; }
-        public virtual DbSet<video> videos { get; set; }
+        public virtual DbSet<Booking> Bookings { get; set; }
+        public virtual DbSet<ClientComment> ClientComments { get; set; }
+        public virtual DbSet<Client> Clients { get; set; }
+        public virtual DbSet<Delivery> Deliveries { get; set; }
+        public virtual DbSet<DeliveryPrice> DeliveryPrices { get; set; }
+        public virtual DbSet<DeliveryType> DeliveryTypes { get; set; }
+        public virtual DbSet<FeedBack> FeedBacks { get; set; }
+        public virtual DbSet<Message> Messages { get; set; }
+        public virtual DbSet<MoneyTransaction> MoneyTransactions { get; set; }
+        public virtual DbSet<Photo> Photos { get; set; }
+        public virtual DbSet<ProductPrice> ProductPrices { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<ProductType> ProductTypes { get; set; }
+        public virtual DbSet<Report> Reports { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Video> Videos { get; set; }
     }
 }

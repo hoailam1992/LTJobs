@@ -8,7 +8,7 @@ using BusinessLayer.Common;
 using Models;
 namespace BusinessLayer.Service
 {
-    public class ClientCommentBusinessService : BusinessServiceBase<clientcomment>, IClientCommentBusinessService
+    public class ClientCommentBusinessService : BusinessServiceBase<ClientComment>, IClientCommentBusinessService
     {
         public ReturnType<bool> DeleteClientCommentById(long enity)
         {
@@ -25,17 +25,17 @@ namespace BusinessLayer.Service
             }
             return result;
         }
-        public ReturnType<IList<clientcomment>> GetClientCommentByClientId(long id)
+        public ReturnType<IList<ClientComment>> GetClientCommentByClientId(long id)
         {
-            return GetList(c => c.clientid == id);
+            return GetList(c => c.ClientId == id);
         }
-        public ReturnType<IList<clientcomment>> GetClientCommentByProductId(long id)
+        public ReturnType<IList<ClientComment>> GetClientCommentByProductId(long id)
         {
-            return GetList(c => c.memberid == id);
+            return GetList(c => c.ProductId == id);
         }
-        public ReturnType<IList<clientcomment>> GetClientCommentByDeliveryId(long id)
+        public ReturnType<IList<ClientComment>> GetClientCommentByDeliveryId(long id)
         {
-            return GetList(c => c.deliveryid == id);
+            return GetList(c => c.DeliveryId == id);
         }
 
     }

@@ -12,28 +12,28 @@ namespace ServiceLibrary
     public partial class MasterService
     {
 
-        public ReturnType<IList<booking>> GetAllBooking() {
+        public ReturnType<IList<Booking>> GetAllBooking() {
             return (new BookingBusinessService()).GetAll();
         }
-        public ReturnType<IList<booking>> GetBookingByClientId(long id)
+        public ReturnType<IList<Booking>> GetBookingByClientId(long id)
         {
             return (new BookingBusinessService()).GetBookingByClientId(id);
         }
-        public ReturnType<booking> SaveBooking(booking entity)
+        public ReturnType<Booking> SaveBooking(Booking entity)
         {
             return (new BookingBusinessService()).Save(entity);
         }
         public ReturnType<bool> DeleteBookingById(long id) {
             return (new BookingBusinessService()).DeleteById(id);
         }
-        public ReturnType<booking> GetBookingById(long id) {
+        public ReturnType<Booking> GetBookingById(long id) {
             return (new BookingBusinessService()).GetById(id);
         }
-        public ReturnType<IList<booking>> GetBookingByProductId(long id)
+        public ReturnType<IList<Booking>> GetBookingByProductId(long id)
         {
             return (new BookingBusinessService()).GetBookingByProductId(id);
         }
-        public ReturnType<IList<booking>> GetBookingByDeliveryId(long id)
+        public ReturnType<IList<Booking>> GetBookingByDeliveryId(long id)
         {
             return (new BookingBusinessService()).GetBookingByDeliveryId(id);
         }

@@ -12,16 +12,16 @@ namespace ServiceLibrary
     public partial interface IMasterService
     {
         [OperationContract]
-        ReturnType<clientcomment> SaveClientComment(clientcomment entity);
+        ReturnType<ClientComment> SaveClientComment(ClientComment entity);
         [OperationContract]
         ReturnType<bool> DeleteClientCommentById(long id);      
         [OperationContract]
-        ReturnType<IList<clientcomment>> GetClientCommentByClientId(long id);
+        ReturnType<IList<ClientComment>> GetClientCommentByClientId(long id);
         [OperationContract]
-        ReturnType<IList<clientcomment>> GetClientCommentByProductId(long id);
+        ReturnType<IList<ClientComment>> GetClientCommentByProductId(long id);
         [OperationContract]
-        ReturnType<IList<clientcomment>> GetClientCommentByDeliveryId(long id);
+        ReturnType<IList<ClientComment>> GetClientCommentByDeliveryId(long id);
         [OperationContract]
-        ReturnType<clientcomment> GetClientCommentById(long id);
+        ReturnType<ClientComment> GetClientCommentById(long id);
     }
 }

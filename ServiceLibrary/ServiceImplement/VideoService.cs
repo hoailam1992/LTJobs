@@ -15,17 +15,17 @@ namespace ServiceLibrary
             return (new VideoBusinessService()).DeleteById(id);
         }
 
-        public ReturnType<video> GetVideoById(long id)
+        public ReturnType<Video> GetVideoById(long id)
         {
             return (new VideoBusinessService()).GetById(id);
         }
 
-        public ReturnType<IList<video>> GetVideoByProductId(long id)
+        public ReturnType<IList<Video>> GetVideoByProductId(long id)
         {
             return (new VideoBusinessService()).GetVideoByProductId(id);
         }
 
-        public ReturnType<video> SaveVideo(video entity)
+        public ReturnType<Video> SaveVideo(Video entity)
         {
             return (new VideoBusinessService()).Save(entity);
         }

@@ -7,10 +7,10 @@ using Models;
 using BusinessLayer.Common;
 namespace BusinessLayer.IService
 {
-    public interface IProductBusinessService : IBusinessServiceBase<product>
+    public interface IProductBusinessService : IBusinessServiceBase<Product>
     {
-        ReturnType<product> GetProductByUserId(long id);
-        ReturnType<IList<product>> GetActiveProduct();
-        ReturnType<product> GetProductByPCode(string code);
+        ReturnType<Product> GetProductByUserId(long id);
+        ReturnType<IList<Product>> GetActiveProduct();
+        ReturnType<Product> GetProductByPCode(string code);
     }
 }

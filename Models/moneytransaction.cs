@@ -11,48 +11,48 @@ namespace Models
 {
     using System;
     using System.Collections.Generic;
-    using Models.Common;
     using System.Runtime.Serialization;
 
-    public partial class moneytransaction : ModelBase
+    [DataContract(IsReference = true)]
+    public partial class MoneyTransaction : ModelBase
     {
-        
+      
         [DataMember]
-        public string code { get; set; }
+        public string Code { get; set; }
         [DataMember]
-        public byte[] receiptphoto { get; set; }
+        public byte[] ReceiptPhoto { get; set; }
         [DataMember]
-        public decimal value { get; set; }
+        public decimal Value { get; set; }
         [DataMember]
-        public System.DateTime trandate { get; set; }
+        public System.DateTime Trandate { get; set; }
         [DataMember]
-        public string remark { get; set; }
+        public string Remark { get; set; }
         [DataMember]
-        public string status { get; set; }
+        public string Status { get; set; }
         [DataMember]
-        public long sourceid { get; set; }
+        public long SourceId { get; set; }
         [DataMember]
-        public long destinationid { get; set; }
+        public long DestinationId { get; set; }
         [DataMember]
-        public Nullable<System.DateTime> paymentdate { get; set; }
+        public Nullable<System.DateTime> PaymentDate { get; set; }
         [DataMember]
-        public string ccname { get; set; }
+        public string CCName { get; set; }
         [DataMember]
-        public string ccno { get; set; }
+        public string CCNumber { get; set; }
         [DataMember]
-        public Nullable<int> ccexpiredmonth { get; set; }
+        public Nullable<int> CCExpiredMonth { get; set; }
         [DataMember]
-        public Nullable<int> ccexpiredyear { get; set; }
+        public Nullable<int> CCExpiredYear { get; set; }
         [DataMember]
-        public string ccpin { get; set; }
+        public string CCPin { get; set; }
         [DataMember]
-        public System.DateTime createddate { get; set; }
+        public System.DateTime CreatedDate { get; set; }
         [DataMember]
-        public Nullable<System.DateTime> modifieddate { get; set; }
+        public Nullable<System.DateTime> ModifiedDate { get; set; }
         [DataMember]
 
-        public virtual user user { get; set; }
+        public virtual User User { get; set; }
         [DataMember]
-        public virtual user user1 { get; set; }
+        public virtual User User1 { get; set; }
     }
 }

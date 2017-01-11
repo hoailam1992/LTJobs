@@ -46,3 +46,13 @@ D:\Users\HoaiLam\Source\Repos\LTJobs\Models\bin\Debug\EntityFramework.SqlServer.
 D:\Users\HoaiLam\Source\Repos\LTJobs\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
 D:\Users\HoaiLam\Source\Repos\LTJobs\Models\obj\Debug\Models.dll
 D:\Users\HoaiLam\Source\Repos\LTJobs\Models\obj\Debug\Models.pdb
+E:\Desmond_Website\JT\LTJobs\Models\bin\Debug\Models.dll.config
+E:\Desmond_Website\JT\LTJobs\Models\bin\Debug\Models.dll
+E:\Desmond_Website\JT\LTJobs\Models\bin\Debug\Models.pdb
+E:\Desmond_Website\JT\LTJobs\Models\bin\Debug\EntityFramework.dll
+E:\Desmond_Website\JT\LTJobs\Models\bin\Debug\EntityFramework.SqlServer.dll
+E:\Desmond_Website\JT\LTJobs\Models\bin\Debug\EntityFramework.xml
+E:\Desmond_Website\JT\LTJobs\Models\bin\Debug\EntityFramework.SqlServer.xml
+E:\Desmond_Website\JT\LTJobs\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+E:\Desmond_Website\JT\LTJobs\Models\obj\Debug\Models.dll
+E:\Desmond_Website\JT\LTJobs\Models\obj\Debug\Models.pdb

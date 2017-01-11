@@ -12,13 +12,13 @@ namespace ServiceLibrary
     public partial interface IMasterService
     {
         [OperationContract]
-        ReturnType<producttype> SaveProductType(producttype entity);
+        ReturnType<ProductType> SaveProductType(ProductType entity);
         [OperationContract]
         ReturnType<bool> DeleteProductTypeById(long enity);
         [OperationContract]
-        ReturnType<producttype> GetProductTypeById(long id);
+        ReturnType<ProductType> GetProductTypeById(long id);
         [OperationContract]
-        ReturnType<IList<producttype>> GetAllProductType();
+        ReturnType<IList<ProductType>> GetAllProductType();
 
     }
 }

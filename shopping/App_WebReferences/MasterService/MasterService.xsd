@@ -1,940 +1,848 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:7368/MasterService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Models" />
-  <xs:element name="GetAllBooking">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllBookingResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetAllBookingResult" nillable="true" type="q1:ReturnTypeOfArrayOfbooking" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetBookingByClientId">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetBookingByClientIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetBookingByClientIdResult" nillable="true" type="q2:ReturnTypeOfArrayOfbooking" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetBookingByDeliveryId">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetBookingByDeliveryIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetBookingByDeliveryIdResult" nillable="true" type="q3:ReturnTypeOfArrayOfbooking" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetBookingByProductId">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetBookingByProductIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetBookingByProductIdResult" nillable="true" type="q4:ReturnTypeOfArrayOfbooking" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveBooking">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="entity" nillable="true" type="q5:booking" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveBookingResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="SaveBookingResult" nillable="true" type="q6:ReturnTypeOfbooking" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteBookingById">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="enity" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteBookingByIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="DeleteBookingByIdResult" nillable="true" type="q7:ReturnTypeOfboolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetBookingById">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetBookingByIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetBookingByIdResult" nillable="true" type="q8:ReturnTypeOfbooking" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveClientComment">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="entity" nillable="true" type="q9:clientcomment" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveClientCommentResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="SaveClientCommentResult" nillable="true" type="q10:ReturnTypeOfclientcomment" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteClientCommentById">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteClientCommentByIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="DeleteClientCommentByIdResult" nillable="true" type="q11:ReturnTypeOfboolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetClientCommentByClientId">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetClientCommentByClientIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetClientCommentByClientIdResult" nillable="true" type="q12:ReturnTypeOfArrayOfclientcomment" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetClientCommentByProductId">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetClientCommentByProductIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetClientCommentByProductIdResult" nillable="true" type="q13:ReturnTypeOfArrayOfclientcomment" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetClientCommentByDeliveryId">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetClientCommentByDeliveryIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetClientCommentByDeliveryIdResult" nillable="true" type="q14:ReturnTypeOfArrayOfclientcomment" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetClientCommentById">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetClientCommentByIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetClientCommentByIdResult" nillable="true" type="q15:ReturnTypeOfclientcomment" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveClient">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="entity" nillable="true" type="q16:client" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveClientResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="SaveClientResult" nillable="true" type="q17:ReturnTypeOfclient" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteClientById">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteClientByIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="DeleteClientByIdResult" nillable="true" type="q18:ReturnTypeOfboolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetClientByUserId">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetClientByUserIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetClientByUserIdResult" nillable="true" type="q19:ReturnTypeOfclient" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetClientById">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetClientByIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetClientByIdResult" nillable="true" type="q20:ReturnTypeOfclient" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetClientByClientCode">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetClientByClientCodeResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetClientByClientCodeResult" nillable="true" type="q21:ReturnTypeOfclient" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveDelivery">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="entity" nillable="true" type="q22:delivery" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveDeliveryResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="SaveDeliveryResult" nillable="true" type="q23:ReturnTypeOfdelivery" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteDeliveryById">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="enity" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteDeliveryByIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="DeleteDeliveryByIdResult" nillable="true" type="q24:ReturnTypeOfboolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetDeliveryByUserId">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetDeliveryByUserIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetDeliveryByUserIdResult" nillable="true" type="q25:ReturnTypeOfdelivery" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetDeliveryById">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetDeliveryByIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetDeliveryByIdResult" nillable="true" type="q26:ReturnTypeOfdelivery" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveDeliveryType">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="entity" nillable="true" type="q27:deliverytype" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveDeliveryTypeResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="SaveDeliveryTypeResult" nillable="true" type="q28:ReturnTypeOfdeliverytype" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteDeliveryTypeById">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteDeliveryTypeByIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="DeleteDeliveryTypeByIdResult" nillable="true" type="q29:ReturnTypeOfboolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetDeliveryTypeById">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetDeliveryTypeByIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetDeliveryTypeByIdResult" nillable="true" type="q30:ReturnTypeOfdeliverytype" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveFeedBack">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="entity" nillable="true" type="q31:feedback" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveFeedBackResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="SaveFeedBackResult" nillable="true" type="q32:ReturnTypeOffeedback" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteFeedbackById">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="enity" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteFeedbackByIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="DeleteFeedbackByIdResult" nillable="true" type="q33:ReturnTypeOfboolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetFeedBackById">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetFeedBackByIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetFeedBackByIdResult" nillable="true" type="q34:ReturnTypeOffeedback" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveMessage">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="entity" nillable="true" type="q35:message" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveMessageResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="SaveMessageResult" nillable="true" type="q36:ReturnTypeOfmessage" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteMessageById">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteMessageByIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="DeleteMessageByIdResult" nillable="true" type="q37:ReturnTypeOfboolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetMessageByUserId">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetMessageByUserIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetMessageByUserIdResult" nillable="true" type="q38:ReturnTypeOfArrayOfmessage" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetMessageById">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetMessageByIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetMessageByIdResult" nillable="true" type="q39:ReturnTypeOfmessage" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveMoneyTransaction">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="entity" nillable="true" type="q40:moneytransaction" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveMoneyTransactionResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="SaveMoneyTransactionResult" nillable="true" type="q41:ReturnTypeOfmoneytransaction" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteMoneyTransactionById">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="enity" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteMoneyTransactionByIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="DeleteMoneyTransactionByIdResult" nillable="true" type="q42:ReturnTypeOfboolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetMoneyTransactionBySourceId">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetMoneyTransactionBySourceIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetMoneyTransactionBySourceIdResult" nillable="true" type="q43:ReturnTypeOfArrayOfmoneytransaction" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetMoneyTransactionByDestinationId">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetMoneyTransactionByDestinationIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetMoneyTransactionByDestinationIdResult" nillable="true" type="q44:ReturnTypeOfArrayOfmoneytransaction" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetMoneyTransactionById">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetMoneyTransactionByIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetMoneyTransactionByIdResult" nillable="true" type="q45:ReturnTypeOfmoneytransaction" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SavePhoto">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="entity" nillable="true" type="q46:photo" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SavePhotoResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="SavePhotoResult" nillable="true" type="q47:ReturnTypeOfphoto" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeletePhotoById">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeletePhotoByIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="DeletePhotoByIdResult" nillable="true" type="q48:ReturnTypeOfboolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetPhotoByUserId">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetPhotoByUserIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetPhotoByUserIdResult" nillable="true" type="q49:ReturnTypeOfArrayOfphoto" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetPhotoById">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetPhotoByIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetPhotoByIdResult" nillable="true" type="q50:ReturnTypeOfphoto" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveProductPrice">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="entity" nillable="true" type="q51:productprice" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveProductPriceResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="SaveProductPriceResult" nillable="true" type="q52:ReturnTypeOfproductprice" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteProductPriceById">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="enity" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteProductPriceByIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="DeleteProductPriceByIdResult" nillable="true" type="q53:ReturnTypeOfboolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetProductPriceByProductId">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetProductPriceByProductIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetProductPriceByProductIdResult" nillable="true" type="q54:ReturnTypeOfArrayOfproductprice" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetProductPriceByProductTypeId">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetProductPriceByProductTypeIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetProductPriceByProductTypeIdResult" nillable="true" type="q55:ReturnTypeOfArrayOfproductprice" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetProductPriceByProductAndTypeId">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="idProduct" type="xs:long" />
-        <xs:element minOccurs="0" name="idType" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetProductPriceByProductAndTypeIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetProductPriceByProductAndTypeIdResult" nillable="true" type="q56:ReturnTypeOfArrayOfproductprice" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetProductPriceById">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetProductPriceByIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetProductPriceByIdResult" nillable="true" type="q57:ReturnTypeOfproductprice" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveProduct">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="entity" nillable="true" type="q58:product" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveProductResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="SaveProductResult" nillable="true" type="q59:ReturnTypeOfproduct" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteProductById">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="enity" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteProductByIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="DeleteProductByIdResult" nillable="true" type="q60:ReturnTypeOfboolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetProductByUserId">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetProductByUserIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetProductByUserIdResult" nillable="true" type="q61:ReturnTypeOfproduct" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetProductById">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetProductByIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetProductByIdResult" nillable="true" type="q62:ReturnTypeOfproduct" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetProductByCode">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetProductByCodeResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetProductByCodeResult" nillable="true" type="q63:ReturnTypeOfproduct" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveProductType">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="entity" nillable="true" type="q64:producttype" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveProductTypeResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="SaveProductTypeResult" nillable="true" type="q65:ReturnTypeOfproducttype" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteProductTypeById">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="enity" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteProductTypeByIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="DeleteProductTypeByIdResult" nillable="true" type="q66:ReturnTypeOfboolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetProductTypeById">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetProductTypeByIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetProductTypeByIdResult" nillable="true" type="q67:ReturnTypeOfproducttype" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllProductType">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllProductTypeResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetAllProductTypeResult" nillable="true" type="q68:ReturnTypeOfArrayOfproducttype" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveReport">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="entity" nillable="true" type="q69:report" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveReportResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="SaveReportResult" nillable="true" type="q70:ReturnTypeOfreport" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteReportById">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="enity" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteReportByIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="DeleteReportByIdResult" nillable="true" type="q71:ReturnTypeOfboolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetReportByBookingId">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetReportByBookingIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetReportByBookingIdResult" nillable="true" type="q72:ReturnTypeOfreport" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetReportById">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetReportByIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetReportByIdResult" nillable="true" type="q73:ReturnTypeOfreport" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveUser">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="entity" nillable="true" type="q74:user" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveUserResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="SaveUserResult" nillable="true" type="q75:ReturnTypeOfuser" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="LoginUser">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="LoginUserResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="LoginUserResult" nillable="true" type="q76:ReturnTypeOfuser" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetUserById">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetUserByIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetUserByIdResult" nillable="true" type="q77:ReturnTypeOfuser" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveVideo">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="entity" nillable="true" type="q78:video" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveVideoResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="SaveVideoResult" nillable="true" type="q79:ReturnTypeOfvideo" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteVideoById">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteVideoByIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="DeleteVideoByIdResult" nillable="true" type="q80:ReturnTypeOfboolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetVideoByProductId">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetVideoByProductIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetVideoByProductIdResult" nillable="true" type="q81:ReturnTypeOfArrayOfvideo" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetVideoById">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetVideoByIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetVideoByIdResult" nillable="true" type="q82:ReturnTypeOfvideo" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:7368/MasterService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ReturnTypeOfArrayOfBooking">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ReturnTypeOf{0}" Namespace="http://schemas.datacontract.org/2004/07/Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfBooking" Namespace="http://schemas.datacontract.org/2004/07/Models" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfBooking" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnTypeOfArrayOfBooking" nillable="true" type="tns:ReturnTypeOfArrayOfBooking" />
+  <xs:complexType name="ArrayOfBooking">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Booking" nillable="true" type="tns:Booking" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBooking" nillable="true" type="tns:ArrayOfBooking" />
+  <xs:complexType name="Booking">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Client" nillable="true" type="tns:Client" />
+          <xs:element minOccurs="0" name="ClientId" type="xs:long" />
+          <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DateTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Delivery" nillable="true" type="tns:Delivery" />
+          <xs:element minOccurs="0" name="DeliveryId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="DeliveryPrice" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="DeliveryRespond" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:long" />
+          <xs:element minOccurs="0" name="IsDeleted" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PaymentMode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
+          <xs:element minOccurs="0" name="ProductId" type="xs:long" />
+          <xs:element minOccurs="0" name="ProductPrice" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ProductRespond" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProductType" type="xs:long" />
+          <xs:element minOccurs="0" name="Reports" nillable="true" type="tns:ArrayOfReport" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TotalCost" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Booking" nillable="true" type="tns:Booking" />
+  <xs:complexType name="ModelBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:long" />
+      <xs:element minOccurs="0" name="ModelState" type="tns:ModelState" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="ModelBase" nillable="true" type="tns:ModelBase" />
+  <xs:simpleType name="ModelState">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Unchanged">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Added">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Modified">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Deleted">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="ModelState" nillable="true" type="tns:ModelState" />
+  <xs:complexType name="Client">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Balance" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Bookings" nillable="true" type="tns:ArrayOfBooking" />
+          <xs:element minOccurs="0" name="CCExpiredMonth" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CCExpiredYear" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CCHolder" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CCNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CCPin" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CancelCount" type="xs:int" />
+          <xs:element minOccurs="0" name="ClientComments" nillable="true" type="tns:ArrayOfClientComment" />
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Id" type="xs:long" />
+          <xs:element minOccurs="0" name="IsValid" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ModifiedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PaymentMode" type="xs:int" />
+          <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+          <xs:element minOccurs="0" name="UserId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Client" nillable="true" type="tns:Client" />
+  <xs:complexType name="ArrayOfClientComment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClientComment" nillable="true" type="tns:ClientComment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClientComment" nillable="true" type="tns:ArrayOfClientComment" />
+  <xs:complexType name="ClientComment">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Client" nillable="true" type="tns:Client" />
+          <xs:element minOccurs="0" name="ClientId" type="xs:long" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Delivery" nillable="true" type="tns:Delivery" />
+          <xs:element minOccurs="0" name="DeliveryId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="Id" type="xs:long" />
+          <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
+          <xs:element minOccurs="0" name="ProductId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="Rate" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ClientComment" nillable="true" type="tns:ClientComment" />
+  <xs:complexType name="Delivery">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Bookings" nillable="true" type="tns:ArrayOfBooking" />
+          <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClientComments" nillable="true" type="tns:ArrayOfClientComment" />
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Commission" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="DeliveryTypes" nillable="true" type="tns:ArrayOfDeliveryType" />
+          <xs:element minOccurs="0" name="Disctrict" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HighestPrice" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Id" type="xs:long" />
+          <xs:element minOccurs="0" name="LowestPrice" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Quality" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+          <xs:element minOccurs="0" name="UserId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Delivery" nillable="true" type="tns:Delivery" />
+  <xs:complexType name="ArrayOfDeliveryType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DeliveryType" nillable="true" type="tns:DeliveryType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDeliveryType" nillable="true" type="tns:ArrayOfDeliveryType" />
+  <xs:complexType name="DeliveryType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Active" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Code" type="xs:long" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Delivery" nillable="true" type="tns:Delivery" />
+          <xs:element minOccurs="0" name="DeliveryDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DeliveryId" type="xs:long" />
+          <xs:element minOccurs="0" name="DeliveryPrices" nillable="true" type="tns:ArrayOfDeliveryPrice" />
+          <xs:element minOccurs="0" name="ExtraFee" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:long" />
+          <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Price" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeliveryType" nillable="true" type="tns:DeliveryType" />
+  <xs:complexType name="ArrayOfDeliveryPrice">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DeliveryPrice" nillable="true" type="tns:DeliveryPrice" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDeliveryPrice" nillable="true" type="tns:ArrayOfDeliveryPrice" />
+  <xs:complexType name="DeliveryPrice">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Active" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DeliveryId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="DeliveryType" nillable="true" type="tns:DeliveryType" />
+          <xs:element minOccurs="0" name="Id" type="xs:long" />
+          <xs:element minOccurs="0" name="Price" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeliveryPrice" nillable="true" type="tns:DeliveryPrice" />
+  <xs:complexType name="User">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Active" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Clients" nillable="true" type="tns:ArrayOfClient" />
+          <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DateOfBirth" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Deliveries" nillable="true" type="tns:ArrayOfDelivery" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GCMkey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:long" />
+          <xs:element minOccurs="0" name="IsBlocked" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsNotify" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LastLogin" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Messages" nillable="true" type="tns:ArrayOfMessage" />
+          <xs:element minOccurs="0" name="ModifiedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="MoneyTransactions" nillable="true" type="tns:ArrayOfMoneyTransaction" />
+          <xs:element minOccurs="0" name="MoneyTransactions1" nillable="true" type="tns:ArrayOfMoneyTransaction" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Photos" nillable="true" type="tns:ArrayOfPhoto" />
+          <xs:element minOccurs="0" name="Products" nillable="true" type="tns:ArrayOfProduct" />
+          <xs:element minOccurs="0" name="SecurityAnswer" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SecurityQuestionId" type="xs:short" />
+          <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="ArrayOfClient">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Client" nillable="true" type="tns:Client" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClient" nillable="true" type="tns:ArrayOfClient" />
+  <xs:complexType name="ArrayOfDelivery">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Delivery" nillable="true" type="tns:Delivery" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDelivery" nillable="true" type="tns:ArrayOfDelivery" />
+  <xs:complexType name="ArrayOfMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Message" nillable="true" type="tns:Message" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMessage" nillable="true" type="tns:ArrayOfMessage" />
+  <xs:complexType name="Message">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Body" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DateTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="From" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:long" />
+          <xs:element minOccurs="0" name="IsDeleted" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Status" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Subject" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="To" type="xs:long" />
+          <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Message" nillable="true" type="tns:Message" />
+  <xs:complexType name="ArrayOfMoneyTransaction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MoneyTransaction" nillable="true" type="tns:MoneyTransaction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMoneyTransaction" nillable="true" type="tns:ArrayOfMoneyTransaction" />
+  <xs:complexType name="MoneyTransaction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CCExpiredMonth" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CCExpiredYear" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CCName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CCNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CCPin" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DestinationId" type="xs:long" />
+          <xs:element minOccurs="0" name="Id" type="xs:long" />
+          <xs:element minOccurs="0" name="ModifiedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PaymentDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ReceiptPhoto" nillable="true" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SourceId" type="xs:long" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Trandate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+          <xs:element minOccurs="0" name="User1" nillable="true" type="tns:User" />
+          <xs:element minOccurs="0" name="Value" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MoneyTransaction" nillable="true" type="tns:MoneyTransaction" />
+  <xs:complexType name="ArrayOfPhoto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Photo" nillable="true" type="tns:Photo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPhoto" nillable="true" type="tns:ArrayOfPhoto" />
+  <xs:complexType name="Photo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Id" type="xs:long" />
+          <xs:element minOccurs="0" name="Image" nillable="true" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="IsVisble" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ModifiedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PhotoDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PhotoLink" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UploadedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+          <xs:element minOccurs="0" name="UserId" type="xs:long" />
+          <xs:element minOccurs="0" name="VIPMemberOnly" nillable="true" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Photo" nillable="true" type="tns:Photo" />
+  <xs:complexType name="ArrayOfProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Product" nillable="true" type="tns:Product" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProduct" nillable="true" type="tns:ArrayOfProduct" />
+  <xs:complexType name="Product">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Balance" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BankAccNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BankAccount" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BankName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Bookings" nillable="true" type="tns:ArrayOfBooking" />
+          <xs:element minOccurs="0" name="CancelCount" type="xs:int" />
+          <xs:element minOccurs="0" name="ClientComments" nillable="true" type="tns:ArrayOfClientComment" />
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Commission" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Group" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:long" />
+          <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsAvailable" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsBlocked" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Language1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Language2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ModifedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PreferrableLocation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Price" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ProductDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProductPrices" nillable="true" type="tns:ArrayOfProductPrice" />
+          <xs:element minOccurs="0" name="Reward" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+          <xs:element minOccurs="0" name="UserId" type="xs:long" />
+          <xs:element minOccurs="0" name="Videos" nillable="true" type="tns:ArrayOfVideo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Product" nillable="true" type="tns:Product" />
+  <xs:complexType name="ArrayOfProductPrice">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductPrice" nillable="true" type="tns:ProductPrice" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProductPrice" nillable="true" type="tns:ArrayOfProductPrice" />
+  <xs:complexType name="ProductPrice">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Active" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Id" type="xs:long" />
+          <xs:element minOccurs="0" name="Price" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
+          <xs:element minOccurs="0" name="ProductId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="ProductType" nillable="true" type="tns:ProductType" />
+          <xs:element minOccurs="0" name="ProductTypeId" type="xs:long" />
+          <xs:element minOccurs="0" name="Reward" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProductPrice" nillable="true" type="tns:ProductPrice" />
+  <xs:complexType name="ProductType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Active" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Flag" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:long" />
+          <xs:element minOccurs="0" name="ProductPrices" nillable="true" type="tns:ArrayOfProductPrice" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProductType" nillable="true" type="tns:ProductType" />
+  <xs:complexType name="ArrayOfVideo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Video" nillable="true" type="tns:Video" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVideo" nillable="true" type="tns:ArrayOfVideo" />
+  <xs:complexType name="Video">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Id" type="xs:long" />
+          <xs:element minOccurs="0" name="IsVisible" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ModifiedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
+          <xs:element minOccurs="0" name="ProductId" type="xs:long" />
+          <xs:element minOccurs="0" name="Source" nillable="true" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UploadedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="VIPMemberOnly" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="VideoDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VideoLink" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Video" nillable="true" type="tns:Video" />
+  <xs:complexType name="ArrayOfReport">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Report" nillable="true" type="tns:Report" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReport" nillable="true" type="tns:ArrayOfReport" />
+  <xs:complexType name="Report">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Booking" nillable="true" type="tns:Booking" />
+          <xs:element minOccurs="0" name="BookingId" type="xs:long" />
+          <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:long" />
+          <xs:element minOccurs="0" name="RefundAmount" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SystemRespond" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Report" nillable="true" type="tns:Report" />
+  <xs:complexType name="ReturnTypeOfBooking">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ReturnTypeOf{0}" Namespace="http://schemas.datacontract.org/2004/07/Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Booking" Namespace="http://schemas.datacontract.org/2004/07/Models" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:Booking" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnTypeOfBooking" nillable="true" type="tns:ReturnTypeOfBooking" />
+  <xs:complexType name="ReturnTypeOfboolean">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ReturnTypeOf{0}" Namespace="http://schemas.datacontract.org/2004/07/Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Result" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnTypeOfboolean" nillable="true" type="tns:ReturnTypeOfboolean" />
+  <xs:complexType name="ReturnTypeOfClientComment">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ReturnTypeOf{0}" Namespace="http://schemas.datacontract.org/2004/07/Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ClientComment" Namespace="http://schemas.datacontract.org/2004/07/Models" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ClientComment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnTypeOfClientComment" nillable="true" type="tns:ReturnTypeOfClientComment" />
+  <xs:complexType name="ReturnTypeOfArrayOfClientComment">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ReturnTypeOf{0}" Namespace="http://schemas.datacontract.org/2004/07/Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfClientComment" Namespace="http://schemas.datacontract.org/2004/07/Models" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfClientComment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnTypeOfArrayOfClientComment" nillable="true" type="tns:ReturnTypeOfArrayOfClientComment" />
+  <xs:complexType name="ReturnTypeOfClient">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ReturnTypeOf{0}" Namespace="http://schemas.datacontract.org/2004/07/Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Client" Namespace="http://schemas.datacontract.org/2004/07/Models" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:Client" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnTypeOfClient" nillable="true" type="tns:ReturnTypeOfClient" />
+  <xs:complexType name="ReturnTypeOfDelivery">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ReturnTypeOf{0}" Namespace="http://schemas.datacontract.org/2004/07/Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Delivery" Namespace="http://schemas.datacontract.org/2004/07/Models" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:Delivery" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnTypeOfDelivery" nillable="true" type="tns:ReturnTypeOfDelivery" />
+  <xs:complexType name="ReturnTypeOfDeliveryType">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ReturnTypeOf{0}" Namespace="http://schemas.datacontract.org/2004/07/Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="DeliveryType" Namespace="http://schemas.datacontract.org/2004/07/Models" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:DeliveryType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnTypeOfDeliveryType" nillable="true" type="tns:ReturnTypeOfDeliveryType" />
+  <xs:complexType name="FeedBack">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:long" />
+          <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FeedBack" nillable="true" type="tns:FeedBack" />
+  <xs:complexType name="ReturnTypeOfFeedBack">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ReturnTypeOf{0}" Namespace="http://schemas.datacontract.org/2004/07/Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="FeedBack" Namespace="http://schemas.datacontract.org/2004/07/Models" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:FeedBack" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnTypeOfFeedBack" nillable="true" type="tns:ReturnTypeOfFeedBack" />
+  <xs:complexType name="ReturnTypeOfMessage">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ReturnTypeOf{0}" Namespace="http://schemas.datacontract.org/2004/07/Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Message" Namespace="http://schemas.datacontract.org/2004/07/Models" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:Message" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnTypeOfMessage" nillable="true" type="tns:ReturnTypeOfMessage" />
+  <xs:complexType name="ReturnTypeOfArrayOfMessage">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ReturnTypeOf{0}" Namespace="http://schemas.datacontract.org/2004/07/Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfMessage" Namespace="http://schemas.datacontract.org/2004/07/Models" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfMessage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnTypeOfArrayOfMessage" nillable="true" type="tns:ReturnTypeOfArrayOfMessage" />
+  <xs:complexType name="ReturnTypeOfMoneyTransaction">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ReturnTypeOf{0}" Namespace="http://schemas.datacontract.org/2004/07/Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="MoneyTransaction" Namespace="http://schemas.datacontract.org/2004/07/Models" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:MoneyTransaction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnTypeOfMoneyTransaction" nillable="true" type="tns:ReturnTypeOfMoneyTransaction" />
+  <xs:complexType name="ReturnTypeOfArrayOfMoneyTransaction">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ReturnTypeOf{0}" Namespace="http://schemas.datacontract.org/2004/07/Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfMoneyTransaction" Namespace="http://schemas.datacontract.org/2004/07/Models" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfMoneyTransaction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnTypeOfArrayOfMoneyTransaction" nillable="true" type="tns:ReturnTypeOfArrayOfMoneyTransaction" />
+  <xs:complexType name="ReturnTypeOfPhoto">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ReturnTypeOf{0}" Namespace="http://schemas.datacontract.org/2004/07/Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Photo" Namespace="http://schemas.datacontract.org/2004/07/Models" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:Photo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnTypeOfPhoto" nillable="true" type="tns:ReturnTypeOfPhoto" />
+  <xs:complexType name="ReturnTypeOfArrayOfPhoto">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ReturnTypeOf{0}" Namespace="http://schemas.datacontract.org/2004/07/Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfPhoto" Namespace="http://schemas.datacontract.org/2004/07/Models" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfPhoto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnTypeOfArrayOfPhoto" nillable="true" type="tns:ReturnTypeOfArrayOfPhoto" />
+  <xs:complexType name="ReturnTypeOfProductPrice">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ReturnTypeOf{0}" Namespace="http://schemas.datacontract.org/2004/07/Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ProductPrice" Namespace="http://schemas.datacontract.org/2004/07/Models" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ProductPrice" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnTypeOfProductPrice" nillable="true" type="tns:ReturnTypeOfProductPrice" />
+  <xs:complexType name="ReturnTypeOfArrayOfProductPrice">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ReturnTypeOf{0}" Namespace="http://schemas.datacontract.org/2004/07/Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfProductPrice" Namespace="http://schemas.datacontract.org/2004/07/Models" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfProductPrice" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnTypeOfArrayOfProductPrice" nillable="true" type="tns:ReturnTypeOfArrayOfProductPrice" />
+  <xs:complexType name="ReturnTypeOfProduct">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ReturnTypeOf{0}" Namespace="http://schemas.datacontract.org/2004/07/Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Product" Namespace="http://schemas.datacontract.org/2004/07/Models" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:Product" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnTypeOfProduct" nillable="true" type="tns:ReturnTypeOfProduct" />
+  <xs:complexType name="ReturnTypeOfProductType">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ReturnTypeOf{0}" Namespace="http://schemas.datacontract.org/2004/07/Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ProductType" Namespace="http://schemas.datacontract.org/2004/07/Models" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ProductType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnTypeOfProductType" nillable="true" type="tns:ReturnTypeOfProductType" />
+  <xs:complexType name="ReturnTypeOfArrayOfProductType">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ReturnTypeOf{0}" Namespace="http://schemas.datacontract.org/2004/07/Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfProductType" Namespace="http://schemas.datacontract.org/2004/07/Models" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfProductType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnTypeOfArrayOfProductType" nillable="true" type="tns:ReturnTypeOfArrayOfProductType" />
+  <xs:complexType name="ArrayOfProductType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductType" nillable="true" type="tns:ProductType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProductType" nillable="true" type="tns:ArrayOfProductType" />
+  <xs:complexType name="ReturnTypeOfReport">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ReturnTypeOf{0}" Namespace="http://schemas.datacontract.org/2004/07/Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Report" Namespace="http://schemas.datacontract.org/2004/07/Models" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:Report" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnTypeOfReport" nillable="true" type="tns:ReturnTypeOfReport" />
+  <xs:complexType name="ReturnTypeOfUser">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ReturnTypeOf{0}" Namespace="http://schemas.datacontract.org/2004/07/Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="User" Namespace="http://schemas.datacontract.org/2004/07/Models" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnTypeOfUser" nillable="true" type="tns:ReturnTypeOfUser" />
+  <xs:complexType name="ReturnTypeOfVideo">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ReturnTypeOf{0}" Namespace="http://schemas.datacontract.org/2004/07/Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Video" Namespace="http://schemas.datacontract.org/2004/07/Models" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:Video" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnTypeOfVideo" nillable="true" type="tns:ReturnTypeOfVideo" />
+  <xs:complexType name="ReturnTypeOfArrayOfVideo">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ReturnTypeOf{0}" Namespace="http://schemas.datacontract.org/2004/07/Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfVideo" Namespace="http://schemas.datacontract.org/2004/07/Models" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfVideo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnTypeOfArrayOfVideo" nillable="true" type="tns:ReturnTypeOfArrayOfVideo" />
 </xs:schema>

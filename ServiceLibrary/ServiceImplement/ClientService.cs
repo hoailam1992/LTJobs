@@ -14,19 +14,19 @@ namespace ServiceLibrary
         {
             return (new ClientBusinessService()).DeleteById(id);
         }     
-        public ReturnType<client> GetClientByUserId(long id)
+        public ReturnType<Client> GetClientByUserId(long id)
         {
             return (new ClientBusinessService()).GetClientByUserId(id);
         }
-        public ReturnType<client> GetClientByClientCode(string id)
+        public ReturnType<Client> GetClientByClientCode(string id)
         {
             return (new ClientBusinessService()).GetClientByClientCode(id);
         }
-        public ReturnType<client> SaveClient(client entity)
+        public ReturnType<Client> SaveClient(Client entity)
         {
             return (new ClientBusinessService()).Save(entity);
         }
-        public ReturnType<client> GetClientById(long id)
+        public ReturnType<Client> GetClientById(long id)
         {
             return (new ClientBusinessService()).GetById(id);
         }

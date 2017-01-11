@@ -111,7 +111,7 @@ public partial class register : System.Web.UI.Page
 
     public void BtnRegister_Click(object sender, EventArgs e)
     {
-        user RegisterUser = new user();
+        User RegisterUser = new User();
         //RegisterUser.username = txtUsername.Text;        
         RegisterUser.username = inputDisplay.Value;
         RegisterUser.fullname = txtFullname.Text;

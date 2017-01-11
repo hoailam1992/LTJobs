@@ -14,23 +14,23 @@ namespace ServiceLibrary
         {
             return (new ClientCommentBusinessService()).DeleteById(id);
         }
-        public ReturnType<IList<clientcomment>> GetClientCommentByClientId(long id)
+        public ReturnType<IList<ClientComment>> GetClientCommentByClientId(long id)
         {
             return (new ClientCommentBusinessService()).GetClientCommentByClientId(id);
         }
-        public ReturnType<IList<clientcomment>> GetClientCommentByProductId(long id)
+        public ReturnType<IList<ClientComment>> GetClientCommentByProductId(long id)
         {
             return (new ClientCommentBusinessService()).GetClientCommentByProductId(id);
         }
-        public ReturnType<IList<clientcomment>> GetClientCommentByDeliveryId(long id)
+        public ReturnType<IList<ClientComment>> GetClientCommentByDeliveryId(long id)
         {
             return (new ClientCommentBusinessService()).GetClientCommentByDeliveryId(id);
         }
-        public ReturnType<clientcomment> SaveClientComment(clientcomment entity)
+        public ReturnType<ClientComment> SaveClientComment(ClientComment entity)
         {
             return (new ClientCommentBusinessService()).Save(entity);
         }
-        public ReturnType<clientcomment> GetClientCommentById(long id)
+        public ReturnType<ClientComment> GetClientCommentById(long id)
         {
             return (new ClientCommentBusinessService()).GetById(id);
         }

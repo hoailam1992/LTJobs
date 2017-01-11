@@ -12,11 +12,11 @@ namespace ServiceLibrary
     public partial interface IMasterService
     {
         [OperationContract]
-        ReturnType<feedback> SaveFeedBack(feedback entity);
+        ReturnType<FeedBack> SaveFeedBack(FeedBack entity);
         [OperationContract]
         ReturnType<bool> DeleteFeedbackById(long enity);       
         [OperationContract]
-        ReturnType<feedback> GetFeedBackById(long id);
+        ReturnType<FeedBack> GetFeedBackById(long id);
         
     }
 }

@@ -11,49 +11,52 @@ namespace Models
 {
     using System;
     using System.Collections.Generic;
-    using Models.Common;
     using System.Runtime.Serialization;
 
-    public partial class client : ModelBase
+    [DataContract(IsReference = true)]
+    public partial class Client : ModelBase
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public client()
+        public Client()
         {
-            this.bookings = new HashSet<booking>();
-            this.clientcomments = new HashSet<clientcomment>();
+            this.Bookings = new HashSet<Booking>();
+            this.ClientComments = new HashSet<ClientComment>();
         }
        
         [DataMember]
-        public string clientcode { get; set; }
+        public string Code { get; set; }
         [DataMember]
-        public int paymentmode { get; set; }
+        public int PaymentMode { get; set; }
         [DataMember]
-        public string ccholder { get; set; }
+        public string CCHolder { get; set; }
         [DataMember]
-        public string ccnumber { get; set; }
+        public string CCNumber { get; set; }
         [DataMember]
-        public Nullable<int> ccexpiredmonth { get; set; }
+        public Nullable<int> CCExpiredMonth { get; set; }
         [DataMember]
-        public Nullable<int> ccexpiredyear { get; set; }
+        public Nullable<int> CCExpiredYear { get; set; }
         [DataMember]
-        public string ccpin { get; set; }
+        public string CCPin { get; set; }
         [DataMember]
-        public long userid { get; set; }
+        public long UserId { get; set; }
         [DataMember]
-        public bool isvalid { get; set; }
+        public bool IsValid { get; set; }
         [DataMember]
-        public System.DateTime createddate { get; set; }
+        public System.DateTime CreatedDate { get; set; }
         [DataMember]
-        public Nullable<System.DateTime> modifieddate { get; set; }
+        public Nullable<System.DateTime> ModifiedDate { get; set; }
         [DataMember]
-        public decimal balance { get; set; }
+        public decimal Balance { get; set; }
         [DataMember]
-        public int cancelcount { get; set; }
+        public int CancelCount { get; set; }
         [DataMember]
-        public virtual ICollection<booking> bookings { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Booking> Bookings { get; set; }
         [DataMember]
-        public virtual user user { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ClientComment> ClientComments { get; set; }
         [DataMember]
-        public virtual ICollection<clientcomment> clientcomments { get; set; }
+        public virtual User User { get; set; }
     }
 }

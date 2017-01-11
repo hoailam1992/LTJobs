@@ -8,7 +8,7 @@ using BusinessLayer.Common;
 using Models;
 namespace BusinessLayer.Service
 {
-    public class MoneyTransactionBusinessService : BusinessServiceBase<moneytransaction>, IMoneyTransactionBusinessService
+    public class MoneyTransactionBusinessService : BusinessServiceBase<MoneyTransaction>, IMoneyTransactionBusinessService
     {
         public ReturnType<bool> DeleteMoneyTransactionById(long enity)
         {
@@ -26,19 +26,19 @@ namespace BusinessLayer.Service
             return result;
         }
 
-        public ReturnType<IList<moneytransaction>> GetMoneyTransactionByDestinationId(long id)
+        public ReturnType<IList<MoneyTransaction>> GetMoneyTransactionByDestinationId(long id)
         {
-            return GetList(c => c.destinationid == id,c=>c.user,c=>c.user1);
+            return GetList(c => c.DestinationId == id,c=>c.User,c=>c.User1);
         }
 
-        public ReturnType<moneytransaction> GetMoneyTransactionById(long id)
+        public ReturnType<MoneyTransaction> GetMoneyTransactionById(long id)
         {
-            return GetSingle(c => c.id == id, c => c.user, c => c.user1);
+            return GetSingle(c => c.Id == id, c => c.User, c => c.User1);
         }
 
-        public ReturnType<IList<moneytransaction>> GetMoneyTransactionBySourceId(long id)
+        public ReturnType<IList<MoneyTransaction>> GetMoneyTransactionBySourceId(long id)
         {
-            return GetList(c => c.sourceid == id, c => c.user, c => c.user1);
+            return GetList(c => c.SourceId == id, c => c.User, c => c.User1);
         }
              
     }

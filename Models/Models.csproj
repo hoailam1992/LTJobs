@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Models</RootNamespace>
     <AssemblyName>Models</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,56 +52,56 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="booking.cs">
+    <Compile Include="Booking.cs">
       <DependentUpon>WebModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="client.cs">
+    <Compile Include="Client.cs">
       <DependentUpon>WebModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="clientcomment.cs">
+    <Compile Include="ClientComment.cs">
       <DependentUpon>WebModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Common\ModelBase.cs" />
     <Compile Include="Common\ModelState.cs" />
-    <Compile Include="delivery.cs">
+    <Compile Include="Delivery.cs">
       <DependentUpon>WebModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="deliveryprice.cs">
+    <Compile Include="DeliveryPrice.cs">
       <DependentUpon>WebModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="deliverytype.cs">
+    <Compile Include="DeliveryType.cs">
       <DependentUpon>WebModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="feedback.cs">
+    <Compile Include="FeedBack.cs">
       <DependentUpon>WebModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="message.cs">
+    <Compile Include="Message.cs">
       <DependentUpon>WebModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="moneytransaction.cs">
+    <Compile Include="MoneyTransaction.cs">
       <DependentUpon>WebModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="photo.cs">
+    <Compile Include="Photo.cs">
       <DependentUpon>WebModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="product.cs">
+    <Compile Include="Product.cs">
       <DependentUpon>WebModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="productprice.cs">
+    <Compile Include="ProductPrice.cs">
       <DependentUpon>WebModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="producttype.cs">
+    <Compile Include="ProductType.cs">
       <DependentUpon>WebModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="report.cs">
+    <Compile Include="Report.cs">
       <DependentUpon>WebModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ReturnType.cs" />
-    <Compile Include="user.cs">
+    <Compile Include="User.cs">
       <DependentUpon>WebModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="video.cs">
+    <Compile Include="Video.cs">
       <DependentUpon>WebModel.tt</DependentUpon>
     </Compile>
     <Compile Include="WebModel.cs">
@@ -121,12 +122,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\EFWeb\EFWeb.csproj">
-      <Project>{e1ad9f31-1164-4b13-881c-af26e4beb969}</Project>
-      <Name>EFWeb</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

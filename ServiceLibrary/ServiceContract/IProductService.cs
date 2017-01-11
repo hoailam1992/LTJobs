@@ -13,15 +13,15 @@ namespace ServiceLibrary
     public partial interface IMasterService
     {
         [OperationContract]
-        ReturnType<product> SaveProduct(product entity);
+        ReturnType<Product> SaveProduct(Product entity);
         [OperationContract]
         ReturnType<bool> DeleteProductById(long enity);
         [OperationContract]
-        ReturnType<product> GetProductByUserId(long id);
+        ReturnType<Product> GetProductByUserId(long id);
         [OperationContract]
-        ReturnType<product> GetProductById(long id);
+        ReturnType<Product> GetProductById(long id);
         [OperationContract]
-        ReturnType<product> GetProductByCode(string id);
+        ReturnType<Product> GetProductByCode(string id);
         //[OperationContract]
         //ReturnType<IList<product>> GetProductFilter(Expression<Func<product, bool>> where, params Expression<Func<product, object>>[] navigationProperties);
     }

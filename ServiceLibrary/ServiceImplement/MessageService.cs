@@ -14,15 +14,15 @@ namespace ServiceLibrary
         {
             return (new MessageBusinessService()).DeleteById(id);
         }
-        public ReturnType<IList<message>> GetMessageByUserId(long id)
+        public ReturnType<IList<Message>> GetMessageByUserId(long id)
         {
             return (new MessageBusinessService()).GetMessageByToId(id);
         }
-        public ReturnType<message> GetMessageById(long id)
+        public ReturnType<Message> GetMessageById(long id)
         {
             return (new MessageBusinessService()).GetById(id);
         }
-        public ReturnType<message> SaveMessage(message entity)
+        public ReturnType<Message> SaveMessage(Message entity)
         {
             return (new MessageBusinessService()).Save(entity);
         }

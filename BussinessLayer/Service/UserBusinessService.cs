@@ -8,18 +8,18 @@ using BusinessLayer.Common;
 using Models;
 namespace BusinessLayer.Service
 {
-    public class UserBusinessService : BusinessServiceBase<user>, IUserBusinessService
+    public class UserBusinessService : BusinessServiceBase<User>, IUserBusinessService
     {
-        public ReturnType<user> LoginUser(string username, string password)
+        public ReturnType<User> LoginUser(string username, string password)
         {
-            var user = GetSingle(c => c.username == username && c.password == password);
+            var user = GetSingle(c => c.UserName == username && c.Password == password);
             if (user.IsSuccess && user.Result!=null)
             {
-                user.Result.password = "";
-                user.Result.securityanswer = "";
+                user.Result.Password = "";
+                user.Result.SecurityAnswer = "";
                 return user;                
             }
-            return new ReturnType<Models.user>() { IsSuccess = false, Result = null, ErrorMessage = "Login Fails" };
+            return new ReturnType<User>() { IsSuccess = false, Result = null, ErrorMessage = "Login Fails" };
         }
     }
 }

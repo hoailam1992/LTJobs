@@ -7,11 +7,11 @@ using Models;
 using BusinessLayer.Common;
 namespace BusinessLayer.IService
 {
-    public interface IMoneyTransactionBusinessService : IBusinessServiceBase<moneytransaction>
+    public interface IMoneyTransactionBusinessService : IBusinessServiceBase<MoneyTransaction>
     {
         ReturnType<bool> DeleteMoneyTransactionById(long enity);
-        ReturnType<IList<moneytransaction>> GetMoneyTransactionBySourceId(long id);
-        ReturnType<IList<moneytransaction>> GetMoneyTransactionByDestinationId(long id);
-        ReturnType<moneytransaction> GetMoneyTransactionById(long id);
+        ReturnType<IList<MoneyTransaction>> GetMoneyTransactionBySourceId(long id);
+        ReturnType<IList<MoneyTransaction>> GetMoneyTransactionByDestinationId(long id);
+        ReturnType<MoneyTransaction> GetMoneyTransactionById(long id);
     }
 }

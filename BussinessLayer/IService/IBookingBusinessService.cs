@@ -10,12 +10,12 @@ using System.Collections.ObjectModel;
 namespace BusinessLayer.IService
 {
     
-    public interface IBookingBusinessService : IBusinessServiceBase<booking>
+    public interface IBookingBusinessService : IBusinessServiceBase<Booking>
     {
-        ReturnType<IList<booking>> GetBookingByClientId(long id);
+        ReturnType<IList<Booking>> GetBookingByClientId(long id);
         ReturnType<bool> DeleteBookingById(long enity);
-        ReturnType<booking> GetBookingById(long id);
-        ReturnType<IList<booking>> GetBookingByProductId(long id);
-        ReturnType<IList<booking>> GetBookingByDeliveryId(long id);
+        ReturnType<Booking> GetBookingById(long id);
+        ReturnType<IList<Booking>> GetBookingByProductId(long id);
+        ReturnType<IList<Booking>> GetBookingByDeliveryId(long id);
     }
 }

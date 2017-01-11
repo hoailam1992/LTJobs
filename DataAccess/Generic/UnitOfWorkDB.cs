@@ -1,5 +1,5 @@
-﻿using Models;
-using Models.Common;
+﻿
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -11,7 +11,7 @@ using EFWeb;
 namespace DataAccess
 {
     public class UnitOfWorkDB : UnitOfWorkBase
-    {    
+    {        
         public UnitOfWorkDB() : base("")
         {
             try
@@ -28,13 +28,13 @@ namespace DataAccess
         public override void OnSavingChanges(object sender, EventArgs e)
         {
             //ObjectStateEntry objectStateEntry = null;
-            Models.Common.ModelBase entity;
+            Models.ModelBase entity;
             base.OnSavingChanges(sender, e);
             ObjectStateManager objectStateManager = ((IObjectContextAdapter)base.DbContext).ObjectContext.ObjectStateManager;
             IEnumerable<ObjectStateEntry> objectStateEntries = objectStateManager.GetObjectStateEntries(EntityState.Added);
             foreach (ObjectStateEntry objectStateEntry in objectStateEntries)
             {
-                entity = objectStateEntry.Entity as Models.Common.ModelBase;
+                entity = objectStateEntry.Entity as Models.ModelBase;
                 if (entity != null)
                 {                  
                     
@@ -43,7 +43,7 @@ namespace DataAccess
             IEnumerable<ObjectStateEntry> objectStateEntries1 = objectStateManager.GetObjectStateEntries(EntityState.Modified);
             foreach (ObjectStateEntry objectStateEntry1 in objectStateEntries1)
             {
-                entity = objectStateEntry1.Entity as Models.Common.ModelBase;           
+                entity = objectStateEntry1.Entity as Models.ModelBase;           
             }
             IEnumerable<ObjectStateEntry> objectStateEntries2 = objectStateManager.GetObjectStateEntries(EntityState.Deleted);
         }

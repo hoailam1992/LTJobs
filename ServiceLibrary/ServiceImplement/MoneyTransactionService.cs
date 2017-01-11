@@ -14,21 +14,21 @@ namespace ServiceLibrary
         {
             return (new MoneyTransactionBusinessService()).DeleteById(id);
         }
-        public ReturnType<moneytransaction> SaveMoneyTransaction(moneytransaction entity)
+        public ReturnType<MoneyTransaction> SaveMoneyTransaction(MoneyTransaction entity)
         {
             return (new MoneyTransactionBusinessService()).Save(entity);
         }
-        public ReturnType<IList<moneytransaction>> GetMoneyTransactionByDestinationId(long id)
+        public ReturnType<IList<MoneyTransaction>> GetMoneyTransactionByDestinationId(long id)
         {
             return (new MoneyTransactionBusinessService()).GetMoneyTransactionByDestinationId(id);
         }
 
-        public ReturnType<moneytransaction> GetMoneyTransactionById(long id)
+        public ReturnType<MoneyTransaction> GetMoneyTransactionById(long id)
         {
             return (new MoneyTransactionBusinessService()).GetById(id);
         }
 
-        public ReturnType<IList<moneytransaction>> GetMoneyTransactionBySourceId(long id)
+        public ReturnType<IList<MoneyTransaction>> GetMoneyTransactionBySourceId(long id)
         {
             return (new MoneyTransactionBusinessService()).GetMoneyTransactionBySourceId(id);
         }

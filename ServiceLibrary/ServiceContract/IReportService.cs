@@ -12,12 +12,12 @@ namespace ServiceLibrary
     public partial interface IMasterService
     {
         [OperationContract]
-        ReturnType<report> SaveReport(report entity);
+        ReturnType<Report> SaveReport(Report entity);
         [OperationContract]
         ReturnType<bool> DeleteReportById(long enity);        
         [OperationContract]
-        ReturnType<report> GetReportByBookingId(long id);
+        ReturnType<Report> GetReportByBookingId(long id);
         [OperationContract]
-        ReturnType<report> GetReportById(long id);
+        ReturnType<Report> GetReportById(long id);
     }
 }

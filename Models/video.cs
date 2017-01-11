@@ -11,34 +11,34 @@ namespace Models
 {
     using System;
     using System.Collections.Generic;
-    using Models.Common;
     using System.Runtime.Serialization;
 
-    public partial class video : ModelBase
+    [DataContract(IsReference =true)]
+    public partial class Video : ModelBase
     {
        
         [DataMember]
-        public long memberid { get; set; }
+        public long ProductId { get; set; }
         [DataMember]
-        public byte[] data { get; set; }
+        public byte[] Source { get; set; }
         [DataMember]
-        public string videolink { get; set; }
+        public string VideoLink { get; set; }
         [DataMember]
-        public System.DateTime uploadeddate { get; set; }
+        public System.DateTime UploadedDate { get; set; }
         [DataMember]
-        public string videodescription { get; set; }
+        public string VideoDescription { get; set; }
         [DataMember]
-        public Nullable<System.DateTime> createddate { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
         [DataMember]
-        public Nullable<System.DateTime> modifieddate { get; set; }
+        public Nullable<System.DateTime> ModifiedDate { get; set; }
         [DataMember]
-        public Nullable<bool> isvisible { get; set; }
+        public Nullable<bool> IsVisible { get; set; }
         [DataMember]
-        public Nullable<bool> vipmemberonly { get; set; }
+        public Nullable<bool> VIPMemberOnly { get; set; }
         [DataMember]
-        public string status { get; set; }
+        public string Status { get; set; }
         [DataMember]
 
-        public virtual product product { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

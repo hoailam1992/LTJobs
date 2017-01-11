@@ -7,8 +7,8 @@ using Models;
 using BusinessLayer.Common;
 namespace BusinessLayer.IService
 {
-    public interface IUserBusinessService : IBusinessServiceBase<user>
+    public interface IUserBusinessService : IBusinessServiceBase<User>
     {
-        ReturnType<user> LoginUser(string username, string password);
+        ReturnType<User> LoginUser(string username, string password);
     }
 }

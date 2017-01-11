@@ -15,15 +15,15 @@ namespace ServiceLibrary
             return (new PhotoBusinessService()).DeleteById(id);
         }       
 
-        public ReturnType<IList<photo>> GetPhotoByUserId(long id)
+        public ReturnType<IList<Photo>> GetPhotoByUserId(long id)
         {
             return (new PhotoBusinessService()).GetPhotoByUserId(id);
         }
-        public ReturnType<photo> SavePhoto(photo entity)
+        public ReturnType<Photo> SavePhoto(Photo entity)
         {
             return (new PhotoBusinessService()).Save(entity);
         }
-        public ReturnType<photo> GetPhotoById(long id)
+        public ReturnType<Photo> GetPhotoById(long id)
         {
             return (new PhotoBusinessService()).GetById(id);
         }

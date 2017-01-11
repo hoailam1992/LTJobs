@@ -1,4 +1,4 @@
-﻿using Models.Common;
+﻿using Models;
 using System;
 
 namespace DataAccess

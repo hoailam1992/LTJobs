@@ -8,7 +8,7 @@ using BusinessLayer.Common;
 using Models;
 namespace BusinessLayer.Service
 {
-    public class FeedbackBusinessService : BusinessServiceBase<feedback>, IFeedbackBusinessService
+    public class FeedbackBusinessService : BusinessServiceBase<FeedBack>, IFeedbackBusinessService
     {
         public ReturnType<bool> DeleteFeedbackById(long enity)
         {

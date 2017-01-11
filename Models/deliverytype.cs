@@ -9,37 +9,40 @@
 
 namespace Models
 {
-    using Common;
     using System;
     using System.Collections.Generic;
     using System.Runtime.Serialization;
 
-    public partial class deliverytype : ModelBase
+    [DataContract(IsReference = true)]
+    public partial class DeliveryType : ModelBase
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public deliverytype()
+        public DeliveryType()
         {
-            this.deliveryprices = new HashSet<deliveryprice>();
+            this.DeliveryPrices = new HashSet<DeliveryPrice>();
         }
+       
+        [DataMember]
+        public long DeliveryId { get; set; }
+        [DataMember]
+        public long Code { get; set; }
+        [DataMember]
+        public string DeliveryDescription { get; set; }
+        [DataMember]
+        public bool Active { get; set; }
+        [DataMember]
+        public string ExtraFee { get; set; }
+        [DataMember]
+        public System.DateTime CreatedDate { get; set; }
+        [DataMember]
+        public System.DateTime ModifiedDate { get; set; }
+        [DataMember]
+        public Nullable<decimal> Price { get; set; }
+        [DataMember]
 
-        [DataMember]
-        public long deliveryid { get; set; }
-        [DataMember]
-        public long deliverycode { get; set; }
-        [DataMember]
-        public string deliverydescription { get; set; }
-        [DataMember]
-        public bool active { get; set; }
-        [DataMember]
-        public string extrafee { get; set; }
-        [DataMember]
-        public System.DateTime createddate { get; set; }
-        [DataMember]
-        public System.DateTime modifieddate { get; set; }
+        public virtual Delivery Delivery { get; set; }
         [DataMember]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<deliveryprice> deliveryprices { get; set; }
-        [DataMember]
-        public virtual delivery delivery { get; set; }
+        public virtual ICollection<DeliveryPrice> DeliveryPrices { get; set; }
     }
 }

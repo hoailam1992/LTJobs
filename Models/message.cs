@@ -11,28 +11,28 @@ namespace Models
 {
     using System;
     using System.Collections.Generic;
-    using Models.Common;
     using System.Runtime.Serialization;
 
-    public partial class message :ModelBase
+    [DataContract(IsReference = true)]
+    public partial class Message : ModelBase
     {
-      
+        
         [DataMember]
-        public string from { get; set; }
+        public string From { get; set; }
         [DataMember]
-        public long to { get; set; }
+        public long To { get; set; }
         [DataMember]
-        public string subject { get; set; }
+        public string Subject { get; set; }
         [DataMember]
-        public string body { get; set; }
+        public string Body { get; set; }
         [DataMember]
-        public System.DateTime datetime { get; set; }
+        public System.DateTime DateTime { get; set; }
         [DataMember]
-        public bool status { get; set; }
+        public bool Status { get; set; }
         [DataMember]
-        public Nullable<bool> isdeleted { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
         [DataMember]
 
-        public virtual user user { get; set; }
+        public virtual User User { get; set; }
     }
 }

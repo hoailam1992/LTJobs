@@ -8,11 +8,11 @@ using BusinessLayer.Common;
 using Models;
 namespace BusinessLayer.Service
 {
-    public class ReportBusinessService : BusinessServiceBase<report>, IReportBusinessService
+    public class ReportBusinessService : BusinessServiceBase<Report>, IReportBusinessService
     {
-        public ReturnType<report> GetReportByBookingId(long id)
+        public ReturnType<Report> GetReportByBookingId(long id)
         {
-            return GetSingle(c => c.bookingid == id);
+            return GetSingle(c => c.BookingId == id);
         }
     }
 }

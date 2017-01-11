@@ -14,11 +14,11 @@ namespace ServiceLibrary
         {
             return (new FeedbackBusinessService()).DeleteById(id);
         }
-        public ReturnType<feedback> SaveFeedBack(feedback entity)
+        public ReturnType<FeedBack> SaveFeedBack(FeedBack entity)
         {
             return (new FeedbackBusinessService()).Save(entity);
         }
-        public ReturnType<feedback> GetFeedBackById(long id)
+        public ReturnType<FeedBack> GetFeedBackById(long id)
         {
             return (new FeedbackBusinessService()).GetById(id);
         }

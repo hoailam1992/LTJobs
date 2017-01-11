@@ -7,11 +7,11 @@ using Models;
 using BusinessLayer.Common;
 namespace BusinessLayer.IService
 {
-    public interface IPhotoBusinessService : IBusinessServiceBase<photo>
+    public interface IPhotoBusinessService : IBusinessServiceBase<Photo>
     {
       
         ReturnType<bool> DeletePhotoById(long enity);
-        ReturnType<IList<photo>> GetPhotoByUserId(long id);
+        ReturnType<IList<Photo>> GetPhotoByUserId(long id);
         
     }
 }

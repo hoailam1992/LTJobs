@@ -4,41 +4,42 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="db20ec0e855f471c84c4f117c54d1765" Name="Diagram1" ZoomLevel="40">
-        <EntityTypeShape EntityType="dbwebModel.booking" Width="1.5" PointX="5.25" PointY="16.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbwebModel.client" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbwebModel.clientcomment" Width="1.5" PointX="8.25" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbwebModel.delivery" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbwebModel.deliveryprice" Width="1.5" PointX="7.5" PointY="10.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbwebModel.deliverytype" Width="1.5" PointX="5.25" PointY="10.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbwebModel.feedback" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbwebModel.message" Width="1.5" PointX="3" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbwebModel.moneytransaction" Width="1.5" PointX="3" PointY="18.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbwebModel.photo" Width="1.5" PointX="3" PointY="23.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbwebModel.product" Width="1.5" PointX="3" PointY="27.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbwebModel.productprice" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbwebModel.producttype" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbwebModel.report" Width="1.5" PointX="7.5" PointY="20.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbwebModel.user" Width="1.5" PointX="0.75" PointY="16.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbwebModel.video" Width="1.5" PointX="5.25" PointY="29" IsExpanded="true" />
-        <AssociationConnector Association="dbwebModel.FK_booking_client" ManuallyRouted="false" />
-        <AssociationConnector Association="dbwebModel.FK_booking_delivery" ManuallyRouted="false" />
-        <AssociationConnector Association="dbwebModel.FK_booking_product" ManuallyRouted="false" />
-        <AssociationConnector Association="dbwebModel.FK_report_booking" ManuallyRouted="false" />
-        <AssociationConnector Association="dbwebModel.FK_client_user1" ManuallyRouted="false" />
-        <AssociationConnector Association="dbwebModel.FK_clientcomment_client" ManuallyRouted="false" />
-        <AssociationConnector Association="dbwebModel.FK_clientcomment_delivery" ManuallyRouted="false" />
-        <AssociationConnector Association="dbwebModel.FK_clientcomment_product" ManuallyRouted="false" />
-        <AssociationConnector Association="dbwebModel.FK_delivery_user" ManuallyRouted="false" />
-        <AssociationConnector Association="dbwebModel.FK_deliverytype_delivery" ManuallyRouted="false" />
-        <AssociationConnector Association="dbwebModel.FK_DeliveryPrice_deliverytype" ManuallyRouted="false" />
-        <AssociationConnector Association="dbwebModel.FK_message_user" ManuallyRouted="false" />
-        <AssociationConnector Association="dbwebModel.FK_moneytransaction_user" ManuallyRouted="false" />
-        <AssociationConnector Association="dbwebModel.FK_moneytransaction_user1" ManuallyRouted="false" />
-        <AssociationConnector Association="dbwebModel.FK_photo_user" ManuallyRouted="false" />
-        <AssociationConnector Association="dbwebModel.FK_product_user" ManuallyRouted="false" />
-        <AssociationConnector Association="dbwebModel.FK_video_product" ManuallyRouted="false" />
-        <AssociationConnector Association="dbwebModel.FK_productprice_producttype" ManuallyRouted="false" />
+      <Diagram DiagramId="c6315f95d545453587180841d1d664cb" Name="Diagram1">
+        <EntityTypeShape EntityType="dbwebModel.Booking" Width="1.5" PointX="5.25" PointY="17.125" />
+        <EntityTypeShape EntityType="dbwebModel.ClientComment" Width="1.5" PointX="8.25" PointY="16.125" />
+        <EntityTypeShape EntityType="dbwebModel.Client" Width="1.5" PointX="3" PointY="5.125" />
+        <EntityTypeShape EntityType="dbwebModel.Delivery" Width="1.5" PointX="3" PointY="10.125" />
+        <EntityTypeShape EntityType="dbwebModel.DeliveryPrice" Width="1.5" PointX="7.5" PointY="11.25" />
+        <EntityTypeShape EntityType="dbwebModel.DeliveryType" Width="1.5" PointX="5.25" PointY="10.625" />
+        <EntityTypeShape EntityType="dbwebModel.FeedBack" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="dbwebModel.Message" Width="1.5" PointX="3" PointY="15.125" />
+        <EntityTypeShape EntityType="dbwebModel.MoneyTransaction" Width="1.5" PointX="3" PointY="22.75" />
+        <EntityTypeShape EntityType="dbwebModel.Photo" Width="1.5" PointX="3" PointY="18.625" />
+        <EntityTypeShape EntityType="dbwebModel.ProductPrice" Width="1.5" PointX="5.25" PointY="28.875" />
+        <EntityTypeShape EntityType="dbwebModel.Product" Width="1.5" PointX="3" PointY="28.125" />
+        <EntityTypeShape EntityType="dbwebModel.ProductType" Width="1.5" PointX="3" PointY="35.125" />
+        <EntityTypeShape EntityType="dbwebModel.Report" Width="1.5" PointX="7.5" PointY="20.5" />
+        <EntityTypeShape EntityType="dbwebModel.User" Width="1.5" PointX="0.75" PointY="16.75" />
+        <EntityTypeShape EntityType="dbwebModel.Video" Width="1.5" PointX="5.25" PointY="32.75" />
+        <AssociationConnector Association="dbwebModel.FK_booking_client" />
+        <AssociationConnector Association="dbwebModel.FK_booking_delivery" />
+        <AssociationConnector Association="dbwebModel.FK_booking_product" />
+        <AssociationConnector Association="dbwebModel.FK_report_booking" />
+        <AssociationConnector Association="dbwebModel.FK_clientcomment_client" />
+        <AssociationConnector Association="dbwebModel.FK_clientcomment_delivery" />
+        <AssociationConnector Association="dbwebModel.FK_clientcomment_product" />
+        <AssociationConnector Association="dbwebModel.FK_client_user1" />
+        <AssociationConnector Association="dbwebModel.FK_delivery_user" />
+        <AssociationConnector Association="dbwebModel.FK_deliverytype_delivery" />
+        <AssociationConnector Association="dbwebModel.FK_DeliveryPrice_deliverytype" />
+        <AssociationConnector Association="dbwebModel.FK_message_user" />
+        <AssociationConnector Association="dbwebModel.FK_moneytransaction_user" />
+        <AssociationConnector Association="dbwebModel.FK_moneytransaction_user1" />
+        <AssociationConnector Association="dbwebModel.FK_photo_user" />
+        <AssociationConnector Association="dbwebModel.FK_productprice_producttype" />
+        <AssociationConnector Association="dbwebModel.FK_productprices_products" />
+        <AssociationConnector Association="dbwebModel.FK_product_user" />
+        <AssociationConnector Association="dbwebModel.FK_video_product" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -8,7 +8,7 @@ using BusinessLayer.Common;
 using Models;
 namespace BusinessLayer.Service
 {
-    public class ProductTypeBusinessService : BusinessServiceBase<producttype>, IProductTypeBusinessService
+    public class ProductTypeBusinessService : BusinessServiceBase<ProductType>, IProductTypeBusinessService
     {
     
     }

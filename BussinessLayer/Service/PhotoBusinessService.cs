@@ -8,7 +8,7 @@ using BusinessLayer.Common;
 using Models;
 namespace BusinessLayer.Service
 {
-    public class PhotoBusinessService : BusinessServiceBase<photo>, IPhotoBusinessService
+    public class PhotoBusinessService : BusinessServiceBase<Photo>, IPhotoBusinessService
     {
         public ReturnType<bool> DeletePhotoById(long enity)
         {
@@ -26,9 +26,9 @@ namespace BusinessLayer.Service
             return result;
         }       
 
-        public ReturnType<IList<photo>> GetPhotoByUserId(long id)
+        public ReturnType<IList<Photo>> GetPhotoByUserId(long id)
         {
-            return GetList(c => c.userid == id);
+            return GetList(c => c.UserId == id);
         }     
     }
 }

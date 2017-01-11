@@ -1,590 +1,609 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="dbwebModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="booking">
+  <EntityContainer Name="dbwebEntities" annotation:LazyLoadingEnabled="false">
+    <EntitySet Name="Bookings" EntityType="dbwebModel.Booking" />
+    <EntitySet Name="ClientComments" EntityType="dbwebModel.ClientComment" />
+    <EntitySet Name="Clients" EntityType="dbwebModel.Client" />
+    <EntitySet Name="Deliveries" EntityType="dbwebModel.Delivery" />
+    <EntitySet Name="DeliveryPrices" EntityType="dbwebModel.DeliveryPrice" />
+    <EntitySet Name="DeliveryTypes" EntityType="dbwebModel.DeliveryType" />
+    <EntitySet Name="FeedBacks" EntityType="dbwebModel.FeedBack" />
+    <EntitySet Name="Messages" EntityType="dbwebModel.Message" />
+    <EntitySet Name="MoneyTransactions" EntityType="dbwebModel.MoneyTransaction" />
+    <EntitySet Name="Photos" EntityType="dbwebModel.Photo" />
+    <EntitySet Name="ProductPrices" EntityType="dbwebModel.ProductPrice" />
+    <EntitySet Name="Products" EntityType="dbwebModel.Product" />
+    <EntitySet Name="ProductTypes" EntityType="dbwebModel.ProductType" />
+    <EntitySet Name="Reports" EntityType="dbwebModel.Report" />
+    <EntitySet Name="Users" EntityType="dbwebModel.User" />
+    <EntitySet Name="Videos" EntityType="dbwebModel.Video" />
+    <AssociationSet Name="FK_booking_client" Association="dbwebModel.FK_booking_client">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="Booking" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_booking_delivery" Association="dbwebModel.FK_booking_delivery">
+      <End Role="Delivery" EntitySet="Deliveries" />
+      <End Role="Booking" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_booking_product" Association="dbwebModel.FK_booking_product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Booking" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_report_booking" Association="dbwebModel.FK_report_booking">
+      <End Role="Booking" EntitySet="Bookings" />
+      <End Role="Report" EntitySet="Reports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_clientcomment_client" Association="dbwebModel.FK_clientcomment_client">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="ClientComment" EntitySet="ClientComments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_clientcomment_delivery" Association="dbwebModel.FK_clientcomment_delivery">
+      <End Role="Delivery" EntitySet="Deliveries" />
+      <End Role="ClientComment" EntitySet="ClientComments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_clientcomment_product" Association="dbwebModel.FK_clientcomment_product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ClientComment" EntitySet="ClientComments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_client_user1" Association="dbwebModel.FK_client_user1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Client" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_delivery_user" Association="dbwebModel.FK_delivery_user">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Delivery" EntitySet="Deliveries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_deliverytype_delivery" Association="dbwebModel.FK_deliverytype_delivery">
+      <End Role="Delivery" EntitySet="Deliveries" />
+      <End Role="DeliveryType" EntitySet="DeliveryTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeliveryPrice_deliverytype" Association="dbwebModel.FK_DeliveryPrice_deliverytype">
+      <End Role="DeliveryType" EntitySet="DeliveryTypes" />
+      <End Role="DeliveryPrice" EntitySet="DeliveryPrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_message_user" Association="dbwebModel.FK_message_user">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Message" EntitySet="Messages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_moneytransaction_user" Association="dbwebModel.FK_moneytransaction_user">
+      <End Role="User" EntitySet="Users" />
+      <End Role="MoneyTransaction" EntitySet="MoneyTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_moneytransaction_user1" Association="dbwebModel.FK_moneytransaction_user1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="MoneyTransaction" EntitySet="MoneyTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_photo_user" Association="dbwebModel.FK_photo_user">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Photo" EntitySet="Photos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_productprice_producttype" Association="dbwebModel.FK_productprice_producttype">
+      <End Role="ProductType" EntitySet="ProductTypes" />
+      <End Role="ProductPrice" EntitySet="ProductPrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_productprices_products" Association="dbwebModel.FK_productprices_products">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ProductPrice" EntitySet="ProductPrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_product_user" Association="dbwebModel.FK_product_user">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_video_product" Association="dbwebModel.FK_video_product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Video" EntitySet="Videos" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Booking">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="Int64" Nullable="false" />
-    <Property Name="clientid" Type="Int64" Nullable="false" />
-    <Property Name="productid" Type="Int64" Nullable="false" />
-    <Property Name="deliveryid" Type="Int64" />
-    <Property Name="productprice" Type="Decimal" Precision="16" Scale="2" />
-    <Property Name="deliveryprice" Type="Decimal" Precision="16" Scale="2" />
-    <Property Name="location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="paymentmode" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="totalcost" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
-    <Property Name="producttype" Type="Int64" Nullable="false" />
-    <Property Name="productrespond" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-    <Property Name="deliveryrespond" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-    <Property Name="datetime" Type="DateTime" Precision="3" />
-    <Property Name="createddate" Type="DateTime" Precision="3" />
-    <Property Name="status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-    <Property Name="isdeleted" Type="Boolean" />
-    <Property Name="modifieddate" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="client" Relationship="Self.FK_booking_client" FromRole="booking" ToRole="client" />
-    <NavigationProperty Name="delivery" Relationship="Self.FK_booking_delivery" FromRole="booking" ToRole="delivery" />
-    <NavigationProperty Name="product" Relationship="Self.FK_booking_product" FromRole="booking" ToRole="product" />
-    <NavigationProperty Name="reports" Relationship="Self.FK_report_booking" FromRole="booking" ToRole="report" />
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="ClientId" Type="Int64" Nullable="false" />
+    <Property Name="ProductId" Type="Int64" Nullable="false" />
+    <Property Name="DeliveryId" Type="Int64" />
+    <Property Name="ProductPrice" Type="Decimal" Precision="16" Scale="2" />
+    <Property Name="DeliveryPrice" Type="Decimal" Precision="16" Scale="2" />
+    <Property Name="Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentMode" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="TotalCost" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
+    <Property Name="ProductType" Type="Int64" Nullable="false" />
+    <Property Name="ProductRespond" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="DeliveryRespond" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="DateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Client" Relationship="dbwebModel.FK_booking_client" FromRole="Booking" ToRole="Client" />
+    <NavigationProperty Name="Delivery" Relationship="dbwebModel.FK_booking_delivery" FromRole="Booking" ToRole="Delivery" />
+    <NavigationProperty Name="Product" Relationship="dbwebModel.FK_booking_product" FromRole="Booking" ToRole="Product" />
+    <NavigationProperty Name="Reports" Relationship="dbwebModel.FK_report_booking" FromRole="Booking" ToRole="Report" />
   </EntityType>
-  <EntityType Name="client">
+  <EntityType Name="ClientComment">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="Int64" Nullable="false" />
-    <Property Name="clientcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="paymentmode" Type="Int32" Nullable="false" />
-    <Property Name="ccholder" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="ccnumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="ccexpiredmonth" Type="Int32" />
-    <Property Name="ccexpiredyear" Type="Int32" />
-    <Property Name="ccpin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="userid" Type="Int64" Nullable="false" />
-    <Property Name="isvalid" Type="Boolean" Nullable="false" />
-    <Property Name="createddate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="modifieddate" Type="DateTime" Precision="3" />
-    <Property Name="balance" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
-    <Property Name="cancelcount" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="bookings" Relationship="Self.FK_booking_client" FromRole="client" ToRole="booking" />
-    <NavigationProperty Name="user" Relationship="Self.FK_client_user1" FromRole="client" ToRole="user" />
-    <NavigationProperty Name="clientcomments" Relationship="Self.FK_clientcomment_client" FromRole="client" ToRole="clientcomment" />
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="ClientId" Type="Int64" Nullable="false" />
+    <Property Name="ProductId" Type="Int64" />
+    <Property Name="DeliveryId" Type="Int64" />
+    <Property Name="Rate" Type="Int32" />
+    <Property Name="Note" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Client" Relationship="dbwebModel.FK_clientcomment_client" FromRole="ClientComment" ToRole="Client" />
+    <NavigationProperty Name="Delivery" Relationship="dbwebModel.FK_clientcomment_delivery" FromRole="ClientComment" ToRole="Delivery" />
+    <NavigationProperty Name="Product" Relationship="dbwebModel.FK_clientcomment_product" FromRole="ClientComment" ToRole="Product" />
   </EntityType>
-  <EntityType Name="clientcomment">
+  <EntityType Name="Client">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="Int64" Nullable="false" />
-    <Property Name="clientid" Type="Int64" Nullable="false" />
-    <Property Name="memberid" Type="Int64" />
-    <Property Name="deliveryid" Type="Int64" />
-    <Property Name="rate" Type="Int32" />
-    <Property Name="note" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="createddate" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="client" Relationship="Self.FK_clientcomment_client" FromRole="clientcomment" ToRole="client" />
-    <NavigationProperty Name="delivery" Relationship="Self.FK_clientcomment_delivery" FromRole="clientcomment" ToRole="delivery" />
-    <NavigationProperty Name="product" Relationship="Self.FK_clientcomment_product" FromRole="clientcomment" ToRole="product" />
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentMode" Type="Int32" Nullable="false" />
+    <Property Name="CCHolder" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CCNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CCExpiredMonth" Type="Int32" />
+    <Property Name="CCExpiredYear" Type="Int32" />
+    <Property Name="CCPin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <Property Name="IsValid" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
+    <Property Name="CancelCount" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Bookings" Relationship="dbwebModel.FK_booking_client" FromRole="Client" ToRole="Booking" />
+    <NavigationProperty Name="ClientComments" Relationship="dbwebModel.FK_clientcomment_client" FromRole="Client" ToRole="ClientComment" />
+    <NavigationProperty Name="User" Relationship="dbwebModel.FK_client_user1" FromRole="Client" ToRole="User" />
   </EntityType>
-  <EntityType Name="delivery">
+  <EntityType Name="Delivery">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="Int64" Nullable="false" />
-    <Property Name="deliverycode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="lowestprice" Type="Decimal" Precision="16" Scale="2" />
-    <Property Name="highestprice" Type="Decimal" Precision="16" Scale="2" />
-    <Property Name="quality" Type="Int32" />
-    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="disctrict" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="userid" Type="Int64" Nullable="false" />
-    <Property Name="commission" Type="Decimal" Precision="16" Scale="2" />
-    <NavigationProperty Name="bookings" Relationship="Self.FK_booking_delivery" FromRole="delivery" ToRole="booking" />
-    <NavigationProperty Name="clientcomments" Relationship="Self.FK_clientcomment_delivery" FromRole="delivery" ToRole="clientcomment" />
-    <NavigationProperty Name="user" Relationship="Self.FK_delivery_user" FromRole="delivery" ToRole="user" />
-    <NavigationProperty Name="deliverytypes" Relationship="dbwebModel.FK_deliverytype_delivery" FromRole="delivery" ToRole="deliverytype" />
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="LowestPrice" Type="Decimal" Precision="16" Scale="2" />
+    <Property Name="HighestPrice" Type="Decimal" Precision="16" Scale="2" />
+    <Property Name="Quality" Type="Int32" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Disctrict" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <Property Name="Commission" Type="Decimal" Precision="16" Scale="2" />
+    <NavigationProperty Name="Bookings" Relationship="dbwebModel.FK_booking_delivery" FromRole="Delivery" ToRole="Booking" />
+    <NavigationProperty Name="ClientComments" Relationship="dbwebModel.FK_clientcomment_delivery" FromRole="Delivery" ToRole="ClientComment" />
+    <NavigationProperty Name="User" Relationship="dbwebModel.FK_delivery_user" FromRole="Delivery" ToRole="User" />
+    <NavigationProperty Name="DeliveryTypes" Relationship="dbwebModel.FK_deliverytype_delivery" FromRole="Delivery" ToRole="DeliveryType" />
   </EntityType>
-  <EntityType Name="deliverytype">
+  <EntityType Name="DeliveryPrice">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="Int64" Nullable="false" />
-    <Property Name="deliveryid" Type="Int64" Nullable="false" />
-    <Property Name="deliverycode" Type="Int64" Nullable="false" />
-    <Property Name="deliverydescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="active" Type="Boolean" Nullable="false" />
-    <Property Name="extrafee" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="createddate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="modifieddate" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="deliveryprices" Relationship="dbwebModel.FK_DeliveryPrice_deliverytype" FromRole="deliverytype" ToRole="deliveryprice" />
-    <NavigationProperty Name="delivery" Relationship="dbwebModel.FK_deliverytype_delivery" FromRole="deliverytype" ToRole="delivery" />
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="DeliveryId" Type="Int64" />
+    <Property Name="Price" Type="Decimal" Precision="16" Scale="2" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="DeliveryType" Relationship="dbwebModel.FK_DeliveryPrice_deliverytype" FromRole="DeliveryPrice" ToRole="DeliveryType" />
   </EntityType>
-  <EntityType Name="feedback">
+  <EntityType Name="DeliveryType">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="Int64" Nullable="false" />
-    <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="DeliveryId" Type="Int64" Nullable="false" />
+    <Property Name="Code" Type="Int64" Nullable="false" />
+    <Property Name="DeliveryDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="ExtraFee" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Price" Type="Decimal" Precision="16" Scale="2" />
+    <NavigationProperty Name="Delivery" Relationship="dbwebModel.FK_deliverytype_delivery" FromRole="DeliveryType" ToRole="Delivery" />
+    <NavigationProperty Name="DeliveryPrices" Relationship="dbwebModel.FK_DeliveryPrice_deliverytype" FromRole="DeliveryType" ToRole="DeliveryPrice" />
   </EntityType>
-  <EntityType Name="message">
+  <EntityType Name="FeedBack">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="Int64" Nullable="false" />
-    <Property Name="from" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="to" Type="Int64" Nullable="false" />
-    <Property Name="subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="datetime" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="status" Type="Boolean" Nullable="false" />
-    <Property Name="isdeleted" Type="Boolean" />
-    <NavigationProperty Name="user" Relationship="Self.FK_message_user" FromRole="message" ToRole="user" />
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="moneytransaction">
+  <EntityType Name="Message">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="Int64" Nullable="false" />
-    <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="receiptphoto" Type="Binary" MaxLength="Max" FixedLength="false" />
-    <Property Name="value" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
-    <Property Name="trandate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="sourceid" Type="Int64" Nullable="false" />
-    <Property Name="destinationid" Type="Int64" Nullable="false" />
-    <Property Name="paymentdate" Type="DateTime" Precision="3" />
-    <Property Name="ccname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="ccno" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="ccexpiredmonth" Type="Int32" />
-    <Property Name="ccexpiredyear" Type="Int32" />
-    <Property Name="ccpin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="createddate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="modifieddate" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="user" Relationship="Self.FK_moneytransaction_user" FromRole="moneytransaction" ToRole="user" />
-    <NavigationProperty Name="user1" Relationship="Self.FK_moneytransaction_user1" FromRole="moneytransaction" ToRole="user" />
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="From" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="To" Type="Int64" Nullable="false" />
+    <Property Name="Subject" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Body" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="User" Relationship="dbwebModel.FK_message_user" FromRole="Message" ToRole="User" />
   </EntityType>
-  <EntityType Name="photo">
+  <EntityType Name="MoneyTransaction">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="Int64" Nullable="false" />
-    <Property Name="userid" Type="Int64" Nullable="false" />
-    <Property Name="data" Type="Binary" MaxLength="1" FixedLength="true" Nullable="false" />
-    <Property Name="photolink" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="uploadeddate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="photodescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="createddate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="modifieddate" Type="DateTime" Precision="3" />
-    <Property Name="isvisble" Type="Boolean" />
-    <Property Name="vipmemberonly" Type="Boolean" />
-    <Property Name="status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-    <NavigationProperty Name="user" Relationship="Self.FK_photo_user" FromRole="photo" ToRole="user" />
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReceiptPhoto" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Value" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
+    <Property Name="Trandate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="SourceId" Type="Int64" Nullable="false" />
+    <Property Name="DestinationId" Type="Int64" Nullable="false" />
+    <Property Name="PaymentDate" Type="DateTime" Precision="3" />
+    <Property Name="CCName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CCNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CCExpiredMonth" Type="Int32" />
+    <Property Name="CCExpiredYear" Type="Int32" />
+    <Property Name="CCPin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="User" Relationship="dbwebModel.FK_moneytransaction_user" FromRole="MoneyTransaction" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="dbwebModel.FK_moneytransaction_user1" FromRole="MoneyTransaction" ToRole="User" />
   </EntityType>
-  <EntityType Name="product">
+  <EntityType Name="Photo">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="Int64" Nullable="false" />
-    <Property Name="productcode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="language1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="language2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="price" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
-    <Property Name="preferrablelocation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="bankname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="bankaccount" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="bankaccnumber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="createddate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="modifeddate" Type="DateTime" Precision="3" />
-    <Property Name="isactive" Type="Boolean" Nullable="false" />
-    <Property Name="isblocked" Type="Boolean" Nullable="false" />
-    <Property Name="isavailable" Type="Boolean" />
-    <Property Name="cancelcount" Type="Int32" Nullable="false" />
-    <Property Name="userid" Type="Int64" Nullable="false" />
-    <Property Name="productdescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="balance" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
-    <Property Name="commission" Type="Decimal" Precision="16" Scale="2" />
-    <Property Name="reward" Type="Decimal" Precision="16" Scale="2" />
-    <NavigationProperty Name="bookings" Relationship="Self.FK_booking_product" FromRole="product" ToRole="booking" />
-    <NavigationProperty Name="clientcomments" Relationship="Self.FK_clientcomment_product" FromRole="product" ToRole="clientcomment" />
-    <NavigationProperty Name="user" Relationship="Self.FK_product_user" FromRole="product" ToRole="user" />
-    <NavigationProperty Name="videos" Relationship="Self.FK_video_product" FromRole="product" ToRole="video" />
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <Property Name="Image" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="PhotoLink" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="UploadedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PhotoDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsVisble" Type="Boolean" />
+    <Property Name="VIPMemberOnly" Type="Boolean" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="User" Relationship="dbwebModel.FK_photo_user" FromRole="Photo" ToRole="User" />
   </EntityType>
-  <EntityType Name="productprice">
+  <EntityType Name="ProductPrice">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="Int64" Nullable="false" />
-    <Property Name="producttypeid" Type="Int64" Nullable="false" />
-    <Property Name="price" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
-    <Property Name="active" Type="Boolean" Nullable="false" />
-    <Property Name="productid" Type="Int64" />
-    <Property Name="reward" Type="Decimal" Precision="10" Scale="0" />
-    <NavigationProperty Name="producttype" Relationship="Self.FK_productprice_producttype" FromRole="productprice" ToRole="producttype" />
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="ProductTypeId" Type="Int64" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="ProductId" Type="Int64" />
+    <Property Name="Reward" Type="Decimal" Precision="10" Scale="0" />
+    <NavigationProperty Name="ProductType" Relationship="dbwebModel.FK_productprice_producttype" FromRole="ProductPrice" ToRole="ProductType" />
+    <NavigationProperty Name="Product" Relationship="dbwebModel.FK_productprices_products" FromRole="ProductPrice" ToRole="Product" />
   </EntityType>
-  <EntityType Name="producttype">
+  <EntityType Name="Product">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="Int64" Nullable="false" />
-    <Property Name="producttypecode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="actvice" Type="Boolean" Nullable="false" />
-    <Property Name="flag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="productprices" Relationship="Self.FK_productprice_producttype" FromRole="producttype" ToRole="productprice" />
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Language1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Language2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
+    <Property Name="PreferrableLocation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BankName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BankAccount" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BankAccNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsBlocked" Type="Boolean" Nullable="false" />
+    <Property Name="IsAvailable" Type="Boolean" />
+    <Property Name="CancelCount" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <Property Name="ProductDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
+    <Property Name="Commission" Type="Decimal" Precision="16" Scale="2" />
+    <Property Name="Reward" Type="Decimal" Precision="16" Scale="2" />
+    <NavigationProperty Name="Bookings" Relationship="dbwebModel.FK_booking_product" FromRole="Product" ToRole="Booking" />
+    <NavigationProperty Name="ClientComments" Relationship="dbwebModel.FK_clientcomment_product" FromRole="Product" ToRole="ClientComment" />
+    <NavigationProperty Name="ProductPrices" Relationship="dbwebModel.FK_productprices_products" FromRole="Product" ToRole="ProductPrice" />
+    <NavigationProperty Name="User" Relationship="dbwebModel.FK_product_user" FromRole="Product" ToRole="User" />
+    <NavigationProperty Name="Videos" Relationship="dbwebModel.FK_video_product" FromRole="Product" ToRole="Video" />
   </EntityType>
-  <EntityType Name="report">
+  <EntityType Name="ProductType">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="Int64" Nullable="false" />
-    <Property Name="bookingid" Type="Int64" Nullable="false" />
-    <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="systemrespond" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="refundamount" Type="Decimal" Precision="16" Scale="2" />
-    <NavigationProperty Name="booking" Relationship="Self.FK_report_booking" FromRole="report" ToRole="booking" />
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Flag" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="ProductPrices" Relationship="dbwebModel.FK_productprice_producttype" FromRole="ProductType" ToRole="ProductPrice" />
   </EntityType>
-  <EntityType Name="user">
+  <EntityType Name="Report">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="Int64" Nullable="false" />
-    <Property Name="username" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="fullname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="dateofbirth" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="active" Type="Boolean" Nullable="false" />
-    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-    <Property Name="accounttype" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="isblocked" Type="Boolean" Nullable="false" />
-    <Property Name="gcmkey" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="isnotify" Type="Boolean" />
-    <Property Name="securityquestionid" Type="Int16" Nullable="false" />
-    <Property Name="securityanswer" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="createddate" Type="DateTime" Precision="3" />
-    <Property Name="modifieddate" Type="DateTime" Precision="3" />
-    <Property Name="lastlogin" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="clients" Relationship="Self.FK_client_user1" FromRole="user" ToRole="client" />
-    <NavigationProperty Name="deliveries" Relationship="Self.FK_delivery_user" FromRole="user" ToRole="delivery" />
-    <NavigationProperty Name="messages" Relationship="Self.FK_message_user" FromRole="user" ToRole="message" />
-    <NavigationProperty Name="moneytransactions" Relationship="Self.FK_moneytransaction_user" FromRole="user" ToRole="moneytransaction" />
-    <NavigationProperty Name="moneytransactions1" Relationship="Self.FK_moneytransaction_user1" FromRole="user" ToRole="moneytransaction" />
-    <NavigationProperty Name="photos" Relationship="Self.FK_photo_user" FromRole="user" ToRole="photo" />
-    <NavigationProperty Name="products" Relationship="Self.FK_product_user" FromRole="user" ToRole="product" />
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="BookingId" Type="Int64" Nullable="false" />
+    <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SystemRespond" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RefundAmount" Type="Decimal" Precision="16" Scale="2" />
+    <NavigationProperty Name="Booking" Relationship="dbwebModel.FK_report_booking" FromRole="Report" ToRole="Booking" />
   </EntityType>
-  <EntityType Name="video">
+  <EntityType Name="User">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="Int64" Nullable="false" />
-    <Property Name="memberid" Type="Int64" Nullable="false" />
-    <Property Name="data" Type="Binary" MaxLength="1" FixedLength="true" />
-    <Property Name="videolink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="uploadeddate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="videodescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="createddate" Type="DateTime" Precision="3" />
-    <Property Name="modifieddate" Type="DateTime" Precision="3" />
-    <Property Name="isvisible" Type="Boolean" />
-    <Property Name="vipmemberonly" Type="Boolean" />
-    <Property Name="status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="product" Relationship="Self.FK_video_product" FromRole="video" ToRole="product" />
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FullName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="AccountType" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="IsBlocked" Type="Boolean" Nullable="false" />
+    <Property Name="GCMkey" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsNotify" Type="Boolean" />
+    <Property Name="SecurityQuestionId" Type="Int16" Nullable="false" />
+    <Property Name="SecurityAnswer" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastLogin" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Clients" Relationship="dbwebModel.FK_client_user1" FromRole="User" ToRole="Client" />
+    <NavigationProperty Name="Deliveries" Relationship="dbwebModel.FK_delivery_user" FromRole="User" ToRole="Delivery" />
+    <NavigationProperty Name="Messages" Relationship="dbwebModel.FK_message_user" FromRole="User" ToRole="Message" />
+    <NavigationProperty Name="MoneyTransactions" Relationship="dbwebModel.FK_moneytransaction_user" FromRole="User" ToRole="MoneyTransaction" />
+    <NavigationProperty Name="MoneyTransactions1" Relationship="dbwebModel.FK_moneytransaction_user1" FromRole="User" ToRole="MoneyTransaction" />
+    <NavigationProperty Name="Photos" Relationship="dbwebModel.FK_photo_user" FromRole="User" ToRole="Photo" />
+    <NavigationProperty Name="Products" Relationship="dbwebModel.FK_product_user" FromRole="User" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Video">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="ProductId" Type="Int64" Nullable="false" />
+    <Property Name="Source" Type="Binary" MaxLength="8000" FixedLength="true" />
+    <Property Name="VideoLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UploadedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="VideoDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsVisible" Type="Boolean" />
+    <Property Name="VIPMemberOnly" Type="Boolean" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Product" Relationship="dbwebModel.FK_video_product" FromRole="Video" ToRole="Product" />
   </EntityType>
   <Association Name="FK_booking_client">
-    <End Role="client" Type="Self.client" Multiplicity="1" />
-    <End Role="booking" Type="Self.booking" Multiplicity="*" />
+    <End Type="dbwebModel.Client" Role="Client" Multiplicity="1" />
+    <End Type="dbwebModel.Booking" Role="Booking" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="client">
-        <PropertyRef Name="id" />
+      <Principal Role="Client">
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="booking">
-        <PropertyRef Name="clientid" />
+      <Dependent Role="Booking">
+        <PropertyRef Name="ClientId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_booking_delivery">
-    <End Role="delivery" Type="Self.delivery" Multiplicity="0..1" />
-    <End Role="booking" Type="Self.booking" Multiplicity="*" />
+    <End Type="dbwebModel.Delivery" Role="Delivery" Multiplicity="0..1" />
+    <End Type="dbwebModel.Booking" Role="Booking" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="delivery">
-        <PropertyRef Name="id" />
+      <Principal Role="Delivery">
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="booking">
-        <PropertyRef Name="deliveryid" />
+      <Dependent Role="Booking">
+        <PropertyRef Name="DeliveryId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_booking_product">
-    <End Role="product" Type="Self.product" Multiplicity="1" />
-    <End Role="booking" Type="Self.booking" Multiplicity="*" />
+    <End Type="dbwebModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="dbwebModel.Booking" Role="Booking" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="product">
-        <PropertyRef Name="id" />
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="booking">
-        <PropertyRef Name="productid" />
+      <Dependent Role="Booking">
+        <PropertyRef Name="ProductId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_report_booking">
-    <End Role="booking" Type="Self.booking" Multiplicity="1" />
-    <End Role="report" Type="Self.report" Multiplicity="*" />
+    <End Type="dbwebModel.Booking" Role="Booking" Multiplicity="1" />
+    <End Type="dbwebModel.Report" Role="Report" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="booking">
-        <PropertyRef Name="id" />
+      <Principal Role="Booking">
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="report">
-        <PropertyRef Name="bookingid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_client_user1">
-    <End Role="user" Type="Self.user" Multiplicity="1" />
-    <End Role="client" Type="Self.client" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="user">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="client">
-        <PropertyRef Name="userid" />
+      <Dependent Role="Report">
+        <PropertyRef Name="BookingId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_clientcomment_client">
-    <End Role="client" Type="Self.client" Multiplicity="1" />
-    <End Role="clientcomment" Type="Self.clientcomment" Multiplicity="*" />
+    <End Type="dbwebModel.Client" Role="Client" Multiplicity="1" />
+    <End Type="dbwebModel.ClientComment" Role="ClientComment" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="client">
-        <PropertyRef Name="id" />
+      <Principal Role="Client">
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="clientcomment">
-        <PropertyRef Name="clientid" />
+      <Dependent Role="ClientComment">
+        <PropertyRef Name="ClientId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_clientcomment_delivery">
-    <End Role="delivery" Type="Self.delivery" Multiplicity="0..1" />
-    <End Role="clientcomment" Type="Self.clientcomment" Multiplicity="*" />
+    <End Type="dbwebModel.Delivery" Role="Delivery" Multiplicity="0..1" />
+    <End Type="dbwebModel.ClientComment" Role="ClientComment" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="delivery">
-        <PropertyRef Name="id" />
+      <Principal Role="Delivery">
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="clientcomment">
-        <PropertyRef Name="deliveryid" />
+      <Dependent Role="ClientComment">
+        <PropertyRef Name="DeliveryId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_clientcomment_product">
-    <End Role="product" Type="Self.product" Multiplicity="0..1" />
-    <End Role="clientcomment" Type="Self.clientcomment" Multiplicity="*" />
+    <End Type="dbwebModel.Product" Role="Product" Multiplicity="0..1" />
+    <End Type="dbwebModel.ClientComment" Role="ClientComment" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="product">
-        <PropertyRef Name="id" />
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="clientcomment">
-        <PropertyRef Name="memberid" />
+      <Dependent Role="ClientComment">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_client_user1">
+    <End Type="dbwebModel.User" Role="User" Multiplicity="1" />
+    <End Type="dbwebModel.Client" Role="Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_delivery_user">
-    <End Role="user" Type="Self.user" Multiplicity="1" />
-    <End Role="delivery" Type="Self.delivery" Multiplicity="*" />
+    <End Type="dbwebModel.User" Role="User" Multiplicity="1" />
+    <End Type="dbwebModel.Delivery" Role="Delivery" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="user">
-        <PropertyRef Name="id" />
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="delivery">
-        <PropertyRef Name="userid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_message_user">
-    <End Role="user" Type="Self.user" Multiplicity="1" />
-    <End Role="message" Type="Self.message" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="user">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="message">
-        <PropertyRef Name="to" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_moneytransaction_user">
-    <End Role="user" Type="Self.user" Multiplicity="1" />
-    <End Role="moneytransaction" Type="Self.moneytransaction" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="user">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="moneytransaction">
-        <PropertyRef Name="sourceid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_moneytransaction_user1">
-    <End Role="user" Type="Self.user" Multiplicity="1" />
-    <End Role="moneytransaction" Type="Self.moneytransaction" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="user">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="moneytransaction">
-        <PropertyRef Name="destinationid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_photo_user">
-    <End Role="user" Type="Self.user" Multiplicity="1" />
-    <End Role="photo" Type="Self.photo" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="user">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="photo">
-        <PropertyRef Name="userid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_product_user">
-    <End Role="user" Type="Self.user" Multiplicity="1" />
-    <End Role="product" Type="Self.product" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="user">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="product">
-        <PropertyRef Name="userid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_video_product">
-    <End Role="product" Type="Self.product" Multiplicity="1" />
-    <End Role="video" Type="Self.video" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="product">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="video">
-        <PropertyRef Name="memberid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_productprice_producttype">
-    <End Role="producttype" Type="Self.producttype" Multiplicity="1" />
-    <End Role="productprice" Type="Self.productprice" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="producttype">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="productprice">
-        <PropertyRef Name="producttypeid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityContainer Name="dbwebEntities" annotation:LazyLoadingEnabled="false">
-    <EntitySet Name="bookings" EntityType="Self.booking" />
-    <EntitySet Name="clients" EntityType="Self.client" />
-    <EntitySet Name="clientcomments" EntityType="Self.clientcomment" />
-    <EntitySet Name="deliveries" EntityType="Self.delivery" />
-    <EntitySet Name="deliverytypes" EntityType="Self.deliverytype" />
-    <EntitySet Name="feedbacks" EntityType="Self.feedback" />
-    <EntitySet Name="messages" EntityType="Self.message" />
-    <EntitySet Name="moneytransactions" EntityType="Self.moneytransaction" />
-    <EntitySet Name="photos" EntityType="Self.photo" />
-    <EntitySet Name="products" EntityType="Self.product" />
-    <EntitySet Name="productprices" EntityType="Self.productprice" />
-    <EntitySet Name="producttypes" EntityType="Self.producttype" />
-    <EntitySet Name="reports" EntityType="Self.report" />
-    <EntitySet Name="users" EntityType="Self.user" />
-    <EntitySet Name="videos" EntityType="Self.video" />
-    <AssociationSet Name="FK_booking_client" Association="Self.FK_booking_client">
-      <End Role="client" EntitySet="clients" />
-      <End Role="booking" EntitySet="bookings" />
-    </AssociationSet>
-    <AssociationSet Name="FK_booking_delivery" Association="Self.FK_booking_delivery">
-      <End Role="delivery" EntitySet="deliveries" />
-      <End Role="booking" EntitySet="bookings" />
-    </AssociationSet>
-    <AssociationSet Name="FK_booking_product" Association="Self.FK_booking_product">
-      <End Role="product" EntitySet="products" />
-      <End Role="booking" EntitySet="bookings" />
-    </AssociationSet>
-    <AssociationSet Name="FK_report_booking" Association="Self.FK_report_booking">
-      <End Role="booking" EntitySet="bookings" />
-      <End Role="report" EntitySet="reports" />
-    </AssociationSet>
-    <AssociationSet Name="FK_client_user1" Association="Self.FK_client_user1">
-      <End Role="user" EntitySet="users" />
-      <End Role="client" EntitySet="clients" />
-    </AssociationSet>
-    <AssociationSet Name="FK_clientcomment_client" Association="Self.FK_clientcomment_client">
-      <End Role="client" EntitySet="clients" />
-      <End Role="clientcomment" EntitySet="clientcomments" />
-    </AssociationSet>
-    <AssociationSet Name="FK_clientcomment_delivery" Association="Self.FK_clientcomment_delivery">
-      <End Role="delivery" EntitySet="deliveries" />
-      <End Role="clientcomment" EntitySet="clientcomments" />
-    </AssociationSet>
-    <AssociationSet Name="FK_clientcomment_product" Association="Self.FK_clientcomment_product">
-      <End Role="product" EntitySet="products" />
-      <End Role="clientcomment" EntitySet="clientcomments" />
-    </AssociationSet>
-    <AssociationSet Name="FK_delivery_user" Association="Self.FK_delivery_user">
-      <End Role="user" EntitySet="users" />
-      <End Role="delivery" EntitySet="deliveries" />
-    </AssociationSet>
-    <AssociationSet Name="FK_message_user" Association="Self.FK_message_user">
-      <End Role="user" EntitySet="users" />
-      <End Role="message" EntitySet="messages" />
-    </AssociationSet>
-    <AssociationSet Name="FK_moneytransaction_user" Association="Self.FK_moneytransaction_user">
-      <End Role="user" EntitySet="users" />
-      <End Role="moneytransaction" EntitySet="moneytransactions" />
-    </AssociationSet>
-    <AssociationSet Name="FK_moneytransaction_user1" Association="Self.FK_moneytransaction_user1">
-      <End Role="user" EntitySet="users" />
-      <End Role="moneytransaction" EntitySet="moneytransactions" />
-    </AssociationSet>
-    <AssociationSet Name="FK_photo_user" Association="Self.FK_photo_user">
-      <End Role="user" EntitySet="users" />
-      <End Role="photo" EntitySet="photos" />
-    </AssociationSet>
-    <AssociationSet Name="FK_product_user" Association="Self.FK_product_user">
-      <End Role="user" EntitySet="users" />
-      <End Role="product" EntitySet="products" />
-    </AssociationSet>
-    <AssociationSet Name="FK_video_product" Association="Self.FK_video_product">
-      <End Role="product" EntitySet="products" />
-      <End Role="video" EntitySet="videos" />
-    </AssociationSet>
-    <AssociationSet Name="FK_productprice_producttype" Association="Self.FK_productprice_producttype">
-      <End Role="producttype" EntitySet="producttypes" />
-      <End Role="productprice" EntitySet="productprices" />
-    </AssociationSet>
-    <EntitySet Name="deliveryprices" EntityType="dbwebModel.deliveryprice" />
-    <AssociationSet Name="FK_DeliveryPrice_deliverytype" Association="dbwebModel.FK_DeliveryPrice_deliverytype">
-      <End Role="deliverytype" EntitySet="deliverytypes" />
-      <End Role="deliveryprice" EntitySet="deliveryprices" />
-    </AssociationSet>
-    <AssociationSet Name="FK_deliverytype_delivery" Association="dbwebModel.FK_deliverytype_delivery">
-      <End Role="delivery" EntitySet="deliveries" />
-      <End Role="deliverytype" EntitySet="deliverytypes" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="deliveryprice">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int64" Nullable="false" />
-    <Property Name="deliverytypeid" Type="Int64" />
-    <Property Name="price" Type="Decimal" Precision="16" Scale="2" />
-    <Property Name="active" Type="Boolean" />
-    <NavigationProperty Name="deliverytype" Relationship="dbwebModel.FK_DeliveryPrice_deliverytype" FromRole="deliveryprice" ToRole="deliverytype" />
-  </EntityType>
-  <Association Name="FK_DeliveryPrice_deliverytype">
-    <End Type="dbwebModel.deliverytype" Role="deliverytype" Multiplicity="0..1" />
-    <End Type="dbwebModel.deliveryprice" Role="deliveryprice" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="deliverytype">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="deliveryprice">
-        <PropertyRef Name="deliverytypeid" />
+      <Dependent Role="Delivery">
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_deliverytype_delivery">
-    <End Type="dbwebModel.delivery" Role="delivery" Multiplicity="1" />
-    <End Type="dbwebModel.deliverytype" Role="deliverytype" Multiplicity="*" />
+    <End Type="dbwebModel.Delivery" Role="Delivery" Multiplicity="1" />
+    <End Type="dbwebModel.DeliveryType" Role="DeliveryType" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="delivery">
-        <PropertyRef Name="id" />
+      <Principal Role="Delivery">
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="deliverytype">
-        <PropertyRef Name="deliveryid" />
+      <Dependent Role="DeliveryType">
+        <PropertyRef Name="DeliveryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeliveryPrice_deliverytype">
+    <End Type="dbwebModel.DeliveryType" Role="DeliveryType" Multiplicity="0..1" />
+    <End Type="dbwebModel.DeliveryPrice" Role="DeliveryPrice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeliveryType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DeliveryPrice">
+        <PropertyRef Name="DeliveryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_message_user">
+    <End Type="dbwebModel.User" Role="User" Multiplicity="1" />
+    <End Type="dbwebModel.Message" Role="Message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="To" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_moneytransaction_user">
+    <End Type="dbwebModel.User" Role="User" Multiplicity="1" />
+    <End Type="dbwebModel.MoneyTransaction" Role="MoneyTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MoneyTransaction">
+        <PropertyRef Name="SourceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_moneytransaction_user1">
+    <End Type="dbwebModel.User" Role="User" Multiplicity="1" />
+    <End Type="dbwebModel.MoneyTransaction" Role="MoneyTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MoneyTransaction">
+        <PropertyRef Name="DestinationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_photo_user">
+    <End Type="dbwebModel.User" Role="User" Multiplicity="1" />
+    <End Type="dbwebModel.Photo" Role="Photo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Photo">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_productprice_producttype">
+    <End Type="dbwebModel.ProductType" Role="ProductType" Multiplicity="1" />
+    <End Type="dbwebModel.ProductPrice" Role="ProductPrice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductPrice">
+        <PropertyRef Name="ProductTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_productprices_products">
+    <End Type="dbwebModel.Product" Role="Product" Multiplicity="0..1" />
+    <End Type="dbwebModel.ProductPrice" Role="ProductPrice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductPrice">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_product_user">
+    <End Type="dbwebModel.User" Role="User" Multiplicity="1" />
+    <End Type="dbwebModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_video_product">
+    <End Type="dbwebModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="dbwebModel.Video" Role="Video" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Video">
+        <PropertyRef Name="ProductId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

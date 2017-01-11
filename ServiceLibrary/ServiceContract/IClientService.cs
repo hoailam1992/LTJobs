@@ -12,14 +12,14 @@ namespace ServiceLibrary
     public partial interface IMasterService
     {
         [OperationContract]
-        ReturnType<client> SaveClient(client entity);
+        ReturnType<Client> SaveClient(Client entity);
         [OperationContract]
         ReturnType<bool> DeleteClientById(long id);
         [OperationContract]
-        ReturnType<client> GetClientByUserId(long id);
+        ReturnType<Client> GetClientByUserId(long id);
         [OperationContract]
-        ReturnType<client> GetClientById(long id);
+        ReturnType<Client> GetClientById(long id);
         [OperationContract]
-        ReturnType<client> GetClientByClientCode(string id);
+        ReturnType<Client> GetClientByClientCode(string id);
     }
 }

@@ -12,14 +12,14 @@ namespace ServiceLibrary
     public partial interface IMasterService
     {
         [OperationContract]
-        ReturnType<moneytransaction> SaveMoneyTransaction(moneytransaction entity);
+        ReturnType<MoneyTransaction> SaveMoneyTransaction(MoneyTransaction entity);
         [OperationContract]
         ReturnType<bool> DeleteMoneyTransactionById(long enity);   
         [OperationContract]
-        ReturnType<IList<moneytransaction>> GetMoneyTransactionBySourceId(long id);
+        ReturnType<IList<MoneyTransaction>> GetMoneyTransactionBySourceId(long id);
         [OperationContract]
-        ReturnType<IList<moneytransaction>> GetMoneyTransactionByDestinationId(long id);
+        ReturnType<IList<MoneyTransaction>> GetMoneyTransactionByDestinationId(long id);
         [OperationContract]
-        ReturnType<moneytransaction> GetMoneyTransactionById(long id);
+        ReturnType<MoneyTransaction> GetMoneyTransactionById(long id);
     }
 }

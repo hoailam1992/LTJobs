@@ -1,7 +1,6 @@
 ﻿
 using DataAccess;
 using Models;
-using Models.Common;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;

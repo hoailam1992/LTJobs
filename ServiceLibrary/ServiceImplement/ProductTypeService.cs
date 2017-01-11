@@ -10,7 +10,7 @@ namespace ServiceLibrary
 {
     public partial class MasterService
     {
-        public ReturnType<producttype> SaveProductType(producttype entity)
+        public ReturnType<ProductType> SaveProductType(ProductType entity)
         {
             return (new ProductTypeBusinessService()).Save(entity);
         }
@@ -18,11 +18,11 @@ namespace ServiceLibrary
         {
             return (new ProductTypeBusinessService()).DeleteById(id);
         }
-        public ReturnType<producttype> GetProductTypeById(long id)
+        public ReturnType<ProductType> GetProductTypeById(long id)
         {
             return (new ProductTypeBusinessService()).GetById(id);
         }
-        public ReturnType<IList<producttype>> GetAllProductType()
+        public ReturnType<IList<ProductType>> GetAllProductType()
         {
             return (new ProductTypeBusinessService()).GetAll();
         }

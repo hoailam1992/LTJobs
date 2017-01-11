@@ -7,8 +7,8 @@ using Models;
 using BusinessLayer.Common;
 namespace BusinessLayer.IService
 {
-    public interface IVideoBusinessService : IBusinessServiceBase<video>
+    public interface IVideoBusinessService : IBusinessServiceBase<Video>
     {
-        ReturnType<IList<video>> GetVideoByProductId(long id);
+        ReturnType<IList<Video>> GetVideoByProductId(long id);
     }
 }

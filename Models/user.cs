@@ -11,68 +11,76 @@ namespace Models
 {
     using System;
     using System.Collections.Generic;
-    using Models.Common;
     using System.Runtime.Serialization;
 
-    public partial class user:ModelBase
+    [DataContract(IsReference = true)]
+    public partial class User : ModelBase
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public user()
+        public User()
         {
-            this.clients = new HashSet<client>();
-            this.deliveries = new HashSet<delivery>();
-            this.messages = new HashSet<message>();
-            this.moneytransactions = new HashSet<moneytransaction>();
-            this.moneytransactions1 = new HashSet<moneytransaction>();
-            this.photos = new HashSet<photo>();
-            this.products = new HashSet<product>();
-        }        
+            this.Clients = new HashSet<Client>();
+            this.Deliveries = new HashSet<Delivery>();
+            this.Messages = new HashSet<Message>();
+            this.MoneyTransactions = new HashSet<MoneyTransaction>();
+            this.MoneyTransactions1 = new HashSet<MoneyTransaction>();
+            this.Photos = new HashSet<Photo>();
+            this.Products = new HashSet<Product>();
+        }
+      
         [DataMember]
-        public string username { get; set; }
+        public string UserName { get; set; }
         [DataMember]
-        public string password { get; set; }
+        public string Password { get; set; }
         [DataMember]
-        public string fullname { get; set; }
+        public string FullName { get; set; }
         [DataMember]
-        public System.DateTime dateofbirth { get; set; }
+        public System.DateTime DateOfBirth { get; set; }
         [DataMember]
-        public bool active { get; set; }
+        public bool Active { get; set; }
         [DataMember]
-        public string email { get; set; }
+        public string Email { get; set; }
         [DataMember]
-        public string phone { get; set; }
+        public string Phone { get; set; }
         [DataMember]
-        public string accounttype { get; set; }
+        public string AccountType { get; set; }
         [DataMember]
-        public bool isblocked { get; set; }
+        public bool IsBlocked { get; set; }
         [DataMember]
-        public string gcmkey { get; set; }
+        public string GCMkey { get; set; }
         [DataMember]
-        public Nullable<bool> isnotify { get; set; }
+        public Nullable<bool> IsNotify { get; set; }
         [DataMember]
-        public short securityquestionid { get; set; }
+        public short SecurityQuestionId { get; set; }
         [DataMember]
-        public string securityanswer { get; set; }
+        public string SecurityAnswer { get; set; }
         [DataMember]
-        public Nullable<System.DateTime> createddate { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
         [DataMember]
-        public Nullable<System.DateTime> modifieddate { get; set; }
+        public Nullable<System.DateTime> ModifiedDate { get; set; }
         [DataMember]
-        public Nullable<System.DateTime> lastlogin { get; set; }
+        public Nullable<System.DateTime> LastLogin { get; set; }
+        [DataMember]
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Client> Clients { get; set; }
         [DataMember]
-        public virtual ICollection<client> clients { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Delivery> Deliveries { get; set; }
         [DataMember]
-        public virtual ICollection<delivery> deliveries { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Message> Messages { get; set; }
         [DataMember]
-        public virtual ICollection<message> messages { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MoneyTransaction> MoneyTransactions { get; set; }
         [DataMember]
-        public virtual ICollection<moneytransaction> moneytransactions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MoneyTransaction> MoneyTransactions1 { get; set; }
         [DataMember]
-        public virtual ICollection<moneytransaction> moneytransactions1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Photo> Photos { get; set; }
         [DataMember]
-        public virtual ICollection<photo> photos { get; set; }
-        [DataMember]
-        public virtual ICollection<product> products { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

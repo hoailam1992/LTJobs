@@ -7,9 +7,9 @@ using Models;
 using BusinessLayer.Common;
 namespace BusinessLayer.IService
 {
-    public interface IMessageService : IBusinessServiceBase<message>
+    public interface IMessageService : IBusinessServiceBase<Message>
     {
         ReturnType<bool> DeleteMessageById(long enity);
-        ReturnType<IList<message>> GetMessageByToId(long id);
+        ReturnType<IList<Message>> GetMessageByToId(long id);
     }
 }

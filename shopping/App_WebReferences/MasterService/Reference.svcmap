@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="041db4ab-514e-44ca-a9ac-4234287cc746" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b5bb7715-50d9-40d4-8785-18254c5e3a91" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -9,7 +9,9 @@
     <GenerateInternalTypes>false</GenerateInternalTypes>
     <GenerateMessageContracts>false</GenerateMessageContracts>
     <NamespaceMappings />
-    <CollectionMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
     <GenerateSerializableTypes>true</GenerateSerializableTypes>
     <Serializer>Auto</Serializer>
     <UseSerializerForFaults>true</UseSerializerForFaults>
@@ -22,12 +24,11 @@
     <MetadataSource Address="http://localhost:7368/MasterService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="MasterService.wsdl" MetadataType="Wsdl" ID="2b2cf8cb-a1a5-46d2-82d6-c74c737a0607" SourceId="1" SourceUrl="http://localhost:7368/MasterService.svc?wsdl" />
-    <MetadataFile FileName="MasterService.xsd" MetadataType="Schema" ID="b1925670-7833-48b9-87f7-3c7b44c6299d" SourceId="1" SourceUrl="http://localhost:7368/MasterService.svc?xsd=xsd0" />
-    <MetadataFile FileName="MasterService.disco" MetadataType="Disco" ID="a4b1170e-0fed-4c7c-b80e-890d7e45685d" SourceId="1" SourceUrl="http://localhost:7368/MasterService.svc?disco" />
-    <MetadataFile FileName="MasterService1.xsd" MetadataType="Schema" ID="9c4c30fa-e747-42f3-900e-1718e8c34a19" SourceId="1" SourceUrl="http://localhost:7368/MasterService.svc?xsd=xsd2" />
-    <MetadataFile FileName="MasterService2.xsd" MetadataType="Schema" ID="1ba1ca27-43fe-4056-a513-062a5a9fe454" SourceId="1" SourceUrl="http://localhost:7368/MasterService.svc?xsd=xsd1" />
-    <MetadataFile FileName="MasterService3.xsd" MetadataType="Schema" ID="0c44c464-f05d-4402-b234-37fdfd65a26a" SourceId="1" SourceUrl="http://localhost:7368/MasterService.svc?xsd=xsd3" />
+    <MetadataFile FileName="MasterService.xsd" MetadataType="Schema" ID="e382d7fa-2c14-4306-818f-6dce5e969e03" SourceId="1" SourceUrl="http://localhost:7368/MasterService.svc?xsd=xsd2" />
+    <MetadataFile FileName="MasterService1.xsd" MetadataType="Schema" ID="3f263070-df32-4033-bb02-1ae26213f435" SourceId="1" SourceUrl="http://localhost:7368/MasterService.svc?xsd=xsd0" />
+    <MetadataFile FileName="MasterService2.xsd" MetadataType="Schema" ID="1a642427-e353-4e99-b871-e3980877f67b" SourceId="1" SourceUrl="http://localhost:7368/MasterService.svc?xsd=xsd1" />
+    <MetadataFile FileName="MasterService.disco" MetadataType="Disco" ID="0a4ab472-d977-4a5a-a935-8cb5d4b1a4ad" SourceId="1" SourceUrl="http://localhost:7368/MasterService.svc?disco" />
+    <MetadataFile FileName="MasterService.wsdl" MetadataType="Wsdl" ID="3a7489d9-115e-4cea-98ec-d586cdf8e161" SourceId="1" SourceUrl="http://localhost:7368/MasterService.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

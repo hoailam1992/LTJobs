@@ -7,7 +7,7 @@ using Models;
 using BusinessLayer.Common;
 namespace BusinessLayer.IService
 {
-    public interface IProductTypeBusinessService : IBusinessServiceBase<producttype>
+    public interface IProductTypeBusinessService : IBusinessServiceBase<ProductType>
     {
       
     }

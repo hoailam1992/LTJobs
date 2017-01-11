@@ -8,7 +8,7 @@ using BusinessLayer.Common;
 using Models;
 namespace BusinessLayer.Service
 {
-    public class DeliveryTypeBusinessService : BusinessServiceBase<deliverytype>, IDeliveryTypeBusinessService
+    public class DeliveryTypeBusinessService : BusinessServiceBase<DeliveryType>, IDeliveryTypeBusinessService
     {
         public ReturnType<bool> DeleteDeliveryTypeById(long enity)
         {

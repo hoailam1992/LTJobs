@@ -8,21 +8,21 @@ using BusinessLayer.Common;
 using Models;
 namespace BusinessLayer.Service
 {
-    public class ProductPriceBusinessService : BusinessServiceBase<productprice>, IProductPriceBusinessService
+    public class ProductPriceBusinessService : BusinessServiceBase<ProductPrice>, IProductPriceBusinessService
     {
-        public ReturnType<IList<productprice>> GetProductPriceByProductAndTypeId(long idProduct, long idType)
+        public ReturnType<IList<ProductPrice>> GetProductPriceByProductAndTypeId(long idProduct, long idType)
         {
-            return GetList(c => c.productid == idProduct && c.producttypeid == idType);
+            return GetList(c => c.ProductId == idProduct && c.ProductTypeId == idType);
         }
 
-        public ReturnType<IList<productprice>> GetProductPriceByProductId(long id)
+        public ReturnType<IList<ProductPrice>> GetProductPriceByProductId(long id)
         {
-            return GetList(c => c.productid == id);
+            return GetList(c => c.ProductId == id);
         }
 
-        public ReturnType<IList<productprice>> GetProductPriceByProductTypeId(long id)
+        public ReturnType<IList<ProductPrice>> GetProductPriceByProductTypeId(long id)
         {
-            return GetList(c => c.producttypeid == id);
+            return GetList(c => c.ProductTypeId == id);
         }
     }
 }

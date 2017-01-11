@@ -13,7 +13,6 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccess;
 using Models;
-using Models.Common;
 
 namespace BusinessLayer.Common
 {
@@ -115,7 +114,7 @@ namespace BusinessLayer.Common
             if (!checkRuleResult.IsSuccess)
                 return checkRuleResult;
 
-            return entity.id > 0 ? Update(entity) : Add(entity);
+            return entity.Id > 0 ? Update(entity) : Add(entity);
         }
 
         public virtual ReturnType<TEntity> CheckBusinessRuleBeforeSave(TEntity bpaym)

@@ -11,34 +11,34 @@ namespace Models
 {
     using System;
     using System.Collections.Generic;
-    using Models.Common;
     using System.Runtime.Serialization;
 
-    public partial class photo : ModelBase
+    [DataContract(IsReference = true)]
+    public partial class Photo : ModelBase
     {
         
         [DataMember]
-        public long userid { get; set; }
+        public long UserId { get; set; }
         [DataMember]
-        public byte[] data { get; set; }
+        public byte[] Image { get; set; }
         [DataMember]
-        public string photolink { get; set; }
+        public string PhotoLink { get; set; }
         [DataMember]
-        public System.DateTime uploadeddate { get; set; }
+        public System.DateTime UploadedDate { get; set; }
         [DataMember]
-        public string photodescription { get; set; }
+        public string PhotoDescription { get; set; }
         [DataMember]
-        public System.DateTime createddate { get; set; }
+        public System.DateTime CreatedDate { get; set; }
         [DataMember]
-        public Nullable<System.DateTime> modifieddate { get; set; }
+        public Nullable<System.DateTime> ModifiedDate { get; set; }
         [DataMember]
-        public Nullable<bool> isvisble { get; set; }
+        public Nullable<bool> IsVisble { get; set; }
         [DataMember]
-        public Nullable<bool> vipmemberonly { get; set; }
+        public Nullable<bool> VIPMemberOnly { get; set; }
         [DataMember]
-        public string status { get; set; }
+        public string Status { get; set; }
         [DataMember]
 
-        public virtual user user { get; set; }
+        public virtual User User { get; set; }
     }
 }

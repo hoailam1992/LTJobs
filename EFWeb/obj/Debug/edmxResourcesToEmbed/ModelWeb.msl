@@ -1,265 +1,266 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="dbwebModelStoreContainer" CdmEntityContainer="dbwebEntities">
-    <EntitySetMapping Name="bookings">
-      <EntityTypeMapping TypeName="dbwebModel.booking">
-        <MappingFragment StoreEntitySet="booking">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="clientid" ColumnName="clientid" />
-          <ScalarProperty Name="productid" ColumnName="productid" />
-          <ScalarProperty Name="deliveryid" ColumnName="deliveryid" />
-          <ScalarProperty Name="productprice" ColumnName="productprice" />
-          <ScalarProperty Name="deliveryprice" ColumnName="deliveryprice" />
-          <ScalarProperty Name="location" ColumnName="location" />
-          <ScalarProperty Name="paymentmode" ColumnName="paymentmode" />
-          <ScalarProperty Name="totalcost" ColumnName="totalcost" />
-          <ScalarProperty Name="producttype" ColumnName="producttype" />
-          <ScalarProperty Name="productrespond" ColumnName="productrespond" />
-          <ScalarProperty Name="deliveryrespond" ColumnName="deliveryrespond" />
-          <ScalarProperty Name="datetime" ColumnName="datetime" />
-          <ScalarProperty Name="createddate" ColumnName="createddate" />
-          <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="isdeleted" ColumnName="isdeleted" />
-          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+    <EntitySetMapping Name="Bookings">
+      <EntityTypeMapping TypeName="dbwebModel.Booking">
+        <MappingFragment StoreEntitySet="Bookings">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="DeliveryRespond" ColumnName="DeliveryRespond" />
+          <ScalarProperty Name="ProductRespond" ColumnName="ProductRespond" />
+          <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+          <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+          <ScalarProperty Name="PaymentMode" ColumnName="PaymentMode" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="DeliveryPrice" ColumnName="DeliveryPrice" />
+          <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+          <ScalarProperty Name="DeliveryId" ColumnName="DeliveryId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="clients">
-      <EntityTypeMapping TypeName="dbwebModel.client">
-        <MappingFragment StoreEntitySet="client">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="clientcode" ColumnName="clientcode" />
-          <ScalarProperty Name="paymentmode" ColumnName="paymentmode" />
-          <ScalarProperty Name="ccholder" ColumnName="ccholder" />
-          <ScalarProperty Name="ccnumber" ColumnName="ccnumber" />
-          <ScalarProperty Name="ccexpiredmonth" ColumnName="ccexpiredmonth" />
-          <ScalarProperty Name="ccexpiredyear" ColumnName="ccexpiredyear" />
-          <ScalarProperty Name="ccpin" ColumnName="ccpin" />
-          <ScalarProperty Name="userid" ColumnName="userid" />
-          <ScalarProperty Name="isvalid" ColumnName="isvalid" />
-          <ScalarProperty Name="createddate" ColumnName="createddate" />
-          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
-          <ScalarProperty Name="balance" ColumnName="balance" />
-          <ScalarProperty Name="cancelcount" ColumnName="cancelcount" />
+    <EntitySetMapping Name="ClientComments">
+      <EntityTypeMapping TypeName="dbwebModel.ClientComment">
+        <MappingFragment StoreEntitySet="ClientComments">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="DeliveryId" ColumnName="DeliveryId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="clientcomments">
-      <EntityTypeMapping TypeName="dbwebModel.clientcomment">
-        <MappingFragment StoreEntitySet="clientcomment">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="clientid" ColumnName="clientid" />
-          <ScalarProperty Name="memberid" ColumnName="memberid" />
-          <ScalarProperty Name="deliveryid" ColumnName="deliveryid" />
-          <ScalarProperty Name="rate" ColumnName="rate" />
-          <ScalarProperty Name="note" ColumnName="note" />
-          <ScalarProperty Name="createddate" ColumnName="createddate" />
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="dbwebModel.Client">
+        <MappingFragment StoreEntitySet="Clients">
+          <ScalarProperty Name="CancelCount" ColumnName="CancelCount" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsValid" ColumnName="IsValid" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CCPin" ColumnName="CCPin" />
+          <ScalarProperty Name="CCExpiredYear" ColumnName="CCExpiredYear" />
+          <ScalarProperty Name="CCExpiredMonth" ColumnName="CCExpiredMonth" />
+          <ScalarProperty Name="CCNumber" ColumnName="CCNumber" />
+          <ScalarProperty Name="CCHolder" ColumnName="CCHolder" />
+          <ScalarProperty Name="PaymentMode" ColumnName="PaymentMode" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="deliveries">
-      <EntityTypeMapping TypeName="dbwebModel.delivery">
-        <MappingFragment StoreEntitySet="delivery">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="deliverycode" ColumnName="deliverycode" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="address" ColumnName="address" />
-          <ScalarProperty Name="lowestprice" ColumnName="lowestprice" />
-          <ScalarProperty Name="highestprice" ColumnName="highestprice" />
-          <ScalarProperty Name="quality" ColumnName="quality" />
-          <ScalarProperty Name="phone" ColumnName="phone" />
-          <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="disctrict" ColumnName="disctrict" />
-          <ScalarProperty Name="city" ColumnName="city" />
-          <ScalarProperty Name="userid" ColumnName="userid" />
-          <ScalarProperty Name="commission" ColumnName="commission" />
+    <EntitySetMapping Name="Deliveries">
+      <EntityTypeMapping TypeName="dbwebModel.Delivery">
+        <MappingFragment StoreEntitySet="Deliveries">
+          <ScalarProperty Name="Commission" ColumnName="Commission" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Disctrict" ColumnName="Disctrict" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Quality" ColumnName="Quality" />
+          <ScalarProperty Name="HighestPrice" ColumnName="HighestPrice" />
+          <ScalarProperty Name="LowestPrice" ColumnName="LowestPrice" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="deliverytypes">
-      <EntityTypeMapping TypeName="dbwebModel.deliverytype">
-        <MappingFragment StoreEntitySet="deliverytype">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="deliveryid" ColumnName="deliveryid" />
-          <ScalarProperty Name="deliverycode" ColumnName="deliverytype" />
-          <ScalarProperty Name="deliverydescription" ColumnName="deliverydescription" />
-          <ScalarProperty Name="active" ColumnName="active" />
-          <ScalarProperty Name="extrafee" ColumnName="extrafee" />
-          <ScalarProperty Name="createddate" ColumnName="createddate" />
-          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+    <EntitySetMapping Name="DeliveryPrices">
+      <EntityTypeMapping TypeName="dbwebModel.DeliveryPrice">
+        <MappingFragment StoreEntitySet="DeliveryPrices">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="DeliveryId" ColumnName="DeliveryId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="feedbacks">
-      <EntityTypeMapping TypeName="dbwebModel.feedback">
-        <MappingFragment StoreEntitySet="feedback">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="title" ColumnName="title" />
-          <ScalarProperty Name="content" ColumnName="content" />
+    <EntitySetMapping Name="DeliveryTypes">
+      <EntityTypeMapping TypeName="dbwebModel.DeliveryType">
+        <MappingFragment StoreEntitySet="DeliveryTypes">
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ExtraFee" ColumnName="ExtraFee" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="DeliveryDescription" ColumnName="DeliveryDescription" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="DeliveryId" ColumnName="DeliveryId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="messages">
-      <EntityTypeMapping TypeName="dbwebModel.message">
-        <MappingFragment StoreEntitySet="message">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="from" ColumnName="from" />
-          <ScalarProperty Name="to" ColumnName="to" />
-          <ScalarProperty Name="subject" ColumnName="subject" />
-          <ScalarProperty Name="body" ColumnName="body" />
-          <ScalarProperty Name="datetime" ColumnName="datetime" />
-          <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="isdeleted" ColumnName="isdeleted" />
+    <EntitySetMapping Name="FeedBacks">
+      <EntityTypeMapping TypeName="dbwebModel.FeedBack">
+        <MappingFragment StoreEntitySet="FeedBacks">
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="moneytransactions">
-      <EntityTypeMapping TypeName="dbwebModel.moneytransaction">
-        <MappingFragment StoreEntitySet="moneytransaction">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="code" ColumnName="code" />
-          <ScalarProperty Name="receiptphoto" ColumnName="receiptphoto" />
-          <ScalarProperty Name="value" ColumnName="value" />
-          <ScalarProperty Name="trandate" ColumnName="trandate" />
-          <ScalarProperty Name="remark" ColumnName="remark" />
-          <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="sourceid" ColumnName="sourceid" />
-          <ScalarProperty Name="destinationid" ColumnName="destinationid" />
-          <ScalarProperty Name="paymentdate" ColumnName="paymentdate" />
-          <ScalarProperty Name="ccname" ColumnName="ccname" />
-          <ScalarProperty Name="ccno" ColumnName="ccno" />
-          <ScalarProperty Name="ccexpiredmonth" ColumnName="ccexpiredmonth" />
-          <ScalarProperty Name="ccexpiredyear" ColumnName="ccexpiredyear" />
-          <ScalarProperty Name="ccpin" ColumnName="ccpin" />
-          <ScalarProperty Name="createddate" ColumnName="createddate" />
-          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+    <EntitySetMapping Name="Messages">
+      <EntityTypeMapping TypeName="dbwebModel.Message">
+        <MappingFragment StoreEntitySet="Messages">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="To" ColumnName="To" />
+          <ScalarProperty Name="From" ColumnName="From" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="photos">
-      <EntityTypeMapping TypeName="dbwebModel.photo">
-        <MappingFragment StoreEntitySet="photo">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="userid" ColumnName="userid" />
-          <ScalarProperty Name="data" ColumnName="photo" />
-          <ScalarProperty Name="photolink" ColumnName="photolink" />
-          <ScalarProperty Name="uploadeddate" ColumnName="uploadeddate" />
-          <ScalarProperty Name="photodescription" ColumnName="photodescription" />
-          <ScalarProperty Name="createddate" ColumnName="createddate" />
-          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
-          <ScalarProperty Name="isvisble" ColumnName="isvisble" />
-          <ScalarProperty Name="vipmemberonly" ColumnName="vipmemberonly" />
-          <ScalarProperty Name="status" ColumnName="status" />
+    <EntitySetMapping Name="MoneyTransactions">
+      <EntityTypeMapping TypeName="dbwebModel.MoneyTransaction">
+        <MappingFragment StoreEntitySet="MoneyTransactions">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CCPin" ColumnName="CCPin" />
+          <ScalarProperty Name="CCExpiredYear" ColumnName="CCExpiredYear" />
+          <ScalarProperty Name="CCExpiredMonth" ColumnName="CCExpiredMonth" />
+          <ScalarProperty Name="CCNumber" ColumnName="CCNumber" />
+          <ScalarProperty Name="CCName" ColumnName="CCName" />
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+          <ScalarProperty Name="DestinationId" ColumnName="DestinationId" />
+          <ScalarProperty Name="SourceId" ColumnName="SourceId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Trandate" ColumnName="Trandate" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="ReceiptPhoto" ColumnName="ReceiptPhoto" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="products">
-      <EntityTypeMapping TypeName="dbwebModel.product">
-        <MappingFragment StoreEntitySet="product">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="productcode" ColumnName="productcode" />
-          <ScalarProperty Name="group" ColumnName="group" />
-          <ScalarProperty Name="language1" ColumnName="language1" />
-          <ScalarProperty Name="language2" ColumnName="language2" />
-          <ScalarProperty Name="price" ColumnName="price" />
-          <ScalarProperty Name="preferrablelocation" ColumnName="preferrablelocation" />
-          <ScalarProperty Name="bankname" ColumnName="bankname" />
-          <ScalarProperty Name="bankaccount" ColumnName="bankaccount" />
-          <ScalarProperty Name="bankaccnumber" ColumnName="bankaccnumber" />
-          <ScalarProperty Name="createddate" ColumnName="createddate" />
-          <ScalarProperty Name="modifeddate" ColumnName="modifeddate" />
-          <ScalarProperty Name="isactive" ColumnName="isactive" />
-          <ScalarProperty Name="isblocked" ColumnName="isblocked" />
-          <ScalarProperty Name="isavailable" ColumnName="isavailable" />
-          <ScalarProperty Name="cancelcount" ColumnName="cancelcount" />
-          <ScalarProperty Name="userid" ColumnName="userid" />
-          <ScalarProperty Name="productdescription" ColumnName="productdescription" />
-          <ScalarProperty Name="balance" ColumnName="balance" />
-          <ScalarProperty Name="commission" ColumnName="commission" />
-          <ScalarProperty Name="reward" ColumnName="reward" />
+    <EntitySetMapping Name="Photos">
+      <EntityTypeMapping TypeName="dbwebModel.Photo">
+        <MappingFragment StoreEntitySet="Photos">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="VIPMemberOnly" ColumnName="VIPMemberOnly" />
+          <ScalarProperty Name="IsVisble" ColumnName="IsVisble" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="PhotoDescription" ColumnName="PhotoDescription" />
+          <ScalarProperty Name="UploadedDate" ColumnName="UploadedDate" />
+          <ScalarProperty Name="PhotoLink" ColumnName="PhotoLink" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="productprices">
-      <EntityTypeMapping TypeName="dbwebModel.productprice">
-        <MappingFragment StoreEntitySet="productprice">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="producttypeid" ColumnName="producttypeid" />
-          <ScalarProperty Name="price" ColumnName="price" />
-          <ScalarProperty Name="active" ColumnName="active" />
-          <ScalarProperty Name="productid" ColumnName="productid" />
-          <ScalarProperty Name="reward" ColumnName="reward" />
+    <EntitySetMapping Name="ProductPrices">
+      <EntityTypeMapping TypeName="dbwebModel.ProductPrice">
+        <MappingFragment StoreEntitySet="ProductPrices">
+          <ScalarProperty Name="Reward" ColumnName="Reward" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ProductTypeId" ColumnName="ProductTypeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="producttypes">
-      <EntityTypeMapping TypeName="dbwebModel.producttype">
-        <MappingFragment StoreEntitySet="producttype">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="producttypecode" ColumnName="producttype" />
-          <ScalarProperty Name="actvice" ColumnName="actvice" />
-          <ScalarProperty Name="flag" ColumnName="flag" />
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="dbwebModel.Product">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="Reward" ColumnName="Reward" />
+          <ScalarProperty Name="Commission" ColumnName="Commission" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CancelCount" ColumnName="CancelCount" />
+          <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+          <ScalarProperty Name="IsBlocked" ColumnName="IsBlocked" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ModifedDate" ColumnName="ModifedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="BankAccNumber" ColumnName="BankAccNumber" />
+          <ScalarProperty Name="BankAccount" ColumnName="BankAccount" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="PreferrableLocation" ColumnName="PreferrableLocation" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Language2" ColumnName="Language2" />
+          <ScalarProperty Name="Language1" ColumnName="Language1" />
+          <ScalarProperty Name="Group" ColumnName="Group" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="reports">
-      <EntityTypeMapping TypeName="dbwebModel.report">
-        <MappingFragment StoreEntitySet="report">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="bookingid" ColumnName="bookingid" />
-          <ScalarProperty Name="content" ColumnName="report" />
-          <ScalarProperty Name="systemrespond" ColumnName="systemrespond" />
-          <ScalarProperty Name="refundamount" ColumnName="refundamount" />
+    <EntitySetMapping Name="ProductTypes">
+      <EntityTypeMapping TypeName="dbwebModel.ProductType">
+        <MappingFragment StoreEntitySet="ProductTypes">
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="users">
-      <EntityTypeMapping TypeName="dbwebModel.user">
-        <MappingFragment StoreEntitySet="user">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="username" ColumnName="username" />
-          <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="fullname" ColumnName="fullname" />
-          <ScalarProperty Name="dateofbirth" ColumnName="dateofbirth" />
-          <ScalarProperty Name="active" ColumnName="active" />
-          <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="phone" ColumnName="phone" />
-          <ScalarProperty Name="accounttype" ColumnName="accounttype" />
-          <ScalarProperty Name="isblocked" ColumnName="isblocked" />
-          <ScalarProperty Name="gcmkey" ColumnName="gcmkey" />
-          <ScalarProperty Name="isnotify" ColumnName="isnotify" />
-          <ScalarProperty Name="securityquestionid" ColumnName="securityquestionid" />
-          <ScalarProperty Name="securityanswer" ColumnName="securityanswer" />
-          <ScalarProperty Name="createddate" ColumnName="createddate" />
-          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
-          <ScalarProperty Name="lastlogin" ColumnName="lastlogin" />
+    <EntitySetMapping Name="Reports">
+      <EntityTypeMapping TypeName="dbwebModel.Report">
+        <MappingFragment StoreEntitySet="Reports">
+          <ScalarProperty Name="RefundAmount" ColumnName="RefundAmount" />
+          <ScalarProperty Name="SystemRespond" ColumnName="SystemRespond" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="BookingId" ColumnName="BookingId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="videos">
-      <EntityTypeMapping TypeName="dbwebModel.video">
-        <MappingFragment StoreEntitySet="video">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="memberid" ColumnName="memberid" />
-          <ScalarProperty Name="data" ColumnName="video" />
-          <ScalarProperty Name="videolink" ColumnName="videolink" />
-          <ScalarProperty Name="uploadeddate" ColumnName="uploadeddate" />
-          <ScalarProperty Name="videodescription" ColumnName="videodescription" />
-          <ScalarProperty Name="createddate" ColumnName="createddate" />
-          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
-          <ScalarProperty Name="isvisible" ColumnName="isvisible" />
-          <ScalarProperty Name="vipmemberonly" ColumnName="vipmemberonly" />
-          <ScalarProperty Name="status" ColumnName="status" />
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="dbwebModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="SecurityAnswer" ColumnName="SecurityAnswer" />
+          <ScalarProperty Name="SecurityQuestionId" ColumnName="SecurityQuestionId" />
+          <ScalarProperty Name="IsNotify" ColumnName="IsNotify" />
+          <ScalarProperty Name="GCMkey" ColumnName="GCMkey" />
+          <ScalarProperty Name="IsBlocked" ColumnName="IsBlocked" />
+          <ScalarProperty Name="AccountType" ColumnName="AccountType" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="deliveryprices">
-      <EntityTypeMapping TypeName="dbwebModel.deliveryprice">
-        <MappingFragment StoreEntitySet="deliveryprice">
-          <ScalarProperty Name="active" ColumnName="active" />
-          <ScalarProperty Name="price" ColumnName="price" />
-          <ScalarProperty Name="deliverytypeid" ColumnName="deliverytypeid" />
-          <ScalarProperty Name="id" ColumnName="id" />
+    <EntitySetMapping Name="Videos">
+      <EntityTypeMapping TypeName="dbwebModel.Video">
+        <MappingFragment StoreEntitySet="Videos">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="VIPMemberOnly" ColumnName="VIPMemberOnly" />
+          <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="VideoDescription" ColumnName="VideoDescription" />
+          <ScalarProperty Name="UploadedDate" ColumnName="UploadedDate" />
+          <ScalarProperty Name="VideoLink" ColumnName="VideoLink" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

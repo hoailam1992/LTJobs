@@ -7,7 +7,7 @@ using Models;
 using BusinessLayer.Common;
 namespace BusinessLayer.IService
 {
-    public interface IDeliveryTypeBusinessService : IBusinessServiceBase<deliverytype>
+    public interface IDeliveryTypeBusinessService : IBusinessServiceBase<DeliveryType>
     {
         ReturnType<bool> DeleteDeliveryTypeById(long enity);        
     }

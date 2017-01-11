@@ -1,555 +1,572 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="dbwebModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="booking">
+  <EntityType Name="Bookings">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="bigint" Nullable="false" />
-    <Property Name="clientid" Type="bigint" Nullable="false" />
-    <Property Name="productid" Type="bigint" Nullable="false" />
-    <Property Name="deliveryid" Type="bigint" />
-    <Property Name="productprice" Type="decimal" Precision="16" Scale="2" />
-    <Property Name="deliveryprice" Type="decimal" Precision="16" Scale="2" />
-    <Property Name="location" Type="nvarchar(max)" />
-    <Property Name="paymentmode" Type="char" MaxLength="1" Nullable="false" />
-    <Property Name="totalcost" Type="decimal" Precision="16" Scale="2" Nullable="false" />
-    <Property Name="producttype" Type="bigint" Nullable="false" />
-    <Property Name="productrespond" Type="char" MaxLength="1" />
-    <Property Name="deliveryrespond" Type="char" MaxLength="1" />
-    <Property Name="datetime" Type="datetime" />
-    <Property Name="createddate" Type="datetime" />
-    <Property Name="status" Type="char" MaxLength="1" />
-    <Property Name="isdeleted" Type="bit" />
-    <Property Name="modifieddate" Type="datetime" Nullable="false" />
+    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="ClientId" Type="bigint" Nullable="false" />
+    <Property Name="ProductId" Type="bigint" Nullable="false" />
+    <Property Name="DeliveryId" Type="bigint" />
+    <Property Name="ProductPrice" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="DeliveryPrice" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="Location" Type="nvarchar(max)" />
+    <Property Name="PaymentMode" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="TotalCost" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="ProductType" Type="bigint" Nullable="false" />
+    <Property Name="ProductRespond" Type="char" MaxLength="1" />
+    <Property Name="DeliveryRespond" Type="char" MaxLength="1" />
+    <Property Name="DateTime" Type="datetime" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="Status" Type="char" MaxLength="1" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
   </EntityType>
-  <EntityType Name="client">
+  <EntityType Name="ClientComments">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="bigint" Nullable="false" />
-    <Property Name="clientcode" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="paymentmode" Type="int" Nullable="false" />
-    <Property Name="ccholder" Type="nvarchar" MaxLength="50" />
-    <Property Name="ccnumber" Type="nvarchar(max)" />
-    <Property Name="ccexpiredmonth" Type="int" />
-    <Property Name="ccexpiredyear" Type="int" />
-    <Property Name="ccpin" Type="nvarchar(max)" />
-    <Property Name="userid" Type="bigint" Nullable="false" />
-    <Property Name="isvalid" Type="bit" Nullable="false" />
-    <Property Name="createddate" Type="datetime" Nullable="false" />
-    <Property Name="modifieddate" Type="datetime" />
-    <Property Name="balance" Type="decimal" Precision="16" Scale="2" Nullable="false" />
-    <Property Name="cancelcount" Type="int" Nullable="false" />
+    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="ClientId" Type="bigint" Nullable="false" />
+    <Property Name="ProductId" Type="bigint" />
+    <Property Name="DeliveryId" Type="bigint" />
+    <Property Name="Rate" Type="int" />
+    <Property Name="Note" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
   </EntityType>
-  <EntityType Name="clientcomment">
+  <EntityType Name="Clients">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="bigint" Nullable="false" />
-    <Property Name="clientid" Type="bigint" Nullable="false" />
-    <Property Name="memberid" Type="bigint" />
-    <Property Name="deliveryid" Type="bigint" />
-    <Property Name="rate" Type="int" />
-    <Property Name="note" Type="nvarchar" MaxLength="1" Nullable="false" />
-    <Property Name="createddate" Type="datetime" Nullable="false" />
+    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PaymentMode" Type="int" Nullable="false" />
+    <Property Name="CCHolder" Type="nvarchar" MaxLength="50" />
+    <Property Name="CCNumber" Type="nvarchar(max)" />
+    <Property Name="CCExpiredMonth" Type="int" />
+    <Property Name="CCExpiredYear" Type="int" />
+    <Property Name="CCPin" Type="nvarchar(max)" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="IsValid" Type="bit" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="Balance" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="CancelCount" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="delivery">
+  <EntityType Name="Deliveries">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="bigint" Nullable="false" />
-    <Property Name="deliverycode" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
-    <Property Name="address" Type="varchar" MaxLength="255" Nullable="false" />
-    <Property Name="lowestprice" Type="decimal" Precision="16" Scale="2" />
-    <Property Name="highestprice" Type="decimal" Precision="16" Scale="2" />
-    <Property Name="quality" Type="int" />
-    <Property Name="phone" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="email" Type="varchar" MaxLength="100" />
-    <Property Name="disctrict" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="city" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="userid" Type="bigint" Nullable="false" />
-    <Property Name="commission" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="LowestPrice" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="HighestPrice" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="Quality" Type="int" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Disctrict" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="Commission" Type="decimal" Precision="16" Scale="2" />
   </EntityType>
-  <EntityType Name="deliveryprice">
+  <EntityType Name="DeliveryPrices">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="bigint" Nullable="false" />
-    <Property Name="deliverytypeid" Type="bigint" />
-    <Property Name="price" Type="decimal" Precision="16" Scale="2" />
-    <Property Name="active" Type="bit" />
+    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="DeliveryId" Type="bigint" />
+    <Property Name="Price" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="Active" Type="bit" />
   </EntityType>
-  <EntityType Name="deliverytype">
+  <EntityType Name="DeliveryTypes">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="bigint" Nullable="false" />
-    <Property Name="deliveryid" Type="bigint" Nullable="false" />
-    <Property Name="deliverytype" Type="bigint" Nullable="false" />
-    <Property Name="deliverydescription" Type="nvarchar(max)" />
-    <Property Name="active" Type="bit" Nullable="false" />
-    <Property Name="extrafee" Type="nvarchar(max)" />
-    <Property Name="createddate" Type="datetime" Nullable="false" />
-    <Property Name="modifieddate" Type="datetime" Nullable="false" />
+    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="DeliveryId" Type="bigint" Nullable="false" />
+    <Property Name="Code" Type="bigint" Nullable="false" />
+    <Property Name="DeliveryDescription" Type="nvarchar(max)" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="ExtraFee" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="16" Scale="2" />
   </EntityType>
-  <EntityType Name="feedback">
+  <EntityType Name="FeedBacks">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="bigint" Nullable="false" />
-    <Property Name="title" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
-  <EntityType Name="message">
+  <EntityType Name="Messages">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="bigint" Nullable="false" />
-    <Property Name="from" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="to" Type="bigint" Nullable="false" />
-    <Property Name="subject" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="body" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="datetime" Type="datetime" Nullable="false" />
-    <Property Name="status" Type="bit" Nullable="false" />
-    <Property Name="isdeleted" Type="bit" />
+    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="From" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="To" Type="bigint" Nullable="false" />
+    <Property Name="Subject" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DateTime" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" />
   </EntityType>
-  <EntityType Name="moneytransaction">
+  <EntityType Name="MoneyTransactions">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="bigint" Nullable="false" />
-    <Property Name="code" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="receiptphoto" Type="image" />
-    <Property Name="value" Type="decimal" Precision="16" Scale="2" Nullable="false" />
-    <Property Name="trandate" Type="datetime" Nullable="false" />
-    <Property Name="remark" Type="nvarchar(max)" />
-    <Property Name="status" Type="char" MaxLength="1" Nullable="false" />
-    <Property Name="sourceid" Type="bigint" Nullable="false" />
-    <Property Name="destinationid" Type="bigint" Nullable="false" />
-    <Property Name="paymentdate" Type="datetime" />
-    <Property Name="ccname" Type="varchar" MaxLength="100" />
-    <Property Name="ccno" Type="varchar" MaxLength="100" />
-    <Property Name="ccexpiredmonth" Type="int" />
-    <Property Name="ccexpiredyear" Type="int" />
-    <Property Name="ccpin" Type="nvarchar(max)" />
-    <Property Name="createddate" Type="datetime" Nullable="false" />
-    <Property Name="modifieddate" Type="datetime" />
+    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ReceiptPhoto" Type="varbinary(max)" />
+    <Property Name="Value" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="Trandate" Type="datetime" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar(max)" />
+    <Property Name="Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="SourceId" Type="bigint" Nullable="false" />
+    <Property Name="DestinationId" Type="bigint" Nullable="false" />
+    <Property Name="PaymentDate" Type="datetime" />
+    <Property Name="CCName" Type="varchar" MaxLength="100" />
+    <Property Name="CCNumber" Type="varchar" MaxLength="100" />
+    <Property Name="CCExpiredMonth" Type="int" />
+    <Property Name="CCExpiredYear" Type="int" />
+    <Property Name="CCPin" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" />
   </EntityType>
-  <EntityType Name="photo">
+  <EntityType Name="Photos">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="bigint" Nullable="false" />
-    <Property Name="userid" Type="bigint" Nullable="false" />
-    <Property Name="photo" Type="binary" MaxLength="1" Nullable="false" />
-    <Property Name="photolink" Type="varchar" MaxLength="255" />
-    <Property Name="uploadeddate" Type="datetime" Nullable="false" />
-    <Property Name="photodescription" Type="varchar" MaxLength="255" />
-    <Property Name="createddate" Type="datetime" Nullable="false" />
-    <Property Name="modifieddate" Type="datetime" />
-    <Property Name="isvisble" Type="bit" />
-    <Property Name="vipmemberonly" Type="bit" />
-    <Property Name="status" Type="char" MaxLength="1" />
+    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="Image" Type="image" Nullable="false" />
+    <Property Name="PhotoLink" Type="varchar" MaxLength="255" />
+    <Property Name="UploadedDate" Type="datetime" Nullable="false" />
+    <Property Name="PhotoDescription" Type="varchar" MaxLength="255" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="IsVisble" Type="bit" />
+    <Property Name="VIPMemberOnly" Type="bit" />
+    <Property Name="Status" Type="char" MaxLength="1" />
   </EntityType>
-  <EntityType Name="product">
+  <EntityType Name="ProductPrices">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="bigint" Nullable="false" />
-    <Property Name="productcode" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="group" Type="varchar" MaxLength="50" />
-    <Property Name="language1" Type="varchar" MaxLength="50" />
-    <Property Name="language2" Type="varchar" MaxLength="50" />
-    <Property Name="price" Type="decimal" Precision="16" Scale="2" Nullable="false" />
-    <Property Name="preferrablelocation" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="bankname" Type="varchar" MaxLength="100" />
-    <Property Name="bankaccount" Type="varchar" MaxLength="100" />
-    <Property Name="bankaccnumber" Type="varchar" MaxLength="100" />
-    <Property Name="createddate" Type="datetime" Nullable="false" />
-    <Property Name="modifeddate" Type="datetime" />
-    <Property Name="isactive" Type="bit" Nullable="false" />
-    <Property Name="isblocked" Type="bit" Nullable="false" />
-    <Property Name="isavailable" Type="bit" />
-    <Property Name="cancelcount" Type="int" Nullable="false" />
-    <Property Name="userid" Type="bigint" Nullable="false" />
-    <Property Name="productdescription" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="balance" Type="decimal" Precision="16" Scale="2" Nullable="false" />
-    <Property Name="commission" Type="decimal" Precision="16" Scale="2" />
-    <Property Name="reward" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="ProductTypeId" Type="bigint" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="ProductId" Type="bigint" />
+    <Property Name="Reward" Type="decimal" Precision="10" Scale="0" />
   </EntityType>
-  <EntityType Name="productprice">
+  <EntityType Name="Products">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="bigint" Nullable="false" />
-    <Property Name="producttypeid" Type="bigint" Nullable="false" />
-    <Property Name="price" Type="decimal" Precision="16" Scale="2" Nullable="false" />
-    <Property Name="active" Type="bit" Nullable="false" />
-    <Property Name="productid" Type="bigint" />
-    <Property Name="reward" Type="decimal" Precision="10" Scale="0" />
+    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Group" Type="varchar" MaxLength="50" />
+    <Property Name="Language1" Type="varchar" MaxLength="50" />
+    <Property Name="Language2" Type="varchar" MaxLength="50" />
+    <Property Name="Price" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="PreferrableLocation" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BankName" Type="varchar" MaxLength="100" />
+    <Property Name="BankAccount" Type="varchar" MaxLength="100" />
+    <Property Name="BankAccNumber" Type="varchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsBlocked" Type="bit" Nullable="false" />
+    <Property Name="IsAvailable" Type="bit" />
+    <Property Name="CancelCount" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="ProductDescription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Balance" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="Commission" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="Reward" Type="decimal" Precision="16" Scale="2" />
   </EntityType>
-  <EntityType Name="producttype">
+  <EntityType Name="ProductTypes">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="bigint" Nullable="false" />
-    <Property Name="producttype" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="actvice" Type="bit" Nullable="false" />
-    <Property Name="flag" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Flag" Type="char" MaxLength="1" Nullable="false" />
   </EntityType>
-  <EntityType Name="report">
+  <EntityType Name="Reports">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="bigint" Nullable="false" />
-    <Property Name="bookingid" Type="bigint" Nullable="false" />
-    <Property Name="report" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="systemrespond" Type="nvarchar(max)" />
-    <Property Name="refundamount" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="BookingId" Type="bigint" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SystemRespond" Type="nvarchar(max)" />
+    <Property Name="RefundAmount" Type="decimal" Precision="16" Scale="2" />
   </EntityType>
-  <EntityType Name="user">
+  <EntityType Name="Users">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="bigint" Nullable="false" />
-    <Property Name="username" Type="varchar" MaxLength="25" Nullable="false" />
-    <Property Name="password" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="fullname" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="dateofbirth" Type="datetime" Nullable="false" />
-    <Property Name="active" Type="bit" Nullable="false" />
-    <Property Name="email" Type="varchar" MaxLength="100" />
-    <Property Name="phone" Type="varchar" MaxLength="15" />
-    <Property Name="accounttype" Type="varchar" MaxLength="45" Nullable="false" />
-    <Property Name="isblocked" Type="bit" Nullable="false" />
-    <Property Name="gcmkey" Type="nvarchar(max)" />
-    <Property Name="isnotify" Type="bit" />
-    <Property Name="securityquestionid" Type="smallint" Nullable="false" />
-    <Property Name="securityanswer" Type="varchar" MaxLength="45" Nullable="false" />
-    <Property Name="createddate" Type="datetime" />
-    <Property Name="modifieddate" Type="datetime" />
-    <Property Name="lastlogin" Type="datetime" />
+    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="FullName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DateOfBirth" Type="datetime" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Phone" Type="varchar" MaxLength="15" />
+    <Property Name="AccountType" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="IsBlocked" Type="bit" Nullable="false" />
+    <Property Name="GCMkey" Type="nvarchar(max)" />
+    <Property Name="IsNotify" Type="bit" />
+    <Property Name="SecurityQuestionId" Type="smallint" Nullable="false" />
+    <Property Name="SecurityAnswer" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="LastLogin" Type="datetime" />
   </EntityType>
-  <EntityType Name="video">
+  <EntityType Name="Videos">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="bigint" Nullable="false" />
-    <Property Name="memberid" Type="bigint" Nullable="false" />
-    <Property Name="video" Type="binary" MaxLength="1" />
-    <Property Name="videolink" Type="nvarchar(max)" />
-    <Property Name="uploadeddate" Type="datetime" Nullable="false" />
-    <Property Name="videodescription" Type="varchar" MaxLength="255" />
-    <Property Name="createddate" Type="datetime" />
-    <Property Name="modifieddate" Type="datetime" />
-    <Property Name="isvisible" Type="bit" />
-    <Property Name="vipmemberonly" Type="bit" />
-    <Property Name="status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="ProductId" Type="bigint" Nullable="false" />
+    <Property Name="Source" Type="binary" MaxLength="8000" />
+    <Property Name="VideoLink" Type="nvarchar(max)" />
+    <Property Name="UploadedDate" Type="datetime" Nullable="false" />
+    <Property Name="VideoDescription" Type="varchar" MaxLength="255" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="IsVisible" Type="bit" />
+    <Property Name="VIPMemberOnly" Type="bit" />
+    <Property Name="Status" Type="char" MaxLength="1" Nullable="false" />
   </EntityType>
   <Association Name="FK_booking_client">
-    <End Role="client" Type="Self.client" Multiplicity="1" />
-    <End Role="booking" Type="Self.booking" Multiplicity="*" />
+    <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+    <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="client">
-        <PropertyRef Name="id" />
+      <Principal Role="Clients">
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="booking">
-        <PropertyRef Name="clientid" />
+      <Dependent Role="Bookings">
+        <PropertyRef Name="ClientId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_booking_delivery">
-    <End Role="delivery" Type="Self.delivery" Multiplicity="0..1" />
-    <End Role="booking" Type="Self.booking" Multiplicity="*" />
+    <End Role="Deliveries" Type="Self.Deliveries" Multiplicity="0..1" />
+    <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="delivery">
-        <PropertyRef Name="id" />
+      <Principal Role="Deliveries">
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="booking">
-        <PropertyRef Name="deliveryid" />
+      <Dependent Role="Bookings">
+        <PropertyRef Name="DeliveryId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_booking_product">
-    <End Role="product" Type="Self.product" Multiplicity="1" />
-    <End Role="booking" Type="Self.booking" Multiplicity="*" />
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="product">
-        <PropertyRef Name="id" />
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="booking">
-        <PropertyRef Name="productid" />
+      <Dependent Role="Bookings">
+        <PropertyRef Name="ProductId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_client_user1">
-    <End Role="user" Type="Self.user" Multiplicity="1" />
-    <End Role="client" Type="Self.client" Multiplicity="*" />
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="user">
-        <PropertyRef Name="id" />
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="client">
-        <PropertyRef Name="userid" />
+      <Dependent Role="Clients">
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_clientcomment_client">
-    <End Role="client" Type="Self.client" Multiplicity="1" />
-    <End Role="clientcomment" Type="Self.clientcomment" Multiplicity="*" />
+    <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+    <End Role="ClientComments" Type="Self.ClientComments" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="client">
-        <PropertyRef Name="id" />
+      <Principal Role="Clients">
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="clientcomment">
-        <PropertyRef Name="clientid" />
+      <Dependent Role="ClientComments">
+        <PropertyRef Name="ClientId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_clientcomment_delivery">
-    <End Role="delivery" Type="Self.delivery" Multiplicity="0..1" />
-    <End Role="clientcomment" Type="Self.clientcomment" Multiplicity="*" />
+    <End Role="Deliveries" Type="Self.Deliveries" Multiplicity="0..1" />
+    <End Role="ClientComments" Type="Self.ClientComments" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="delivery">
-        <PropertyRef Name="id" />
+      <Principal Role="Deliveries">
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="clientcomment">
-        <PropertyRef Name="deliveryid" />
+      <Dependent Role="ClientComments">
+        <PropertyRef Name="DeliveryId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_clientcomment_product">
-    <End Role="product" Type="Self.product" Multiplicity="0..1" />
-    <End Role="clientcomment" Type="Self.clientcomment" Multiplicity="*" />
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+    <End Role="ClientComments" Type="Self.ClientComments" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="product">
-        <PropertyRef Name="id" />
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="clientcomment">
-        <PropertyRef Name="memberid" />
+      <Dependent Role="ClientComments">
+        <PropertyRef Name="ProductId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_delivery_user">
-    <End Role="user" Type="Self.user" Multiplicity="1" />
-    <End Role="delivery" Type="Self.delivery" Multiplicity="*" />
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Deliveries" Type="Self.Deliveries" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="user">
-        <PropertyRef Name="id" />
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="delivery">
-        <PropertyRef Name="userid" />
+      <Dependent Role="Deliveries">
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_DeliveryPrice_deliverytype">
-    <End Role="deliverytype" Type="Self.deliverytype" Multiplicity="0..1" />
-    <End Role="deliveryprice" Type="Self.deliveryprice" Multiplicity="*" />
+    <End Role="DeliveryTypes" Type="Self.DeliveryTypes" Multiplicity="0..1" />
+    <End Role="DeliveryPrices" Type="Self.DeliveryPrices" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="deliverytype">
-        <PropertyRef Name="id" />
+      <Principal Role="DeliveryTypes">
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="deliveryprice">
-        <PropertyRef Name="deliverytypeid" />
+      <Dependent Role="DeliveryPrices">
+        <PropertyRef Name="DeliveryId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_deliverytype_delivery">
-    <End Role="delivery" Type="Self.delivery" Multiplicity="1" />
-    <End Role="deliverytype" Type="Self.deliverytype" Multiplicity="*" />
+    <End Role="Deliveries" Type="Self.Deliveries" Multiplicity="1" />
+    <End Role="DeliveryTypes" Type="Self.DeliveryTypes" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="delivery">
-        <PropertyRef Name="id" />
+      <Principal Role="Deliveries">
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="deliverytype">
-        <PropertyRef Name="deliveryid" />
+      <Dependent Role="DeliveryTypes">
+        <PropertyRef Name="DeliveryId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_message_user">
-    <End Role="user" Type="Self.user" Multiplicity="1" />
-    <End Role="message" Type="Self.message" Multiplicity="*" />
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Messages" Type="Self.Messages" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="user">
-        <PropertyRef Name="id" />
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="message">
-        <PropertyRef Name="to" />
+      <Dependent Role="Messages">
+        <PropertyRef Name="To" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_moneytransaction_user">
-    <End Role="user" Type="Self.user" Multiplicity="1" />
-    <End Role="moneytransaction" Type="Self.moneytransaction" Multiplicity="*" />
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="MoneyTransactions" Type="Self.MoneyTransactions" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="user">
-        <PropertyRef Name="id" />
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="moneytransaction">
-        <PropertyRef Name="sourceid" />
+      <Dependent Role="MoneyTransactions">
+        <PropertyRef Name="SourceId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_moneytransaction_user1">
-    <End Role="user" Type="Self.user" Multiplicity="1" />
-    <End Role="moneytransaction" Type="Self.moneytransaction" Multiplicity="*" />
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="MoneyTransactions" Type="Self.MoneyTransactions" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="user">
-        <PropertyRef Name="id" />
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="moneytransaction">
-        <PropertyRef Name="destinationid" />
+      <Dependent Role="MoneyTransactions">
+        <PropertyRef Name="DestinationId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_photo_user">
-    <End Role="user" Type="Self.user" Multiplicity="1" />
-    <End Role="photo" Type="Self.photo" Multiplicity="*" />
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Photos" Type="Self.Photos" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="user">
-        <PropertyRef Name="id" />
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="photo">
-        <PropertyRef Name="userid" />
+      <Dependent Role="Photos">
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_product_user">
-    <End Role="user" Type="Self.user" Multiplicity="1" />
-    <End Role="product" Type="Self.product" Multiplicity="*" />
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="user">
-        <PropertyRef Name="id" />
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="product">
-        <PropertyRef Name="userid" />
+      <Dependent Role="Products">
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_productprice_producttype">
-    <End Role="producttype" Type="Self.producttype" Multiplicity="1" />
-    <End Role="productprice" Type="Self.productprice" Multiplicity="*" />
+    <End Role="ProductTypes" Type="Self.ProductTypes" Multiplicity="1" />
+    <End Role="ProductPrices" Type="Self.ProductPrices" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="producttype">
-        <PropertyRef Name="id" />
+      <Principal Role="ProductTypes">
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="productprice">
-        <PropertyRef Name="producttypeid" />
+      <Dependent Role="ProductPrices">
+        <PropertyRef Name="ProductTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_productprices_products">
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+    <End Role="ProductPrices" Type="Self.ProductPrices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductPrices">
+        <PropertyRef Name="ProductId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_report_booking">
-    <End Role="booking" Type="Self.booking" Multiplicity="1" />
-    <End Role="report" Type="Self.report" Multiplicity="*" />
+    <End Role="Bookings" Type="Self.Bookings" Multiplicity="1" />
+    <End Role="Reports" Type="Self.Reports" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="booking">
-        <PropertyRef Name="id" />
+      <Principal Role="Bookings">
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="report">
-        <PropertyRef Name="bookingid" />
+      <Dependent Role="Reports">
+        <PropertyRef Name="BookingId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_video_product">
-    <End Role="product" Type="Self.product" Multiplicity="1" />
-    <End Role="video" Type="Self.video" Multiplicity="*" />
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Videos" Type="Self.Videos" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="product">
-        <PropertyRef Name="id" />
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="video">
-        <PropertyRef Name="memberid" />
+      <Dependent Role="Videos">
+        <PropertyRef Name="ProductId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="dbwebModelStoreContainer">
-    <EntitySet Name="booking" EntityType="Self.booking" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="client" EntityType="Self.client" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="clientcomment" EntityType="Self.clientcomment" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="delivery" EntityType="Self.delivery" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="deliveryprice" EntityType="Self.deliveryprice" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="deliverytype" EntityType="Self.deliverytype" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="feedback" EntityType="Self.feedback" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="message" EntityType="Self.message" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="moneytransaction" EntityType="Self.moneytransaction" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="photo" EntityType="Self.photo" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="productprice" EntityType="Self.productprice" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="producttype" EntityType="Self.producttype" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="report" EntityType="Self.report" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="video" EntityType="Self.video" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bookings" EntityType="Self.Bookings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClientComments" EntityType="Self.ClientComments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Deliveries" EntityType="Self.Deliveries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeliveryPrices" EntityType="Self.DeliveryPrices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeliveryTypes" EntityType="Self.DeliveryTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FeedBacks" EntityType="Self.FeedBacks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MoneyTransactions" EntityType="Self.MoneyTransactions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Photos" EntityType="Self.Photos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductPrices" EntityType="Self.ProductPrices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductTypes" EntityType="Self.ProductTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reports" EntityType="Self.Reports" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Videos" EntityType="Self.Videos" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_booking_client" Association="Self.FK_booking_client">
-      <End Role="client" EntitySet="client" />
-      <End Role="booking" EntitySet="booking" />
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="Bookings" EntitySet="Bookings" />
     </AssociationSet>
     <AssociationSet Name="FK_booking_delivery" Association="Self.FK_booking_delivery">
-      <End Role="delivery" EntitySet="delivery" />
-      <End Role="booking" EntitySet="booking" />
+      <End Role="Deliveries" EntitySet="Deliveries" />
+      <End Role="Bookings" EntitySet="Bookings" />
     </AssociationSet>
     <AssociationSet Name="FK_booking_product" Association="Self.FK_booking_product">
-      <End Role="product" EntitySet="product" />
-      <End Role="booking" EntitySet="booking" />
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Bookings" EntitySet="Bookings" />
     </AssociationSet>
     <AssociationSet Name="FK_client_user1" Association="Self.FK_client_user1">
-      <End Role="user" EntitySet="user" />
-      <End Role="client" EntitySet="client" />
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Clients" EntitySet="Clients" />
     </AssociationSet>
     <AssociationSet Name="FK_clientcomment_client" Association="Self.FK_clientcomment_client">
-      <End Role="client" EntitySet="client" />
-      <End Role="clientcomment" EntitySet="clientcomment" />
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="ClientComments" EntitySet="ClientComments" />
     </AssociationSet>
     <AssociationSet Name="FK_clientcomment_delivery" Association="Self.FK_clientcomment_delivery">
-      <End Role="delivery" EntitySet="delivery" />
-      <End Role="clientcomment" EntitySet="clientcomment" />
+      <End Role="Deliveries" EntitySet="Deliveries" />
+      <End Role="ClientComments" EntitySet="ClientComments" />
     </AssociationSet>
     <AssociationSet Name="FK_clientcomment_product" Association="Self.FK_clientcomment_product">
-      <End Role="product" EntitySet="product" />
-      <End Role="clientcomment" EntitySet="clientcomment" />
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ClientComments" EntitySet="ClientComments" />
     </AssociationSet>
     <AssociationSet Name="FK_delivery_user" Association="Self.FK_delivery_user">
-      <End Role="user" EntitySet="user" />
-      <End Role="delivery" EntitySet="delivery" />
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Deliveries" EntitySet="Deliveries" />
     </AssociationSet>
     <AssociationSet Name="FK_DeliveryPrice_deliverytype" Association="Self.FK_DeliveryPrice_deliverytype">
-      <End Role="deliverytype" EntitySet="deliverytype" />
-      <End Role="deliveryprice" EntitySet="deliveryprice" />
+      <End Role="DeliveryTypes" EntitySet="DeliveryTypes" />
+      <End Role="DeliveryPrices" EntitySet="DeliveryPrices" />
     </AssociationSet>
     <AssociationSet Name="FK_deliverytype_delivery" Association="Self.FK_deliverytype_delivery">
-      <End Role="delivery" EntitySet="delivery" />
-      <End Role="deliverytype" EntitySet="deliverytype" />
+      <End Role="Deliveries" EntitySet="Deliveries" />
+      <End Role="DeliveryTypes" EntitySet="DeliveryTypes" />
     </AssociationSet>
     <AssociationSet Name="FK_message_user" Association="Self.FK_message_user">
-      <End Role="user" EntitySet="user" />
-      <End Role="message" EntitySet="message" />
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Messages" EntitySet="Messages" />
     </AssociationSet>
     <AssociationSet Name="FK_moneytransaction_user" Association="Self.FK_moneytransaction_user">
-      <End Role="user" EntitySet="user" />
-      <End Role="moneytransaction" EntitySet="moneytransaction" />
+      <End Role="Users" EntitySet="Users" />
+      <End Role="MoneyTransactions" EntitySet="MoneyTransactions" />
     </AssociationSet>
     <AssociationSet Name="FK_moneytransaction_user1" Association="Self.FK_moneytransaction_user1">
-      <End Role="user" EntitySet="user" />
-      <End Role="moneytransaction" EntitySet="moneytransaction" />
+      <End Role="Users" EntitySet="Users" />
+      <End Role="MoneyTransactions" EntitySet="MoneyTransactions" />
     </AssociationSet>
     <AssociationSet Name="FK_photo_user" Association="Self.FK_photo_user">
-      <End Role="user" EntitySet="user" />
-      <End Role="photo" EntitySet="photo" />
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Photos" EntitySet="Photos" />
     </AssociationSet>
     <AssociationSet Name="FK_product_user" Association="Self.FK_product_user">
-      <End Role="user" EntitySet="user" />
-      <End Role="product" EntitySet="product" />
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Products" EntitySet="Products" />
     </AssociationSet>
     <AssociationSet Name="FK_productprice_producttype" Association="Self.FK_productprice_producttype">
-      <End Role="producttype" EntitySet="producttype" />
-      <End Role="productprice" EntitySet="productprice" />
+      <End Role="ProductTypes" EntitySet="ProductTypes" />
+      <End Role="ProductPrices" EntitySet="ProductPrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_productprices_products" Association="Self.FK_productprices_products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductPrices" EntitySet="ProductPrices" />
     </AssociationSet>
     <AssociationSet Name="FK_report_booking" Association="Self.FK_report_booking">
-      <End Role="booking" EntitySet="booking" />
-      <End Role="report" EntitySet="report" />
+      <End Role="Bookings" EntitySet="Bookings" />
+      <End Role="Reports" EntitySet="Reports" />
     </AssociationSet>
     <AssociationSet Name="FK_video_product" Association="Self.FK_video_product">
-      <End Role="product" EntitySet="product" />
-      <End Role="video" EntitySet="video" />
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Videos" EntitySet="Videos" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

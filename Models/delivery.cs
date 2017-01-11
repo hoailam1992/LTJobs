@@ -11,47 +11,54 @@ namespace Models
 {
     using System;
     using System.Collections.Generic;
-    using Models.Common;
     using System.Runtime.Serialization;
 
-    public partial class delivery : ModelBase
+    [DataContract(IsReference = true)]
+    public partial class Delivery : ModelBase
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public delivery()
+        public Delivery()
         {
-            this.bookings = new HashSet<booking>();
-            this.clientcomments = new HashSet<clientcomment>();
+            this.Bookings = new HashSet<Booking>();
+            this.ClientComments = new HashSet<ClientComment>();
+            this.DeliveryTypes = new HashSet<DeliveryType>();
         }
-        
+       
         [DataMember]
-        public string deliverycode { get; set; }
+        public string Code { get; set; }
         [DataMember]
-        public string name { get; set; }
+        public string Name { get; set; }
         [DataMember]
-        public string address { get; set; }
+        public string Address { get; set; }
         [DataMember]
-        public Nullable<decimal> lowestprice { get; set; }
+        public Nullable<decimal> LowestPrice { get; set; }
         [DataMember]
-        public Nullable<decimal> highestprice { get; set; }
+        public Nullable<decimal> HighestPrice { get; set; }
         [DataMember]
-        public Nullable<int> quality { get; set; }
+        public Nullable<int> Quality { get; set; }
         [DataMember]
-        public string phone { get; set; }
+        public string Phone { get; set; }
         [DataMember]
-        public string email { get; set; }
+        public string Email { get; set; }
         [DataMember]
-        public string disctrict { get; set; }
+        public string Disctrict { get; set; }
         [DataMember]
-        public string city { get; set; }
+        public string City { get; set; }
         [DataMember]
-        public long userid { get; set; }
+        public long UserId { get; set; }
         [DataMember]
-        public Nullable<decimal> commission { get; set; }
+        public Nullable<decimal> Commission { get; set; }
         [DataMember]
-        public virtual ICollection<booking> bookings { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Booking> Bookings { get; set; }
         [DataMember]
-        public virtual ICollection<clientcomment> clientcomments { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ClientComment> ClientComments { get; set; }
         [DataMember]
-        public virtual user user { get; set; }
+        public virtual User User { get; set; }
+        [DataMember]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DeliveryType> DeliveryTypes { get; set; }
     }
 }

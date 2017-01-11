@@ -12,12 +12,12 @@ namespace ServiceLibrary
     public partial interface IMasterService
     {
         [OperationContract]
-        ReturnType<message> SaveMessage(message entity);
+        ReturnType<Message> SaveMessage(Message entity);
         [OperationContract]
         ReturnType<bool> DeleteMessageById(long id);     
         [OperationContract]
-        ReturnType<IList<message>> GetMessageByUserId(long id);
+        ReturnType<IList<Message>> GetMessageByUserId(long id);
         [OperationContract]
-        ReturnType<message> GetMessageById(long id);
+        ReturnType<Message> GetMessageById(long id);
     }
 }

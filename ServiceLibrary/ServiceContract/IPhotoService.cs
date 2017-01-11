@@ -12,12 +12,12 @@ namespace ServiceLibrary
     public partial interface IMasterService
     {
         [OperationContract]
-        ReturnType<photo> SavePhoto(photo entity);
+        ReturnType<Photo> SavePhoto(Photo entity);
         [OperationContract]
         ReturnType<bool> DeletePhotoById(long id);    
         [OperationContract]
-        ReturnType<IList<photo>> GetPhotoByUserId(long id);
+        ReturnType<IList<Photo>> GetPhotoByUserId(long id);
         [OperationContract]
-        ReturnType<photo> GetPhotoById(long id);
+        ReturnType<Photo> GetPhotoById(long id);
     }
 }

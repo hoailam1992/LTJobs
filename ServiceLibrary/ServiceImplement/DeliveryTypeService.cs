@@ -14,11 +14,11 @@ namespace ServiceLibrary
         {
             return (new DeliveryTypeBusinessService()).DeleteById(id);
         }
-        public ReturnType<deliverytype> SaveDeliveryType(deliverytype entity)
+        public ReturnType<DeliveryType> SaveDeliveryType(DeliveryType entity)
         {
             return (new DeliveryTypeBusinessService()).Save(entity);
         }
-        public ReturnType<deliverytype> GetDeliveryTypeById(long id)
+        public ReturnType<DeliveryType> GetDeliveryTypeById(long id)
         {
             return (new DeliveryTypeBusinessService()).GetById(id);
         }

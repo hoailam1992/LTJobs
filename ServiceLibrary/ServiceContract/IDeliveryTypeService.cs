@@ -12,10 +12,10 @@ namespace ServiceLibrary
     public partial interface IMasterService
     {
         [OperationContract]
-        ReturnType<deliverytype> SaveDeliveryType(deliverytype entity);
+        ReturnType<DeliveryType> SaveDeliveryType(DeliveryType entity);
         [OperationContract]
         ReturnType<bool> DeleteDeliveryTypeById(long id);       
         [OperationContract]
-        ReturnType<deliverytype> GetDeliveryTypeById(long id);
+        ReturnType<DeliveryType> GetDeliveryTypeById(long id);
     }
 }

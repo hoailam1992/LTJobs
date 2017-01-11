@@ -6,20 +6,21 @@ using System.Threading.Tasks;
 using Models;
 using BusinessLayer.Common;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 
 namespace ServiceLibrary
 {
     public partial interface IMasterService
     {
         [OperationContract]
-        ReturnType<user> SaveUser(user entity);      
+        ReturnType<User> SaveUser(User entity);      
         [OperationContract]
-        ReturnType<user> LoginUser(string user,string password);
+        ReturnType<User> LoginUser(string user,string password);
         //[OperationContract]
         //ReturnType<user> GetUserByDeliveryId(long id);
         //[OperationContract]
         //ReturnType<user> GetUserByProductId(long id);
         [OperationContract]
-        ReturnType<user> GetUserById(long id);
+        ReturnType<User> GetUserById(long id);
     }
 }

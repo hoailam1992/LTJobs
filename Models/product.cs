@@ -11,65 +11,74 @@ namespace Models
 {
     using System;
     using System.Collections.Generic;
-    using Models.Common;
     using System.Runtime.Serialization;
 
-    public partial class product : ModelBase
+    [DataContract(IsReference = true)]
+    public partial class Product : ModelBase
     {
-        public product()
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Product()
         {
-            this.bookings = new HashSet<booking>();
-            this.clientcomments = new HashSet<clientcomment>();
-            this.videos = new HashSet<video>();
+            this.Bookings = new HashSet<Booking>();
+            this.ClientComments = new HashSet<ClientComment>();
+            this.ProductPrices = new HashSet<ProductPrice>();
+            this.Videos = new HashSet<Video>();
         }
        
         [DataMember]
-        public string productcode { get; set; }
+        public string Code { get; set; }
         [DataMember]
-        public string group { get; set; }
+        public string Group { get; set; }
         [DataMember]
-        public string language1 { get; set; }
+        public string Language1 { get; set; }
         [DataMember]
-        public string language2 { get; set; }
+        public string Language2 { get; set; }
         [DataMember]
-        public decimal price { get; set; }
+        public decimal Price { get; set; }
         [DataMember]
-        public string preferrablelocation { get; set; }
+        public string PreferrableLocation { get; set; }
         [DataMember]
-        public string bankname { get; set; }
+        public string BankName { get; set; }
         [DataMember]
-        public string bankaccount { get; set; }
+        public string BankAccount { get; set; }
         [DataMember]
-        public string bankaccnumber { get; set; }
+        public string BankAccNumber { get; set; }
         [DataMember]
-        public System.DateTime createddate { get; set; }
+        public System.DateTime CreatedDate { get; set; }
         [DataMember]
-        public Nullable<System.DateTime> modifeddate { get; set; }
+        public Nullable<System.DateTime> ModifedDate { get; set; }
         [DataMember]
-        public bool isactive { get; set; }
+        public bool IsActive { get; set; }
         [DataMember]
-        public bool isblocked { get; set; }
+        public bool IsBlocked { get; set; }
         [DataMember]
-        public Nullable<bool> isavailable { get; set; }
+        public Nullable<bool> IsAvailable { get; set; }
         [DataMember]
-        public int cancelcount { get; set; }
+        public int CancelCount { get; set; }
         [DataMember]
-        public long userid { get; set; }
+        public long UserId { get; set; }
         [DataMember]
-        public string productdescription { get; set; }
+        public string ProductDescription { get; set; }
         [DataMember]
-        public decimal balance { get; set; }
+        public decimal Balance { get; set; }
         [DataMember]
-        public Nullable<decimal> commission { get; set; }
+        public Nullable<decimal> Commission { get; set; }
         [DataMember]
-        public Nullable<decimal> reward { get; set; }       
+        public Nullable<decimal> Reward { get; set; }
+        [DataMember]
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Booking> Bookings { get; set; }
         [DataMember]
-        public virtual ICollection<booking> bookings { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ClientComment> ClientComments { get; set; }
         [DataMember]
-        public virtual ICollection<clientcomment> clientcomments { get; set; }
-        public virtual user user { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProductPrice> ProductPrices { get; set; }
         [DataMember]
-        public virtual ICollection<video> videos { get; set; }
+        public virtual User User { get; set; }
+        [DataMember]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Video> Videos { get; set; }
     }
 }

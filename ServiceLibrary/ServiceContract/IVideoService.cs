@@ -12,12 +12,12 @@ namespace ServiceLibrary
     public partial interface IMasterService
     {
         [OperationContract]
-        ReturnType<video> SaveVideo(video entity);
+        ReturnType<Video> SaveVideo(Video entity);
         [OperationContract]
         ReturnType<bool> DeleteVideoById(long id);      
         [OperationContract]
-        ReturnType<IList<video>> GetVideoByProductId(long id);
+        ReturnType<IList<Video>> GetVideoByProductId(long id);
         [OperationContract]
-        ReturnType<video> GetVideoById(long id);
+        ReturnType<Video> GetVideoById(long id);
     }
 }

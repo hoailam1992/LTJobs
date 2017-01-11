@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccess;
 using Models;
-using Models.Common;
 
 namespace BusinessLayer.Common
 {

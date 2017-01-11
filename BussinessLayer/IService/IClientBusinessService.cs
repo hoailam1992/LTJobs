@@ -7,10 +7,10 @@ using Models;
 using BusinessLayer.Common;
 namespace BusinessLayer.IService
 {
-    public interface IClientBusinessService : IBusinessServiceBase<client>
+    public interface IClientBusinessService : IBusinessServiceBase<Client>
     {
         ReturnType<bool> DeleteClientById(long enity);
-        ReturnType<client> GetClientByUserId(long id);
-        ReturnType<client> GetClientByClientCode(string id);
+        ReturnType<Client> GetClientByUserId(long id);
+        ReturnType<Client> GetClientByClientCode(string id);
     }
 }

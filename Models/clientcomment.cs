@@ -11,29 +11,30 @@ namespace Models
 {
     using System;
     using System.Collections.Generic;
-    using Models.Common;
     using System.Runtime.Serialization;
 
-    public partial class clientcomment : ModelBase
+    [DataContract(IsReference = true)]
+    public partial class ClientComment : ModelBase
     {
        
         [DataMember]
-        public long clientid { get; set; }
+        public long ClientId { get; set; }
         [DataMember]
-        public Nullable<long> memberid { get; set; }
+        public Nullable<long> ProductId { get; set; }
         [DataMember]
-        public Nullable<long> deliveryid { get; set; }
+        public Nullable<long> DeliveryId { get; set; }
         [DataMember]
-        public Nullable<int> rate { get; set; }
+        public Nullable<int> Rate { get; set; }
         [DataMember]
-        public string note { get; set; }
+        public string Note { get; set; }
         [DataMember]
-        public System.DateTime createddate { get; set; }
+        public System.DateTime CreatedDate { get; set; }
         [DataMember]
-        public virtual client client { get; set; }
+
+        public virtual Client Client { get; set; }
         [DataMember]
-        public virtual delivery delivery { get; set; }
+        public virtual Delivery Delivery { get; set; }
         [DataMember]
-        public virtual product product { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

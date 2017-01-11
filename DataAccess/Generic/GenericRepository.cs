@@ -1,4 +1,4 @@
-﻿using Models.Common;
+﻿using Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -80,7 +80,7 @@ namespace DataAccess
             if (dbEntityEntry.State == EntityState.Detached)
             {
                 DbSet<TEntity> dbSet = this.dbContext.Set<TEntity>();
-                object[] id = new object[] { entity.id };
+                object[] id = new object[] { entity.Id };
                 TEntity tEntity = dbSet.Find(id);
                 if (tEntity == null)
                 {

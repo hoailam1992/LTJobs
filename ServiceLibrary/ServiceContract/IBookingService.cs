@@ -14,20 +14,19 @@ namespace ServiceLibrary
     
     public partial interface IMasterService
     {
+        [OperationContract]        
+        ReturnType<IList<Booking>> GetAllBooking();
         [OperationContract]
-        [WebInvoke(RequestFormat =WebMessageFormat.Json,Method ="POST")]
-        ReturnType<IList<booking>> GetAllBooking();
+        ReturnType<IList<Booking>> GetBookingByClientId(long id);
         [OperationContract]
-        ReturnType<IList<booking>> GetBookingByClientId(long id);
+        ReturnType<IList<Booking>> GetBookingByDeliveryId(long id);
         [OperationContract]
-        ReturnType<IList<booking>> GetBookingByDeliveryId(long id);
+        ReturnType<IList<Booking>> GetBookingByProductId(long id);
         [OperationContract]
-        ReturnType<IList<booking>> GetBookingByProductId(long id);
-        [OperationContract]
-        ReturnType<booking> SaveBooking(booking entity);
+        ReturnType<Booking> SaveBooking(Booking entity);
         [OperationContract]
         ReturnType<bool> DeleteBookingById(long enity);       
         [OperationContract]
-        ReturnType<booking> GetBookingById(long id);
+        ReturnType<Booking> GetBookingById(long id);
     }
 }

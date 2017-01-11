@@ -11,24 +11,26 @@ namespace Models
 {
     using System;
     using System.Collections.Generic;
-    using Models.Common;
     using System.Runtime.Serialization;
 
-    public partial class productprice : ModelBase
+    [DataContract(IsReference = true)]
+    public partial class ProductPrice : ModelBase
     {
-     
+       
         [DataMember]
-        public long producttypeid { get; set; }
+        public long ProductTypeId { get; set; }
         [DataMember]
-        public decimal price { get; set; }
+        public decimal Price { get; set; }
         [DataMember]
-        public bool active { get; set; }
+        public bool Active { get; set; }
         [DataMember]
-        public Nullable<long> productid { get; set; }
+        public Nullable<long> ProductId { get; set; }
         [DataMember]
-        public Nullable<decimal> reward { get; set; }
+        public Nullable<decimal> Reward { get; set; }
         [DataMember]
 
-        public virtual producttype producttype { get; set; }
+        public virtual ProductType ProductType { get; set; }
+        [DataMember]
+        public virtual Product Product { get; set; }
     }
 }

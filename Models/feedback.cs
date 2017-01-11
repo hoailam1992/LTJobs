@@ -11,15 +11,15 @@ namespace Models
 {
     using System;
     using System.Collections.Generic;
-    using Models.Common;
     using System.Runtime.Serialization;
 
-    public partial class feedback : ModelBase
+    [DataContract(IsReference = true)]
+    public partial class FeedBack : ModelBase
     {
        
         [DataMember]
-        public string title { get; set; }
+        public string Title { get; set; }
         [DataMember]
-        public string content { get; set; }
+        public string Content { get; set; }
     }
 }
