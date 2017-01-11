@@ -16,7 +16,7 @@ namespace EFWeb
     {
         public long id { get; set; }
         public long bookingid { get; set; }
-        public string content { get; set; }
+        public string report1 { get; set; }
         public string systemrespond { get; set; }
         public Nullable<decimal> refundamount { get; set; }
     

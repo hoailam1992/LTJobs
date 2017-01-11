@@ -21,7 +21,7 @@ namespace EFWeb
         }
     
         public long id { get; set; }
-        public string producttypecode { get; set; }
+        public string producttype1 { get; set; }
         public bool actvice { get; set; }
         public string flag { get; set; }
     

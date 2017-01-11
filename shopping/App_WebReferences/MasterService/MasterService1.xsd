@@ -474,9 +474,11 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="active" type="xs:boolean" />
           <xs:element minOccurs="0" name="createddate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="delivery" nillable="true" type="tns:delivery" />
           <xs:element minOccurs="0" name="deliverycode" type="xs:long" />
           <xs:element minOccurs="0" name="deliverydescription" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="deliveryid" type="xs:long" />
+          <xs:element minOccurs="0" name="deliveryprices" nillable="true" type="tns:ArrayOfdeliveryprice" />
           <xs:element minOccurs="0" name="extrafee" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="modifieddate" type="xs:dateTime" />
         </xs:sequence>
@@ -484,6 +486,25 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="deliverytype" nillable="true" type="tns:deliverytype" />
+  <xs:complexType name="ArrayOfdeliveryprice">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="deliveryprice" nillable="true" type="tns:deliveryprice" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfdeliveryprice" nillable="true" type="tns:ArrayOfdeliveryprice" />
+  <xs:complexType name="deliveryprice">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/Models.Common" base="q13:ModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="active" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="deliverytype" nillable="true" type="tns:deliverytype" />
+          <xs:element minOccurs="0" name="deliverytypeid" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="price" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="deliveryprice" nillable="true" type="tns:deliveryprice" />
   <xs:complexType name="ReturnTypeOfdeliverytype">
     <xs:annotation>
       <xs:appinfo>
@@ -501,7 +522,7 @@
   <xs:element name="ReturnTypeOfdeliverytype" nillable="true" type="tns:ReturnTypeOfdeliverytype" />
   <xs:complexType name="feedback">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/Models.Common" base="q13:ModelBase">
+      <xs:extension xmlns:q14="http://schemas.datacontract.org/2004/07/Models.Common" base="q14:ModelBase">
         <xs:sequence>
           <xs:element minOccurs="0" name="content" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
@@ -617,7 +638,7 @@
   <xs:element name="ReturnTypeOfArrayOfphoto" nillable="true" type="tns:ReturnTypeOfArrayOfphoto" />
   <xs:complexType name="productprice">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q14="http://schemas.datacontract.org/2004/07/Models.Common" base="q14:ModelBase">
+      <xs:extension xmlns:q15="http://schemas.datacontract.org/2004/07/Models.Common" base="q15:ModelBase">
         <xs:sequence>
           <xs:element minOccurs="0" name="active" type="xs:boolean" />
           <xs:element minOccurs="0" name="price" type="xs:decimal" />
@@ -632,7 +653,7 @@
   <xs:element name="productprice" nillable="true" type="tns:productprice" />
   <xs:complexType name="producttype">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q15="http://schemas.datacontract.org/2004/07/Models.Common" base="q15:ModelBase">
+      <xs:extension xmlns:q16="http://schemas.datacontract.org/2004/07/Models.Common" base="q16:ModelBase">
         <xs:sequence>
           <xs:element minOccurs="0" name="actvice" type="xs:boolean" />
           <xs:element minOccurs="0" name="flag" nillable="true" type="xs:string" />

@@ -114,11 +114,11 @@
             <label class="col-sm-4 control-label">Account Type</label>
             <div class="col-sm-8">
                 <label class="radio-inline">
-                    <input type="radio" name="accounttyperadio" id="rdClient" value="client" />Client</label>
+                    <input type="radio" name="accounttyperadio" id="rdClient" runat="server" onclick="setAccountType(this)" value="client" />Client</label>
                 <label class="radio-inline">
-                    <input type="radio" name="accounttyperadio" id="rdProduct" value="member" />Product</label>
+                    <input type="radio" name="accounttyperadio" id="rdProduct" runat="server" onclick="setAccountType(this)" value="member" />Product</label>
                 <label class="radio-inline">
-                    <input type="radio" name="accounttyperadio" id="rdDelivery" value="hotel" />Delivery</label>
+                    <input type="radio" name="accounttyperadio" id="rdDelivery" runat="server" onclick="setAccountType(this)" value="hotel" />Delivery</label>
             </div>
         </div>
         <!-- client register -->
@@ -127,9 +127,9 @@
             <div class="form-group">
                 <div class="col-sm-12">
                     <label class="radio-inline">
-                        <input type="radio" name="paymentradio"  id="rdCCard"/>Credit Card</label>
+                        <input type="radio" name="paymentradio" id="rdCCard" />Credit Card</label>
                     <label class="radio-inline">
-                        <input type="radio" name="paymentradio"  id="rdCash"/>Cash</label>
+                        <input type="radio" name="paymentradio" id="rdCash" />Cash</label>
                     <label class="radio-inline">(Please make payment on deposit later)</label>
                 </div>
             </div>
@@ -342,7 +342,7 @@
         </div>
         <div class="form-group" style="margin: 0 auto; width: 31%">
             <div class="col-sm-12">
-                <asp:Button runat="server" id="btnRegister" OnClick="BtnRegister_Click" Text="Register"/>
+                <asp:Button runat="server" ID="btnRegister" OnClick="BtnRegister_Click" Text="Register" />
                 <button>Clear All</button>
             </div>
         </div>
