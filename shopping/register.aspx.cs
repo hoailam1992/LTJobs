@@ -16,150 +16,73 @@ public partial class register : System.Web.UI.Page
     public void BtnRegister_Click(object sender, EventArgs e)
     {
         User RegisterUser = new User();     
-        RegisterUser.UserName = inputDisplay.Value;
-        RegisterUser.FullName = txtFullname.Text;
-        RegisterUser.Email = txtEmail.Text;
+        RegisterUser.UserName = inputUsername.Value;
+        RegisterUser.FullName = inputDisplay.Value;
+        RegisterUser.Email = inputEmail.Value;
         RegisterUser.Id = 0;
-        RegisterUser.isblocked = false;
-        RegisterUser.phone = txtPhone.Text;
-        //RegisterUser.securityquestionid = (short)drdQuestion.SelectedIndex;
-        RegisterUser.securityquestionid = (short)selectQuestion.SelectedIndex;
-        RegisterUser.securityanswer = txtAnswers.Text;
-        if (txtPassword.Text == txtRePassword.Text)
+        RegisterUser.IsBlocked = false;
+        RegisterUser.Phone = inputPhoneNumber.Value;       
+        RegisterUser.SecurityQuestionId = (short)selectQuestion.SelectedIndex;
+        RegisterUser.SecurityAnswer = inputAnswer.Value;
+        if (inputPass.Value == inputRetypePass.Value)
         {
-            RegisterUser.password = txtPassword.Text;
+            RegisterUser.Password = inputRetypePass.Value;
         }
         var resultuser = tempClient.SaveUser(RegisterUser);
         if (resultuser.IsSuccess && resultuser.Result != null)
         {
             if (rdClient.Checked)
             {
-                client clientregister = new client();
-                clientregister.id = 0;
-                clientregister.isvalid = false;
-                clientregister.balance = 0;
-                clientregister.cancelcount = 0;
-                clientregister.ccexpiredmonth = Convert.ToInt16(txtMonth.Text);
-                clientregister.ccexpiredyear = Convert.ToInt16(txtYear.Text);
-                clientregister.ccholder = txtCreditCard.Text;
-                clientregister.ccnumber = txtCreditCardNumber.Text;
-                clientregister.ccpin = txtSecPin.Text;
-                clientregister.createddate = DateTime.Now;
-                clientregister.paymentmode = rdCash.Checked ? 1 : rdCCard.Checked ? 2 : 0;
-                clientregister.userid = resultuser.Result.id;
+                Client clientregister = new Client();
+                clientregister.Id = 0;
+                clientregister.IsValid = false;
+                clientregister.Balance = 0;
+                clientregister.CancelCount = 0;
+                clientregister.CCExpiredMonth = Convert.ToInt16(inputMonth.Value);
+                clientregister.CCExpiredYear = Convert.ToInt16(inputYear.Value);
+                clientregister.CCHolder = inputCreditCard.Value;
+                clientregister.CCNumber = inputCreditCardNumber.Value;
+                clientregister.CCPin = inputSecPin.Value;
+                clientregister.CreatedDate = DateTime.Now;
+                clientregister.PaymentMode = rdCash.Checked ? 1 : rdCCard.Checked ? 2 : 0;
+                clientregister.UserId = resultuser.Result.Id;
                 var ClientResult = tempClient.SaveClient(clientregister);
             }
             if (rdProduct.Checked)
             {
-                product productregister = new product();
-                productregister.id = 0;
-                productregister.isactive = false;
-                productregister.isavailable = false;
-                productregister.language1 = drpLanguage1.Text;
-                productregister.language2 = drpLanguage2.Text;
-                productregister.preferrablelocation = drpPreferrableArea.Text;
-                productregister.price = Convert.ToDecimal(txtPrice.Text);
-                productregister.productdescription = txtProDes.Text;
-                productregister.cancelcount = 0;
-                productregister.balance = 0;
-                productregister.bankname = drpBankName.Text;
-                productregister.bankaccnumber = txtBankAccount.Text;
-                productregister.bankaccount = txtAccName.Text;
-                productregister.commission = 0;
-                productregister.userid = resultuser.Result.id;
+                Product productregister = new Product();
+                productregister.Id = 0;
+                productregister.IsActive = false;
+                productregister.IsAvailable = false;
+                productregister.Language1 = selectLanguage1.Value;
+                productregister.Language2 = selectLanguage2.Value;
+                productregister.PreferrableLocation = selectPreferrableArea.Value;
+                productregister.Price = Convert.ToDecimal(inputPriceMember.Value);
+                productregister.ProductDescription = inputPrdDes.Value;
+                productregister.CancelCount = 0;
+                productregister.Balance = 0;
+                productregister.BankName = selectBankName.Value;
+                productregister.BankAccNumber = inputBankAccount.Value;
+                productregister.BankAccount = inputAccountName.Value;
+                productregister.Commission = 0;
+                productregister.UserId = resultuser.Result.Id;
                 var ProductResult = tempClient.SaveProduct(productregister);
             }
             if (rdDelivery.Checked)
             {
-                delivery deliveryregister = new delivery();
-                deliveryregister.id = 0;
-                deliveryregister.name = txtDeliveryName.Text;
-                deliveryregister.phone = txtDeliveryPhone.Text;
-                deliveryregister.quality = Convert.ToInt16(txtDeliveryType.Text);
-                deliveryregister.email = txtDeliveryEmail.Text;
-                deliveryregister.address = txtAddress.Text;
-                deliveryregister.city = txtCity.Text;
-                deliveryregister.disctrict = txtDistrict.Text;
-                deliveryregister.lowestprice = Convert.ToDecimal(txtLowestPrice.Text);
-                deliveryregister.highestprice = Convert.ToDecimal(txtHighestPrice.Text);
-                deliveryregister.commission = Convert.ToDecimal(0);
-                deliveryregister.userid = resultuser.Result.id;
-                var DeliveryRegister = tempClient.SaveDelivery(deliveryregister);
-
-            }
-        }
-    }
-
-    public void btnRegister_Click(object sender, EventArgs e)
-    {
-        user RegisterUser = new user();
-        RegisterUser.username = txtUsername.Text;
-        RegisterUser.fullname = txtFullname.Text;
-        RegisterUser.email = txtEmail.Text;
-        RegisterUser.id = 0;
-        RegisterUser.isblocked = false;
-        RegisterUser.phone = txtPhone.Text;
-        RegisterUser.securityquestionid = (short)drdQuestion.SelectedIndex;
-        RegisterUser.securityanswer = txtAnswers.Text;
-        if (txtPassword.Text == txtRePassword.Text)
-        {
-            RegisterUser.password = txtPassword.Text;
-        }
-        var resultuser = tempClient.SaveUser(RegisterUser);
-        if (resultuser.IsSuccess && resultuser.Result != null)
-        {
-            if (rdClient.Checked)
-            {
-                client clientregister = new client();
-                clientregister.id = 0;
-                clientregister.isvalid = false;
-                clientregister.balance = 0;
-                clientregister.cancelcount = 0;
-                clientregister.ccexpiredmonth = Convert.ToInt16(txtMonth.Text);
-                clientregister.ccexpiredyear = Convert.ToInt16(txtYear.Text);
-                clientregister.ccholder = txtCreditCard.Text;
-                clientregister.ccnumber = txtCreditCardNumber.Text;
-                clientregister.ccpin = txtSecPin.Text;
-                clientregister.createddate = DateTime.Now;
-                clientregister.paymentmode = rdCash.Checked ? 1 : rdCCard.Checked ? 2 : 0;
-                clientregister.userid = resultuser.Result.id;
-                var ClientResult = tempClient.SaveClient(clientregister);
-            }
-            if (rdProduct.Checked)
-            {
-                product productregister = new product();
-                productregister.id = 0;
-                productregister.isactive = false;
-                productregister.isavailable = false;
-                productregister.language1 = drpLanguage1.Text;
-                productregister.language2 = drpLanguage2.Text;
-                productregister.preferrablelocation = drpPreferrableArea.Text;
-                productregister.price = Convert.ToDecimal(txtPrice.Text);
-                productregister.productdescription = txtProDes.Text;
-                productregister.cancelcount = 0;
-                productregister.balance = 0;
-                productregister.bankname = drpBankName.Text;
-                productregister.bankaccnumber = txtBankAccount.Text;
-                productregister.bankaccount = txtAccName.Text;
-                productregister.commission = 0;
-                productregister.userid = resultuser.Result.id;
-                var ProductResult = tempClient.SaveProduct(productregister);
-            }
-            if (rdDelivery.Checked)
-            {
-                delivery deliveryregister = new delivery();
-                deliveryregister.id = 0;
-                deliveryregister.name = txtDeliveryName.Text;
-                deliveryregister.phone = txtDeliveryPhone.Text;
-                deliveryregister.quality = Convert.ToInt16(txtDeliveryType.Text);
-                deliveryregister.email = txtDeliveryEmail.Text;
-                deliveryregister.address = txtAddress.Text;
-                deliveryregister.city = txtCity.Text;
-                deliveryregister.disctrict = txtDistrict.Text;
-                deliveryregister.lowestprice = Convert.ToDecimal(txtLowestPrice.Text);
-                deliveryregister.highestprice = Convert.ToDecimal(txtHighestPrice.Text);
-                deliveryregister.commission = Convert.ToDecimal(0);
-                deliveryregister.userid = resultuser.Result.id;
+                Delivery deliveryregister = new Delivery();
+                deliveryregister.Id = 0;
+                deliveryregister.Name = inputHotelName.Value;
+                deliveryregister.Phone = inputHotelPhoneNumber.Value;
+                deliveryregister.Quality = Convert.ToInt16(2);
+                deliveryregister.Email = inputEmail.Value;
+                deliveryregister.Address = inputAddress.Value;
+                deliveryregister.City = inputCity.Value;
+                deliveryregister.Disctrict = inputDistrict.Value;
+                deliveryregister.LowestPrice = Convert.ToDecimal(inputLowest.Value);
+                deliveryregister.HighestPrice = Convert.ToDecimal(inputHighest.Value);
+                deliveryregister.Commission = Convert.ToDecimal(0);
+                deliveryregister.UserId = resultuser.Result.Id;
                 var DeliveryRegister = tempClient.SaveDelivery(deliveryregister);
 
             }

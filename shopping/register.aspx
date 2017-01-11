@@ -127,9 +127,9 @@
             <div class="form-group">
                 <div class="col-sm-12">
                     <label class="radio-inline">
-                        <input type="radio" name="paymentradio" id="rdCCard" />Credit Card</label>
+                        <input type="radio" name="paymentradio" runat="server" id="rdCCard" />Credit Card</label>
                     <label class="radio-inline">
-                        <input type="radio" name="paymentradio" id="rdCash" />Cash</label>
+                        <input type="radio" name="paymentradio" runat="server" id="rdCash" />Cash</label>
                     <label class="radio-inline">(Please make payment on deposit later)</label>
                 </div>
             </div>
@@ -215,7 +215,7 @@
             <div class="form-group">
                 <label for="inputHotelEmail" class="col-sm-3 control-label">Email</label>
                 <div class="col-sm-8">
-                    <input type="email" class="form-control" id="inputHotelEmail" />
+                    <input type="email" class="form-control" runat="server" id="inputHotelEmail" />
                 </div>
             </div>
             <div class="form-group">
@@ -239,13 +239,13 @@
             <div class="form-group">
                 <label for="inputprdDes" class="col-sm-3 control-label">Product Description</label>
                 <div class="col-sm-8 required">
-                    <input type="text" class="form-control" id="inputPrdDes" />
+                    <input type="text" class="form-control" runat="server" id="inputPrdDes" />
                 </div>
             </div>
             <div class="form-group">
                 <label for="selectLanguage1" class="col-sm-3 control-label">Other Language 1</label>
                 <div class="col-sm-8">
-                    <select class="custom-select form-control" id="selectLanguage1">
+                    <select class="custom-select form-control" runat="server" id="selectLanguage1">
                         <option value="">Please Choose...</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
@@ -256,7 +256,7 @@
             <div class="form-group">
                 <label for="selectLanguage2" class="col-sm-3 control-label">Other Language 2</label>
                 <div class="col-sm-8 required">
-                    <select class="custom-select form-control" id="selectLanguage2">
+                    <select class="custom-select form-control" runat="server" id="selectLanguage2">
                         <option value="">Please Choose...</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
@@ -267,7 +267,7 @@
             <div class="form-group">
                 <label for="selectPrTypeMember" class="col-sm-3 control-label">Product Type</label>
                 <div class="col-sm-8">
-                    <select class="custom-select form-control" id="selectPrTypeMember">
+                    <select class="custom-select form-control" runat="server" id="selectPrTypeMember">
                         <option value="">Please Choose...</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
@@ -278,7 +278,7 @@
             <div class="form-group">
                 <label for="inputPriceMember" class="col-sm-3 control-label">Price</label>
                 <div class="col-sm-8 required">
-                    <input type="text" class="form-control" id="inputPriceMember" />
+                    <input type="text" class="form-control" runat="server" id="inputPriceMember" />
                 </div>
             </div>
             <div class="form-group">
@@ -307,7 +307,7 @@
             <div class="form-group">
                 <label for="selectPreferrableArea" class="col-sm-3 control-label">Preferrable Area</label>
                 <div class="col-sm-8 required">
-                    <select class="custom-select form-control" id="selectPreferrableArea">
+                    <select class="custom-select form-control" runat="server" id="selectPreferrableArea">
                         <option value="">Please Choose...</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
@@ -319,7 +319,7 @@
             <div class="form-group">
                 <label for="selectBankName" class="col-sm-3 control-label">Bank Name</label>
                 <div class="col-sm-8">
-                    <select class="custom-select form-control" id="selectBankName">
+                    <select class="custom-select form-control" runat="server" id="selectBankName">
                         <option value="">Please Choose...</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
@@ -330,13 +330,13 @@
             <div class="form-group">
                 <label for="inputBankAccount" class="col-sm-3 control-label">Bank Account</label>
                 <div class="col-sm-8 required">
-                    <input type="text" class="form-control" id="inputBankAccount" />
+                    <input type="text" class="form-control" runat="server" id="inputBankAccount" />
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputAccountName" class="col-sm-3 control-label">Account Name</label>
                 <div class="col-sm-8 required">
-                    <input type="text" class="form-control" id="inputAccountName" />
+                    <input type="text" class="form-control" runat="server" id="inputAccountName" />
                 </div>
             </div>
         </div>
