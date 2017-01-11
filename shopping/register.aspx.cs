@@ -39,7 +39,7 @@ public partial class register : System.Web.UI.Page
         if (inputPass.Value == inputRetypePass.Value)
         {
             RegisterUser.Password = inputRetypePass.Value;        
-        var resultuser = tempClient.SaveUser(RegisterUser);
+            var resultuser = tempClient.SaveUser(RegisterUser);
             if (resultuser.IsSuccess && resultuser.Result != null)
             {
                 if (rdClient.Checked)
@@ -102,6 +102,10 @@ public partial class register : System.Web.UI.Page
                     deliveryregister.HighestPrice = Convert.ToDecimal(inputHighest.Value);
                     deliveryregister.Commission = Convert.ToDecimal(0);
                     deliveryregister.UserId = resultuser.Result.Id;
+                    deliveryregister.User = null;
+                    deliveryregister.DeliveryTypes = null;
+                    deliveryregister.ClientComments = null;
+                    deliveryregister.Bookings = null;                    
                     var DeliveryRegister = tempClient.SaveDelivery(deliveryregister);
 
                 }
