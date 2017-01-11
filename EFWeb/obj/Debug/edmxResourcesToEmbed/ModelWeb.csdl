@@ -98,7 +98,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ClientId" Type="Int64" Nullable="false" />
     <Property Name="ProductId" Type="Int64" Nullable="false" />
     <Property Name="DeliveryId" Type="Int64" />
@@ -124,7 +124,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ClientId" Type="Int64" Nullable="false" />
     <Property Name="ProductId" Type="Int64" />
     <Property Name="DeliveryId" Type="Int64" />
@@ -139,7 +139,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="PaymentMode" Type="Int32" Nullable="false" />
     <Property Name="CCHolder" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -161,7 +161,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="Address" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
@@ -183,7 +183,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="DeliveryId" Type="Int64" />
     <Property Name="Price" Type="Decimal" Precision="16" Scale="2" />
     <Property Name="Active" Type="Boolean" />
@@ -193,7 +193,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="DeliveryId" Type="Int64" Nullable="false" />
     <Property Name="Code" Type="Int64" Nullable="false" />
     <Property Name="DeliveryDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -209,7 +209,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
@@ -217,7 +217,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="From" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="To" Type="Int64" Nullable="false" />
     <Property Name="Subject" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -231,7 +231,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ReceiptPhoto" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="Value" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
@@ -255,7 +255,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="UserId" Type="Int64" Nullable="false" />
     <Property Name="Image" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
     <Property Name="PhotoLink" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
@@ -272,7 +272,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ProductTypeId" Type="Int64" Nullable="false" />
     <Property Name="Price" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
     <Property Name="Active" Type="Boolean" Nullable="false" />
@@ -285,7 +285,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Language1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -316,7 +316,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Active" Type="Boolean" Nullable="false" />
     <Property Name="Flag" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
@@ -326,7 +326,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="BookingId" Type="Int64" Nullable="false" />
     <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="SystemRespond" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -337,7 +337,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="UserName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
     <Property Name="Password" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="FullName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
@@ -366,7 +366,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ProductId" Type="Int64" Nullable="false" />
     <Property Name="Source" Type="Binary" MaxLength="8000" FixedLength="true" />
     <Property Name="VideoLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />

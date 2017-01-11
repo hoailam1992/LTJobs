@@ -4,7 +4,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="ClientId" Type="bigint" Nullable="false" />
     <Property Name="ProductId" Type="bigint" Nullable="false" />
     <Property Name="DeliveryId" Type="bigint" />
@@ -26,7 +26,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="ClientId" Type="bigint" Nullable="false" />
     <Property Name="ProductId" Type="bigint" />
     <Property Name="DeliveryId" Type="bigint" />
@@ -38,7 +38,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="PaymentMode" Type="int" Nullable="false" />
     <Property Name="CCHolder" Type="nvarchar" MaxLength="50" />
@@ -57,7 +57,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="Address" Type="varchar" MaxLength="255" Nullable="false" />
@@ -75,7 +75,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="DeliveryId" Type="bigint" />
     <Property Name="Price" Type="decimal" Precision="16" Scale="2" />
     <Property Name="Active" Type="bit" />
@@ -84,7 +84,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="DeliveryId" Type="bigint" Nullable="false" />
     <Property Name="Code" Type="bigint" Nullable="false" />
     <Property Name="DeliveryDescription" Type="nvarchar(max)" />
@@ -98,7 +98,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
@@ -106,7 +106,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="From" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="To" Type="bigint" Nullable="false" />
     <Property Name="Subject" Type="varchar" MaxLength="50" Nullable="false" />
@@ -119,7 +119,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="ReceiptPhoto" Type="varbinary(max)" />
     <Property Name="Value" Type="decimal" Precision="16" Scale="2" Nullable="false" />
@@ -141,7 +141,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="UserId" Type="bigint" Nullable="false" />
     <Property Name="Image" Type="image" Nullable="false" />
     <Property Name="PhotoLink" Type="varchar" MaxLength="255" />
@@ -157,7 +157,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="ProductTypeId" Type="bigint" Nullable="false" />
     <Property Name="Price" Type="decimal" Precision="16" Scale="2" Nullable="false" />
     <Property Name="Active" Type="bit" Nullable="false" />
@@ -168,7 +168,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Group" Type="varchar" MaxLength="50" />
     <Property Name="Language1" Type="varchar" MaxLength="50" />
@@ -194,7 +194,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Active" Type="bit" Nullable="false" />
     <Property Name="Flag" Type="char" MaxLength="1" Nullable="false" />
@@ -203,7 +203,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="BookingId" Type="bigint" Nullable="false" />
     <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
     <Property Name="SystemRespond" Type="nvarchar(max)" />
@@ -213,7 +213,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="UserName" Type="varchar" MaxLength="25" Nullable="false" />
     <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="FullName" Type="varchar" MaxLength="100" Nullable="false" />
@@ -235,7 +235,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="ProductId" Type="bigint" Nullable="false" />
     <Property Name="Source" Type="binary" MaxLength="8000" />
     <Property Name="VideoLink" Type="nvarchar(max)" />

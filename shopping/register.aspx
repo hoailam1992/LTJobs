@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="register.aspx.cs" Inherits="register" %>
+﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="register.aspx.cs" Inherits="register" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style>
@@ -114,11 +114,11 @@
             <label class="col-sm-4 control-label">Account Type</label>
             <div class="col-sm-8">
                 <label class="radio-inline">
-                    <input type="radio" name="accounttyperadio" id="rdClient" runat="server" onclick="setAccountType(this)" value="client" />Client</label>
+                    <input type="radio" name="accounttyperadio" id="rdClient" runat="server" onclick="setAccountType(this);" value="client" />Client</label>
                 <label class="radio-inline">
-                    <input type="radio" name="accounttyperadio" id="rdProduct" runat="server" onclick="setAccountType(this)" value="member" />Product</label>
+                    <input type="radio" name="accounttyperadio" id="rdProduct" runat="server" onclick="setAccountType(this);" value="member" />Product</label>
                 <label class="radio-inline">
-                    <input type="radio" name="accounttyperadio" id="rdDelivery" runat="server" onclick="setAccountType(this)" value="hotel" />Delivery</label>
+                    <input type="radio" name="accounttyperadio" id="rdDelivery" runat="server" onclick="setAccountType(this);" value="hotel" />Delivery</label>
             </div>
         </div>
         <!-- client register -->
@@ -348,7 +348,6 @@
         </div>
     </form>
     <script src="js/register.js">
-       
     
     </script>
 </asp:Content>

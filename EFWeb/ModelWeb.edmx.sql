@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 01/05/2017 15:03:08
+-- Date Created: 01/12/2017 00:04:39
 -- Generated from EDMX file: E:\Desmond_Website\JT\LTJobs\EFWeb\ModelWeb.edmx
 -- --------------------------------------------------
 
@@ -18,360 +18,364 @@ GO
 -- --------------------------------------------------
 
 IF OBJECT_ID(N'[dbo].[FK_booking_client]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[booking] DROP CONSTRAINT [FK_booking_client];
+    ALTER TABLE [dbo].[Bookings] DROP CONSTRAINT [FK_booking_client];
 GO
 IF OBJECT_ID(N'[dbo].[FK_booking_delivery]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[booking] DROP CONSTRAINT [FK_booking_delivery];
+    ALTER TABLE [dbo].[Bookings] DROP CONSTRAINT [FK_booking_delivery];
 GO
 IF OBJECT_ID(N'[dbo].[FK_booking_product]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[booking] DROP CONSTRAINT [FK_booking_product];
+    ALTER TABLE [dbo].[Bookings] DROP CONSTRAINT [FK_booking_product];
 GO
 IF OBJECT_ID(N'[dbo].[FK_client_user1]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[client] DROP CONSTRAINT [FK_client_user1];
+    ALTER TABLE [dbo].[Clients] DROP CONSTRAINT [FK_client_user1];
 GO
 IF OBJECT_ID(N'[dbo].[FK_clientcomment_client]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[clientcomment] DROP CONSTRAINT [FK_clientcomment_client];
+    ALTER TABLE [dbo].[ClientComments] DROP CONSTRAINT [FK_clientcomment_client];
 GO
 IF OBJECT_ID(N'[dbo].[FK_clientcomment_delivery]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[clientcomment] DROP CONSTRAINT [FK_clientcomment_delivery];
+    ALTER TABLE [dbo].[ClientComments] DROP CONSTRAINT [FK_clientcomment_delivery];
 GO
 IF OBJECT_ID(N'[dbo].[FK_clientcomment_product]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[clientcomment] DROP CONSTRAINT [FK_clientcomment_product];
+    ALTER TABLE [dbo].[ClientComments] DROP CONSTRAINT [FK_clientcomment_product];
 GO
 IF OBJECT_ID(N'[dbo].[FK_delivery_user]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[delivery] DROP CONSTRAINT [FK_delivery_user];
+    ALTER TABLE [dbo].[Deliveries] DROP CONSTRAINT [FK_delivery_user];
 GO
 IF OBJECT_ID(N'[dbo].[FK_DeliveryPrice_deliverytype]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[deliveryprice] DROP CONSTRAINT [FK_DeliveryPrice_deliverytype];
+    ALTER TABLE [dbo].[DeliveryPrices] DROP CONSTRAINT [FK_DeliveryPrice_deliverytype];
 GO
 IF OBJECT_ID(N'[dbo].[FK_deliverytype_delivery]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[deliverytype] DROP CONSTRAINT [FK_deliverytype_delivery];
+    ALTER TABLE [dbo].[DeliveryTypes] DROP CONSTRAINT [FK_deliverytype_delivery];
 GO
 IF OBJECT_ID(N'[dbo].[FK_message_user]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[message] DROP CONSTRAINT [FK_message_user];
+    ALTER TABLE [dbo].[Messages] DROP CONSTRAINT [FK_message_user];
 GO
 IF OBJECT_ID(N'[dbo].[FK_moneytransaction_user]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[moneytransaction] DROP CONSTRAINT [FK_moneytransaction_user];
+    ALTER TABLE [dbo].[MoneyTransactions] DROP CONSTRAINT [FK_moneytransaction_user];
 GO
 IF OBJECT_ID(N'[dbo].[FK_moneytransaction_user1]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[moneytransaction] DROP CONSTRAINT [FK_moneytransaction_user1];
+    ALTER TABLE [dbo].[MoneyTransactions] DROP CONSTRAINT [FK_moneytransaction_user1];
 GO
 IF OBJECT_ID(N'[dbo].[FK_photo_user]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[photo] DROP CONSTRAINT [FK_photo_user];
+    ALTER TABLE [dbo].[Photos] DROP CONSTRAINT [FK_photo_user];
 GO
 IF OBJECT_ID(N'[dbo].[FK_product_user]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[product] DROP CONSTRAINT [FK_product_user];
+    ALTER TABLE [dbo].[Products] DROP CONSTRAINT [FK_product_user];
 GO
 IF OBJECT_ID(N'[dbo].[FK_productprice_producttype]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[productprice] DROP CONSTRAINT [FK_productprice_producttype];
+    ALTER TABLE [dbo].[ProductPrices] DROP CONSTRAINT [FK_productprice_producttype];
+GO
+IF OBJECT_ID(N'[dbo].[FK_productprices_products]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProductPrices] DROP CONSTRAINT [FK_productprices_products];
 GO
 IF OBJECT_ID(N'[dbo].[FK_report_booking]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[report] DROP CONSTRAINT [FK_report_booking];
+    ALTER TABLE [dbo].[Reports] DROP CONSTRAINT [FK_report_booking];
 GO
 IF OBJECT_ID(N'[dbo].[FK_video_product]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[video] DROP CONSTRAINT [FK_video_product];
+    ALTER TABLE [dbo].[Videos] DROP CONSTRAINT [FK_video_product];
 GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[booking]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[booking];
+IF OBJECT_ID(N'[dbo].[Bookings]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Bookings];
 GO
-IF OBJECT_ID(N'[dbo].[client]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[client];
+IF OBJECT_ID(N'[dbo].[ClientComments]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ClientComments];
 GO
-IF OBJECT_ID(N'[dbo].[clientcomment]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[clientcomment];
+IF OBJECT_ID(N'[dbo].[Clients]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Clients];
 GO
-IF OBJECT_ID(N'[dbo].[delivery]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[delivery];
+IF OBJECT_ID(N'[dbo].[Deliveries]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Deliveries];
 GO
-IF OBJECT_ID(N'[dbo].[deliveryprice]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[deliveryprice];
+IF OBJECT_ID(N'[dbo].[DeliveryPrices]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DeliveryPrices];
 GO
-IF OBJECT_ID(N'[dbo].[deliverytype]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[deliverytype];
+IF OBJECT_ID(N'[dbo].[DeliveryTypes]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DeliveryTypes];
 GO
-IF OBJECT_ID(N'[dbo].[feedback]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[feedback];
+IF OBJECT_ID(N'[dbo].[FeedBacks]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[FeedBacks];
 GO
-IF OBJECT_ID(N'[dbo].[message]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[message];
+IF OBJECT_ID(N'[dbo].[Messages]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Messages];
 GO
-IF OBJECT_ID(N'[dbo].[moneytransaction]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[moneytransaction];
+IF OBJECT_ID(N'[dbo].[MoneyTransactions]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[MoneyTransactions];
 GO
-IF OBJECT_ID(N'[dbo].[photo]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[photo];
+IF OBJECT_ID(N'[dbo].[Photos]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Photos];
 GO
-IF OBJECT_ID(N'[dbo].[product]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[product];
+IF OBJECT_ID(N'[dbo].[ProductPrices]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ProductPrices];
 GO
-IF OBJECT_ID(N'[dbo].[productprice]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[productprice];
+IF OBJECT_ID(N'[dbo].[Products]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Products];
 GO
-IF OBJECT_ID(N'[dbo].[producttype]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[producttype];
+IF OBJECT_ID(N'[dbo].[ProductTypes]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ProductTypes];
 GO
-IF OBJECT_ID(N'[dbo].[report]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[report];
+IF OBJECT_ID(N'[dbo].[Reports]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Reports];
 GO
-IF OBJECT_ID(N'[dbo].[user]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[user];
+IF OBJECT_ID(N'[dbo].[Users]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Users];
 GO
-IF OBJECT_ID(N'[dbo].[video]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[video];
+IF OBJECT_ID(N'[dbo].[Videos]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Videos];
 GO
 
 -- --------------------------------------------------
 -- Creating all tables
 -- --------------------------------------------------
 
--- Creating table 'bookings'
-CREATE TABLE [dbo].[bookings] (
-    [id] bigint  NOT NULL,
-    [clientid] bigint  NOT NULL,
-    [productid] bigint  NOT NULL,
-    [deliveryid] bigint  NULL,
-    [productprice] decimal(16,2)  NULL,
-    [deliveryprice] decimal(16,2)  NULL,
-    [location] nvarchar(max)  NULL,
-    [paymentmode] char(1)  NOT NULL,
-    [totalcost] decimal(16,2)  NOT NULL,
-    [producttype] bigint  NOT NULL,
-    [productrespond] char(1)  NULL,
-    [deliveryrespond] char(1)  NULL,
-    [datetime] datetime  NULL,
-    [createddate] datetime  NULL,
-    [status] char(1)  NULL,
-    [isdeleted] bit  NULL,
-    [modifieddate] datetime  NOT NULL
+-- Creating table 'Bookings'
+CREATE TABLE [dbo].[Bookings] (
+    [Id] bigint IDENTITY(1,1) NOT NULL,
+    [ClientId] bigint  NOT NULL,
+    [ProductId] bigint  NOT NULL,
+    [DeliveryId] bigint  NULL,
+    [ProductPrice] decimal(16,2)  NULL,
+    [DeliveryPrice] decimal(16,2)  NULL,
+    [Location] nvarchar(max)  NULL,
+    [PaymentMode] char(1)  NOT NULL,
+    [TotalCost] decimal(16,2)  NOT NULL,
+    [ProductType] bigint  NOT NULL,
+    [ProductRespond] char(1)  NULL,
+    [DeliveryRespond] char(1)  NULL,
+    [DateTime] datetime  NULL,
+    [CreatedDate] datetime  NULL,
+    [Status] char(1)  NULL,
+    [IsDeleted] bit  NULL,
+    [ModifiedDate] datetime  NOT NULL
 );
 GO
 
--- Creating table 'clients'
-CREATE TABLE [dbo].[clients] (
-    [id] bigint  NOT NULL,
-    [clientcode] nvarchar(50)  NOT NULL,
-    [paymentmode] int  NOT NULL,
-    [ccholder] nvarchar(50)  NULL,
-    [ccnumber] nvarchar(max)  NULL,
-    [ccexpiredmonth] int  NULL,
-    [ccexpiredyear] int  NULL,
-    [ccpin] nvarchar(max)  NULL,
-    [userid] bigint  NOT NULL,
-    [isvalid] bit  NOT NULL,
-    [createddate] datetime  NOT NULL,
-    [modifieddate] datetime  NULL,
-    [balance] decimal(16,2)  NOT NULL,
-    [cancelcount] int  NOT NULL
+-- Creating table 'ClientComments'
+CREATE TABLE [dbo].[ClientComments] (
+    [Id] bigint IDENTITY(1,1) NOT NULL,
+    [ClientId] bigint  NOT NULL,
+    [ProductId] bigint  NULL,
+    [DeliveryId] bigint  NULL,
+    [Rate] int  NULL,
+    [Note] nvarchar(max)  NOT NULL,
+    [CreatedDate] datetime  NOT NULL
 );
 GO
 
--- Creating table 'clientcomments'
-CREATE TABLE [dbo].[clientcomments] (
-    [id] bigint  NOT NULL,
-    [clientid] bigint  NOT NULL,
-    [memberid] bigint  NULL,
-    [deliveryid] bigint  NULL,
-    [rate] int  NULL,
-    [note] nvarchar(1)  NOT NULL,
-    [createddate] datetime  NOT NULL
+-- Creating table 'Clients'
+CREATE TABLE [dbo].[Clients] (
+    [Id] bigint IDENTITY(1,1) NOT NULL,
+    [Code] nvarchar(50)  NOT NULL,
+    [PaymentMode] int  NOT NULL,
+    [CCHolder] nvarchar(50)  NULL,
+    [CCNumber] nvarchar(max)  NULL,
+    [CCExpiredMonth] int  NULL,
+    [CCExpiredYear] int  NULL,
+    [CCPin] nvarchar(max)  NULL,
+    [UserId] bigint  NOT NULL,
+    [IsValid] bit  NOT NULL,
+    [CreatedDate] datetime  NOT NULL,
+    [ModifiedDate] datetime  NULL,
+    [Balance] decimal(16,2)  NOT NULL,
+    [CancelCount] int  NOT NULL
 );
 GO
 
--- Creating table 'deliveries'
-CREATE TABLE [dbo].[deliveries] (
-    [id] bigint  NOT NULL,
-    [deliverycode] varchar(50)  NOT NULL,
-    [name] varchar(255)  NOT NULL,
-    [address] varchar(255)  NOT NULL,
-    [lowestprice] decimal(16,2)  NULL,
-    [highestprice] decimal(16,2)  NULL,
-    [quality] int  NULL,
-    [phone] varchar(50)  NOT NULL,
-    [email] varchar(100)  NULL,
-    [disctrict] varchar(50)  NOT NULL,
-    [city] varchar(50)  NOT NULL,
-    [userid] bigint  NOT NULL,
-    [commission] decimal(16,2)  NULL
+-- Creating table 'Deliveries'
+CREATE TABLE [dbo].[Deliveries] (
+    [Id] bigint IDENTITY(1,1) NOT NULL,
+    [Code] varchar(50)  NOT NULL,
+    [Name] varchar(255)  NOT NULL,
+    [Address] varchar(255)  NOT NULL,
+    [LowestPrice] decimal(16,2)  NULL,
+    [HighestPrice] decimal(16,2)  NULL,
+    [Quality] int  NULL,
+    [Phone] varchar(50)  NOT NULL,
+    [Email] varchar(100)  NULL,
+    [Disctrict] varchar(50)  NOT NULL,
+    [City] varchar(50)  NOT NULL,
+    [UserId] bigint  NOT NULL,
+    [Commission] decimal(16,2)  NULL
 );
 GO
 
--- Creating table 'deliveryprices'
-CREATE TABLE [dbo].[deliveryprices] (
-    [id] bigint  NOT NULL,
-    [deliverytypeid] bigint  NULL,
-    [price] decimal(16,2)  NULL,
-    [active] bit  NULL
+-- Creating table 'DeliveryPrices'
+CREATE TABLE [dbo].[DeliveryPrices] (
+    [Id] bigint IDENTITY(1,1) NOT NULL,
+    [DeliveryId] bigint  NULL,
+    [Price] decimal(16,2)  NULL,
+    [Active] bit  NULL
 );
 GO
 
--- Creating table 'deliverytypes'
-CREATE TABLE [dbo].[deliverytypes] (
-    [id] bigint  NOT NULL,
-    [deliveryid] bigint  NOT NULL,
-    [deliverytype1] bigint  NOT NULL,
-    [deliverydescription] nvarchar(max)  NULL,
-    [active] bit  NOT NULL,
-    [extrafee] nvarchar(max)  NULL,
-    [createddate] datetime  NOT NULL,
-    [modifieddate] datetime  NOT NULL
+-- Creating table 'DeliveryTypes'
+CREATE TABLE [dbo].[DeliveryTypes] (
+    [Id] bigint IDENTITY(1,1) NOT NULL,
+    [DeliveryId] bigint  NOT NULL,
+    [Code] bigint  NOT NULL,
+    [DeliveryDescription] nvarchar(max)  NULL,
+    [Active] bit  NOT NULL,
+    [ExtraFee] nvarchar(max)  NULL,
+    [CreatedDate] datetime  NOT NULL,
+    [ModifiedDate] datetime  NOT NULL,
+    [Price] decimal(16,2)  NULL
 );
 GO
 
--- Creating table 'feedbacks'
-CREATE TABLE [dbo].[feedbacks] (
-    [id] bigint  NOT NULL,
-    [title] varchar(100)  NOT NULL,
-    [content] nvarchar(max)  NOT NULL
+-- Creating table 'FeedBacks'
+CREATE TABLE [dbo].[FeedBacks] (
+    [Id] bigint IDENTITY(1,1) NOT NULL,
+    [Title] varchar(100)  NOT NULL,
+    [Content] nvarchar(max)  NOT NULL
 );
 GO
 
--- Creating table 'messages'
-CREATE TABLE [dbo].[messages] (
-    [id] bigint  NOT NULL,
-    [from] varchar(50)  NOT NULL,
-    [to] bigint  NOT NULL,
-    [subject] varchar(50)  NOT NULL,
-    [body] nvarchar(max)  NOT NULL,
-    [datetime] datetime  NOT NULL,
-    [status] bit  NOT NULL,
-    [isdeleted] bit  NULL
+-- Creating table 'Messages'
+CREATE TABLE [dbo].[Messages] (
+    [Id] bigint IDENTITY(1,1) NOT NULL,
+    [From] varchar(50)  NOT NULL,
+    [To] bigint  NOT NULL,
+    [Subject] varchar(50)  NOT NULL,
+    [Body] nvarchar(max)  NOT NULL,
+    [DateTime] datetime  NOT NULL,
+    [Status] bit  NOT NULL,
+    [IsDeleted] bit  NULL
 );
 GO
 
--- Creating table 'moneytransactions'
-CREATE TABLE [dbo].[moneytransactions] (
-    [id] bigint  NOT NULL,
-    [code] varchar(50)  NOT NULL,
-    [receiptphoto] varbinary(max)  NULL,
-    [value] decimal(16,2)  NOT NULL,
-    [trandate] datetime  NOT NULL,
-    [remark] nvarchar(max)  NULL,
-    [status] char(1)  NOT NULL,
-    [sourceid] bigint  NOT NULL,
-    [destinationid] bigint  NOT NULL,
-    [paymentdate] datetime  NULL,
-    [ccname] varchar(100)  NULL,
-    [ccno] varchar(100)  NULL,
-    [ccexpiredmonth] int  NULL,
-    [ccexpiredyear] int  NULL,
-    [ccpin] nvarchar(max)  NULL,
-    [createddate] datetime  NOT NULL,
-    [modifieddate] datetime  NULL
+-- Creating table 'MoneyTransactions'
+CREATE TABLE [dbo].[MoneyTransactions] (
+    [Id] bigint IDENTITY(1,1) NOT NULL,
+    [Code] varchar(50)  NOT NULL,
+    [ReceiptPhoto] varbinary(max)  NULL,
+    [Value] decimal(16,2)  NOT NULL,
+    [Trandate] datetime  NOT NULL,
+    [Remark] nvarchar(max)  NULL,
+    [Status] char(1)  NOT NULL,
+    [SourceId] bigint  NOT NULL,
+    [DestinationId] bigint  NOT NULL,
+    [PaymentDate] datetime  NULL,
+    [CCName] varchar(100)  NULL,
+    [CCNumber] varchar(100)  NULL,
+    [CCExpiredMonth] int  NULL,
+    [CCExpiredYear] int  NULL,
+    [CCPin] nvarchar(max)  NULL,
+    [CreatedDate] datetime  NOT NULL,
+    [ModifiedDate] datetime  NULL
 );
 GO
 
--- Creating table 'photos'
-CREATE TABLE [dbo].[photos] (
-    [id] bigint  NOT NULL,
-    [userid] bigint  NOT NULL,
-    [photo1] binary(1)  NOT NULL,
-    [photolink] varchar(255)  NULL,
-    [uploadeddate] datetime  NOT NULL,
-    [photodescription] varchar(255)  NULL,
-    [createddate] datetime  NOT NULL,
-    [modifieddate] datetime  NULL,
-    [isvisble] bit  NULL,
-    [vipmemberonly] bit  NULL,
-    [status] char(1)  NULL
+-- Creating table 'Photos'
+CREATE TABLE [dbo].[Photos] (
+    [Id] bigint IDENTITY(1,1) NOT NULL,
+    [UserId] bigint  NOT NULL,
+    [Image] varbinary(max)  NOT NULL,
+    [PhotoLink] varchar(255)  NULL,
+    [UploadedDate] datetime  NOT NULL,
+    [PhotoDescription] varchar(255)  NULL,
+    [CreatedDate] datetime  NOT NULL,
+    [ModifiedDate] datetime  NULL,
+    [IsVisble] bit  NULL,
+    [VIPMemberOnly] bit  NULL,
+    [Status] char(1)  NULL
 );
 GO
 
--- Creating table 'products'
-CREATE TABLE [dbo].[products] (
-    [id] bigint  NOT NULL,
-    [productcode] varchar(50)  NOT NULL,
-    [group] varchar(50)  NULL,
-    [language1] varchar(50)  NULL,
-    [language2] varchar(50)  NULL,
-    [price] decimal(16,2)  NOT NULL,
-    [preferrablelocation] varchar(50)  NOT NULL,
-    [bankname] varchar(100)  NULL,
-    [bankaccount] varchar(100)  NULL,
-    [bankaccnumber] varchar(100)  NULL,
-    [createddate] datetime  NOT NULL,
-    [modifeddate] datetime  NULL,
-    [isactive] bit  NOT NULL,
-    [isblocked] bit  NOT NULL,
-    [isavailable] bit  NULL,
-    [cancelcount] int  NOT NULL,
-    [userid] bigint  NOT NULL,
-    [productdescription] nvarchar(max)  NOT NULL,
-    [balance] decimal(16,2)  NOT NULL,
-    [commission] decimal(16,2)  NULL,
-    [reward] decimal(16,2)  NULL
+-- Creating table 'ProductPrices'
+CREATE TABLE [dbo].[ProductPrices] (
+    [Id] bigint IDENTITY(1,1) NOT NULL,
+    [ProductTypeId] bigint  NOT NULL,
+    [Price] decimal(16,2)  NOT NULL,
+    [Active] bit  NOT NULL,
+    [ProductId] bigint  NULL,
+    [Reward] decimal(10,0)  NULL
 );
 GO
 
--- Creating table 'productprices'
-CREATE TABLE [dbo].[productprices] (
-    [id] bigint  NOT NULL,
-    [producttypeid] bigint  NOT NULL,
-    [price] decimal(16,2)  NOT NULL,
-    [active] bit  NOT NULL,
-    [productid] bigint  NULL,
-    [reward] decimal(10,0)  NULL
+-- Creating table 'Products'
+CREATE TABLE [dbo].[Products] (
+    [Id] bigint IDENTITY(1,1) NOT NULL,
+    [Code] varchar(50)  NOT NULL,
+    [Group] varchar(50)  NULL,
+    [Language1] varchar(50)  NULL,
+    [Language2] varchar(50)  NULL,
+    [Price] decimal(16,2)  NOT NULL,
+    [PreferrableLocation] varchar(50)  NOT NULL,
+    [BankName] varchar(100)  NULL,
+    [BankAccount] varchar(100)  NULL,
+    [BankAccNumber] varchar(100)  NULL,
+    [CreatedDate] datetime  NOT NULL,
+    [ModifedDate] datetime  NULL,
+    [IsActive] bit  NOT NULL,
+    [IsBlocked] bit  NOT NULL,
+    [IsAvailable] bit  NULL,
+    [CancelCount] int  NOT NULL,
+    [UserId] bigint  NOT NULL,
+    [ProductDescription] nvarchar(max)  NOT NULL,
+    [Balance] decimal(16,2)  NOT NULL,
+    [Commission] decimal(16,2)  NULL,
+    [Reward] decimal(16,2)  NULL
 );
 GO
 
--- Creating table 'producttypes'
-CREATE TABLE [dbo].[producttypes] (
-    [id] bigint  NOT NULL,
-    [producttype1] varchar(50)  NOT NULL,
-    [actvice] bit  NOT NULL,
-    [flag] char(1)  NOT NULL
+-- Creating table 'ProductTypes'
+CREATE TABLE [dbo].[ProductTypes] (
+    [Id] bigint IDENTITY(1,1) NOT NULL,
+    [Code] varchar(50)  NOT NULL,
+    [Active] bit  NOT NULL,
+    [Flag] char(1)  NOT NULL
 );
 GO
 
--- Creating table 'reports'
-CREATE TABLE [dbo].[reports] (
-    [id] bigint  NOT NULL,
-    [bookingid] bigint  NOT NULL,
-    [report1] nvarchar(max)  NOT NULL,
-    [systemrespond] nvarchar(max)  NULL,
-    [refundamount] decimal(16,2)  NULL
+-- Creating table 'Reports'
+CREATE TABLE [dbo].[Reports] (
+    [Id] bigint IDENTITY(1,1) NOT NULL,
+    [BookingId] bigint  NOT NULL,
+    [Content] nvarchar(max)  NOT NULL,
+    [SystemRespond] nvarchar(max)  NULL,
+    [RefundAmount] decimal(16,2)  NULL
 );
 GO
 
--- Creating table 'users'
-CREATE TABLE [dbo].[users] (
-    [id] bigint  NOT NULL,
-    [username] varchar(25)  NOT NULL,
-    [password] varchar(100)  NOT NULL,
-    [fullname] varchar(100)  NOT NULL,
-    [dateofbirth] datetime  NOT NULL,
-    [active] bit  NOT NULL,
-    [email] varchar(100)  NULL,
-    [phone] varchar(15)  NULL,
-    [accounttype] varchar(45)  NOT NULL,
-    [isblocked] bit  NOT NULL,
-    [gcmkey] nvarchar(max)  NULL,
-    [isnotify] bit  NULL,
-    [securityquestionid] smallint  NOT NULL,
-    [securityanswer] varchar(45)  NOT NULL,
-    [createddate] datetime  NULL,
-    [modifieddate] datetime  NULL,
-    [lastlogin] datetime  NULL
+-- Creating table 'Users'
+CREATE TABLE [dbo].[Users] (
+    [Id] bigint IDENTITY(1,1) NOT NULL,
+    [UserName] varchar(25)  NOT NULL,
+    [Password] varchar(100)  NOT NULL,
+    [FullName] varchar(100)  NOT NULL,
+    [DateOfBirth] datetime  NOT NULL,
+    [Active] bit  NOT NULL,
+    [Email] varchar(100)  NULL,
+    [Phone] varchar(15)  NULL,
+    [AccountType] varchar(45)  NOT NULL,
+    [IsBlocked] bit  NOT NULL,
+    [GCMkey] nvarchar(max)  NULL,
+    [IsNotify] bit  NULL,
+    [SecurityQuestionId] smallint  NOT NULL,
+    [SecurityAnswer] varchar(45)  NOT NULL,
+    [CreatedDate] datetime  NULL,
+    [ModifiedDate] datetime  NULL,
+    [LastLogin] datetime  NULL
 );
 GO
 
--- Creating table 'videos'
-CREATE TABLE [dbo].[videos] (
-    [id] bigint  NOT NULL,
-    [memberid] bigint  NOT NULL,
-    [video1] binary(1)  NULL,
-    [videolink] nvarchar(max)  NULL,
-    [uploadeddate] datetime  NOT NULL,
-    [videodescription] varchar(255)  NULL,
-    [createddate] datetime  NULL,
-    [modifieddate] datetime  NULL,
-    [isvisible] bit  NULL,
-    [vipmemberonly] bit  NULL,
-    [status] char(1)  NOT NULL
+-- Creating table 'Videos'
+CREATE TABLE [dbo].[Videos] (
+    [Id] bigint IDENTITY(1,1) NOT NULL,
+    [ProductId] bigint  NOT NULL,
+    [Source] binary(8000)  NULL,
+    [VideoLink] nvarchar(max)  NULL,
+    [UploadedDate] datetime  NOT NULL,
+    [VideoDescription] varchar(255)  NULL,
+    [CreatedDate] datetime  NULL,
+    [ModifiedDate] datetime  NULL,
+    [IsVisible] bit  NULL,
+    [VIPMemberOnly] bit  NULL,
+    [Status] char(1)  NOT NULL
 );
 GO
 
@@ -379,374 +383,389 @@ GO
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
 
--- Creating primary key on [id] in table 'bookings'
-ALTER TABLE [dbo].[bookings]
-ADD CONSTRAINT [PK_bookings]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'Bookings'
+ALTER TABLE [dbo].[Bookings]
+ADD CONSTRAINT [PK_Bookings]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [id] in table 'clients'
-ALTER TABLE [dbo].[clients]
-ADD CONSTRAINT [PK_clients]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'ClientComments'
+ALTER TABLE [dbo].[ClientComments]
+ADD CONSTRAINT [PK_ClientComments]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [id] in table 'clientcomments'
-ALTER TABLE [dbo].[clientcomments]
-ADD CONSTRAINT [PK_clientcomments]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'Clients'
+ALTER TABLE [dbo].[Clients]
+ADD CONSTRAINT [PK_Clients]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [id] in table 'deliveries'
-ALTER TABLE [dbo].[deliveries]
-ADD CONSTRAINT [PK_deliveries]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'Deliveries'
+ALTER TABLE [dbo].[Deliveries]
+ADD CONSTRAINT [PK_Deliveries]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [id] in table 'deliveryprices'
-ALTER TABLE [dbo].[deliveryprices]
-ADD CONSTRAINT [PK_deliveryprices]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'DeliveryPrices'
+ALTER TABLE [dbo].[DeliveryPrices]
+ADD CONSTRAINT [PK_DeliveryPrices]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [id] in table 'deliverytypes'
-ALTER TABLE [dbo].[deliverytypes]
-ADD CONSTRAINT [PK_deliverytypes]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'DeliveryTypes'
+ALTER TABLE [dbo].[DeliveryTypes]
+ADD CONSTRAINT [PK_DeliveryTypes]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [id] in table 'feedbacks'
-ALTER TABLE [dbo].[feedbacks]
-ADD CONSTRAINT [PK_feedbacks]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'FeedBacks'
+ALTER TABLE [dbo].[FeedBacks]
+ADD CONSTRAINT [PK_FeedBacks]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [id] in table 'messages'
-ALTER TABLE [dbo].[messages]
-ADD CONSTRAINT [PK_messages]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'Messages'
+ALTER TABLE [dbo].[Messages]
+ADD CONSTRAINT [PK_Messages]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [id] in table 'moneytransactions'
-ALTER TABLE [dbo].[moneytransactions]
-ADD CONSTRAINT [PK_moneytransactions]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'MoneyTransactions'
+ALTER TABLE [dbo].[MoneyTransactions]
+ADD CONSTRAINT [PK_MoneyTransactions]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [id] in table 'photos'
-ALTER TABLE [dbo].[photos]
-ADD CONSTRAINT [PK_photos]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'Photos'
+ALTER TABLE [dbo].[Photos]
+ADD CONSTRAINT [PK_Photos]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [id] in table 'products'
-ALTER TABLE [dbo].[products]
-ADD CONSTRAINT [PK_products]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'ProductPrices'
+ALTER TABLE [dbo].[ProductPrices]
+ADD CONSTRAINT [PK_ProductPrices]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [id] in table 'productprices'
-ALTER TABLE [dbo].[productprices]
-ADD CONSTRAINT [PK_productprices]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'Products'
+ALTER TABLE [dbo].[Products]
+ADD CONSTRAINT [PK_Products]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [id] in table 'producttypes'
-ALTER TABLE [dbo].[producttypes]
-ADD CONSTRAINT [PK_producttypes]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'ProductTypes'
+ALTER TABLE [dbo].[ProductTypes]
+ADD CONSTRAINT [PK_ProductTypes]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [id] in table 'reports'
-ALTER TABLE [dbo].[reports]
-ADD CONSTRAINT [PK_reports]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'Reports'
+ALTER TABLE [dbo].[Reports]
+ADD CONSTRAINT [PK_Reports]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [id] in table 'users'
-ALTER TABLE [dbo].[users]
-ADD CONSTRAINT [PK_users]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'Users'
+ALTER TABLE [dbo].[Users]
+ADD CONSTRAINT [PK_Users]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [id] in table 'videos'
-ALTER TABLE [dbo].[videos]
-ADD CONSTRAINT [PK_videos]
-    PRIMARY KEY CLUSTERED ([id] ASC);
+-- Creating primary key on [Id] in table 'Videos'
+ALTER TABLE [dbo].[Videos]
+ADD CONSTRAINT [PK_Videos]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
 
--- Creating foreign key on [clientid] in table 'bookings'
-ALTER TABLE [dbo].[bookings]
+-- Creating foreign key on [ClientId] in table 'Bookings'
+ALTER TABLE [dbo].[Bookings]
 ADD CONSTRAINT [FK_booking_client]
-    FOREIGN KEY ([clientid])
-    REFERENCES [dbo].[clients]
-        ([id])
+    FOREIGN KEY ([ClientId])
+    REFERENCES [dbo].[Clients]
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_booking_client'
 CREATE INDEX [IX_FK_booking_client]
-ON [dbo].[bookings]
-    ([clientid]);
+ON [dbo].[Bookings]
+    ([ClientId]);
 GO
 
--- Creating foreign key on [deliveryid] in table 'bookings'
-ALTER TABLE [dbo].[bookings]
+-- Creating foreign key on [DeliveryId] in table 'Bookings'
+ALTER TABLE [dbo].[Bookings]
 ADD CONSTRAINT [FK_booking_delivery]
-    FOREIGN KEY ([deliveryid])
-    REFERENCES [dbo].[deliveries]
-        ([id])
+    FOREIGN KEY ([DeliveryId])
+    REFERENCES [dbo].[Deliveries]
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_booking_delivery'
 CREATE INDEX [IX_FK_booking_delivery]
-ON [dbo].[bookings]
-    ([deliveryid]);
+ON [dbo].[Bookings]
+    ([DeliveryId]);
 GO
 
--- Creating foreign key on [productid] in table 'bookings'
-ALTER TABLE [dbo].[bookings]
+-- Creating foreign key on [ProductId] in table 'Bookings'
+ALTER TABLE [dbo].[Bookings]
 ADD CONSTRAINT [FK_booking_product]
-    FOREIGN KEY ([productid])
-    REFERENCES [dbo].[products]
-        ([id])
+    FOREIGN KEY ([ProductId])
+    REFERENCES [dbo].[Products]
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_booking_product'
 CREATE INDEX [IX_FK_booking_product]
-ON [dbo].[bookings]
-    ([productid]);
+ON [dbo].[Bookings]
+    ([ProductId]);
 GO
 
--- Creating foreign key on [bookingid] in table 'reports'
-ALTER TABLE [dbo].[reports]
+-- Creating foreign key on [BookingId] in table 'Reports'
+ALTER TABLE [dbo].[Reports]
 ADD CONSTRAINT [FK_report_booking]
-    FOREIGN KEY ([bookingid])
-    REFERENCES [dbo].[bookings]
-        ([id])
+    FOREIGN KEY ([BookingId])
+    REFERENCES [dbo].[Bookings]
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_report_booking'
 CREATE INDEX [IX_FK_report_booking]
-ON [dbo].[reports]
-    ([bookingid]);
+ON [dbo].[Reports]
+    ([BookingId]);
 GO
 
--- Creating foreign key on [userid] in table 'clients'
-ALTER TABLE [dbo].[clients]
-ADD CONSTRAINT [FK_client_user1]
-    FOREIGN KEY ([userid])
-    REFERENCES [dbo].[users]
-        ([id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_client_user1'
-CREATE INDEX [IX_FK_client_user1]
-ON [dbo].[clients]
-    ([userid]);
-GO
-
--- Creating foreign key on [clientid] in table 'clientcomments'
-ALTER TABLE [dbo].[clientcomments]
+-- Creating foreign key on [ClientId] in table 'ClientComments'
+ALTER TABLE [dbo].[ClientComments]
 ADD CONSTRAINT [FK_clientcomment_client]
-    FOREIGN KEY ([clientid])
-    REFERENCES [dbo].[clients]
-        ([id])
+    FOREIGN KEY ([ClientId])
+    REFERENCES [dbo].[Clients]
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_clientcomment_client'
 CREATE INDEX [IX_FK_clientcomment_client]
-ON [dbo].[clientcomments]
-    ([clientid]);
+ON [dbo].[ClientComments]
+    ([ClientId]);
 GO
 
--- Creating foreign key on [deliveryid] in table 'clientcomments'
-ALTER TABLE [dbo].[clientcomments]
+-- Creating foreign key on [DeliveryId] in table 'ClientComments'
+ALTER TABLE [dbo].[ClientComments]
 ADD CONSTRAINT [FK_clientcomment_delivery]
-    FOREIGN KEY ([deliveryid])
-    REFERENCES [dbo].[deliveries]
-        ([id])
+    FOREIGN KEY ([DeliveryId])
+    REFERENCES [dbo].[Deliveries]
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_clientcomment_delivery'
 CREATE INDEX [IX_FK_clientcomment_delivery]
-ON [dbo].[clientcomments]
-    ([deliveryid]);
+ON [dbo].[ClientComments]
+    ([DeliveryId]);
 GO
 
--- Creating foreign key on [memberid] in table 'clientcomments'
-ALTER TABLE [dbo].[clientcomments]
+-- Creating foreign key on [ProductId] in table 'ClientComments'
+ALTER TABLE [dbo].[ClientComments]
 ADD CONSTRAINT [FK_clientcomment_product]
-    FOREIGN KEY ([memberid])
-    REFERENCES [dbo].[products]
-        ([id])
+    FOREIGN KEY ([ProductId])
+    REFERENCES [dbo].[Products]
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_clientcomment_product'
 CREATE INDEX [IX_FK_clientcomment_product]
-ON [dbo].[clientcomments]
-    ([memberid]);
+ON [dbo].[ClientComments]
+    ([ProductId]);
 GO
 
--- Creating foreign key on [userid] in table 'deliveries'
-ALTER TABLE [dbo].[deliveries]
+-- Creating foreign key on [UserId] in table 'Clients'
+ALTER TABLE [dbo].[Clients]
+ADD CONSTRAINT [FK_client_user1]
+    FOREIGN KEY ([UserId])
+    REFERENCES [dbo].[Users]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_client_user1'
+CREATE INDEX [IX_FK_client_user1]
+ON [dbo].[Clients]
+    ([UserId]);
+GO
+
+-- Creating foreign key on [UserId] in table 'Deliveries'
+ALTER TABLE [dbo].[Deliveries]
 ADD CONSTRAINT [FK_delivery_user]
-    FOREIGN KEY ([userid])
-    REFERENCES [dbo].[users]
-        ([id])
+    FOREIGN KEY ([UserId])
+    REFERENCES [dbo].[Users]
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_delivery_user'
 CREATE INDEX [IX_FK_delivery_user]
-ON [dbo].[deliveries]
-    ([userid]);
+ON [dbo].[Deliveries]
+    ([UserId]);
 GO
 
--- Creating foreign key on [deliveryid] in table 'deliverytypes'
-ALTER TABLE [dbo].[deliverytypes]
+-- Creating foreign key on [DeliveryId] in table 'DeliveryTypes'
+ALTER TABLE [dbo].[DeliveryTypes]
 ADD CONSTRAINT [FK_deliverytype_delivery]
-    FOREIGN KEY ([deliveryid])
-    REFERENCES [dbo].[deliveries]
-        ([id])
+    FOREIGN KEY ([DeliveryId])
+    REFERENCES [dbo].[Deliveries]
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_deliverytype_delivery'
 CREATE INDEX [IX_FK_deliverytype_delivery]
-ON [dbo].[deliverytypes]
-    ([deliveryid]);
+ON [dbo].[DeliveryTypes]
+    ([DeliveryId]);
 GO
 
--- Creating foreign key on [deliverytypeid] in table 'deliveryprices'
-ALTER TABLE [dbo].[deliveryprices]
+-- Creating foreign key on [DeliveryId] in table 'DeliveryPrices'
+ALTER TABLE [dbo].[DeliveryPrices]
 ADD CONSTRAINT [FK_DeliveryPrice_deliverytype]
-    FOREIGN KEY ([deliverytypeid])
-    REFERENCES [dbo].[deliverytypes]
-        ([id])
+    FOREIGN KEY ([DeliveryId])
+    REFERENCES [dbo].[DeliveryTypes]
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_DeliveryPrice_deliverytype'
 CREATE INDEX [IX_FK_DeliveryPrice_deliverytype]
-ON [dbo].[deliveryprices]
-    ([deliverytypeid]);
+ON [dbo].[DeliveryPrices]
+    ([DeliveryId]);
 GO
 
--- Creating foreign key on [to] in table 'messages'
-ALTER TABLE [dbo].[messages]
+-- Creating foreign key on [To] in table 'Messages'
+ALTER TABLE [dbo].[Messages]
 ADD CONSTRAINT [FK_message_user]
-    FOREIGN KEY ([to])
-    REFERENCES [dbo].[users]
-        ([id])
+    FOREIGN KEY ([To])
+    REFERENCES [dbo].[Users]
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_message_user'
 CREATE INDEX [IX_FK_message_user]
-ON [dbo].[messages]
-    ([to]);
+ON [dbo].[Messages]
+    ([To]);
 GO
 
--- Creating foreign key on [sourceid] in table 'moneytransactions'
-ALTER TABLE [dbo].[moneytransactions]
+-- Creating foreign key on [SourceId] in table 'MoneyTransactions'
+ALTER TABLE [dbo].[MoneyTransactions]
 ADD CONSTRAINT [FK_moneytransaction_user]
-    FOREIGN KEY ([sourceid])
-    REFERENCES [dbo].[users]
-        ([id])
+    FOREIGN KEY ([SourceId])
+    REFERENCES [dbo].[Users]
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_moneytransaction_user'
 CREATE INDEX [IX_FK_moneytransaction_user]
-ON [dbo].[moneytransactions]
-    ([sourceid]);
+ON [dbo].[MoneyTransactions]
+    ([SourceId]);
 GO
 
--- Creating foreign key on [destinationid] in table 'moneytransactions'
-ALTER TABLE [dbo].[moneytransactions]
+-- Creating foreign key on [DestinationId] in table 'MoneyTransactions'
+ALTER TABLE [dbo].[MoneyTransactions]
 ADD CONSTRAINT [FK_moneytransaction_user1]
-    FOREIGN KEY ([destinationid])
-    REFERENCES [dbo].[users]
-        ([id])
+    FOREIGN KEY ([DestinationId])
+    REFERENCES [dbo].[Users]
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_moneytransaction_user1'
 CREATE INDEX [IX_FK_moneytransaction_user1]
-ON [dbo].[moneytransactions]
-    ([destinationid]);
+ON [dbo].[MoneyTransactions]
+    ([DestinationId]);
 GO
 
--- Creating foreign key on [userid] in table 'photos'
-ALTER TABLE [dbo].[photos]
+-- Creating foreign key on [UserId] in table 'Photos'
+ALTER TABLE [dbo].[Photos]
 ADD CONSTRAINT [FK_photo_user]
-    FOREIGN KEY ([userid])
-    REFERENCES [dbo].[users]
-        ([id])
+    FOREIGN KEY ([UserId])
+    REFERENCES [dbo].[Users]
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_photo_user'
 CREATE INDEX [IX_FK_photo_user]
-ON [dbo].[photos]
-    ([userid]);
+ON [dbo].[Photos]
+    ([UserId]);
 GO
 
--- Creating foreign key on [userid] in table 'products'
-ALTER TABLE [dbo].[products]
-ADD CONSTRAINT [FK_product_user]
-    FOREIGN KEY ([userid])
-    REFERENCES [dbo].[users]
-        ([id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_product_user'
-CREATE INDEX [IX_FK_product_user]
-ON [dbo].[products]
-    ([userid]);
-GO
-
--- Creating foreign key on [memberid] in table 'videos'
-ALTER TABLE [dbo].[videos]
-ADD CONSTRAINT [FK_video_product]
-    FOREIGN KEY ([memberid])
-    REFERENCES [dbo].[products]
-        ([id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_video_product'
-CREATE INDEX [IX_FK_video_product]
-ON [dbo].[videos]
-    ([memberid]);
-GO
-
--- Creating foreign key on [producttypeid] in table 'productprices'
-ALTER TABLE [dbo].[productprices]
+-- Creating foreign key on [ProductTypeId] in table 'ProductPrices'
+ALTER TABLE [dbo].[ProductPrices]
 ADD CONSTRAINT [FK_productprice_producttype]
-    FOREIGN KEY ([producttypeid])
-    REFERENCES [dbo].[producttypes]
-        ([id])
+    FOREIGN KEY ([ProductTypeId])
+    REFERENCES [dbo].[ProductTypes]
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_productprice_producttype'
 CREATE INDEX [IX_FK_productprice_producttype]
-ON [dbo].[productprices]
-    ([producttypeid]);
+ON [dbo].[ProductPrices]
+    ([ProductTypeId]);
+GO
+
+-- Creating foreign key on [ProductId] in table 'ProductPrices'
+ALTER TABLE [dbo].[ProductPrices]
+ADD CONSTRAINT [FK_productprices_products]
+    FOREIGN KEY ([ProductId])
+    REFERENCES [dbo].[Products]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_productprices_products'
+CREATE INDEX [IX_FK_productprices_products]
+ON [dbo].[ProductPrices]
+    ([ProductId]);
+GO
+
+-- Creating foreign key on [UserId] in table 'Products'
+ALTER TABLE [dbo].[Products]
+ADD CONSTRAINT [FK_product_user]
+    FOREIGN KEY ([UserId])
+    REFERENCES [dbo].[Users]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_product_user'
+CREATE INDEX [IX_FK_product_user]
+ON [dbo].[Products]
+    ([UserId]);
+GO
+
+-- Creating foreign key on [ProductId] in table 'Videos'
+ALTER TABLE [dbo].[Videos]
+ADD CONSTRAINT [FK_video_product]
+    FOREIGN KEY ([ProductId])
+    REFERENCES [dbo].[Products]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_video_product'
+CREATE INDEX [IX_FK_video_product]
+ON [dbo].[Videos]
+    ([ProductId]);
 GO
 
 -- --------------------------------------------------
