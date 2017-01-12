@@ -11,7 +11,10 @@ namespace ServiceLibrary
     [ServiceContract]    
     public partial interface IMasterService
     {
-        
+        [OperationContract]
+        List<Dictionary<string, object>> ExecuteStoreQuery(string storeProc, Dictionary<string, object> paras);
+        [OperationContract]
+        List<Dictionary<string, object>> ExecuteQuery(string storeProc);
     }
 
 }

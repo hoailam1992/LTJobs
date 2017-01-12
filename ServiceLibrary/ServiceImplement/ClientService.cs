@@ -24,6 +24,7 @@ namespace ServiceLibrary
         }
         public ReturnType<Client> SaveClient(Client entity)
         {
+            entity.Code = entity.Code ?? "CLT" + DateTime.Now;
             return (new ClientBusinessService()).Save(entity);
         }
         public ReturnType<Client> GetClientById(long id)

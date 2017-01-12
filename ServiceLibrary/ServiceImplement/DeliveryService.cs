@@ -20,6 +20,7 @@ namespace ServiceLibrary
         }
         public ReturnType<Delivery> SaveDelivery(Delivery entity)
         {
+            entity.Code = entity.Code ?? "DLR" + DateTime.Now;
             return (new DeliveryBusinessService()).Save(entity);
         }
         public ReturnType<Delivery> GetDeliveryById(long id)

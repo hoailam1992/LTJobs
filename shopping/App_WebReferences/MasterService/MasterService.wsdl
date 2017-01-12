@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:7368/MasterService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:7368/MasterService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:7368/MasterService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Models" />
+      <xsd:import schemaLocation="http://localhost:7368/MasterService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IMasterService_GetAllBooking_InputMessage">
@@ -385,6 +386,30 @@
   <wsdl:message name="IMasterService_GetUserById_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUserByIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IMasterService_CheckUserName_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUserName" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_CheckUserName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_RegisterUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUser" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_RegisterUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_ExecuteStoreQuery_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteStoreQuery" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_ExecuteStoreQuery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteStoreQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_ExecuteQuery_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteQuery" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_ExecuteQuery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteQueryResponse" />
+  </wsdl:message>
   <wsdl:message name="IMasterService_SaveVideo_InputMessage">
     <wsdl:part name="parameters" element="tns:SaveVideo" />
   </wsdl:message>
@@ -661,6 +686,22 @@
     <wsdl:operation name="GetUserById">
       <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetUserById" message="tns:IMasterService_GetUserById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetUserByIdResponse" message="tns:IMasterService_GetUserById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/CheckUserName" message="tns:IMasterService_CheckUserName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/CheckUserNameResponse" message="tns:IMasterService_CheckUserName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/RegisterUser" message="tns:IMasterService_RegisterUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/RegisterUserResponse" message="tns:IMasterService_RegisterUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteStoreQuery">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/ExecuteStoreQuery" message="tns:IMasterService_ExecuteStoreQuery_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/ExecuteStoreQueryResponse" message="tns:IMasterService_ExecuteStoreQuery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteQuery">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/ExecuteQuery" message="tns:IMasterService_ExecuteQuery_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/ExecuteQueryResponse" message="tns:IMasterService_ExecuteQuery_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="SaveVideo">
       <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/SaveVideo" message="tns:IMasterService_SaveVideo_InputMessage" />
@@ -1241,6 +1282,42 @@
     </wsdl:operation>
     <wsdl:operation name="GetUserById">
       <soap:operation soapAction="http://tempuri.org/IMasterService/GetUserById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserName">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/CheckUserName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterUser">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/RegisterUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteStoreQuery">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/ExecuteStoreQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteQuery">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/ExecuteQuery" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

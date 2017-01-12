@@ -10,5 +10,6 @@ namespace BusinessLayer.IService
     public interface IUserBusinessService : IBusinessServiceBase<User>
     {
         ReturnType<User> LoginUser(string username, string password);
+        ReturnType<bool> CheckUserName(string username);
     }
 }

@@ -22,5 +22,9 @@ namespace ServiceLibrary
         //ReturnType<user> GetUserByProductId(long id);
         [OperationContract]
         ReturnType<User> GetUserById(long id);
+        [OperationContract]
+        ReturnType<bool> CheckUserName(string username);
+        [OperationContract]
+        ReturnType<User> RegisterUser(User entity);
     }
 }

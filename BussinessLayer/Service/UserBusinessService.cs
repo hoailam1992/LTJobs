@@ -13,13 +13,18 @@ namespace BusinessLayer.Service
         public ReturnType<User> LoginUser(string username, string password)
         {
             var user = GetSingle(c => c.UserName == username && c.Password == password);
-            if (user.IsSuccess && user.Result!=null)
+            if (user.IsSuccess && user.Result != null)
             {
                 user.Result.Password = "";
                 user.Result.SecurityAnswer = "";
-                return user;                
+                return user;
             }
             return new ReturnType<User>() { IsSuccess = false, Result = null, ErrorMessage = "Login Fails" };
+        }
+
+        public ReturnType<bool> CheckUserName(string username)
+        {
+            return new ReturnType<bool>() { IsSuccess = true, Result = GetSingle(c => c.UserName == username).Result == null };
         }
     }
 }

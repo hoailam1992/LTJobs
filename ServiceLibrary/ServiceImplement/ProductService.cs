@@ -14,6 +14,7 @@ namespace ServiceLibrary
     {
         public ReturnType<Product> SaveProduct(Product entity)
         {
+            entity.Code = entity.Code ?? "PRD" + DateTime.Now;
             return (new ProductBusinessService()).Save(entity);
         }
         public ReturnType<bool> DeleteProductById(long id)
