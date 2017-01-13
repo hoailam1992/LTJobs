@@ -13,77 +13,66 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <ul class="list-inline">
-        <li>
-            <ul class="list-unstyled">
-                <li><img src="img/love.jpg" class="img-rounded photo" alt="Cinque Terre" /></li>
-                <li><span class="title">Age:</span><span>20</span></li>
-                <li><span class="title">Name:</span><span>Linda</span></li>
-            </ul>
-        </li>
-         <li>
-            <ul class="list-unstyled">
-                <li><img src="img/love.jpg" class="img-rounded photo" alt="Cinque Terre" /></li>
-                <li><span class="title">Age:</span><span>20</span></li>
-                <li><span class="title">Name:</span><span>Linda</span></li>
-            </ul>
-        </li>
-         <li>
-            <ul class="list-unstyled">
-                <li><img src="img/love.jpg" class="img-rounded photo" alt="Cinque Terre" /></li>
-                <li><span class="title">Age:</span><span>20</span></li>
-                <li><span class="title">Name:</span><span>Linda</span></li>
-            </ul>
-        </li>
-         <li>
-            <ul class="list-unstyled">
-                <li><img src="img/love.jpg" class="img-rounded photo" alt="Cinque Terre" /></li>
-                <li><span class="title">Age:</span><span>20</span></li>
-                <li><span class="title">Name:</span><span>Linda</span></li>
-            </ul>
-        </li>
-         <li>
-            <ul class="list-unstyled">
-                <li><img src="img/love.jpg" class="img-rounded photo" alt="Cinque Terre" /></li>
-                <li><span class="title">Age:</span><span>20</span></li>
-                <li><span class="title">Name:</span><span>Linda</span></li>
-            </ul>
-        </li>
-         <li>
-            <ul class="list-unstyled">
-                <li><img src="img/love.jpg" class="img-rounded photo" alt="Cinque Terre" /></li>
-                <li><span class="title">Age:</span><span>20</span></li>
-                <li><span class="title">Name:</span><span>Linda</span></li>
-            </ul>
-        </li>
-         <li>
-            <ul class="list-unstyled">
-                <li><img src="img/love.jpg" class="img-rounded photo" alt="Cinque Terre" /></li>
-                <li><span class="title">Age:</span><span>20</span></li>
-                <li><span class="title">Name:</span><span>Linda</span></li>
-            </ul>
-        </li>
-         <li>
-            <ul class="list-unstyled">
-                <li><img src="img/love.jpg" class="img-rounded photo" alt="Cinque Terre" /></li>
-                <li><span class="title">Age:</span><span>20</span></li>
-                <li><span class="title">Name:</span><span>Linda</span></li>
-            </ul>
-        </li>
-         <li>
-            <ul class="list-unstyled">
-                <li><img src="img/love.jpg" class="img-rounded photo" alt="Cinque Terre" /></li>
-                <li><span class="title">Age:</span><span>20</span></li>
-                <li><span class="title">Name:</span><span>Linda</span></li>
-            </ul>
-        </li>
-         <li>
-            <ul class="list-unstyled">
-                <li><img src="img/love.jpg" class="img-rounded photo" alt="Cinque Terre" /></li>
-                <li><span class="title">Age:</span><span>20</span></li>
-                <li><span class="title">Name:</span><span>Linda</span></li>
-            </ul>
-        </li>
-    </ul>
+    <asp:ListView ID="ProductList" runat="server" DataKeyNames="Id" GroupItemCount="5" ItemType="MasterService.Product" SelectMethod="ProductList_GetData">
+        <EmptyDataTemplate>
+            <table>
+                <tr>
+                    <td>No Data was returned</td>
+                </tr>
+            </table>
+        </EmptyDataTemplate>
+        <EmptyItemTemplate>
+            <td />
+        </EmptyItemTemplate>
+        <GroupTemplate>
+            <tr id="itemPlaceHolderContainer" runat="server">
+                <td id="itemPlaceHolder" runat="server"></td>
+            </tr>
+        </GroupTemplate>
+        <ItemTemplate>
+            <td runat="server">
+                <table>
+                    <tr>
+                        <td>
+                            <a href="detail.aspx?Id=<%#:Item.Id %>">
+                                <img src="img/love.jpg" width="100" height="75" style="border:solid" />
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <a href="detail.aspx?Id=<%#:Item.Id %>">
+                            <span>
+                                <%#:Item.Code %>
+                            </span>
+                        </a>
+                        <br />
+                          <span>
+                             <b> Price:</b>  <%#:String.Format("{0:c}", Item.Price) %>
+                            </span>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
+            </td>
+        </ItemTemplate>
+          <LayoutTemplate>
+                    <table style="width:100%;">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <table id="groupPlaceholderContainer" runat="server" style="width:100%">
+                                        <tr id="groupPlaceholder"></tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                            </tr>
+                            <tr></tr>
+                        </tbody>
+                    </table>
+                </LayoutTemplate>
+    </asp:ListView>
 </asp:Content>
 

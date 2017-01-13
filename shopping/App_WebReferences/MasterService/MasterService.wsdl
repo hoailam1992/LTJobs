@@ -320,6 +320,12 @@
   <wsdl:message name="IMasterService_GetProductByCode_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetProductByCodeResponse" />
   </wsdl:message>
+  <wsdl:message name="IMasterService_GetAllProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProduct" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetAllProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProductResponse" />
+  </wsdl:message>
   <wsdl:message name="IMasterService_SaveProductType_InputMessage">
     <wsdl:part name="parameters" element="tns:SaveProductType" />
   </wsdl:message>
@@ -642,6 +648,10 @@
     <wsdl:operation name="GetProductByCode">
       <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetProductByCode" message="tns:IMasterService_GetProductByCode_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetProductByCodeResponse" message="tns:IMasterService_GetProductByCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetAllProduct" message="tns:IMasterService_GetAllProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetAllProductResponse" message="tns:IMasterService_GetAllProduct_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="SaveProductType">
       <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/SaveProductType" message="tns:IMasterService_SaveProductType_InputMessage" />
@@ -1183,6 +1193,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetProductByCode">
       <soap:operation soapAction="http://tempuri.org/IMasterService/GetProductByCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProduct">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetAllProduct" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

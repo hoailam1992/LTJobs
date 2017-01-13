@@ -8,14 +8,12 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-<head runat="server">
+    
     <title></title>
-</head>
+
 <body>
-    <form id="UserInfo" runat="server">
     <div>
     
-    </div>
-    </form>
+    </div>    
 </body>
 </asp:Content>

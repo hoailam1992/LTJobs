@@ -79,6 +79,7 @@ public partial class register : System.Web.UI.Page
                 productregister.ProductDescription = inputPrdDes.Value;
                 productregister.CancelCount = 0;
                 productregister.Balance = 0;
+                productregister.Group = selectPrTypeMember.Value;
                 productregister.BankName = selectBankName.Value;
                 productregister.BankAccNumber = inputBankAccount.Value;
                 productregister.BankAccount = inputAccountName.Value;

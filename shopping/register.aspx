@@ -50,7 +50,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <legend style="text-align: center">Register</legend>
-    <form class="form-horizontal" runat="server">
+    <%--<form class="form-horizontal" runat="server">--%>
         <div class="form-group">
             <label for="inputDisplay" class="col-sm-4 control-label">Display Name</label>
             <div class="col-sm-8 required">
@@ -346,7 +346,7 @@
                 <button>Clear All</button>
             </div>
         </div>
-    </form>
+   <!-- </form>-->
     <script src="js/register.js">
     
     </script>

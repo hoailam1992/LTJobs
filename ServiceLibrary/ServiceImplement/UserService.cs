@@ -20,6 +20,17 @@ namespace ServiceLibrary
         }
         public ReturnType<User> GetUserById(long id)
         {
+            var result = (new UserBusinessService()).GetById(id);
+            if (result.Result != null)
+            {
+                result.Result.Password = null;
+                result.Result.SecurityAnswer = null;
+                result.Result.SecurityQuestionId = 0;
+                result.Result.Photos = null;
+                result.Result.Clients = null;
+                result.Result.Deliveries = null;
+                result.Result.Products = null;
+            }
             return (new UserBusinessService()).GetById(id);
         }
         public ReturnType<User> LoginUser(string user, string password)

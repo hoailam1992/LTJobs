@@ -1,8 +1,9 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ItemControl.ascx.cs" Inherits="CustomControl_ItemControl" %>
- <li>
-            <ul class="list-unstyled">
-                <li><img src="../img/love1.jpg" height="100" width="70" class="img-rounded photo" alt="Cinque Terre" /></li>
-                <li><span class="title">Age:</span><label id="lblAge" runat="server"> Age</label></li>
-                <li><span class="title">Name:</span><label id="lblName" runat="server"> Name</label></li>
+
+ <asp:HyperLink id="urlDetail" runat="server">
+            <ul class="list-unstyled" style="width: 200px;height :250px">
+                <img src="../img/love1.jpg" height="100" class="img-rounded photo" alt="Cinque Terre" id="imgDetail" style="width: 200px;height:200px" />
+                <li><span class="title">Price:</span><label id="lblPrice" runat="server"> Price</label></li>
+                <li><span class="title">Code:</span><label id="lblCode" runat="server"> Code</label></li>
             </ul>
- </li>
+ </asp:HyperLink>

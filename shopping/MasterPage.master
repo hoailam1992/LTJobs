@@ -17,6 +17,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
+<form class="form-horizontal" runat="server">
     <div class="container">
         <img src="img/love.jpg" style="width: 11%; height: 94px; margin-bottom: 2px" class="img-thumbnail" />
     </div>
@@ -50,9 +51,9 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">Booking Status</a></li>
-                        <li><a href="#">Account</a></li>
-                        <li><a href="register.aspx">Register</a></li>
-                        <li><a href="login.aspx">Log In</a></li>
+                        <li><a href="#">Account Detail</a></li>
+                        <li><asp:HyperLink runat="server" ID="lblRegister" OnLoad="lblRegister_Load" ></asp:HyperLink></li>
+                        <li><asp:HyperLink runat="server" ID="lblLog" OnLoad="btnLog_Load" >Log In</asp:HyperLink></li>
                         <li><a class="glyphicon glyphicon-search" style="font-size: 24px; cursor: pointer;"></a></li>
                     </ul>
                     </ul>
@@ -112,5 +113,6 @@
             interval: 3000 //changes the speed
         })
     </script>
+</form>
 </body>
 </html>

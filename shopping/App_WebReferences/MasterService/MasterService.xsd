@@ -733,6 +733,21 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ReturnTypeOfProduct" nillable="true" type="tns:ReturnTypeOfProduct" />
+  <xs:complexType name="ReturnTypeOfArrayOfProduct">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ReturnTypeOf{0}" Namespace="http://schemas.datacontract.org/2004/07/Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfProduct" Namespace="http://schemas.datacontract.org/2004/07/Models" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfProduct" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnTypeOfArrayOfProduct" nillable="true" type="tns:ReturnTypeOfArrayOfProduct" />
   <xs:complexType name="ReturnTypeOfProductType">
     <xs:annotation>
       <xs:appinfo>

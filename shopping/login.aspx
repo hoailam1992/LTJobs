@@ -9,7 +9,6 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <form class="form-horizontal" runat="Server">
         <div class="form-group">
             <label for="inputUserName" class="col-sm-4 control-label">User Name</label>
             <div class="col-sm-8 required">
@@ -33,7 +32,11 @@
                 <button onclick="Login(); return false;">Clear</button>
             </div>
         </div>
-    </form>
+      <div class="form-group" style="margin: 0 auto; width: 100%">
+            <div class="col-sm-12">
+                 <label runat="server" id="lblMessage" class="col-sm-4 control-label" style="color:red"></label>                
+            </div>
+        </div>
     <script type="text/javascript">
         function Login() {            
             //$.ajax({
