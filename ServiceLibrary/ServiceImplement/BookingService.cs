@@ -35,7 +35,7 @@ namespace ServiceLibrary
         }
         public ReturnType<IList<Booking>> GetBookingByDeliveryId(long id)
         {
-            return (new BookingBusinessService()).GetBookingByDeliveryId(id);
+            return (new BookingBusinessService()).GetBookingByDeliveryId(id); 
         }
     }
 }

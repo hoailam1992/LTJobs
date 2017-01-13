@@ -20,18 +20,7 @@ public partial class login : System.Web.UI.Page
         var result = tempClient.LoginUser(inputUserName.Value, inputPass.Value);
         if (result.IsSuccess && result.Result != null)
         {
-            WebRequest temp = WebRequest.Create("http://localhost:7368/RestfulService.svc/DoWork");
-            var response = temp.GetResponse();
-            Stream dataStream = response.GetResponseStream();
-            // Open the stream using a StreamReader for easy access.
-            StreamReader reader = new StreamReader(dataStream);
-            // Read the content.
-            string responseFromServer = reader.ReadToEnd();
-            // Display the content.
-            inputUserName.Value = responseFromServer;
-            // Clean up the streams and the response.
-            reader.Close();
-            response.Close();
+           
         }
     }
 }
