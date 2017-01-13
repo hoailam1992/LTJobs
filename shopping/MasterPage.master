@@ -4,6 +4,66 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+     <style>
+        /* jssor slider bullet navigator skin 03 css */
+        /*
+        .jssorb03 div           (normal)
+        .jssorb03 div:hover     (normal mouseover)
+        .jssorb03 .av           (active)
+        .jssorb03 .av:hover     (active mouseover)
+        .jssorb03 .dn           (mousedown)
+        */
+        .jssorb03 {
+            position: absolute;
+        }
+        .jssorb03 div, .jssorb03 div:hover, .jssorb03 .av {
+            position: absolute;
+            /* size of bullet elment */
+            width: 21px;
+            height: 21px;
+            text-align: center;
+            line-height: 21px;
+            color: white;
+            font-size: 12px;
+            background: url('img/b03.png') no-repeat;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .jssorb03 div { background-position: -5px -4px; }
+        .jssorb03 div:hover, .jssorb03 .av:hover { background-position: -35px -4px; }
+        .jssorb03 .av { background-position: -65px -4px; }
+        .jssorb03 .dn, .jssorb03 .dn:hover { background-position: -95px -4px; }
+
+        /* jssor slider arrow navigator skin 03 css */
+        /*
+        .jssora03l                  (normal)
+        .jssora03r                  (normal)
+        .jssora03l:hover            (normal mouseover)
+        .jssora03r:hover            (normal mouseover)
+        .jssora03l.jssora03ldn      (mousedown)
+        .jssora03r.jssora03rdn      (mousedown)
+        .jssora03l.jssora03ldn      (disabled)
+        .jssora03r.jssora03rdn      (disabled)
+        */
+        .jssora03l, .jssora03r {
+            display: block;
+            position: absolute;
+            /* size of arrow element */
+            width: 55px;
+            height: 55px;
+            cursor: pointer;
+            background: url('img/a03.png') no-repeat;
+            overflow: hidden;
+        }
+        .jssora03l { background-position: -3px -33px; }
+        .jssora03r { background-position: -63px -33px; }
+        .jssora03l:hover { background-position: -123px -33px; }
+        .jssora03r:hover { background-position: -183px -33px; }
+        .jssora03l.jssora03ldn { background-position: -243px -33px; }
+        .jssora03r.jssora03rdn { background-position: -303px -33px; }
+        .jssora03l.jssora03lds { background-position: -3px -33px; opacity: .3; pointer-events: none; }
+        .jssora03r.jssora03rds { background-position: -63px -33px; opacity: .3; pointer-events: none; }
+    </style>
     <title>Shopping</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,9 +78,13 @@
 </head>
 <body>
 <form class="form-horizontal" runat="server">
+    <div class="alert" hidden="hidden" id="NodifyDiv" runat="server">
+        <a href="Notify.aspx" id="notify" runat="server" style="color:red;width:100%" hidden="hidden">You Have New Messages</a>
+    </div>
     <div class="container">
         <img src="img/love.jpg" style="width: 11%; height: 94px; margin-bottom: 2px" class="img-thumbnail" />
     </div>
+    
     <div class="container">
         <nav class="navbar navbar-default" style="margin-bottom: 2px">
             <div class="container-fluid">
@@ -51,7 +115,7 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">Booking Status</a></li>
-                        <li><a href="#">Account Detail</a></li>
+                        <li><a href="account.aspx">Account Detail</a></li>
                         <li><asp:HyperLink runat="server" ID="lblRegister" OnLoad="lblRegister_Load" ></asp:HyperLink></li>
                         <li><asp:HyperLink runat="server" ID="lblLog" OnLoad="btnLog_Load" >Log In</asp:HyperLink></li>
                         <li><a class="glyphicon glyphicon-search" style="font-size: 24px; cursor: pointer;"></a></li>
@@ -64,10 +128,10 @@
             <!-- /.container-fluid -->
         </nav>
     </div>
-    <div class="container">
+   <%-- <div class="container">
         <header id="myCarousel" class="carousel slide">
             <!-- Indicators -->
-            <ol class="carousel-indicators">
+            <ol class="carousel-indicators" id="indicators" runat="server">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
                 <li data-target="#myCarousel" data-slide-to="2"></li>
@@ -103,15 +167,136 @@
                 <span class="icon-next"></span>
             </a>
         </header>
+    </div>--%>
+  <%--  <div class="container">--%>
+<%--    <header id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <asp:Literal ID="ltlCarouselIndicators" runat="server" />
+    <!-- Images-->
+    <div class="carousel-inner" role="listbox">
+        <asp:Literal ID="ltlCarouselImages" runat="server" />
+    </div>
+    <!-- Left Right Arrows -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    </header>--%>
+         
+   
+ 
+    <div id="jssor_1" class="container" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 809px; height: 150px; overflow: hidden; visibility: hidden;">
+        <!-- Loading Screen -->
+        <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
+            <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+            <div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+        </div>
+        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 809px; height: 150px; overflow: hidden;">           
+            <asp:Literal ID="ltlCarouselImages" runat="server" />
+        </div>
+        <!-- Bullet Navigator -->
+        <div data-u="navigator" class="jssorb03" style="bottom:10px;right:10px;">
+            <!-- bullet navigator item prototype -->
+            <div data-u="prototype" style="width:21px;height:21px;">
+                <div data-u="numbertemplate"></div>
+            </div>
+        </div>
+        <!-- Arrow Navigator -->
+        <span data-u="arrowleft" class="jssora03l" style="top:0px;left:8px;width:55px;height:55px;" data-autocenter="2"></span>
+        <span data-u="arrowright" class="jssora03r" style="top:0px;right:8px;width:55px;height:55px;" data-autocenter="2"></span>
+    </div>
+    <!-- #endregion Jssor Slider End -->
+
+        <%--</div>--%>
+ 
+    <!--New-->
+<%--     <div class="container">
+    <header id="myCarouselNew" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <asp:Literal ID="ltlCarouselIndicatorsNew" runat="server" />
+    <!-- Images-->
+    <div class="carousel-inner" role="listbox">
+        <asp:Literal ID="ltlCarouselImagesNew" runat="server" />
+    </div>
+    <!-- Left Right Arrows -->
+    <a class="left carousel-control" href="#myCarouselNew" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarouselNew" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    </header>
+        </div>--%>
+       <div class="container" style="margin-top: 10px; margin-bottom: 30px">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
     </div>
     <div class="container" style="margin-top: 10px; margin-bottom: 30px">
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
         </asp:ContentPlaceHolder>
     </div>
     <script>
         $('.carousel').carousel({
             interval: 3000 //changes the speed
         })
+    </script>
+    <script src="lib/jquery-1.11.3.min.js" type="text/javascript" data-library="jquery" data-version="1.11.3"></script>
+    <script src="lib/jssor.slider-22.0.15.mini.js" type="text/javascript" data-library="jssor.slider.mini" data-version="22.0.15"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            $("h2")
+                .wrapInner("<span>")
+
+            $("h2 br")
+                .before("<span class='spacer'>")
+                .after("<span class='spacer'>");
+
+        });
+        jQuery(document).ready(function ($) {
+
+            var jssor_1_options = {
+              $AutoPlay: true,
+              $AutoPlaySteps: 5,
+              $SlideDuration: 160,
+              $SlideWidth: 200,
+              $SlideSpacing: 3,
+              $Cols: 5,
+              $ArrowNavigatorOptions: {
+                $Class: $JssorArrowNavigator$,
+                $Steps: 5
+              },
+              $BulletNavigatorOptions: {
+                $Class: $JssorBulletNavigator$,
+                $SpacingX: 1,
+                $SpacingY: 1
+              }
+            };
+            var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+            /*responsive code begin*/
+            /*you can remove responsive code if you don't want the slider scales while window resizing*/
+            function ScaleSlider() {
+                var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+                if (refSize) {
+                    refSize = Math.min(refSize, 809);
+                    jssor_1_slider.$ScaleWidth(refSize);
+                }
+                else {
+                    window.setTimeout(ScaleSlider, 30);
+                }
+            }
+            ScaleSlider();
+            $(window).bind("load", ScaleSlider);
+            $(window).bind("resize", ScaleSlider);
+            $(window).bind("orientationchange", ScaleSlider);
+            /*responsive code end*/
+        });
     </script>
 </form>
 </body>

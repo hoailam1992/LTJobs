@@ -8,10 +8,11 @@ using MasterService;
 public partial class detail : System.Web.UI.Page
 {
     MasterServiceClient tempClient;
+    long id;
     protected void Page_Load(object sender, EventArgs e)
     {
         tempClient = new MasterServiceClient();
-        long id = Convert.ToInt64(Request["Id"]);
+        id = Convert.ToInt64(Request["Id"]);
         var Item = tempClient.GetProductById(id);
         if (Item.IsSuccess && Item.Result != null)
         {
@@ -27,5 +28,10 @@ public partial class detail : System.Web.UI.Page
                 lblProductType.InnerText = Item.Result.Group;
             }
         }
+    }
+
+    protected void btnBook_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("booking.aspx?ProductID=" + id);
     }
 }

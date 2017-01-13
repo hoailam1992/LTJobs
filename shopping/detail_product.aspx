@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="detail.aspx.cs" Inherits="detail" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="detail_product.aspx.cs" Inherits="detail" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style>
         .title {
@@ -55,8 +55,8 @@
             <div class="row">
                 <div class="col-sm-5"></div>
                 <div class="col-sm-7" style="margin-top: 10px">
-                    <button style="margin-right: 10px">Book</button>
-                    <button>Back</button>
+                    <asp:Button runat="server" id="btnBook" OnClick="btnBook_Click" style="margin-right: 10px" Text="Book"></asp:Button>
+                    <button onclick="javascript:history.go(-1);">Back</button>
                 </div>
             </div>
         </div>
