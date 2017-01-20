@@ -140,6 +140,12 @@
   <wsdl:message name="IMasterService_GetDeliveryById_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDeliveryByIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IMasterService_GetAllDelivery_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDelivery" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetAllDelivery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDeliveryResponse" />
+  </wsdl:message>
   <wsdl:message name="IMasterService_SaveDeliveryType_InputMessage">
     <wsdl:part name="parameters" element="tns:SaveDeliveryType" />
   </wsdl:message>
@@ -528,6 +534,10 @@
     <wsdl:operation name="GetDeliveryById">
       <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetDeliveryById" message="tns:IMasterService_GetDeliveryById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetDeliveryByIdResponse" message="tns:IMasterService_GetDeliveryById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDelivery">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetAllDelivery" message="tns:IMasterService_GetAllDelivery_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetAllDeliveryResponse" message="tns:IMasterService_GetAllDelivery_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="SaveDeliveryType">
       <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/SaveDeliveryType" message="tns:IMasterService_SaveDeliveryType_InputMessage" />
@@ -923,6 +933,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetDeliveryById">
       <soap:operation soapAction="http://tempuri.org/IMasterService/GetDeliveryById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDelivery">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetAllDelivery" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

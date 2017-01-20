@@ -19,5 +19,7 @@ namespace ServiceLibrary
         ReturnType<Delivery> GetDeliveryByUserId(long id);
         [OperationContract]
         ReturnType<Delivery> GetDeliveryById(long id);
+        [OperationContract]
+        ReturnType<IList<Delivery>> GetAllDelivery();
     }
 }

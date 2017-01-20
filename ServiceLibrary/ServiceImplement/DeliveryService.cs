@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using BusinessLayer.Service;
 using BusinessLayer.Common;
 using Models;
+using System.Collections.ObjectModel;
+
 namespace ServiceLibrary
 {
     public partial class MasterService
@@ -20,12 +22,16 @@ namespace ServiceLibrary
         }
         public ReturnType<Delivery> SaveDelivery(Delivery entity)
         {
-            entity.Code = entity.Code ?? "DLR" + DateTime.Now;
+            entity.Code = entity.Code ?? "DLR" + DateTime.Now.ToShortDateString();
             return (new DeliveryBusinessService()).Save(entity);
         }
         public ReturnType<Delivery> GetDeliveryById(long id)
         {
             return (new DeliveryBusinessService()).GetById(id);
+        }
+        public ReturnType<IList<Delivery>> GetAllDelivery()
+        {
+            return (new DeliveryBusinessService()).GetAll();
         }
     }
 }

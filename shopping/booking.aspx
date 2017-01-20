@@ -46,7 +46,7 @@
         <div class="form-group">
             <label for="inputProductCode" class="col-sm-4 control-label">Product Code</label>
             <div class="col-sm-8 required">
-                <input type="text" class="form-control" runat="server" id="inputProductCode" />
+                <input type="text" readonly="true" class="form-control" runat="server" id="inputProductCode" />
             </div>
         </div>
         <div class="form-group">
@@ -58,25 +58,19 @@
     <div class="form-group">
             <label for="SelectType" class="col-sm-4 control-label">Dating Type</label>
             <div class="col-sm-8 required">
-               <select id="SelectType" runat="server">
-                    <option value="">Please Select A Type              
-                    </option>
-                    <option value="1">One              
-                    </option>
-                    <option value="2">Two              
-                    </option>
-                    <option value="3">Three              
-                    </option>
+               <select id="SelectType" runat="server">   
+                   <option>Please Select A Type</option>                
                 </select>
             </div>
         </div>
        <div class="form-group">
             <label for="SelectDelivery" class="col-sm-4 control-label">Select Delivery</label>
             <div class="col-sm-8 required">
-               <select id="SelectDelivery" runat="server">   
+               <select id="SelectDelivery" runat="server" >   
                    <option>Please Select Location</option>              
-                </select>                
-                 <a href="#" >View</a>
+                </select>
+                 <asp:Button ID="btnLinkView" runat="server" Text="View" OnClick="btnLinkView_Click" />
+                <%--<a id="hrefView" runat="server">View</a>--%>
             </div>          
         </div>
         <div class="form-group">     
@@ -111,10 +105,35 @@
                 <asp:Button runat="server" ID="btnBook" OnClick="btnBook_Click" Text="Book" />
                 <button onclick="javascript:history.go(-1); return false;">Back</button>
             </div>
-        </div>
+        </div><select id="dynamic_select">
+  <option value="" selected>Pick a Website</option>
+  <option value="http://www.google.com">Google</option>
+  <option value="http://www.youtube.com">YouTube</option>
+  <option value="https://www.gurustop.net">GuruStop.NET</option>
+</select>
+
+<script>
+    $(function(){
+      // bind change event to select
+        $('#dynamic_select').on('change', function () {
+          var url = $(this).val(); // get selected value
+          if (url) { // require a URL
+              document.getElementById("hrefView").href = "detail_delivery.aspx?DeliveryId=" + url;; // redirect
+          }
+          return false;
+      });
+    });
+</script>
     <script type="text/javascript">
         var setAccountType = function () {   
             $('#setownlocation').toggle(1000);
         };
+        var hyperlink = function () {
+            var url = $('#SelectDelivery').val();
+            $('#hrefView').attr('href', "detail_delivery.aspx?DeliveryId=" + url);
+        };
       </script>
+     <script runat="server">
+    
+   </script>
 </asp:Content>
