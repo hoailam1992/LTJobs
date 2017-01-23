@@ -13,7 +13,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <asp:ListView ID="ProductList" runat="server" DataKeyNames="Id" GroupItemCount="5" ItemType="MasterService.Product" SelectMethod="ProductList_GetData">
+    <asp:ListView ID="ProductList" runat="server" DataKeyNames="Id" GroupItemCount="5" ItemType="MasterService.ProductItem" SelectMethod="ProductList_GetData">
         <EmptyDataTemplate>
             <table>
                 <tr>
@@ -35,7 +35,7 @@
                     <tr>
                         <td>
                             <a href="detail_product.aspx?Id=<%#:Item.Id %>">
-                                <img src="img/love.jpg" width="100" height="75" style="border:solid" />
+                                <img src="<%#:Item.DefaultImage%>"" width="100" height="75" style="border:solid" />
                             </a>
                         </td>
                     </tr>

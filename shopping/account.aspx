@@ -13,7 +13,7 @@
 
 <body>
     <div>
-    
+        <a href="upload_photo.aspx">Upload Photo</a> 
     </div>    
 </body>
 </asp:Content>

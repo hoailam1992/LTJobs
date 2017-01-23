@@ -42,8 +42,7 @@ public partial class login : System.Web.UI.Page
                     Session["ProductId"] = result.Result.Id;
                     var Product = tempClient.GetProductByUserId(result.Result.Id);
                     if (Product.IsSuccess && Product.Result != null)
-                        Session["UserProduct"] = Product.Result;
-                    
+                        Session["UserProduct"] = Product.Result;                    
                     break;
                 case "3":
                     Session["DeliveryId"] = result.Result.Id;
@@ -52,6 +51,7 @@ public partial class login : System.Web.UI.Page
                         Session["UserDelivery"] = Delivery.Result;                  
                     break;
             }
+            Session["UserId"] = result.Result.Id;
             Response.Redirect("Default.aspx");
         }
         else {

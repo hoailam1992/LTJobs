@@ -90,36 +90,45 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 //    }
                 //}
                 #endregion
-
-                tempClient = new MasterServiceClient();
-                var result = new ObservableCollection<Product>(tempClient.GetAllProduct().Result ?? new List<Product>());
-                if (result.Count > 0)
+                if (cache["CarouselInnerHtml"] != null)
                 {
-                    var carouselInnerHtml = new StringBuilder();
-                    //loop through and build up the html for indicators + images
-                    for (int i = 0; i < result.Count; i++)
+                    //use the cached html
+                    ltlCarouselImages.Text = cache["CarouselInnerHtml"].ToString();                    
+                }
+                else
+                {
+                    tempClient = new MasterServiceClient();
+                    var result = new ObservableCollection<Product>(tempClient.GetAllProduct().Result ?? new List<Product>());
+                    if (result.Count > 0)
                     {
-                        var fileName = result[i];
-                        carouselInnerHtml.AppendLine(i == 0 ? "<div class='item' style='display:none;'>" : "<div class='item'>");
-                        carouselInnerHtml.AppendLine("<a href='detail_product.aspx?Id=" + fileName.Id + "'>");
-                        carouselInnerHtml.AppendLine(" <img data-u='image' class='fill' src='/img/love.jpg' alt=''></img>");
-                        carouselInnerHtml.AppendLine(" <h2> <span>" + fileName.Code + "<span class='spacer'></span><br/> "+fileName.Price+"</h2>");
-                        carouselInnerHtml.AppendLine("<</a></div>");
+                        var carouselInnerHtml = new StringBuilder();
+                        //loop through and build up the html for indicators + images
+                        for (int i = 0; i < result.Count; i++)
+                        {
+                            var fileName = result[i];
+                            var photoResult = tempClient.GetPhotoByUserId(fileName.UserId);
+                            string imagesource = @"/img/love.jpg";
+                            if (photoResult.IsSuccess && photoResult.Result != null)
+                            {
+                                imagesource = "data:image/png;base64," +Convert.ToBase64String(photoResult.Result.FirstOrDefault().Image);
+                            }
+                            carouselInnerHtml.AppendLine(i == 0 ? "<div class='item' style='display:none;'>" : "<div class='item'>");
+                            carouselInnerHtml.AppendLine("<a href='detail_product.aspx?Id=" + fileName.Id + "'>");
+                            carouselInnerHtml.AppendLine(" <img data-u='image' class='fill' src='"+ imagesource + "' alt=''></img>");
+                            carouselInnerHtml.AppendLine(" <h2> <span>" + fileName.Code + "<span class='spacer'></span><br/> " + fileName.Price + "</h2>");
+                            carouselInnerHtml.AppendLine("<</a></div>");
+                        }
+                        ltlCarouselImages.Text = carouselInnerHtml.ToString();
                     }
-                    ltlCarouselImages.Text = carouselInnerHtml.ToString();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 //something is dodgy so flush the cache
                 if (cache["CarouselInnerHtml"] != null)
                 {
                     Cache.Remove("CarouselInnerHtml");
-                }
-                if (cache["CarouselIndicatorsHtml"] != null)
-                {
-                    Cache.Remove("CarouselIndicatorsHtml");
-                }
+                }                
             }
         }
     } 
