@@ -8,12 +8,11 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    
-    <title></title>
-
-<body>
-    <div>
-        <a href="upload_photo.aspx">Upload Photo</a> 
+    <div class="form-group">
+        <a href="upload_photo.aspx">Upload Photo</a>       
     </div>    
-</body>
+     <div class="form-group">
+        <a href="bookingstatus.aspx">Booking Status</a>       
+    </div>    
+
 </asp:Content>

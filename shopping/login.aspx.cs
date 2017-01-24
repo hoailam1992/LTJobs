@@ -30,27 +30,38 @@ public partial class login : System.Web.UI.Page
         {
             Session["UserName"] = inputUserName.Value;
             Session["FullName"] = result.Result.FullName;
+
             switch (result.Result.AccountType)
             {
                 case "1":
-                    Session["ClientId"] = result.Result.Id;
+                    //Session["ClientId"] = result.Result.Id;                    
                     var Client = tempClient.GetClientByUserId(result.Result.Id);
                     if (Client.IsSuccess && Client.Result != null)
+                    {
                         Session["UserClient"] = Client.Result;
+                        Session["ClientId"] = Client.Result.Id;
+                    }
                     break;
                 case "2":
-                    Session["ProductId"] = result.Result.Id;
+                    //Session["ProductId"] = result.Result.Id;
                     var Product = tempClient.GetProductByUserId(result.Result.Id);
                     if (Product.IsSuccess && Product.Result != null)
-                        Session["UserProduct"] = Product.Result;                    
+                    {
+                        Session["UserProduct"] = Product.Result;
+                        Session["ProductId"] = Product.Result.Id;
+                    }                 
                     break;
                 case "3":
-                    Session["DeliveryId"] = result.Result.Id;
+                    //Session["DeliveryId"] = result.Result.Id;
                     var Delivery = tempClient.GetDeliveryByUserId(result.Result.Id);
                     if (Delivery.IsSuccess && Delivery.Result != null)
-                        Session["UserDelivery"] = Delivery.Result;                  
+                    {
+                        Session["UserDelivery"] = Delivery.Result;
+                        Session["DeliveryId"] = Delivery.Result.Id;
+                    }           
                     break;
             }
+            Session["UserType"] = result.Result.AccountType;
             Session["UserId"] = result.Result.Id;
             Response.Redirect("Default.aspx");
         }

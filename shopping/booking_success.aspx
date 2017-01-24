@@ -7,13 +7,9 @@
         }
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">    
     <title>Booking Succeed</title>
-
-<body>
     <div>
     Your Booking Have Been Saved In Our Database, Please Wait For Product Respond !
     </div>    
-</body>
 </asp:Content>

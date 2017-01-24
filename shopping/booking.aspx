@@ -42,6 +42,7 @@
         }
     </style>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
         <div class="form-group">
             <label for="inputProductCode" class="col-sm-4 control-label">Product Code</label>
@@ -51,10 +52,13 @@
         </div>
         <div class="form-group">
             <label for="inputDate" class="col-sm-4 control-label">Set Time</label>
-            <div class="col-sm-8 required">
-                <input type="datetime"  class="form-control" runat="server" id="inputDate" />
+            <div class="col-sm-8 required">                     <input type="text" onfocus="onfocustext();" class="form-control" runat="server" id="inputDate" />    
             </div>
         </div>
+   <%-- <div class="form-groupDate" id="setDate" hidden="hidden">     
+        <label for="datetimepicker" class="col-sm-4 control-label">Please Select One</label>
+        <div id="datetimepicker" class="col-sm-8 required"></div>
+    </div>--%>
     <div class="form-group">
             <label for="SelectType" class="col-sm-4 control-label">Dating Type</label>
             <div class="col-sm-8 required">
@@ -105,14 +109,10 @@
                 <asp:Button runat="server" ID="btnBook" OnClick="btnBook_Click" Text="Book" />
                 <button onclick="javascript:history.go(-1); return false;">Back</button>
             </div>
-        </div><select id="dynamic_select">
-  <option value="" selected>Pick a Website</option>
-  <option value="http://www.google.com">Google</option>
-  <option value="http://www.youtube.com">YouTube</option>
-  <option value="https://www.gurustop.net">GuruStop.NET</option>
-</select>
-
-<script>
+       </div>
+<script type="text/javascript" src="lib/jquery.1.4.2.js"></script>
+<script type="text/javascript" src="lib/jsDatePick.jquery.min.1.3.js"></script><link rel="stylesheet" type="text/css" media="all" href="lib/jsDatePick_ltr.min.css" />
+<script type="text/javascript">
     $(function(){
       // bind change event to select
         $('#dynamic_select').on('change', function () {
@@ -123,6 +123,7 @@
           return false;
       });
     });
+     
 </script>
     <script type="text/javascript">
         var setAccountType = function () {   
@@ -133,7 +134,34 @@
             $('#hrefView').attr('href', "detail_delivery.aspx?DeliveryId=" + url);
         };
       </script>
-     <script runat="server">
-    
-   </script>
+    <script type="text/javascript">
+        var onfocustext = function () {
+            $('#setDate').show(1000);
+        };
+	window.onload = function(){	
+		g_globalObject = new JsDatePick({
+			useMode:1,
+			isStripped:true,
+			target: "datetimepicker"
+			/*selectedDate:{				This is an example of what the full configuration offers.
+				day:5,						For full documentation about these settings please see the full version of the code.
+				month:9,
+				year:2006
+			},
+			yearsRange:[1978,2020],
+			limitToToday:false,
+			cellColorScheme:"beige",
+			dateFormat:"%m-%d-%Y",
+			imgPath:"img/",
+			weekStartDay:1*/
+		});
+		
+		g_globalObject.setOnSelectedDelegate(function(){
+			var obj = g_globalObject.getSelectedDay();	
+			document.getElementById('<%=inputDate.ClientID%>').textContent = obj.day + "/" + obj.month + "/" + obj.year;
+		    $('#setDate').hide(1000);
+		});
+        
+	};
+</script>
 </asp:Content>

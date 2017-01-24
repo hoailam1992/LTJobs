@@ -27,7 +27,7 @@ namespace ServiceLibrary
             return (new BookingBusinessService()).DeleteById(id);
         }
         public ReturnType<Booking> GetBookingById(long id) {
-            return (new BookingBusinessService()).GetById(id);
+            return (new BookingBusinessService()).GetBookingById(id);
         }
         public ReturnType<IList<Booking>> GetBookingByProductId(long id)
         {

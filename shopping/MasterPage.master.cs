@@ -139,10 +139,14 @@ public partial class MasterPage : System.Web.UI.MasterPage
         {
             lblLog.Text = "Log In";
             lblLog.NavigateUrl = "login.aspx";
+            idAccountDetail.Visible = false;
+            idBookingStatus.Visible = false;
         }
         else {
             lblLog.Text = "Log Out";
-            lblLog.NavigateUrl = "login.aspx?logout=" + true;        
+            lblLog.NavigateUrl = "login.aspx?logout=" + true;
+            idAccountDetail.Visible = true;
+            idBookingStatus.Visible = true;
         }
     }
 

@@ -114,8 +114,8 @@
                         <li><a href="contact.aspx">Contact</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Booking Status</a></li>
-                        <li><a href="account.aspx">Account Detail</a></li>
+                        <li><asp:HyperLink runat="server" ID="idBookingStatus" NavigateUrl="bookingstatus.aspx">Booking Status</asp:HyperLink></li>
+                        <li><asp:HyperLink runat="server" ID="idAccountDetail" NavigateUrl="account.aspx">Account Detail</asp:HyperLink></li>
                         <li><asp:HyperLink runat="server" ID="lblRegister" OnLoad="lblRegister_Load" ></asp:HyperLink></li>
                         <li><asp:HyperLink runat="server" ID="lblLog" OnLoad="btnLog_Load" >Log In</asp:HyperLink></li>
                         <li><a class="glyphicon glyphicon-search" style="font-size: 24px; cursor: pointer;"></a></li>
@@ -260,7 +260,7 @@
 
         });
         jQuery(document).ready(function ($) {
-
+            
             var jssor_1_options = {
               $AutoPlay: true,
               $AutoPlaySteps: 5,

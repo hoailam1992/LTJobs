@@ -27,7 +27,7 @@ namespace BusinessLayer.Service
         }
         public ReturnType<Booking> GetBookingById(long id)
         {
-            return GetById(id);
+            return GetSingle(c=>c.Id==id,c=>c.Client,c=>c.Delivery,c=>c.Product);
         }
         public ReturnType<IList<Booking>> GetBookingByClientId(long id)
         {

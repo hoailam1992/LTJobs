@@ -3028,7 +3028,10 @@ input[type=search] {
 .form-group {
     margin-bottom: 15px;
 }
-
+.form-groupDate {
+    margin-bottom: 15px;
+    height:auto;
+}
 .checkbox, .radio {
     position: relative;
     display: block;
