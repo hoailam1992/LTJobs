@@ -112,11 +112,11 @@ public partial class MasterPage : System.Web.UI.MasterPage
                             {
                                 imagesource = "data:image/png;base64," +Convert.ToBase64String(photoResult.Result.FirstOrDefault().Image);
                             }
-                            carouselInnerHtml.AppendLine(i == 0 ? "<div class='item' style='display:none;'>" : "<div class='item'>");
+                            carouselInnerHtml.AppendLine("<div class='item'>");
                             carouselInnerHtml.AppendLine("<a href='detail_product.aspx?Id=" + fileName.Id + "'>");
                             carouselInnerHtml.AppendLine(" <img data-u='image' class='fill' src='"+ imagesource + "' alt=''></img>");
-                            carouselInnerHtml.AppendLine(" <h2> <span>" + fileName.Code + "<span class='spacer'></span><br/> " + fileName.Price + "</h2>");
-                            carouselInnerHtml.AppendLine("<</a></div>");
+                            //carouselInnerHtml.AppendLine(" <h2> <span>" + fileName.Code + "<span class='spacer'></span><br/> " + fileName.Price + "</h2>");
+                            carouselInnerHtml.AppendLine("</div>");
                         }
                         ltlCarouselImages.Text = carouselInnerHtml.ToString();
                     }

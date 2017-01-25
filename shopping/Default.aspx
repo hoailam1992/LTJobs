@@ -43,12 +43,19 @@
                         <a href="detail_product.aspx?Id=<%#:Item.Id %>">
                             <span>
                                 <%#:Item.Code %>
+                            </span> 
+                            <br />
+                             <b>Age:</b>
+                             <span>
+                                <%#:Item.Age %>
                             </span>
-                        </a>
+                        <br />       
+                        
                         <br />
                           <span>
                              <b> Price:</b>  <%#:String.Format("{0:c}", Item.Price) %>
                             </span>
+                            </a>
                     </tr>
                     <tr>
                         <td>&nbsp;</td>

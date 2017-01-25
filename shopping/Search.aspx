@@ -24,7 +24,7 @@
     <div class="form-group">
             <label for="inputMinAge" class="col-sm-3 control-label">Age</label>
             <div class="col-sm-8  required">
-                <input type="text" class="form-control" runat="server" id="inputMinAge" />     TO        
+                <input type="text" class="form-control" runat="server" id="inputMinAge" />     To       
                 <input type="text" class="form-control" runat="server" id="inputMaxAge" />
             </div>
         </div>        
@@ -105,8 +105,11 @@
                 <td id="itemPlaceHolder" runat="server"></td>
             </tr>
         </GroupTemplate>
-        <ItemTemplate>
-            <td runat="server">
+        <ItemTemplate>  
+            <td runat="server">               
+                <a href="detail_product.aspx?Id=<%#:Item.Id %>">
+                     <asp:Panel ID="Panel1" BorderStyle="Solid" ToolTip="<%#:Item.ProductDescription%>" runat="server" Wrap="true" ScrollBars="Auto"
+                          Height="100%" Width="100%">
                 <table>
                     <tr>
                         <td>
@@ -116,24 +119,27 @@
                         </td>
                     </tr>
                     <tr>
-                        <a href="detail_product.aspx?Id=<%#:Item.Id %>">
+                       <b>Code:<//b>                     
                             <span>
                                 <%#:Item.Code %>
                             </span>
-                        </a>
                         <br />
-                          <span>
-                             <b> Price:</b>  <%#:String.Format("{0:c}", Item.Price) %>
+                       <b>Age:</b>
+                             <span>
+                                <%#:Item.Age %>
                             </span>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                    </tr>
+                        <br />                    
+                          <span>
+                             <b>Price:</b>  <%#:String.Format("{0:c}", Item.Price) %>
+                            </span>
+                    </tr>                  
                 </table>
-            </td>
+                    </asp:Panel>
+                </a>                     
+            </td>               
         </ItemTemplate>
           <LayoutTemplate>
-                    <table style="width:100%;height:auto">
+                    <table style="width:100%;height:auto;margin:auto">
                         <tbody>
                             <tr>
                                 <td>
