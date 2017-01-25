@@ -65,12 +65,12 @@
         .jssora03r.jssora03rds { background-position: -63px -33px; opacity: .3; pointer-events: none; }
     </style>
     <title>Shopping</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="fonts/glyphicons-halflings-regular.ttf" />
     <link rel="stylesheet" href="fonts/glyphicons-halflings-regular.woff" />
-    <link rel="stylesheet" href="lib/bootstrap.min.css">
-    <link rel="stylesheet" href="lib/custom.css">
+    <link rel="stylesheet" href="lib/bootstrap.min.css"/>
+    <link rel="stylesheet" href="lib/custom.css"/>
     <script src="lib/jquery.js"></script>
     <script src="lib/bootstrap.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -82,7 +82,7 @@
         <a href="Notify.aspx" id="notify" runat="server" style="color:red;width:100%" hidden="hidden">You Have New Messages</a>
     </div>
     <div class="container">
-        <img src="img/love.jpg" style="width: 11%; height: 94px; margin-bottom: 2px" class="img-thumbnail" />
+        <img src="img/love.jpg" style="width: 11%; height: 94px; margin-bottom: 2px" class="img-thumbnail"/>
     </div>
     
     <div class="container">

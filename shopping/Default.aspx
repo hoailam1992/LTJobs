@@ -49,8 +49,6 @@
                              <span>
                                 <%#:Item.Age %>
                             </span>
-                        <br />       
-                        
                         <br />
                           <span>
                              <b> Price:</b>  <%#:String.Format("{0:c}", Item.Price) %>

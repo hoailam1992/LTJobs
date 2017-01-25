@@ -130,7 +130,7 @@
                             </span>
                         <br />                    
                           <span>
-                             <b>Price:</b>  <%#:String.Format("{0:c}", Item.Price) %>
+                             <b>Price:</b><%#:String.Format("{0:c}", Item.Price) %>
                             </span>
                     </tr>                  
                 </table>
