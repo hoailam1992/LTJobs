@@ -28,7 +28,7 @@ public partial class _Default : System.Web.UI.Page
             ProductItem newItem = new ProductItem();
             newItem.Id = pro.Id;
             newItem.Code = pro.Code;
-            newItem.Price = pro.Price;
+            newItem.Price = pro.Price;            
             newItem.ProductDescription = pro.ProductDescription;
             var ItemPhoto = tempClient.GetPhotoByUserId(pro.UserId).Result.FirstOrDefault();
             newItem.DefaultImage = "data:image/png;base64,"+ Convert.ToBase64String(ItemPhoto.Image) ?? "img/love.jpg";

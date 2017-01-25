@@ -46,6 +46,13 @@
 
      <div class="form-group">
      <asp:ListView ID="bookinglist" runat="server" GroupPlaceholderID="groupPlaceHolder1" ItemPlaceholderID="itemPlaceHolder1" OnPagePropertiesChanging="OnPagePropertiesChanging">
+          <EmptyDataTemplate>
+            <table>
+                <tr>
+                    <td>No Data was returned</td>
+                </tr>
+            </table>
+        </EmptyDataTemplate>
 <LayoutTemplate>
     <table border="1">
         <tr>
@@ -83,7 +90,7 @@
         <asp:PlaceHolder runat="server" ID="groupPlaceHolder1"></asp:PlaceHolder>
         <tr>
             <td colspan = "10">
-                <asp:DataPager ID="DataPager1" runat="server" PagedControlID="bookinglist" PageSize="10">
+                <asp:DataPager ID="DataPager1" runat="server" PagedControlID="bookinglist" PageSize="5">
                     <Fields>
                         <asp:NextPreviousPagerField ButtonType="Link" ShowFirstPageButton="false" ShowPreviousPageButton="true"
                             ShowNextPageButton="false" />
@@ -129,7 +136,7 @@
         <%# Eval("DeliveryRespond") %>
     </td>
        <td>
-      <a href="bookingrespond.aspx?BookingId=<%# Eval("Id") %>">View Detail  </a>
+      <a href="<%= Session["UserType"].ToString()=="3" ?"deliveryrespond":"productrespond" %>.aspx?BookingId=<%# Eval("Id") %>">View Detail  </a>
     </td>
 </ItemTemplate>
 </asp:ListView>

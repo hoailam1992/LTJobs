@@ -19,6 +19,10 @@ namespace ServiceLibrary
         {
             return (new PhotoBusinessService()).GetPhotoByUserId(id);
         }
+        public ReturnType<Photo> GetDefaultPhotoByUserId(long id)
+        {
+            return (new PhotoBusinessService()).GetDefaultPhotoByUserId(id);
+        }
         public ReturnType<Photo> SavePhoto(Photo entity)
         {
             return (new PhotoBusinessService()).Save(entity);

@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class bookingrespond : System.Web.UI.Page
+public partial class deliveryrespond : System.Web.UI.Page
 {
     MasterServiceClient tempClient;
     long bookingid;
@@ -16,14 +16,14 @@ public partial class bookingrespond : System.Web.UI.Page
         if (!long.TryParse(Request["BookingId"], out bookingid))
         { bookingid = 0; }
         if (!IsPostBack)
-        {            
+        {
             if (!long.TryParse(Request["BookingId"], out bookingid))
             { bookingid = 0; }
             var Item = tempClient.GetBookingById(bookingid);
             if (Item.IsSuccess && Item.Result != null)
             {
-                inputClientCode.Value= Item.Result.Client.Code;
-                inputDate.Value = Item.Result.DateTime.HasValue ? Item.Result.DateTime.Value.ToLongTimeString(): "Empty";
+                inputClientCode.Value = Item.Result.Client.Code;
+                inputDate.Value = Item.Result.DateTime.HasValue ? Item.Result.DateTime.Value.ToLongTimeString() : "Empty";
                 inputOwnLocation.Value = Item.Result.Location;
                 datingtype.Value = Item.Result.ProductType.ToString();
                 deliveryId.Value = Item.Result.Delivery.Name;
@@ -32,11 +32,12 @@ public partial class bookingrespond : System.Web.UI.Page
                 {
                     rdCash.Checked = false;
                 }
-                else {
+                else
+                {
                     rdCCard.Checked = true;
                 }
                 if ((Item.Result.ProductRespond != "O" && Session["UserType"].ToString() == "2") ||
-                    (Item.Result.DeliveryRespond != "O" && Session["UserType"].ToString() == "3") || Item.Result.Status=="F")
+                    (Item.Result.DeliveryRespond != "O" && Session["UserType"].ToString() == "3") || Item.Result.Status == "F")
                 {
                     btnAccept.Enabled = false;
                     btnReject.Enabled = false;
@@ -51,10 +52,9 @@ public partial class bookingrespond : System.Web.UI.Page
             {
                 bookingid = 0;
             }
-           
+
         }
     }
-
     protected void btnAccept_Click(object sender, EventArgs e)
     {
         var tempBooking = tempClient.GetBookingById(bookingid);
@@ -78,7 +78,8 @@ public partial class bookingrespond : System.Web.UI.Page
                 //ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowPopup('Accepted');", true);
                 Response.Redirect("bookingstatus.aspx");
             }
-            else {
+            else
+            {
                 //ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowPopup('" + tempResult.ErrorMessage + "');", true);
             }
         }
@@ -92,12 +93,11 @@ public partial class bookingrespond : System.Web.UI.Page
             if (Session["UserType"].ToString() == "2")
             {
                 tempBooking.Result.ProductRespond = "R";
-               
+
             }
             else if (Session["UserType"].ToString() == "3")
             {
                 tempBooking.Result.DeliveryRespond = "R";
-               
             }
             tempBooking.Result.Client = null;
             tempBooking.Result.Product = null;

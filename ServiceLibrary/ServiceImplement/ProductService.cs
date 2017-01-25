@@ -37,6 +37,10 @@ namespace ServiceLibrary
         {
             return (new ProductBusinessService()).GetAll();
         }
+        public ReturnType<IList<Product>> GetAllProductAndUser()
+        {
+            return (new ProductBusinessService()).GetAllProductAndUser();
+        }
         //public ReturnType<IList<product>> GetProductFilter(Expression<Func<product, bool>> where, params Expression<Func<product, object>>[] navigationProperties)
         //{
         //    return (new ProductBusinessService()).GetList(where, navigationProperties);

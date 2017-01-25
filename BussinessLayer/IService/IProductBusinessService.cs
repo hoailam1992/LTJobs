@@ -12,5 +12,7 @@ namespace BusinessLayer.IService
         ReturnType<Product> GetProductByUserId(long id);
         ReturnType<IList<Product>> GetActiveProduct();
         ReturnType<Product> GetProductByPCode(string code);
+
+        ReturnType<IList<Product>> GetAllProductAndUser();
     }
 }

@@ -26,5 +26,17 @@ namespace BusinessLayer.Service
         {
             return new ReturnType<bool>() { IsSuccess = true, Result = GetSingle(c => c.UserName == username).Result == null };
         }
+        public ReturnType<User> GetUserInfoById(long id)
+        {
+            var result = GetById(id);
+            if (result.Result != null)
+            {
+                result.Result.Password = null;
+                result.Result.SecurityAnswer = null;
+                result.Result.SecurityQuestionId = 0;
+                result.Result.GCMkey = null;
+            }
+            return result;
+        }
     }
 }

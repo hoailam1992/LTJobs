@@ -586,17 +586,31 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetDefaultPhotoByUserId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefaultPhotoByUserIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetDefaultPhotoByUserIdResult" nillable="true" type="q52:ReturnTypeOfPhoto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="SaveProductPrice">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="entity" nillable="true" type="q52:ProductPrice" />
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="entity" nillable="true" type="q53:ProductPrice" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SaveProductPriceResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="SaveProductPriceResult" nillable="true" type="q53:ReturnTypeOfProductPrice" />
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="SaveProductPriceResult" nillable="true" type="q54:ReturnTypeOfProductPrice" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -610,7 +624,7 @@
   <xs:element name="DeleteProductPriceByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="DeleteProductPriceByIdResult" nillable="true" type="q54:ReturnTypeOfboolean" />
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="DeleteProductPriceByIdResult" nillable="true" type="q55:ReturnTypeOfboolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -624,7 +638,7 @@
   <xs:element name="GetProductPriceByProductIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetProductPriceByProductIdResult" nillable="true" type="q55:ReturnTypeOfArrayOfProductPrice" />
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetProductPriceByProductIdResult" nillable="true" type="q56:ReturnTypeOfArrayOfProductPrice" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -638,7 +652,7 @@
   <xs:element name="GetProductPriceByProductTypeIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetProductPriceByProductTypeIdResult" nillable="true" type="q56:ReturnTypeOfArrayOfProductPrice" />
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetProductPriceByProductTypeIdResult" nillable="true" type="q57:ReturnTypeOfArrayOfProductPrice" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -653,7 +667,7 @@
   <xs:element name="GetProductPriceByProductAndTypeIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetProductPriceByProductAndTypeIdResult" nillable="true" type="q57:ReturnTypeOfArrayOfProductPrice" />
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetProductPriceByProductAndTypeIdResult" nillable="true" type="q58:ReturnTypeOfArrayOfProductPrice" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -667,21 +681,21 @@
   <xs:element name="GetProductPriceByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetProductPriceByIdResult" nillable="true" type="q58:ReturnTypeOfProductPrice" />
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetProductPriceByIdResult" nillable="true" type="q59:ReturnTypeOfProductPrice" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SaveProduct">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="entity" nillable="true" type="q59:Product" />
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="entity" nillable="true" type="q60:Product" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SaveProductResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="SaveProductResult" nillable="true" type="q60:ReturnTypeOfProduct" />
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="SaveProductResult" nillable="true" type="q61:ReturnTypeOfProduct" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -695,7 +709,7 @@
   <xs:element name="DeleteProductByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="DeleteProductByIdResult" nillable="true" type="q61:ReturnTypeOfboolean" />
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="DeleteProductByIdResult" nillable="true" type="q62:ReturnTypeOfboolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -709,7 +723,7 @@
   <xs:element name="GetProductByUserIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetProductByUserIdResult" nillable="true" type="q62:ReturnTypeOfProduct" />
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetProductByUserIdResult" nillable="true" type="q63:ReturnTypeOfProduct" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -723,7 +737,7 @@
   <xs:element name="GetProductByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetProductByIdResult" nillable="true" type="q63:ReturnTypeOfProduct" />
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetProductByIdResult" nillable="true" type="q64:ReturnTypeOfProduct" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -737,7 +751,7 @@
   <xs:element name="GetProductByCodeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetProductByCodeResult" nillable="true" type="q64:ReturnTypeOfProduct" />
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetProductByCodeResult" nillable="true" type="q65:ReturnTypeOfProduct" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -749,21 +763,33 @@
   <xs:element name="GetAllProductResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetAllProductResult" nillable="true" type="q65:ReturnTypeOfArrayOfProduct" />
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetAllProductResult" nillable="true" type="q66:ReturnTypeOfArrayOfProduct" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllProductAndUser">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllProductAndUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetAllProductAndUserResult" nillable="true" type="q67:ReturnTypeOfArrayOfProduct" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SaveProductType">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="entity" nillable="true" type="q66:ProductType" />
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="entity" nillable="true" type="q68:ProductType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SaveProductTypeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="SaveProductTypeResult" nillable="true" type="q67:ReturnTypeOfProductType" />
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="SaveProductTypeResult" nillable="true" type="q69:ReturnTypeOfProductType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -777,7 +803,7 @@
   <xs:element name="DeleteProductTypeByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="DeleteProductTypeByIdResult" nillable="true" type="q68:ReturnTypeOfboolean" />
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="DeleteProductTypeByIdResult" nillable="true" type="q70:ReturnTypeOfboolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -791,7 +817,7 @@
   <xs:element name="GetProductTypeByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetProductTypeByIdResult" nillable="true" type="q69:ReturnTypeOfProductType" />
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetProductTypeByIdResult" nillable="true" type="q71:ReturnTypeOfProductType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -803,21 +829,21 @@
   <xs:element name="GetAllProductTypeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetAllProductTypeResult" nillable="true" type="q70:ReturnTypeOfArrayOfProductType" />
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetAllProductTypeResult" nillable="true" type="q72:ReturnTypeOfArrayOfProductType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SaveReport">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="entity" nillable="true" type="q71:Report" />
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="entity" nillable="true" type="q73:Report" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SaveReportResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="SaveReportResult" nillable="true" type="q72:ReturnTypeOfReport" />
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="SaveReportResult" nillable="true" type="q74:ReturnTypeOfReport" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -831,7 +857,7 @@
   <xs:element name="DeleteReportByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="DeleteReportByIdResult" nillable="true" type="q73:ReturnTypeOfboolean" />
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="DeleteReportByIdResult" nillable="true" type="q75:ReturnTypeOfboolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -845,7 +871,7 @@
   <xs:element name="GetReportByBookingIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetReportByBookingIdResult" nillable="true" type="q74:ReturnTypeOfReport" />
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetReportByBookingIdResult" nillable="true" type="q76:ReturnTypeOfReport" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -859,21 +885,21 @@
   <xs:element name="GetReportByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetReportByIdResult" nillable="true" type="q75:ReturnTypeOfReport" />
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetReportByIdResult" nillable="true" type="q77:ReturnTypeOfReport" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SaveUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="entity" nillable="true" type="q76:User" />
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="entity" nillable="true" type="q78:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SaveUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="SaveUserResult" nillable="true" type="q77:ReturnTypeOfUser" />
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="SaveUserResult" nillable="true" type="q79:ReturnTypeOfUser" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -888,7 +914,7 @@
   <xs:element name="LoginUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="LoginUserResult" nillable="true" type="q78:ReturnTypeOfUser" />
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="LoginUserResult" nillable="true" type="q80:ReturnTypeOfUser" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -902,7 +928,7 @@
   <xs:element name="GetUserByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetUserByIdResult" nillable="true" type="q79:ReturnTypeOfUser" />
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetUserByIdResult" nillable="true" type="q81:ReturnTypeOfUser" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -916,21 +942,21 @@
   <xs:element name="CheckUserNameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="CheckUserNameResult" nillable="true" type="q80:ReturnTypeOfboolean" />
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="CheckUserNameResult" nillable="true" type="q82:ReturnTypeOfboolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="RegisterUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="entity" nillable="true" type="q81:User" />
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="entity" nillable="true" type="q83:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="RegisterUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="RegisterUserResult" nillable="true" type="q82:ReturnTypeOfUser" />
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="RegisterUserResult" nillable="true" type="q84:ReturnTypeOfUser" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -938,14 +964,14 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="storeProc" nillable="true" type="xs:string" />
-        <xs:element xmlns:q83="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q83:ArrayOfKeyValueOfstringanyType" />
+        <xs:element xmlns:q85="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q85:ArrayOfKeyValueOfstringanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ExecuteStoreQueryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q84="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ExecuteStoreQueryResult" nillable="true" type="q84:ArrayOfArrayOfKeyValueOfstringanyType" />
+        <xs:element xmlns:q86="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ExecuteStoreQueryResult" nillable="true" type="q86:ArrayOfArrayOfKeyValueOfstringanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -959,21 +985,21 @@
   <xs:element name="ExecuteQueryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q85="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ExecuteQueryResult" nillable="true" type="q85:ArrayOfArrayOfKeyValueOfstringanyType" />
+        <xs:element xmlns:q87="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ExecuteQueryResult" nillable="true" type="q87:ArrayOfArrayOfKeyValueOfstringanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SaveVideo">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="entity" nillable="true" type="q86:Video" />
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="entity" nillable="true" type="q88:Video" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SaveVideoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="SaveVideoResult" nillable="true" type="q87:ReturnTypeOfVideo" />
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="SaveVideoResult" nillable="true" type="q89:ReturnTypeOfVideo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -987,7 +1013,7 @@
   <xs:element name="DeleteVideoByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="DeleteVideoByIdResult" nillable="true" type="q88:ReturnTypeOfboolean" />
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="DeleteVideoByIdResult" nillable="true" type="q90:ReturnTypeOfboolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1001,7 +1027,7 @@
   <xs:element name="GetVideoByProductIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetVideoByProductIdResult" nillable="true" type="q89:ReturnTypeOfArrayOfVideo" />
+        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetVideoByProductIdResult" nillable="true" type="q91:ReturnTypeOfArrayOfVideo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1015,7 +1041,7 @@
   <xs:element name="GetVideoByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetVideoByIdResult" nillable="true" type="q90:ReturnTypeOfVideo" />
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="GetVideoByIdResult" nillable="true" type="q92:ReturnTypeOfVideo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

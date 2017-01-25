@@ -29,6 +29,10 @@ namespace BusinessLayer.Service
         public ReturnType<IList<Photo>> GetPhotoByUserId(long id)
         {
             return GetList(c => c.UserId == id);
-        }     
+        }
+        public ReturnType<Photo> GetDefaultPhotoByUserId(long id)
+        {
+            return GetSingle(c => c.UserId == id);
+        }
     }
 }

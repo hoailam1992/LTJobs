@@ -19,5 +19,7 @@ namespace ServiceLibrary
         ReturnType<IList<Photo>> GetPhotoByUserId(long id);
         [OperationContract]
         ReturnType<Photo> GetPhotoById(long id);
+        [OperationContract]
+        ReturnType<Photo> GetDefaultPhotoByUserId(long id);
     }
 }

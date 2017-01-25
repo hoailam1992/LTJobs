@@ -260,6 +260,12 @@
   <wsdl:message name="IMasterService_GetPhotoById_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetPhotoByIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IMasterService_GetDefaultPhotoByUserId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultPhotoByUserId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetDefaultPhotoByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultPhotoByUserIdResponse" />
+  </wsdl:message>
   <wsdl:message name="IMasterService_SaveProductPrice_InputMessage">
     <wsdl:part name="parameters" element="tns:SaveProductPrice" />
   </wsdl:message>
@@ -331,6 +337,12 @@
   </wsdl:message>
   <wsdl:message name="IMasterService_GetAllProduct_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetAllProductAndUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProductAndUser" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetAllProductAndUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProductAndUserResponse" />
   </wsdl:message>
   <wsdl:message name="IMasterService_SaveProductType_InputMessage">
     <wsdl:part name="parameters" element="tns:SaveProductType" />
@@ -615,6 +627,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetPhotoById" message="tns:IMasterService_GetPhotoById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetPhotoByIdResponse" message="tns:IMasterService_GetPhotoById_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetDefaultPhotoByUserId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetDefaultPhotoByUserId" message="tns:IMasterService_GetDefaultPhotoByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetDefaultPhotoByUserIdResponse" message="tns:IMasterService_GetDefaultPhotoByUserId_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="SaveProductPrice">
       <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/SaveProductPrice" message="tns:IMasterService_SaveProductPrice_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/SaveProductPriceResponse" message="tns:IMasterService_SaveProductPrice_OutputMessage" />
@@ -662,6 +678,10 @@
     <wsdl:operation name="GetAllProduct">
       <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetAllProduct" message="tns:IMasterService_GetAllProduct_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetAllProductResponse" message="tns:IMasterService_GetAllProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProductAndUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetAllProductAndUser" message="tns:IMasterService_GetAllProductAndUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetAllProductAndUserResponse" message="tns:IMasterService_GetAllProductAndUser_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="SaveProductType">
       <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/SaveProductType" message="tns:IMasterService_SaveProductType_InputMessage" />
@@ -1120,6 +1140,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetDefaultPhotoByUserId">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetDefaultPhotoByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SaveProductPrice">
       <soap:operation soapAction="http://tempuri.org/IMasterService/SaveProductPrice" style="document" />
       <wsdl:input>
@@ -1221,6 +1250,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllProduct">
       <soap:operation soapAction="http://tempuri.org/IMasterService/GetAllProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProductAndUser">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetAllProductAndUser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

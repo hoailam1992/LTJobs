@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Booking Respond" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="bookingrespond.aspx.cs" Inherits="bookingrespond" %>
+﻿<%@ Page Title="Booking Respond" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="productrespond.aspx.cs" Inherits="bookingrespond" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style>
       
@@ -99,6 +99,27 @@
                 <button onclick="javascript:history.go(-1); return false;">Back</button>
             </div>
        </div>
+    <div class="form-group" id="divreason" hidden="hidden">
+              <label class="col-sm-4 control-label">Reason</label>
+                <div class="col-sm-8 required">
+                    <label class="radio-outline">
+                        <input type="radio" name="reasonradio" runat="server" id="rdReason1" />Not Available At That Time</label>                    
+                </div>
+        <div class="col-sm-8 required">
+        <label class="radio-inline">
+                        <input type="radio" name="reasonradio" runat="server" id="rdReason2" />Out of Bussiness</label>
+            </div>
+        <div class="col-sm-8 required">
+                     <label class="radio-inline">
+                        <input type="radio" name="reasonradio" runat="server" id="rdReason3" />Other</label>
+
+        </div>            
+            <div class="col-sm-8 required">
+                     <label class="radio-inline">
+                        <input type="radio" name="reasonradio" runat="server" id="rdReasonOther" />Put Your Reason</label>
+                <input type="text" runat="server" id="otherreason" aria-multiline="true"/>
+            </div>
+       </div>
  <script type="text/javascript">
     function ShowPopup(message) {
         $(function () {
@@ -115,15 +136,5 @@
         });
     };
 </script>
-<div id="dialog" style="display: none">
-</div>
-    <script type="text/javascript">      
-        var hyperlink = function () {
-            var url = $('#SelectDelivery').val();
-            $('#hrefView').attr('href', "detail_delivery.aspx?DeliveryId=" + url);
-        };
-      </script>
-     <script runat="server">
-    
-   </script>
+
 </asp:Content>

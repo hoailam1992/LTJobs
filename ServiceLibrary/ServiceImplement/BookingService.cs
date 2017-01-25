@@ -21,6 +21,10 @@ namespace ServiceLibrary
         }
         public ReturnType<Booking> SaveBooking(Booking entity)
         {
+            if (entity.DeliveryRespond == "A" && entity.ProductRespond == "A")
+            {
+                entity.Status = "P";                               
+            }
             return (new BookingBusinessService()).Save(entity);
         }
         public ReturnType<bool> DeleteBookingById(long id) {

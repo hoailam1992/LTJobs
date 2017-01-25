@@ -281,7 +281,7 @@
                     <input type="text" class="form-control" runat="server" id="inputPriceMember" />
                 </div>
             </div>
-            <div class="form-group">
+          <%--  <div class="form-group">
                 <label for="inputPhotoMember" class="col-sm-3 control-label">Upload Photo</label>
                 <div class="col-sm-8">
                     <input type="file" name="img[]" class="file" />
@@ -293,8 +293,8 @@
                 <div class="form-group" style="width: 46%; margin: 0 auto;">
                     <img src="img/love.jpg" class="img-rounded" alt="Cinque Terre" width="275" height="180" style="margin-top: 12px" />
                 </div>
-            </div>
-            <div class="form-group">
+            </div>--%>
+          <%--  <div class="form-group">
                 <label for="inputVideoMember" class="col-sm-3 control-label">Upload Video</label>
                 <div class="col-sm-8">
                     <input type="file" name="img[]" class="file" />
@@ -303,7 +303,7 @@
                         <button class="browse btn btn-primary" type="button"><i class="glyphicon glyphicon-search"></i>Browse</button>
                     </span>
                 </div>
-            </div>
+            </div>--%>
             <div class="form-group">
                 <label for="selectPreferrableArea" class="col-sm-3 control-label">Preferrable Area</label>
                 <div class="col-sm-8 required">

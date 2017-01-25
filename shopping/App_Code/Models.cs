@@ -19,6 +19,8 @@ namespace MasterService
         }
         public long Id { get; set; }
         public string Code { get; set; }
+        public string FullName { get; set; }
+        public int Age { get; set;}
         public string Group { get; set; }
         public string Language1 { get; set; }
         public string Language2 { get; set; }

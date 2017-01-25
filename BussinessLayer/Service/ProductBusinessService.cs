@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using BusinessLayer.IService;
 using BusinessLayer.Common;
 using Models;
+
 namespace BusinessLayer.Service
 {
     public class ProductBusinessService : BusinessServiceBase<Product>, IProductBusinessService
@@ -19,6 +20,16 @@ namespace BusinessLayer.Service
         public ReturnType<Product> GetProductByPCode(string id)
         {
             return GetSingle(c => c.Code == id);
-        }       
+        }
+        public ReturnType<IList<Product>> GetAllProductAndUser()
+        {
+            UserBusinessService temp = new UserBusinessService();
+            var resultfinal = GetAll();
+            foreach (var tempPro in resultfinal.Result)
+            {
+                tempPro.User = temp.GetUserInfoById(tempPro.UserId).Result;
+            }
+            return resultfinal;
+        }  
     }
 }

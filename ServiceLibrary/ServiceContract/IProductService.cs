@@ -24,6 +24,8 @@ namespace ServiceLibrary
         ReturnType<Product> GetProductByCode(string id);
         [OperationContract]
         ReturnType<IList<Product>> GetAllProduct();
+        [OperationContract]
+        ReturnType<IList<Product>> GetAllProductAndUser();
         //[OperationContract]
         //ReturnType<IList<product>> GetProductFilter(Expression<Func<product, bool>> where, params Expression<Func<product, object>>[] navigationProperties);
     }
