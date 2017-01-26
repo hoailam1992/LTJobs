@@ -78,8 +78,19 @@
 </head>
 <body>
 <form class="form-horizontal" runat="server">
-    <div class="alert" hidden="hidden" id="NodifyDiv" runat="server">
-        <a href="Notify.aspx" id="notify" runat="server" style="color:red;width:100%" hidden="hidden">You Have New Messages</a>
+    <div class="container">
+    <div class="panel-warning" id="NodifyDiv" runat="server">
+        <a href="Notify.aspx" id="notify" runat="server" style="color:red;width:100%" >
+        <asp:Panel runat="server" ForeColor="Yellow" BackColor="OrangeRed" class="panel-warning">
+        <h3>>>>>>> You Have New Messages <<<<<<<</h3>
+        </asp:Panel></a>
+    </div>
+    <div class="panel-warning" id="bookingdiv" runat="server">
+        <a href="bookingstatus.aspx" id="bookingstatus" runat="server" style="color:red;width:100%" >
+     <asp:Panel runat="server" ForeColor="Yellow" BackColor="OrangeRed" class="panel-warning">
+     <h3>>>>> You Have Been Booked <<<<</h3>
+      </asp:Panel></a>
+    </div>
     </div>
     <div class="container">
         <img src="img/love.jpg" style="width: 11%; height: 94px; margin-bottom: 2px" class="img-thumbnail"/>

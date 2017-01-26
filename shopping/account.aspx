@@ -14,5 +14,7 @@
      <div class="form-group">
         <a href="bookingstatus.aspx">Booking Status</a>       
     </div>    
-
+    <div class="form-group">
+        <a href="editUser.aspx">Update Info</a>       
+    </div>  
 </asp:Content>

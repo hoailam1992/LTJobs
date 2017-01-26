@@ -28,5 +28,9 @@ namespace ServiceLibrary
         ReturnType<bool> DeleteBookingById(long enity);       
         [OperationContract]
         ReturnType<Booking> GetBookingById(long id);
+        [OperationContract]
+        ReturnType<IList<Booking>> GetNewBookingByProductId(long id);
+        [OperationContract]
+        ReturnType<IList<Booking>> GetNewBookingByDeliveryId(long id);
     }
 }

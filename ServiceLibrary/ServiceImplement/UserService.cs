@@ -16,8 +16,17 @@ namespace ServiceLibrary
     {
         public ReturnType<User> SaveUser(User entity)
         {
+            if (entity.Id != 0)
+            {
+                var UserTemp = GetUserById(entity.Id);
+                if (UserTemp.IsSuccess && UserTemp.Result != null)
+                {
+                    entity.Password = UserTemp.Result.Password;                    
+                }
+            }
             return (new UserBusinessService()).Save(entity);
         }
+        
         public ReturnType<User> GetUserById(long id)
         {
             var result = (new UserBusinessService()).GetById(id);

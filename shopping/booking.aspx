@@ -52,7 +52,8 @@
         </div>
         <div class="form-group">
             <label for="inputDate" class="col-sm-4 control-label">Set Time</label>
-            <div class="col-sm-8 required">                     <input type="text" onfocus="onfocustext();" class="form-control" runat="server" id="inputDate" />    
+            <div class="col-sm-8 required">
+                     <input type="text" onfocus="onfocustext();" class="form-control" runat="server" id="inputDate" />    
             </div>
         </div>
    <%-- <div class="form-groupDate" id="setDate" hidden="hidden">     
@@ -71,7 +72,7 @@
             <label for="SelectDelivery" class="col-sm-4 control-label">Select Delivery</label>
             <div class="col-sm-8 required">
                <select id="SelectDelivery" runat="server" >   
-                   <option>Please Select Location</option>              
+                   <option value="0">Please Select Location</option>              
                 </select>
                  <asp:Button ID="btnLinkView" runat="server" Text="View" OnClick="btnLinkView_Click" />
                 <%--<a id="hrefView" runat="server">View</a>--%>
@@ -111,7 +112,9 @@
             </div>
        </div>
 <script type="text/javascript" src="lib/jquery.1.4.2.js"></script>
-<script type="text/javascript" src="lib/jsDatePick.jquery.min.1.3.js"></script><link rel="stylesheet" type="text/css" media="all" href="lib/jsDatePick_ltr.min.css" />
+<script type="text/javascript" src="lib/jsDatePick.jquery.min.1.3.js"></script>
+<link rel="stylesheet" type="text/css" media="all" href="lib/jsDatePick_ltr.min.css" />
+
 <script type="text/javascript">
     $(function(){
       // bind change event to select

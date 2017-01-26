@@ -39,6 +39,10 @@ namespace Models
         [DataMember]
         public decimal TotalCost { get; set; }
         [DataMember]
+        public decimal ProductValue { get; set; }
+        [DataMember]
+        public decimal DeliveryValue { get; set; }
+        [DataMember]
         public long ProductType { get; set; }
         [DataMember]
         public string ProductRespond { get; set; }

@@ -119,6 +119,8 @@
     <NavigationProperty Name="Delivery" Relationship="dbwebModel.FK_booking_delivery" FromRole="Booking" ToRole="Delivery" />
     <NavigationProperty Name="Product" Relationship="dbwebModel.FK_booking_product" FromRole="Booking" ToRole="Product" />
     <NavigationProperty Name="Reports" Relationship="dbwebModel.FK_report_booking" FromRole="Booking" ToRole="Report" />
+    <Property Name="ProductValue" Type="Decimal" Nullable="true" />
+    <Property Name="DeliveryValue" Type="Decimal" Nullable="true" />
   </EntityType>
   <EntityType Name="ClientComment">
     <Key>

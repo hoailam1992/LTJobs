@@ -12,39 +12,42 @@ public partial class booking : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         tempClient = new MasterServiceClient();
-        if (!long.TryParse(Request["ProductID"], out productid))
+        if (!IsPostBack)
+        {
+            if (!long.TryParse(Request["ProductID"], out productid))
             { productid = 0; }
-        var Item = tempClient.GetProductById(productid);
-        if (Item.IsSuccess && Item.Result != null)
-        {
-            inputProductCode.Value = Item.Result.Code;
-        }
-        else {
-            productid = 0;
-        }
-        var deliveries = tempClient.GetAllDelivery();
-        if (deliveries.IsSuccess && deliveries.Result != null)
-        {            
-            foreach (Delivery tDelivery in deliveries.Result)
+            var Item = tempClient.GetProductById(productid);
+            if (Item.IsSuccess && Item.Result != null)
             {
-                ListItem tempList = new ListItem();
-                tempList.Value = tDelivery.Id.ToString();
-                tempList.Text = tDelivery.Name;
-                SelectDelivery.Items.Add(tempList);
-            }            
-        }
-        var producttype = tempClient.GetAllProductType();
-        if (producttype.IsSuccess && producttype.Result != null)
-        {
-            foreach (ProductType tDelivery in producttype.Result)
+                inputProductCode.Value = Item.Result.Code;
+            }
+            else
             {
-                ListItem tempList = new ListItem();
-                tempList.Value = tDelivery.Id.ToString();
-                tempList.Text = tDelivery.Code;
-                SelectType.Items.Add(tempList);
+                productid = 0;
+            }
+            var deliveries = tempClient.GetAllDelivery();
+            if (deliveries.IsSuccess && deliveries.Result != null)
+            {
+                foreach (Delivery tDelivery in deliveries.Result)
+                {
+                    ListItem tempList = new ListItem();
+                    tempList.Value = tDelivery.Id.ToString();
+                    tempList.Text = tDelivery.Name;
+                    SelectDelivery.Items.Add(tempList);
+                }
+            }
+            var producttype = tempClient.GetAllProductType();
+            if (producttype.IsSuccess && producttype.Result != null)
+            {
+                foreach (ProductType tDelivery in producttype.Result)
+                {
+                    ListItem tempList = new ListItem();
+                    tempList.Value = tDelivery.Id.ToString();
+                    tempList.Text = tDelivery.Code;
+                    SelectType.Items.Add(tempList);
+                }
             }
         }
-
     }  
 
     protected void btnBook_Click(object sender, EventArgs e)

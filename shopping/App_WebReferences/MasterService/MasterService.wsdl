@@ -50,6 +50,18 @@
   <wsdl:message name="IMasterService_GetBookingById_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetBookingByIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IMasterService_GetNewBookingByProductId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewBookingByProductId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetNewBookingByProductId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewBookingByProductIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetNewBookingByDeliveryId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewBookingByDeliveryId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetNewBookingByDeliveryId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewBookingByDeliveryIdResponse" />
+  </wsdl:message>
   <wsdl:message name="IMasterService_SaveClientComment_InputMessage">
     <wsdl:part name="parameters" element="tns:SaveClientComment" />
   </wsdl:message>
@@ -487,6 +499,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetBookingById" message="tns:IMasterService_GetBookingById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetBookingByIdResponse" message="tns:IMasterService_GetBookingById_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetNewBookingByProductId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetNewBookingByProductId" message="tns:IMasterService_GetNewBookingByProductId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetNewBookingByProductIdResponse" message="tns:IMasterService_GetNewBookingByProductId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewBookingByDeliveryId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetNewBookingByDeliveryId" message="tns:IMasterService_GetNewBookingByDeliveryId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetNewBookingByDeliveryIdResponse" message="tns:IMasterService_GetNewBookingByDeliveryId_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="SaveClientComment">
       <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/SaveClientComment" message="tns:IMasterService_SaveClientComment_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/SaveClientCommentResponse" message="tns:IMasterService_SaveClientComment_OutputMessage" />
@@ -818,6 +838,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetBookingById">
       <soap:operation soapAction="http://tempuri.org/IMasterService/GetBookingById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewBookingByProductId">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetNewBookingByProductId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewBookingByDeliveryId">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetNewBookingByDeliveryId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
