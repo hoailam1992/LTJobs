@@ -12,8 +12,8 @@ public partial class booking : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         tempClient = new MasterServiceClient();
-        if (!IsPostBack)
-        {
+        //if (!IsPostBack)
+        //{
             if (!long.TryParse(Request["ProductID"], out productid))
             { productid = 0; }
             var Item = tempClient.GetProductById(productid);
@@ -47,7 +47,7 @@ public partial class booking : System.Web.UI.Page
                     SelectType.Items.Add(tempList);
                 }
             }
-        }
+        //}
     }  
 
     protected void btnBook_Click(object sender, EventArgs e)
@@ -86,9 +86,14 @@ public partial class booking : System.Web.UI.Page
         {
             userBook.ProductType = producttype;
             var Price = tempClient.GetProductPriceByProductAndTypeId(productid, producttype);
-            if (Price.IsSuccess && Price.Result != null)
+            if (Price.IsSuccess && Price.Result != null && Price.Result.Count != 0)
             {
                 userBook.ProductPrice = Price.Result.FirstOrDefault().Price;
+            }
+            else {
+                var DefaultPrice = tempClient.GetProductById(productid);
+                if (DefaultPrice.Result != null)
+                    userBook.ProductPrice = DefaultPrice.Result.Price;
             }
         }
         userBook.TotalCost = 0;
@@ -104,7 +109,7 @@ public partial class booking : System.Web.UI.Page
             Response.Redirect("booking_success.aspx");
         }
         else {
-            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + result.ErrorMessage+ "');", true);
+            
         }
        
     }

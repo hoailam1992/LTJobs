@@ -15,6 +15,9 @@ namespace BusinessLayer.Service
             var user = GetSingle(c => c.UserName == username && c.Password == password);
             if (user.IsSuccess && user.Result != null)
             {
+                
+                user.Result.LastLogin = DateTime.Now;
+                Save(user.Result);
                 user.Result.Password = "";
                 user.Result.SecurityAnswer = "";
                 return user;

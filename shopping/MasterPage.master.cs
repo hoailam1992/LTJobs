@@ -108,7 +108,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
                             var fileName = result[i];
                             var photoResult = tempClient.GetPhotoByUserId(fileName.UserId);
                             string imagesource = @"/img/love.jpg";
-                            if (photoResult.IsSuccess && photoResult.Result != null)
+                            if (photoResult.IsSuccess && photoResult.Result != null && photoResult.Result.Count>0)
                             {
                                 imagesource = "data:image/png;base64," +Convert.ToBase64String(photoResult.Result.FirstOrDefault().Image);
                             }

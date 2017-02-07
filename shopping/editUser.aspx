@@ -106,7 +106,7 @@
         <div class="form-group">
             <label class="col-sm-4 control-label">Account Type</label>
             <div class="col-sm-8">                
-                    <input type="text" class="form-control"  id="inputUserType" runat="server" />
+                    <input type="text" readonly="readonly" class="form-control"  id="inputUserType" runat="server" />
             </div>
         </div>
         <!-- client register -->
