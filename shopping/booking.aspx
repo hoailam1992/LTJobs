@@ -52,8 +52,9 @@
         </div>
         <div class="form-group">
             <label for="inputDate" class="col-sm-4 control-label">Set Time</label>
-            <div class="col-sm-8 required">
-                     <input type="text" onfocus="onfocustext();" class="form-control" runat="server" id="inputDate" />    
+            <div class="col-sm-8 required">                
+                <input type="date" class="form-control" runat="server" id="inputDate" />    
+                <input type="time" class="form-control input-time" runat="server" lang="en" id="inputtime"/>
             </div>
         </div>
    <%-- <div class="form-groupDate" id="setDate" hidden="hidden">     
@@ -63,25 +64,30 @@
     <div class="form-group">
             <label for="SelectType" class="col-sm-4 control-label">Dating Type</label>
             <div class="col-sm-8 required">
-               <select id="SelectType" runat="server">   
-                   <option>Please Select A Type</option>                
-                </select>
+                <asp:DropDownList id="SelectType" runat="server" OnSelectedIndexChanged="SelectType_SelectedIndexChanged">   
+                   <asp:ListItem value="0">Please Select Type</asp:ListItem>              
+                </asp:DropDownList>
             </div>
         </div>
        <div class="form-group">
             <label for="SelectDelivery" class="col-sm-4 control-label">Select Delivery</label>
             <div class="col-sm-8 required">
-               <select id="SelectDelivery" runat="server" >   
-                   <option value="0">Please Select Location</option>              
-                </select>
+               <asp:DropDownList id="SelectDelivery" runat="server" OnSelectedIndexChanged="SelectDelivery_SelectedIndexChanged">   
+                   <asp:ListItem value="0">Please Select Location</asp:ListItem>              
+                </asp:DropDownList>
                  <asp:Button ID="btnLinkView" runat="server" Text="View" OnClick="btnLinkView_Click" />
+                 <asp:Button ID="btnTake" runat="server" Text="Take" OnClick="btnTake_Click" />
+                 <asp:DropDownList id="SelectDeliveryType" runat="server" OnSelectedIndexChanged="SelectDeliveryType_SelectedIndexChanged" >   
+                   <asp:ListItem value="0">Please Select Delivery Type</asp:ListItem>              
+                </asp:DropDownList>
                 <%--<a id="hrefView" runat="server">View</a>--%>
             </div>          
         </div>
         <div class="form-group">     
                         <label for="SelectDelivery" class="col-sm-4 control-label"></label>
                 <div>
-                     <label class="radio-inline"><input type="checkbox" id="ckSetLocation" onclick="setAccountType();" runat="server"/> Set own location  </label>
+                     <label class="radio-inline">
+                     <input type="checkbox" id="ckSetLocation" onclick="setAccountType();" runat="server"/> Set own location  </label>
                 </div> 
         </div>
         <div class="form-group" id="setownlocation" hidden="hidden">
@@ -102,15 +108,18 @@
       <div class="form-group">
             <label for="inputDate" class="col-sm-4 control-label">Total</label>
             <div class="col-sm-8 required">
-                <input type="Text"  class="form-control" runat="server" id="inputCost" />
+                <input type="Text"  class="form-control" readonly="true" runat="server" id="inputCost" />
             </div>
         </div>
      <div class="form-group" runat="server" style="margin: 0 auto; width: 31%">
             <div class="col-sm-12">
+                <asp:Button runat="server" ID="btnCalculate" OnClick="btnCalculate_Click" Text="Calculate Total" />
                 <asp:Button runat="server" ID="btnBook" OnClick="btnBook_Click" Text="Book" />
                 <button onclick="javascript:history.go(-1); return false;">Back</button>
             </div>
        </div>
+    <asp:HiddenField runat="server" ID="inputProductPrice"/>
+    <asp:HiddenField runat="server" ID="inputDeliveryPrice"/>
 <script type="text/javascript" src="lib/jquery.1.4.2.js"></script>
 <script type="text/javascript" src="lib/jsDatePick.jquery.min.1.3.js"></script>
 <link rel="stylesheet" type="text/css" media="all" href="lib/jsDatePick_ltr.min.css" />
@@ -136,35 +145,10 @@
             var url = $('#SelectDelivery').val();
             $('#hrefView').attr('href', "detail_delivery.aspx?DeliveryId=" + url);
         };
-      </script>
-    <script type="text/javascript">
-        var onfocustext = function () {
-            $('#setDate').show(1000);
-        };
-	window.onload = function(){	
-		g_globalObject = new JsDatePick({
-			useMode:1,
-			isStripped:true,
-			target: "datetimepicker"
-			/*selectedDate:{				This is an example of what the full configuration offers.
-				day:5,						For full documentation about these settings please see the full version of the code.
-				month:9,
-				year:2006
-			},
-			yearsRange:[1978,2020],
-			limitToToday:false,
-			cellColorScheme:"beige",
-			dateFormat:"%m-%d-%Y",
-			imgPath:"img/",
-			weekStartDay:1*/
-		});
-		
-		g_globalObject.setOnSelectedDelegate(function(){
-			var obj = g_globalObject.getSelectedDay();	
-			document.getElementById('<%=inputDate.ClientID%>').textContent = obj.day + "/" + obj.month + "/" + obj.year;
-		    $('#setDate').hide(1000);
-		});
-        
-	};
-</script>
+        $('#inputDate').datepicker({
+            minDate: new Date(Date.now),
+            maxDate: new Date(Date.now),
+            setDate: new Date(Date.now)
+        });
+    </script>
 </asp:Content>

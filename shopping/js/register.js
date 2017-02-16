@@ -25,3 +25,10 @@ var setAccountType = function (typeRadio) {
 
     }
 }
+$(document).ready(function () {
+    $("#inputBirthDay").datepicker();
+    dtString = $("#<%=hdnDate.ClientID%>").val();
+    dtString = dtString.split(',');
+    var defaultDate = new Date(dtString[0], dtString[1], dtString[2]);
+    $("#inputBirthDay").datepicker("setDate", defaultDate);
+});

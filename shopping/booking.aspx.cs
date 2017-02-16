@@ -12,8 +12,7 @@ public partial class booking : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         tempClient = new MasterServiceClient();
-        //if (!IsPostBack)
-        //{
+        
             if (!long.TryParse(Request["ProductID"], out productid))
             { productid = 0; }
             var Item = tempClient.GetProductById(productid);
@@ -25,9 +24,12 @@ public partial class booking : System.Web.UI.Page
             {
                 productid = 0;
             }
+        if (!IsPostBack)
+        {
             var deliveries = tempClient.GetAllDelivery();
             if (deliveries.IsSuccess && deliveries.Result != null)
             {
+                SelectDelivery.Items.Clear();
                 foreach (Delivery tDelivery in deliveries.Result)
                 {
                     ListItem tempList = new ListItem();
@@ -39,6 +41,7 @@ public partial class booking : System.Web.UI.Page
             var producttype = tempClient.GetAllProductType();
             if (producttype.IsSuccess && producttype.Result != null)
             {
+                SelectType.Items.Clear();
                 foreach (ProductType tDelivery in producttype.Result)
                 {
                     ListItem tempList = new ListItem();
@@ -47,8 +50,57 @@ public partial class booking : System.Web.UI.Page
                     SelectType.Items.Add(tempList);
                 }
             }
-        //}
-    }  
+            SelectDelivery.SelectedIndexChanged += SelectDelivery_SelectedIndexChanged1;
+            SelectDeliveryType.SelectedIndexChanged += SelectDeliveryType_SelectedIndexChanged1;
+            SelectType.SelectedIndexChanged += SelectType_SelectedIndexChanged1;
+        }
+    }
+
+    private void SelectType_SelectedIndexChanged1(object sender, EventArgs e)
+    {
+        long producttype;
+        if (long.TryParse(SelectType.SelectedValue, out producttype))
+        {
+            var Price = tempClient.GetProductPriceByProductAndTypeId(productid, producttype);
+            if (Price.IsSuccess && Price.Result != null && Price.Result.Count != 0)
+            {
+                inputProductPrice.Value = Price.Result.FirstOrDefault().Price.ToString();
+            }
+            else
+            {
+                var DefaultPrice = tempClient.GetProductById(productid);
+                if (DefaultPrice.Result != null)
+                    inputProductPrice.Value = DefaultPrice.Result.Price.ToString();
+            }
+            inputCost.Value = Convert.ToDecimal(String.IsNullOrEmpty(inputDeliveryPrice.Value) ? "0" : inputDeliveryPrice.Value) + Convert.ToDecimal(String.IsNullOrEmpty(inputProductPrice.Value) ? "0" : inputProductPrice.Value) + "$";
+        }
+    }
+
+    private void SelectDeliveryType_SelectedIndexChanged1(object sender, EventArgs e)
+    {
+        try
+        {
+            inputDeliveryPrice.Value = SelectDeliveryType.SelectedValue;
+            inputCost.Value = Convert.ToDecimal(String.IsNullOrEmpty(inputDeliveryPrice.Value) ? "0" : inputDeliveryPrice.Value) + Convert.ToDecimal(String.IsNullOrEmpty(inputProductPrice.Value) ? "0" : inputProductPrice.Value) + "$";
+        }
+        catch { }
+    }
+
+    private void SelectDelivery_SelectedIndexChanged1(object sender, EventArgs e)
+    {
+        var result = tempClient.GetAllDeliveryTypeByDeliveryId(Convert.ToInt64(SelectDelivery.SelectedValue));
+        if (result.IsSuccess && result.Result != null)
+        {
+            SelectDeliveryType.Items.Clear();
+            foreach (var temp in result.Result)
+            {
+                ListItem tempList = new ListItem();
+                tempList.Value = temp.Price.ToString();
+                tempList.Text = temp.DeliveryDescription;
+                SelectDeliveryType.Items.Add(tempList);
+            }
+        }
+    }
 
     protected void btnBook_Click(object sender, EventArgs e)
     {
@@ -58,31 +110,41 @@ public partial class booking : System.Web.UI.Page
         {
             if (productid == 0)
             {
-                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Product Not Found !!\n Please Select Product Again" + "');", true);
+                Page.RegisterClientScriptBlock("myalert","<script>alert('" + "Product Not Found !!\\n Please Select Product Again" + "');</script>");
                 return;
             }
             if (!long.TryParse(Session["ClientId"].ToString(), out clientid))
             {
-                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Please Log In Before Do Booking !!" + "');", true);
+                Page.RegisterClientScriptBlock("myalert", "<script>alert('" + "Please Log In Before Do Booking !!" + "');</script>");
                 return;
             }
             tempUserClient = (Client)Session["UserClient"];
         }
         catch
         {
-            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Please Log In Before Do Booking !!" + "');", true);
+            Page.RegisterClientScriptBlock("myalert",string.Format("<script>alert('{0}');</script>","Please Log In Before Do Booking"));
             return;
         }
         Booking userBook = new Booking();
+        if (string.IsNullOrEmpty(inputDate.Value) || string.IsNullOrEmpty(inputtime.Value))
+        {
+            Page.RegisterClientScriptBlock("myalert", string.Format("<script>alert('{0}');</script>", "Please Select Dating Time"));
+            return;
+        }
+        DateTime dt =Convert.ToDateTime(inputDate.Value);
+        string[] timearr = inputtime.Value.Split(':');
+        dt = dt.AddHours(double.Parse(timearr[0]));
+        dt = dt.AddMinutes(double.Parse(timearr[1]));
+        userBook.DateTime = dt;
         userBook.ClientId = Convert.ToInt64(Session["ClientId"].ToString());
         userBook.ProductId = productid;
-        if (long.TryParse(SelectDelivery.Value, out deliveryid))
+        if (long.TryParse(SelectDelivery.SelectedValue, out deliveryid))
         {
             userBook.DeliveryId = deliveryid;
         }
         userBook.Location = inputOwnLocation.Value;
         userBook.PaymentMode = tempUserClient.PaymentMode == 1 ? "1": "2" ;
-        if (long.TryParse(SelectType.Value, out producttype))
+        if (long.TryParse(SelectType.SelectedValue, out producttype))
         {
             userBook.ProductType = producttype;
             var Price = tempClient.GetProductPriceByProductAndTypeId(productid, producttype);
@@ -96,7 +158,7 @@ public partial class booking : System.Web.UI.Page
                     userBook.ProductPrice = DefaultPrice.Result.Price;
             }
         }
-        userBook.TotalCost = 0;
+        userBook.TotalCost =Convert.ToDecimal(inputCost.Value);
         userBook.CreatedDate = DateTime.Now;
         userBook.ModifiedDate = DateTime.Now;
         userBook.DeliveryRespond = "O";
@@ -105,13 +167,13 @@ public partial class booking : System.Web.UI.Page
         var result = tempClient.SaveBooking(userBook);
         if (result.IsSuccess && result.Result != null)
         {
-            //ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Booking Success" + "');", true);
+            Page.RegisterClientScriptBlock("myalert",string.Format("<script>alert('{0}');</script>","Booking Successfully"));
             Response.Redirect("booking_success.aspx");
         }
         else {
-            
+            Page.RegisterClientScriptBlock("myalert", string.Format("<script>alert('{0}');</script>", "Booking Fails"));
         }
-       
+
     }
 
 
@@ -119,8 +181,91 @@ public partial class booking : System.Web.UI.Page
     protected void btnLinkView_Click(object sender, EventArgs e)
     {
         Response.Write("<script>");
-        Response.Write("window.open('detail_delivery.aspx?DeliveryId=" + SelectDelivery.Value+"','_blank')");
+        Response.Write("window.open('detail_delivery.aspx?DeliveryId=" + SelectDelivery.SelectedValue+"','_blank')");
         Response.Write("</script>");
         //Response.Redirect("detail_delivery.aspx?DeliveryId=" + SelectDelivery.Value);
+    }
+
+    protected void SelectDelivery_SelectedIndexChanged(object sender, EventArgs e)
+    {
+       var result = tempClient.GetAllDeliveryTypeByDeliveryId(Convert.ToInt64(SelectDelivery.SelectedValue));
+        if (result.IsSuccess && result.Result != null)
+        {
+            SelectDeliveryType.Items.Clear();
+            foreach (var temp in result.Result)
+            {
+                ListItem tempList = new ListItem();
+                tempList.Value = temp.Price.ToString();
+                tempList.Text = temp.DeliveryDescription;
+                SelectDeliveryType.Items.Add(tempList);
+            }
+        }
+    }
+
+    protected void SelectType_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        long producttype;
+        if (long.TryParse(SelectType.SelectedValue, out producttype))
+        {
+            var Price = tempClient.GetProductPriceByProductAndTypeId(productid, producttype);
+            if (Price.IsSuccess && Price.Result != null && Price.Result.Count != 0)
+            {
+               inputProductPrice.Value = Price.Result.FirstOrDefault().Price.ToString();
+            }
+            else
+            {
+                var DefaultPrice = tempClient.GetProductById(productid);
+                if (DefaultPrice.Result != null)
+                    inputProductPrice.Value = DefaultPrice.Result.Price.ToString();
+            }
+            inputCost.Value = Convert.ToDecimal( String.IsNullOrEmpty(inputDeliveryPrice.Value) ? "0": inputDeliveryPrice.Value) + Convert.ToDecimal(String.IsNullOrEmpty(inputProductPrice.Value) ? "0" : inputProductPrice.Value)+"";
+        }
+    }
+
+    protected void SelectDeliveryType_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            inputCost.Value = Convert.ToDecimal(String.IsNullOrEmpty(inputDeliveryPrice.Value) ? "0" : inputDeliveryPrice.Value) + Convert.ToDecimal(String.IsNullOrEmpty(inputProductPrice.Value) ? "0" : inputProductPrice.Value)+"";
+        }
+        catch { }
+    }
+
+    protected void btnTake_Click(object sender, EventArgs e)
+    {
+        var result = tempClient.GetAllDeliveryTypeByDeliveryId(Convert.ToInt64(SelectDelivery.SelectedValue));
+        if (result.IsSuccess && result.Result != null)
+        {
+            SelectDeliveryType.Items.Clear();
+            foreach (var temp in result.Result)
+            {
+                ListItem tempList = new ListItem();
+                tempList.Value = temp.Price.ToString();
+                tempList.Text = temp.DeliveryDescription;
+                SelectDeliveryType.Items.Add(tempList);
+            }
+        }
+    }
+
+
+    protected void btnCalculate_Click(object sender, EventArgs e)
+    {
+        long producttype;
+        if (long.TryParse(SelectType.SelectedValue, out producttype))
+        {
+            var Price = tempClient.GetProductPriceByProductAndTypeId(productid, producttype);
+            if (Price.IsSuccess && Price.Result != null && Price.Result.Count != 0)
+            {
+                inputProductPrice.Value = Price.Result.FirstOrDefault().Price.ToString();
+            }
+            else
+            {
+                var DefaultPrice = tempClient.GetProductById(productid);
+                if (DefaultPrice.Result != null)
+                    inputProductPrice.Value = DefaultPrice.Result.Price.ToString();
+            }
+        }
+        inputDeliveryPrice.Value = SelectDeliveryType.SelectedValue;
+        inputCost.Value = Convert.ToDecimal(String.IsNullOrEmpty(inputDeliveryPrice.Value) ? "0" : inputDeliveryPrice.Value) + Convert.ToDecimal(String.IsNullOrEmpty(inputProductPrice.Value) ? "0" : inputProductPrice.Value)+"";
     }
 }

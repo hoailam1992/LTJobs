@@ -94,7 +94,7 @@ namespace ServiceLibrary
             ReturnType<IList<Booking>> result = new ReturnType<IList<Booking>>();
             if (temp.Result != null)
             {
-                result.Result =new List<Booking>(temp.Result.Where(c => c.ProductRespond == "O"));
+                result.Result =new List<Booking>(temp.Result.Where(c => c.ProductRespond == "O" && c.Status!="F"));
                 result.IsSuccess = temp.IsSuccess;
                 result.ErrorMessage = temp.ErrorMessage;
             }
@@ -106,7 +106,7 @@ namespace ServiceLibrary
             ReturnType<IList<Booking>> result = new ReturnType<IList<Booking>>();
             if (temp.Result != null)
             {
-                result.Result = new List<Booking>(temp.Result.Where(c => c.DeliveryRespond == "O"));
+                result.Result = new List<Booking>(temp.Result.Where(c => c.DeliveryRespond == "O" && c.Status != "F"));
                 result.IsSuccess = temp.IsSuccess;
                 result.ErrorMessage = temp.ErrorMessage;
             }

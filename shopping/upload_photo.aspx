@@ -4,20 +4,20 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="form-group">              
-        <div>
-             <asp:FileUpload ID="FileUpload1" runat="server" />            
+        <div class="col-sm-8 ">
+             <asp:FileUpload CssClass="form-control" ID="FileUpload1" runat="server" />            
         </div>
-        <div>
-            <input type="text" id="inputDescription" runat="server"/>
+        <div  class="col-sm-8 "> 
+            <textarea  cols="20" rows="2" id="inputDescription"  class="form-control" runat="server"  style="margin:auto"></textarea>           
         </div>
-        <div>
-            <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="btnUpload_Click" />
+        <div  class="col-sm-8 ">
+            <asp:Button ID="btnUpload" CssClass="form-control" runat="server" Text="Upload" OnClick="btnUpload_Click" />
         </div>
-        <div>
+        <div  class="col-sm-8 ">
             <asp:Label ID="lblMessage" runat="server"></asp:Label>
         </div>
-        <div>
-            <asp:HyperLink ID="hyperlink" runat="server">View Uploaded Image</asp:HyperLink>
+        <div  class="col-sm-8 ">
+            <img data-u="image" class="fill" height="300" width="350" ID="uploadedimage" runat="server" />
         </div>
    </div>
 <script type="text/javascript">

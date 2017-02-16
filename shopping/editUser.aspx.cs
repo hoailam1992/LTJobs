@@ -117,8 +117,8 @@ public partial class editUser : System.Web.UI.Page
             currentUser.Phone = inputPhoneNumber.Value;
             currentUser.SecurityQuestionId = (short)selectQuestion.SelectedIndex;
             currentUser.SecurityAnswer = inputAnswer.Value;
-            string strdate = inputBirthDay.Value;
-            currentUser.DateOfBirth = new DateTime(Convert.ToInt32(strdate.Split('/')[2]), Convert.ToInt32(strdate.Split('/')[1]), Convert.ToInt32(strdate.Split('/')[0]));
+            if (!string.IsNullOrEmpty(inputBirthDay.Value))
+                currentUser.DateOfBirth = Convert.ToDateTime(inputBirthDay.Value);
             currentUser.Clients = null;
             currentUser.Products = null;
             currentUser.Deliveries = null;
@@ -199,7 +199,10 @@ public partial class editUser : System.Web.UI.Page
             var Result = tempClient.SaveUser(currentUser);
             if (Result.IsSuccess)
             {
-                Response.Redirect("login.aspx");
+                this.Page.RegisterClientScriptBlock("Key", string.Format("<script>alert('{0}')</script>", "Update Successful"));
+            }
+            else {
+                this.Page.RegisterClientScriptBlock("Key", string.Format("<script>alert('{0}')</script>",Result.ErrorMessage));
             }
         }
     }

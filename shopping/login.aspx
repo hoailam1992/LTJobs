@@ -11,14 +11,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
         <div class="form-group">
             <label for="inputUserName" class="col-sm-4 control-label">User Name</label>
-            <div class="col-sm-8 required">
+            <div class="col-sm-8">
                 <input type="text" class="form-control" runat="server" id="inputUserName" />
             </div>
         </div>
         <div class="form-group">
             <label for="inputPass" class="col-sm-4 control-label">Password</label>
-            <div class="col-sm-8 required">
-                <input type="text" class="form-control"  runat="server" id="inputPass" />
+            <div class="col-sm-8">
+                <input type="password" class="form-control"  runat="server" id="inputPass" />
             </div>
 
         </div>

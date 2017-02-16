@@ -17,4 +17,10 @@
     <div class="form-group">
         <a href="editUser.aspx">Update Info</a>       
     </div>  
+       <div class="form-group">
+        <a href="productprice.aspx">Product Price</a>       
+    </div>  
+     <div class="form-group">
+        <a href="deliveryprice.aspx">Delivery Price</a>       
+    </div>  
 </asp:Content>

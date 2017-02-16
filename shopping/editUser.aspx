@@ -88,7 +88,7 @@
         <div class="form-group">
             <label for="inputBirthDay" class="col-sm-4 control-label">Birthday</label>
             <div class="col-sm-8  required">
-                <input type="text" class="form-control" runat="server" id="inputBirthDay"  placeholder="dd/MM/YYYY" />
+                <input type="date" class="form-control" runat="server" id="inputBirthDay" placeholder="dd/MM/YYYY" />
             </div>
         </div>
         <div class="form-group">

@@ -94,8 +94,9 @@
         </div>
         <div class="form-group">
             <label for="inputBirthDay" class="col-sm-4 control-label">Birthday</label>
-            <div class="col-sm-8  required">
-                <input type="text" class="form-control" runat="server" id="inputBirthDay" placeholder="dd/MM/YYYY" />
+            <div class="col-sm-8  required">               
+                <input type="date" class="form-control" runat="server" id="inputBirthDay" placeholder="dd/MM/YYYY" />
+                <asp:HiddenField id="hdnDate" runat="server" />
             </div>
         </div>
         <div class="form-group">
@@ -170,6 +171,12 @@
                     <input type="text" class="form-control" runat="server" id="inputHotelName" />
                 </div>
             </div>
+              <div class="form-group">
+                <label for="inputQuality" class="col-sm-3 control-label">Quality</label>
+                <div class="col-sm-8 required">
+                    <input type="text" class="form-control" runat="server" id="inputQuality" />
+                </div>
+            </div>
             <div class="form-group">
                 <label for="inputAddress" class="col-sm-3 control-label">Address</label>
                 <div class="col-sm-8 required">
@@ -218,7 +225,7 @@
                     <input type="email" class="form-control" runat="server" id="inputHotelEmail" />
                 </div>
             </div>
-            <div class="form-group">
+     <%--       <div class="form-group">
                 <label for="inputPhoto" class="col-sm-3 control-label">Upload Photo</label>
                 <div class="col-sm-8">
                     <input type="file" name="img[]" class="file" />
@@ -230,7 +237,7 @@
                 <div class="form-group" style="width: 60%; margin: 0 auto">
                     <img src="img/love.jpg" class="img-rounded" alt="Cinque Terre" width="280" height="180" style="margin-top: 12px" />
                 </div>
-            </div>
+            </div>--%>
 
         </div>
         <!-- product register -->
@@ -347,6 +354,9 @@
             </div>
         </div>
    <!-- </form>-->
+   <%-- <script>
+        alert("Password Canot be null");
+    </script>--%>
     <script src="js/register.js">
     
     </script>

@@ -176,6 +176,12 @@
   <wsdl:message name="IMasterService_GetDeliveryTypeById_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDeliveryTypeByIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IMasterService_GetAllDeliveryTypeByDeliveryId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDeliveryTypeByDeliveryId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetAllDeliveryTypeByDeliveryId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDeliveryTypeByDeliveryIdResponse" />
+  </wsdl:message>
   <wsdl:message name="IMasterService_SaveFeedBack_InputMessage">
     <wsdl:part name="parameters" element="tns:SaveFeedBack" />
   </wsdl:message>
@@ -582,6 +588,10 @@
     <wsdl:operation name="GetDeliveryTypeById">
       <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetDeliveryTypeById" message="tns:IMasterService_GetDeliveryTypeById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetDeliveryTypeByIdResponse" message="tns:IMasterService_GetDeliveryTypeById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDeliveryTypeByDeliveryId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetAllDeliveryTypeByDeliveryId" message="tns:IMasterService_GetAllDeliveryTypeByDeliveryId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetAllDeliveryTypeByDeliveryIdResponse" message="tns:IMasterService_GetAllDeliveryTypeByDeliveryId_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="SaveFeedBack">
       <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/SaveFeedBack" message="tns:IMasterService_SaveFeedBack_InputMessage" />
@@ -1027,6 +1037,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetDeliveryTypeById">
       <soap:operation soapAction="http://tempuri.org/IMasterService/GetDeliveryTypeById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDeliveryTypeByDeliveryId">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetAllDeliveryTypeByDeliveryId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

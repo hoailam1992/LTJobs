@@ -17,5 +17,7 @@ namespace ServiceLibrary
         ReturnType<bool> DeleteDeliveryTypeById(long id);       
         [OperationContract]
         ReturnType<DeliveryType> GetDeliveryTypeById(long id);
+        [OperationContract]
+        ReturnType<IList<DeliveryType>> GetAllDeliveryTypeByDeliveryId(long id);
     }
 }

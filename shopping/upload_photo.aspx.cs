@@ -18,12 +18,13 @@ public partial class upload_photo : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            lblMessage.Visible = false; hyperlink.Visible = false;
+            lblMessage.Visible = false; 
         }
         if (!long.TryParse(Session["UserId"]!=null? Session["UserId"].ToString():"a", out userId))
         {
             Response.Redirect("login.aspx");
         }
+
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)
@@ -55,14 +56,14 @@ public partial class upload_photo : System.Web.UI.Page
                 {
                     lblMessage.Visible = true;
                     lblMessage.ForeColor = System.Drawing.Color.Green;
-                    lblMessage.Text = "Upload Successful";                  
+                    lblMessage.Text = "Upload Successful";
+                    uploadedimage.Src="data: image / png; base64," +Convert.ToBase64String(Result.Result.Image);
                 }
             }
         } else {
             lblMessage.Visible = true;
             lblMessage.ForeColor = System.Drawing.Color.Red;
-            lblMessage.Text = "Only images (.jpg, .png, .gif and .bmp) can be uploaded";
-            hyperlink.Visible = false;
+            lblMessage.Text = "Only images (.jpg, .png, .gif and .bmp) can be uploaded";           
         }
     }
 }

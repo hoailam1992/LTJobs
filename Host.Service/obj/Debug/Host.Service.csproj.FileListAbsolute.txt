@@ -216,6 +216,8 @@ D:\Users\HoaiLam\Source\Repos\LTJobs\Host.Service\bin\EFWeb.pdb
 E:\Desmond_Website\JT\LTJobs\Host.Service\bin\Host.Service.dll.config
 E:\Desmond_Website\JT\LTJobs\Host.Service\bin\Host.Service.dll
 E:\Desmond_Website\JT\LTJobs\Host.Service\bin\Host.Service.pdb
+E:\Desmond_Website\JT\LTJobs\Host.Service\bin\EntityFramework.dll
+E:\Desmond_Website\JT\LTJobs\Host.Service\bin\EntityFramework.SqlServer.dll
 E:\Desmond_Website\JT\LTJobs\Host.Service\bin\Microsoft.Data.Edm.dll
 E:\Desmond_Website\JT\LTJobs\Host.Service\bin\Microsoft.Data.OData.dll
 E:\Desmond_Website\JT\LTJobs\Host.Service\bin\Microsoft.Data.Services.Client.dll
@@ -225,9 +227,10 @@ E:\Desmond_Website\JT\LTJobs\Host.Service\bin\System.Spatial.dll
 E:\Desmond_Website\JT\LTJobs\Host.Service\bin\Models.dll
 E:\Desmond_Website\JT\LTJobs\Host.Service\bin\BussinessLayer.dll
 E:\Desmond_Website\JT\LTJobs\Host.Service\bin\DataAccess.dll
-E:\Desmond_Website\JT\LTJobs\Host.Service\bin\EntityFramework.dll
 E:\Desmond_Website\JT\LTJobs\Host.Service\bin\EFWeb.dll
 E:\Desmond_Website\JT\LTJobs\Host.Service\bin\ServiceLibrary.pdb
+E:\Desmond_Website\JT\LTJobs\Host.Service\bin\EntityFramework.xml
+E:\Desmond_Website\JT\LTJobs\Host.Service\bin\EntityFramework.SqlServer.xml
 E:\Desmond_Website\JT\LTJobs\Host.Service\bin\Microsoft.Data.Edm.xml
 E:\Desmond_Website\JT\LTJobs\Host.Service\bin\Microsoft.Data.OData.xml
 E:\Desmond_Website\JT\LTJobs\Host.Service\bin\Microsoft.Data.Services.xml
@@ -236,7 +239,6 @@ E:\Desmond_Website\JT\LTJobs\Host.Service\bin\System.Spatial.xml
 E:\Desmond_Website\JT\LTJobs\Host.Service\bin\Models.pdb
 E:\Desmond_Website\JT\LTJobs\Host.Service\bin\BussinessLayer.pdb
 E:\Desmond_Website\JT\LTJobs\Host.Service\bin\DataAccess.pdb
-E:\Desmond_Website\JT\LTJobs\Host.Service\bin\EntityFramework.xml
 E:\Desmond_Website\JT\LTJobs\Host.Service\bin\EFWeb.pdb
 E:\Desmond_Website\JT\LTJobs\Host.Service\bin\de\Microsoft.Data.Edm.resources.dll
 E:\Desmond_Website\JT\LTJobs\Host.Service\bin\es\Microsoft.Data.Edm.resources.dll
@@ -286,5 +288,3 @@ E:\Desmond_Website\JT\LTJobs\Host.Service\bin\zh-Hant\System.Spatial.resources.d
 E:\Desmond_Website\JT\LTJobs\Host.Service\obj\Debug\Host.Service.csprojResolveAssemblyReference.cache
 E:\Desmond_Website\JT\LTJobs\Host.Service\obj\Debug\Host.Service.dll
 E:\Desmond_Website\JT\LTJobs\Host.Service\obj\Debug\Host.Service.pdb
-E:\Desmond_Website\JT\LTJobs\Host.Service\bin\EntityFramework.SqlServer.dll
-E:\Desmond_Website\JT\LTJobs\Host.Service\bin\EntityFramework.SqlServer.xml

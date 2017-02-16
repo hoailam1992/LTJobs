@@ -22,5 +22,9 @@ namespace ServiceLibrary
         {
             return (new DeliveryTypeBusinessService()).GetById(id);
         }
+        public ReturnType<IList<DeliveryType>> GetAllDeliveryTypeByDeliveryId(long id)
+        {
+            return (new DeliveryTypeBusinessService()).GetList(c => c.DeliveryId == id);
+        }
     }
 }
