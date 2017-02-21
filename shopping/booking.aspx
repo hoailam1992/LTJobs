@@ -100,14 +100,26 @@
               <label class="col-sm-4 control-label">Payment Mode</label>
                 <div class="col-sm-8 required">
                     <label class="radio-inline">
-                        <input type="radio" name="paymentradio" runat="server" id="rdCCard" />Credit Card</label>
+                        <input type="radio" name="paymentradio" checked="true" runat="server" id="rdCCard" />Credit Card</label>
                     <label class="radio-inline">
                         <input type="radio" name="paymentradio" runat="server" id="rdCash" />Cash</label>
                 </div>
             </div>
+        <div class="form-group">
+            <label for="inputProductCost" class="col-sm-4 control-label">Product Price </label>
+            <div class="col-sm-8">                
+               <input type="Text"  class="form-control" readonly="true" runat="server" id="inputProductCost" />
+            </div>
+        </div>  
+        <div class="form-group">
+            <label for="inputDeliveryCost" class="col-sm-4 control-label">Delivery Price </label>
+            <div class="col-sm-8">                
+                <input type="Text"  class="form-control" readonly="true" runat="server" id="inputDeliveryCost" />
+            </div>
+        </div
       <div class="form-group">
-            <label for="inputDate" class="col-sm-4 control-label">Total</label>
-            <div class="col-sm-8 required">
+            <label for="inputCost" class="col-sm-4 control-label">Total</label>
+            <div class="col-sm-8">                
                 <input type="Text"  class="form-control" readonly="true" runat="server" id="inputCost" />
             </div>
         </div>

@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c6315f95d545453587180841d1d664cb" Name="Diagram1" ZoomLevel="94">
+      <Diagram DiagramId="c6315f95d545453587180841d1d664cb" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="dbwebModel.Booking" Width="1.5" PointX="5.25" PointY="17.125" />
         <EntityTypeShape EntityType="dbwebModel.ClientComment" Width="1.5" PointX="8.25" PointY="16.125" />
         <EntityTypeShape EntityType="dbwebModel.Client" Width="1.5" PointX="3" PointY="5.125" />
         <EntityTypeShape EntityType="dbwebModel.Delivery" Width="1.5" PointX="3" PointY="10.125" />
         <EntityTypeShape EntityType="dbwebModel.DeliveryPrice" Width="1.5" PointX="7.5" PointY="11.25" />
         <EntityTypeShape EntityType="dbwebModel.DeliveryType" Width="1.5" PointX="5.25" PointY="10.625" />
-        <EntityTypeShape EntityType="dbwebModel.FeedBack" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="dbwebModel.FeedBack" Width="1.5" PointX="6.625" PointY="3.625" />
         <EntityTypeShape EntityType="dbwebModel.Message" Width="1.5" PointX="3" PointY="15.125" />
         <EntityTypeShape EntityType="dbwebModel.MoneyTransaction" Width="1.5" PointX="3" PointY="22.75" />
         <EntityTypeShape EntityType="dbwebModel.Photo" Width="1.5" PointX="3" PointY="18.625" />
@@ -40,6 +40,18 @@
         <AssociationConnector Association="dbwebModel.FK_productprices_products" />
         <AssociationConnector Association="dbwebModel.FK_product_user" />
         <AssociationConnector Association="dbwebModel.FK_video_product" />
+        <EntityTypeShape EntityType="dbwebModel.Tracking" Width="1.5" PointX="6.875" PointY="23.875" />
+        <AssociationConnector Association="dbwebModel.TrackingMoneyTransaction" ManuallyRouted="true" >
+          <ConnectorPoint PointX="6.875" PointY="24.884449259440103" />
+          <ConnectorPoint PointX="6.083333333333333" PointY="24.884449259440103" />
+          <ConnectorPoint PointX="5.916666666666667" PointY="24.884449259440103" />
+          <ConnectorPoint PointX="5.020833333333333" PointY="24.884449259440103" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="24.884449259440103" />
+          <ConnectorPoint PointX="4.5" PointY="24.884449259440103" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="dbwebModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
+        <AssociationConnector Association="dbwebModel.FK_Bookings_Trackings" />
+        <AssociationConnector Association="dbwebModel.FK_BookingTracking" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

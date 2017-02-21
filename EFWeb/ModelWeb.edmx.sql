@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 01/12/2017 00:04:39
+-- Date Created: 02/21/2017 16:14:04
 -- Generated from EDMX file: E:\Desmond_Website\JT\LTJobs\EFWeb\ModelWeb.edmx
 -- --------------------------------------------------
 
@@ -150,7 +150,9 @@ CREATE TABLE [dbo].[Bookings] (
     [CreatedDate] datetime  NULL,
     [Status] char(1)  NULL,
     [IsDeleted] bit  NULL,
-    [ModifiedDate] datetime  NOT NULL
+    [ModifiedDate] datetime  NOT NULL,
+    [ProductValue] decimal(18,0)  NULL,
+    [DeliveryValue] decimal(18,0)  NULL
 );
 GO
 
@@ -265,7 +267,8 @@ CREATE TABLE [dbo].[MoneyTransactions] (
     [CCExpiredYear] int  NULL,
     [CCPin] nvarchar(max)  NULL,
     [CreatedDate] datetime  NOT NULL,
-    [ModifiedDate] datetime  NULL
+    [ModifiedDate] datetime  NULL,
+    [TrackingId] bigint  NULL
 );
 GO
 
@@ -346,7 +349,7 @@ CREATE TABLE [dbo].[Users] (
     [Id] bigint IDENTITY(1,1) NOT NULL,
     [UserName] varchar(25)  NOT NULL,
     [Password] varchar(100)  NOT NULL,
-    [FullName] varchar(100)  NOT NULL,
+    [FullName] nvarchar(100)  NOT NULL,
     [DateOfBirth] datetime  NOT NULL,
     [Active] bit  NOT NULL,
     [Email] varchar(100)  NULL,
@@ -376,6 +379,22 @@ CREATE TABLE [dbo].[Videos] (
     [IsVisible] bit  NULL,
     [VIPMemberOnly] bit  NULL,
     [Status] char(1)  NOT NULL
+);
+GO
+
+-- Creating table 'Trackings'
+CREATE TABLE [dbo].[Trackings] (
+    [Id] bigint IDENTITY(1,1) NOT NULL,
+    [BookingId] bigint  NOT NULL,
+    [ProductConfirm] nvarchar(max)  NULL,
+    [ClientConfirm] nvarchar(max)  NOT NULL,
+    [DeliveryConfirm] nvarchar(max)  NOT NULL,
+    [DateTime] datetime  NOT NULL,
+    [ModifiedDate] datetime  NOT NULL,
+    [RemarkProduct] nvarchar(max)  NULL,
+    [RemarkClient] nvarchar(max)  NULL,
+    [RemarkDelivery] nvarchar(max)  NULL,
+    [CreatedDate] datetime  NOT NULL
 );
 GO
 
@@ -476,6 +495,12 @@ GO
 -- Creating primary key on [Id] in table 'Videos'
 ALTER TABLE [dbo].[Videos]
 ADD CONSTRAINT [PK_Videos]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'Trackings'
+ALTER TABLE [dbo].[Trackings]
+ADD CONSTRAINT [PK_Trackings]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -766,6 +791,36 @@ GO
 CREATE INDEX [IX_FK_video_product]
 ON [dbo].[Videos]
     ([ProductId]);
+GO
+
+-- Creating foreign key on [BookingId] in table 'Trackings'
+ALTER TABLE [dbo].[Trackings]
+ADD CONSTRAINT [FK_BookingTracking]
+    FOREIGN KEY ([BookingId])
+    REFERENCES [dbo].[Bookings]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_BookingTracking'
+CREATE INDEX [IX_FK_BookingTracking]
+ON [dbo].[Trackings]
+    ([BookingId]);
+GO
+
+-- Creating foreign key on [TrackingId] in table 'MoneyTransactions'
+ALTER TABLE [dbo].[MoneyTransactions]
+ADD CONSTRAINT [FK_TrackingMoneyTransaction]
+    FOREIGN KEY ([TrackingId])
+    REFERENCES [dbo].[Trackings]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_TrackingMoneyTransaction'
+CREATE INDEX [IX_FK_TrackingMoneyTransaction]
+ON [dbo].[MoneyTransactions]
+    ([TrackingId]);
 GO
 
 -- --------------------------------------------------

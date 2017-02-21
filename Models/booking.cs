@@ -14,14 +14,16 @@ namespace Models
     using System.Runtime.Serialization;
 
     [DataContract(IsReference = true)]
-    public partial class Booking : ModelBase
+    public partial class Booking:ModelBase
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Booking()
         {
             this.Reports = new HashSet<Report>();
+            this.Trackings = new HashSet<Tracking>();
         }
-       
+        [DataMember]
+        public long Id { get; set; }
         [DataMember]
         public long ClientId { get; set; }
         [DataMember]
@@ -39,10 +41,6 @@ namespace Models
         [DataMember]
         public decimal TotalCost { get; set; }
         [DataMember]
-        public decimal ProductValue { get; set; }
-        [DataMember]
-        public decimal DeliveryValue { get; set; }
-        [DataMember]
         public long ProductType { get; set; }
         [DataMember]
         public string ProductRespond { get; set; }
@@ -59,6 +57,12 @@ namespace Models
         [DataMember]
         public System.DateTime ModifiedDate { get; set; }
         [DataMember]
+        public Nullable<decimal> ProductValue { get; set; }
+        [DataMember]
+        public Nullable<decimal> DeliveryValue { get; set; }
+        [DataMember]
+        public Nullable<long> TrackingId { get; set; }
+        [DataMember]
 
         public virtual Client Client { get; set; }
         [DataMember]
@@ -68,5 +72,10 @@ namespace Models
         [DataMember]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Report> Reports { get; set; }
+        [DataMember]
+        public virtual Tracking Tracking { get; set; }
+        [DataMember]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tracking> Trackings { get; set; }
     }
 }

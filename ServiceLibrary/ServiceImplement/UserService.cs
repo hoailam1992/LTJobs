@@ -68,6 +68,26 @@ namespace ServiceLibrary
                     {
                         ResultUser.Result.Products = new ObservableCollection<Product>();
                         ResultUser.Result.Products.Add(ResultProduct.Result);
+                        ProductTypeBusinessService ptBuss = new ProductTypeBusinessService();
+                        ProductPriceBusinessService ppBuss = new ProductPriceBusinessService();
+                        var Producttype = ptBuss.GetAll();
+                        if (Producttype.IsSuccess && Producttype.Result.Count != 0)
+                        {
+                            foreach (var protype in Producttype.Result)
+                            {
+                                ProductPrice temp = new ProductPrice();
+                                temp.Id = 0;
+                                temp.Active = true;
+                                temp.Price = 0;
+                                temp.ProductId = ResultProduct.Result.Id;
+                                temp.ProductTypeId = protype.Id;
+                                var Price = ppBuss.Save(temp);
+                                if (!Price.IsSuccess)
+                                {
+                                    ResultUser.ErrorMessage += "\nPrice Type " + protype.Id + " can not created";
+                                }
+                            }
+                        }
                         return ResultUser;
                     }
                     else

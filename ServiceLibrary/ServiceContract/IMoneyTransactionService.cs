@@ -21,5 +21,6 @@ namespace ServiceLibrary
         ReturnType<IList<MoneyTransaction>> GetMoneyTransactionByDestinationId(long id);
         [OperationContract]
         ReturnType<MoneyTransaction> GetMoneyTransactionById(long id);
+      
     }
 }

@@ -98,6 +98,9 @@
       <DependentUpon>WebModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ReturnType.cs" />
+    <Compile Include="Tracking.cs">
+      <DependentUpon>WebModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
       <DependentUpon>WebModel.tt</DependentUpon>
     </Compile>

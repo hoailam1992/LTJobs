@@ -43,5 +43,7 @@ namespace EFWeb
         public virtual DbSet<Report> Reports { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Video> Videos { get; set; }
+        public virtual DbSet<Tracking> Trackings { get; set; }
+       
     }
 }

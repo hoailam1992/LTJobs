@@ -29,7 +29,7 @@ public partial class booking : System.Web.UI.Page
             var deliveries = tempClient.GetAllDelivery();
             if (deliveries.IsSuccess && deliveries.Result != null)
             {
-                SelectDelivery.Items.Clear();
+                //SelectDelivery.Items.Clear();
                 foreach (Delivery tDelivery in deliveries.Result)
                 {
                     ListItem tempList = new ListItem();
@@ -123,6 +123,7 @@ public partial class booking : System.Web.UI.Page
         catch
         {
             Page.RegisterClientScriptBlock("myalert",string.Format("<script>alert('{0}');</script>","Please Log In Before Do Booking"));
+            Response.Redirect("login.aspx");
             return;
         }
         Booking userBook = new Booking();
@@ -141,24 +142,37 @@ public partial class booking : System.Web.UI.Page
         if (long.TryParse(SelectDelivery.SelectedValue, out deliveryid))
         {
             userBook.DeliveryId = deliveryid;
+            if (string.IsNullOrEmpty(SelectDeliveryType.SelectedValue))
+            {
+                Page.RegisterClientScriptBlock("myalert", string.Format("<script>alert('{0}');</script>", "Please Select Delivery  Type"));
+                return;
+            }
         }
+        Calculate();
         userBook.Location = inputOwnLocation.Value;
         userBook.PaymentMode = tempUserClient.PaymentMode == 1 ? "1": "2" ;
-        if (long.TryParse(SelectType.SelectedValue, out producttype))
-        {
-            userBook.ProductType = producttype;
-            var Price = tempClient.GetProductPriceByProductAndTypeId(productid, producttype);
-            if (Price.IsSuccess && Price.Result != null && Price.Result.Count != 0)
-            {
-                userBook.ProductPrice = Price.Result.FirstOrDefault().Price;
-            }
-            else {
-                var DefaultPrice = tempClient.GetProductById(productid);
-                if (DefaultPrice.Result != null)
-                    userBook.ProductPrice = DefaultPrice.Result.Price;
-            }
-        }
-        userBook.TotalCost =Convert.ToDecimal(inputCost.Value);
+        //if (long.TryParse(SelectType.SelectedValue, out producttype))
+        //{
+        //    userBook.ProductType = producttype;
+        //    var Price = tempClient.GetProductPriceByProductAndTypeId(productid, producttype);
+        //    if (Price.IsSuccess && Price.Result != null && Price.Result.Count != 0)
+        //    {
+        //        userBook.ProductPrice = Price.Result.FirstOrDefault().Price;
+        //        userBook.ProductValue = userBook.ProductPrice.Value;
+        //    }
+        //    else {
+        //        var DefaultPrice = tempClient.GetProductById(productid);
+        //        if (DefaultPrice.Result != null)
+        //        {
+        //            userBook.ProductPrice = DefaultPrice.Result.Price;
+        //            userBook.ProductValue = userBook.ProductPrice.Value;
+        //        }
+        //    }
+        //}
+        userBook.ProductPrice = Convert.ToDecimal(String.IsNullOrEmpty(inputProductPrice.Value) ? "0" : inputProductPrice.Value);
+        userBook.ProductValue = Convert.ToDecimal(String.IsNullOrEmpty(inputProductPrice.Value) ? "0": inputProductPrice.Value);
+        userBook.DeliveryValue = Convert.ToDecimal(String.IsNullOrEmpty(inputDeliveryPrice.Value) ? "0" : inputDeliveryPrice.Value);
+        userBook.TotalCost = Convert.ToDecimal(inputCost.Value);
         userBook.CreatedDate = DateTime.Now;
         userBook.ModifiedDate = DateTime.Now;
         userBook.DeliveryRespond = "O";
@@ -250,6 +264,10 @@ public partial class booking : System.Web.UI.Page
 
     protected void btnCalculate_Click(object sender, EventArgs e)
     {
+        Calculate();
+    }
+    public void Calculate()
+    {
         long producttype;
         if (long.TryParse(SelectType.SelectedValue, out producttype))
         {
@@ -265,7 +283,9 @@ public partial class booking : System.Web.UI.Page
                     inputProductPrice.Value = DefaultPrice.Result.Price.ToString();
             }
         }
+        inputProductCost.Value = inputProductPrice.Value;
         inputDeliveryPrice.Value = SelectDeliveryType.SelectedValue;
-        inputCost.Value = Convert.ToDecimal(String.IsNullOrEmpty(inputDeliveryPrice.Value) ? "0" : inputDeliveryPrice.Value) + Convert.ToDecimal(String.IsNullOrEmpty(inputProductPrice.Value) ? "0" : inputProductPrice.Value)+"";
+        inputDeliveryCost.Value = inputDeliveryPrice.Value;
+        inputCost.Value = Convert.ToDecimal(String.IsNullOrEmpty(inputDeliveryPrice.Value) ? "0" : inputDeliveryPrice.Value) + Convert.ToDecimal(String.IsNullOrEmpty(inputProductPrice.Value) ? "0" : inputProductPrice.Value) + "";
     }
 }

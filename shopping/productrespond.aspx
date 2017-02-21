@@ -74,14 +74,14 @@
         <div class="form-group">
                  <label for="inputOwnLocation" class="col-sm-4 control-label">Private Location</label>
                 <div class="col-sm-8 required">
-                    <textarea  cols="20" rows="2" id="inputOwnLocation"  class="form-control" runat="server"  style="margin:auto"></textarea>
+                    <textarea  cols="20" rows="2" id="inputOwnLocation" readonly="true"  class="form-control" runat="server"  style="margin:auto"></textarea>
             </div> 
         </div>
          <div class="form-group">
               <label class="col-sm-4 control-label">Payment Mode</label>
                 <div class="col-sm-8 required">
                     <label class="radio-inline">
-                        <input type="radio" name="paymentradio" runat="server" id="rdCCard" />Credit Card</label>
+                        <input type="radio" name="paymentradio" readonly="true" runat="server" id="rdCCard" />Credit Card</label>
                     <label class="radio-inline">
                         <input type="radio" name="paymentradio" runat="server" id="rdCash" />Cash</label>
                 </div>

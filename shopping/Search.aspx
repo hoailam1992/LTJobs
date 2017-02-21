@@ -27,6 +27,13 @@
                 <input type="text" class="form-control" runat="server" id="inputMinAge" />     To       
                 <input type="text" class="form-control" runat="server" id="inputMaxAge" />
             </div>
+        </div>       
+         <div class="form-group">
+            <label for="inputMinPrice" class="col-sm-3 control-label">Price</label>
+            <div class="col-sm-8  required">
+                <input type="text" class="form-control" runat="server" id="inputMinPrice" />     To       
+                <input type="text" class="form-control" runat="server" id="inputMaxPrice" />
+            </div>
         </div>        
         <%--  <div class="form-group">
             <label for="inputCode" class="col-sm-4 control-label">Age</label>

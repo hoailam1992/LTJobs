@@ -93,6 +93,20 @@
       <End Role="Product" EntitySet="Products" />
       <End Role="Video" EntitySet="Videos" />
     </AssociationSet>
+    <EntitySet Name="Trackings" EntityType="dbwebModel.Tracking" />
+    <AssociationSet Name="TrackingMoneyTransaction" Association="dbwebModel.TrackingMoneyTransaction">
+      <End Role="Tracking" EntitySet="Trackings" />
+      <End Role="MoneyTransaction" EntitySet="MoneyTransactions" />
+    </AssociationSet>
+    <EntitySet Name="sysdiagrams" EntityType="dbwebModel.sysdiagram" />
+    <AssociationSet Name="FK_Bookings_Trackings" Association="dbwebModel.FK_Bookings_Trackings">
+      <End Role="Tracking" EntitySet="Trackings" />
+      <End Role="Booking" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BookingTracking" Association="dbwebModel.FK_BookingTracking">
+      <End Role="Booking" EntitySet="Bookings" />
+      <End Role="Tracking" EntitySet="Trackings" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Booking">
     <Key>
@@ -119,8 +133,11 @@
     <NavigationProperty Name="Delivery" Relationship="dbwebModel.FK_booking_delivery" FromRole="Booking" ToRole="Delivery" />
     <NavigationProperty Name="Product" Relationship="dbwebModel.FK_booking_product" FromRole="Booking" ToRole="Product" />
     <NavigationProperty Name="Reports" Relationship="dbwebModel.FK_report_booking" FromRole="Booking" ToRole="Report" />
-    <Property Name="ProductValue" Type="Decimal" Nullable="true" />
-    <Property Name="DeliveryValue" Type="Decimal" Nullable="true" />
+    <Property Name="ProductValue" Type="Decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="DeliveryValue" Type="Decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="TrackingId" Type="Int64" />
+    <NavigationProperty Name="Tracking" Relationship="dbwebModel.FK_Bookings_Trackings" FromRole="Booking" ToRole="Tracking" />
+    <NavigationProperty Name="Trackings" Relationship="dbwebModel.FK_BookingTracking" FromRole="Booking" ToRole="Tracking" />
   </EntityType>
   <EntityType Name="ClientComment">
     <Key>
@@ -252,6 +269,8 @@
     <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
     <NavigationProperty Name="User" Relationship="dbwebModel.FK_moneytransaction_user" FromRole="MoneyTransaction" ToRole="User" />
     <NavigationProperty Name="User1" Relationship="dbwebModel.FK_moneytransaction_user1" FromRole="MoneyTransaction" ToRole="User" />
+    <Property Name="TrackingId" Type="Int64" Nullable="true" />
+    <NavigationProperty Name="Tracking" Relationship="dbwebModel.TrackingMoneyTransaction" FromRole="MoneyTransaction" ToRole="Tracking" />
   </EntityType>
   <EntityType Name="Photo">
     <Key>
@@ -342,7 +361,7 @@
     <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="UserName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
     <Property Name="Password" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="FullName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FullName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Active" Type="Boolean" Nullable="false" />
     <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
@@ -606,6 +625,71 @@
       </Principal>
       <Dependent Role="Video">
         <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Tracking">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BookingId" Type="Int64" Nullable="false" />
+    <Property Name="ProductConfirm" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="ClientConfirm" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="DeliveryConfirm" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RemarkProduct" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="RemarkClient" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="RemarkDelivery" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="MoneyTransactions" Relationship="dbwebModel.TrackingMoneyTransaction" FromRole="Tracking" ToRole="MoneyTransaction" />
+    <NavigationProperty Name="Bookings" Relationship="dbwebModel.FK_Bookings_Trackings" FromRole="Tracking" ToRole="Booking" />
+    <NavigationProperty Name="Booking" Relationship="dbwebModel.FK_BookingTracking" FromRole="Tracking" ToRole="Booking" />
+  </EntityType>
+  <Association Name="TrackingMoneyTransaction">
+    <End Type="dbwebModel.Tracking" Role="Tracking" Multiplicity="0..1" />
+    <End Type="dbwebModel.MoneyTransaction" Role="MoneyTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tracking">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MoneyTransaction">
+        <PropertyRef Name="TrackingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Bookings_Trackings">
+    <End Type="dbwebModel.Tracking" Role="Tracking" Multiplicity="0..1" />
+    <End Type="dbwebModel.Booking" Role="Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tracking">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Booking">
+        <PropertyRef Name="TrackingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BookingTracking">
+    <End Type="dbwebModel.Booking" Role="Booking" Multiplicity="1" />
+    <End Type="dbwebModel.Tracking" Role="Tracking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Booking">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tracking">
+        <PropertyRef Name="BookingId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

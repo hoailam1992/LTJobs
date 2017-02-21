@@ -25,6 +25,14 @@ namespace BusinessLayer.Service
             }
             return result;
         }
+        public ReturnType<MoneyTransaction> SaveMoneyTransaction(MoneyTransaction entity)
+        {
+            if (entity.Id > 0)
+            {
+                entity.ModifiedDate = DateTime.Now;
+            }
+            return this.Save(entity);
+        }
 
         public ReturnType<IList<MoneyTransaction>> GetMoneyTransactionByDestinationId(long id)
         {

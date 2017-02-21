@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Common\BusinessServiceBase.cs" />
     <Compile Include="Common\IBusinessServiceBase.cs" />
+    <Compile Include="IService\ITrackingBusinessService.cs" />
     <Compile Include="IService\IProductPriceBusinessService.cs" />
     <Compile Include="IService\IPhotoBusinessService.cs" />
     <Compile Include="IService\IMoneyTransactionBusinessService.cs" />

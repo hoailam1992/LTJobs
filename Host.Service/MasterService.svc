@@ -1,4 +1,2 @@
-﻿
-
-<%@ ServiceHost Language="C#" Debug="true" Service="ServiceLibrary.MasterService" %>
+﻿<%@ ServiceHost Language="C#" Debug="true"  Service="ServiceLibrary.MasterService" %>
 

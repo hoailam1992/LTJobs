@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="QlqGj4/V9+6C1iiDchVeHZ/L2f4=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="/S/v/72dXPLdrvhK6Mu97kPaC6s=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IMasterService">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IMasterService" contract="MasterService.IMasterService" bindingType="basicHttpBinding" address="http://localhost:7368/MasterService.svc" bindingConfiguration="BasicHttpBinding_IMasterService">
+    <endpoint name="BasicHttpBinding_IMasterService" contract="MasterService.IMasterService" bindingType="basicHttpBinding" address="http://localhost:8080/WCFHost/MasterService.svc" bindingConfiguration="BasicHttpBinding_IMasterService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:7368/MasterService.svc</serializedValue>
+          <serializedValue>http://localhost:8080/WCFHost/MasterService.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

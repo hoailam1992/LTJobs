@@ -29,7 +29,7 @@ public partial class Search : System.Web.UI.Page
             newItem.Language2 = pro.Language2;
             newItem.ProductDescription = pro.ProductDescription;
             var ItemPhoto = tempClient.GetDefaultPhotoByUserId(pro.UserId).Result;
-            newItem.DefaultImage = "data:image/png;base64," + Convert.ToBase64String(ItemPhoto.Image) ?? "img/love.jpg";
+            newItem.DefaultImage = Convert.ToBase64String(ItemPhoto.Image) != null? "data:image/png;base64," + Convert.ToBase64String(ItemPhoto.Image) : "img/love.jpg";
             FullProduct.Add(newItem);
         }   
     }
@@ -49,6 +49,16 @@ public partial class Search : System.Web.UI.Page
             if (int.TryParse(inputMinAge.Value, out minage))
             {
                 if (!String.IsNullOrWhiteSpace(inputMinAge.Value) && !(pro.Age >= Convert.ToInt32(inputMinAge.Value)))
+                    continue;
+            }
+            if (int.TryParse(inputMinPrice.Value, out maxage))
+            {
+                if (!String.IsNullOrWhiteSpace(inputMinPrice.Value) && !(pro.Price >= Convert.ToInt32(inputMinPrice.Value)))
+                    continue;
+            }
+            if (int.TryParse(inputMaxPrice.Value, out minage))
+            {
+                if (!String.IsNullOrWhiteSpace(inputMaxPrice.Value) && !(pro.Price <= Convert.ToInt32(inputMaxPrice.Value)))
                     continue;
             }
             if (!String.IsNullOrEmpty(selectLanguage1.Value))

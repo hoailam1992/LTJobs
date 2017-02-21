@@ -14,9 +14,10 @@ namespace Models
     using System.Runtime.Serialization;
 
     [DataContract(IsReference = true)]
-    public partial class MoneyTransaction : ModelBase
+    public partial class MoneyTransaction:ModelBase
     {
-      
+        [DataMember]
+        public long Id { get; set; }
         [DataMember]
         public string Code { get; set; }
         [DataMember]
@@ -50,9 +51,13 @@ namespace Models
         [DataMember]
         public Nullable<System.DateTime> ModifiedDate { get; set; }
         [DataMember]
+        public Nullable<long> TrackingId { get; set; }
+        [DataMember]
 
         public virtual User User { get; set; }
         [DataMember]
         public virtual User User1 { get; set; }
+        [DataMember]
+        public virtual Tracking Tracking { get; set; }
     }
 }

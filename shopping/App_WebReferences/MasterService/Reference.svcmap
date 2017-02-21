@@ -21,15 +21,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:7368/MasterService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8080/WCFHost/MasterService.svc/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="MasterService.wsdl" MetadataType="Wsdl" ID="e9f7a542-67f7-4476-8318-b553990166b3" SourceId="1" SourceUrl="http://localhost:7368/MasterService.svc?wsdl" />
-    <MetadataFile FileName="MasterService.xsd" MetadataType="Schema" ID="3f10fb45-f5ad-44f0-a350-05d1ff7f451d" SourceId="1" SourceUrl="http://localhost:7368/MasterService.svc?xsd=xsd0" />
-    <MetadataFile FileName="MasterService.disco" MetadataType="Disco" ID="b45f8ac5-16eb-4e94-b6d1-2715112cd1a9" SourceId="1" SourceUrl="http://localhost:7368/MasterService.svc?disco" />
-    <MetadataFile FileName="MasterService1.xsd" MetadataType="Schema" ID="54ead2ed-343b-40d2-a8b1-e71f545f4f3b" SourceId="1" SourceUrl="http://localhost:7368/MasterService.svc?xsd=xsd2" />
-    <MetadataFile FileName="MasterService2.xsd" MetadataType="Schema" ID="a3eac1b5-acd4-49db-80fc-bd5fc6ca58b1" SourceId="1" SourceUrl="http://localhost:7368/MasterService.svc?xsd=xsd1" />
-    <MetadataFile FileName="MasterService3.xsd" MetadataType="Schema" ID="e2c40cb4-637c-4c99-afb1-7868326b5e8f" SourceId="1" SourceUrl="http://localhost:7368/MasterService.svc?xsd=xsd3" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="261fcc08-9823-490b-a4e9-eed365efb387" SourceId="1" SourceUrl="http://localhost:8080/WCFHost/MasterService.svc/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="c21fc020-9dcf-4056-9999-78642849324b" SourceId="1" SourceUrl="http://localhost:8080/WCFHost/MasterService.svc/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="618be4fb-378d-444d-8129-94fd7b3d3a01" SourceId="1" SourceUrl="http://localhost:8080/WCFHost/MasterService.svc/mex" />
+    <MetadataFile FileName="Models.xsd" MetadataType="Schema" ID="f27aeb00-d9bd-4338-a264-79f97c7c16d0" SourceId="1" SourceUrl="http://localhost:8080/WCFHost/MasterService.svc/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="4cfbfd31-3050-475f-b0ad-2bb29d049d96" SourceId="1" SourceUrl="http://localhost:8080/WCFHost/MasterService.svc/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

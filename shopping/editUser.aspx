@@ -158,6 +158,12 @@
                     <input type="text" class="form-control" runat="server" id="inputHotelName" />
                 </div>
             </div>
+               <div class="form-group">
+                <label for="inputQuality" class="col-sm-3 control-label">Quality</label>
+                <div class="col-sm-8 required">
+                    <input type="text" class="form-control" runat="server" id="inputQuality" />
+                </div>
+            </div>
             <div class="form-group">
                 <label for="inputAddress" class="col-sm-3 control-label">Address</label>
                 <div class="col-sm-8 required">

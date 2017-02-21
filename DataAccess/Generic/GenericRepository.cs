@@ -78,7 +78,7 @@ namespace DataAccess
         {
             DbEntityEntry<TEntity> dbEntityEntry = this.dbContext.Entry<TEntity>(entity);
             if (dbEntityEntry.State == EntityState.Detached)
-            {
+            {                
                 DbSet<TEntity> dbSet = this.dbContext.Set<TEntity>();
                 object[] id = new object[] { entity.Id };
                 TEntity tEntity = dbSet.Find(id);

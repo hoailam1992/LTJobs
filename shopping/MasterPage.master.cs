@@ -111,7 +111,6 @@ public partial class MasterPage : System.Web.UI.MasterPage
                             if (photoResult.IsSuccess && photoResult.Result != null && photoResult.Result.Count > 0)
                             {
                                 imagesource = "data:image/png;base64," + Convert.ToBase64String(photoResult.Result.FirstOrDefault().Image);
-
                             }
                             else { continue; }
                             carouselInnerHtml.AppendLine("<div class='item'>");

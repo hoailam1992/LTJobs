@@ -39,7 +39,7 @@ namespace BusinessLayer.Service
         }
         public ReturnType<IList<Booking>> GetBookingByDeliveryId(long id)
         {
-            return GetList(c => c.DeliveryId == id, c => c.Product, c => c.Delivery, c => c.Client);
+            return GetList(c => c.DeliveryId == id && c.ProductRespond=="A", c => c.Product, c => c.Delivery, c => c.Client);
         }
       
     }

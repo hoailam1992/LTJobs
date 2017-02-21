@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:7368/MasterService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:complexType name="ReturnTypeOfArrayOfBooking">
     <xs:annotation>
       <xs:appinfo>
@@ -307,6 +307,7 @@
           <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
           <xs:element minOccurs="0" name="DestinationId" type="xs:long" />
+          <xs:element minOccurs="0" name="ImgSrc" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ModifiedDate" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="PaymentDate" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="ReceiptPhoto" nillable="true" type="xs:base64Binary" />

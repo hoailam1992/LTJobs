@@ -16,7 +16,7 @@ namespace ServiceLibrary
         }
         public ReturnType<MoneyTransaction> SaveMoneyTransaction(MoneyTransaction entity)
         {
-            return (new MoneyTransactionBusinessService()).Save(entity);
+            return (new MoneyTransactionBusinessService()).SaveMoneyTransaction(entity);
         }
         public ReturnType<IList<MoneyTransaction>> GetMoneyTransactionByDestinationId(long id)
         {
