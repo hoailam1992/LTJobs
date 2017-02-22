@@ -22,8 +22,7 @@ namespace Models
             this.MoneyTransactions = new HashSet<MoneyTransaction>();
             this.Bookings = new HashSet<Booking>();
         }
-        [DataMember]
-        public long Id { get; set; }
+  
         [DataMember]
         public long BookingId { get; set; }
         [DataMember]

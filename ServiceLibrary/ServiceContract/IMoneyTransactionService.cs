@@ -20,6 +20,8 @@ namespace ServiceLibrary
         [OperationContract]
         ReturnType<IList<MoneyTransaction>> GetMoneyTransactionByDestinationId(long id);
         [OperationContract]
+        ReturnType<IList<MoneyTransaction>> GetMoneyTransactionByTrackingId(long id);
+        [OperationContract]
         ReturnType<MoneyTransaction> GetMoneyTransactionById(long id);
       
     }

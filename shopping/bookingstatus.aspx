@@ -86,10 +86,13 @@
             <th>
                 View
             </th>
+             <th>
+                Update Process
+            </th>
         </tr>
         <asp:PlaceHolder runat="server" ID="groupPlaceHolder1"></asp:PlaceHolder>
         <tr>
-            <td colspan = "10">
+            <td colspan = "11">
                 <asp:DataPager ID="DataPager1" runat="server" PagedControlID="bookinglist" PageSize="5">
                     <Fields>
                         <asp:NextPreviousPagerField ButtonType="Link" ShowFirstPageButton="false" ShowPreviousPageButton="true"
@@ -135,8 +138,11 @@
      <td>
         <%# Eval("DeliveryRespond") %>
     </td>
-       <td>
+     <td>
       <a href="<%= Session["UserType"].ToString()=="3" ?"deliveryrespond":"productrespond" %>.aspx?BookingId=<%# Eval("Id") %>">View Detail  </a>
+    </td>
+     <td>         
+      <a href="<%= Session["UserType"].ToString()=="3" ?"deliveryupdate":Session["UserType"].ToString()=="2"?"productupdate":"clientupdate" %>.aspx?Id=<%# Eval("TrackingId") %>"> <%#"Update " + Eval("TrackingId") %>  </a>
     </td>
 </ItemTemplate>
 </asp:ListView>

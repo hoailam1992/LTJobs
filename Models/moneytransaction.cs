@@ -16,8 +16,7 @@ namespace Models
     [DataContract(IsReference = true)]
     public partial class MoneyTransaction:ModelBase
     {
-        [DataMember]
-        public long Id { get; set; }
+       
         [DataMember]
         public string Code { get; set; }
         [DataMember]
@@ -46,6 +45,8 @@ namespace Models
         public Nullable<int> CCExpiredYear { get; set; }
         [DataMember]
         public string CCPin { get; set; }
+        [DataMember]
+        public string ImgSrc { get; set; }
         [DataMember]
         public System.DateTime CreatedDate { get; set; }
         [DataMember]

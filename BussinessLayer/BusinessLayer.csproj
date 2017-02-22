@@ -70,6 +70,7 @@
     <Compile Include="IService\IReportBusinessService.cs" />
     <Compile Include="IService\IUserBusinessService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\TrackingBusinessService.cs" />
     <Compile Include="Service\PhotoBusinessService.cs" />
     <Compile Include="Service\MoneyTransactionBusinessService.cs" />
     <Compile Include="Service\MessageBusinessService.cs" />

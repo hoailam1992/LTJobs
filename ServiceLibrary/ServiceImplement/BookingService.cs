@@ -30,56 +30,77 @@ namespace ServiceLibrary
                     ProductBusinessService tempProduct = new ProductBusinessService();
                     DeliveryBusinessService tempDelivery = new DeliveryBusinessService();
                     MoneyTransactionBusinessService tempMoney = new MoneyTransactionBusinessService();
-                    entity.Status = "P";
-                    var trandate = DateTime.Now;
-                    var Client = tempClient.GetById(entity.ClientId);
-                    var Product = tempProduct.GetById(entity.ProductId);
-                    MoneyTransaction tempMoneyTransaction = new MoneyTransaction();
-                    tempMoneyTransaction.Trandate = trandate;
-                    tempMoneyTransaction.Remark = "Transaction for Product Id " + entity.ProductId;
-                    tempMoneyTransaction.PaymentDate = trandate;
-                    tempMoneyTransaction.SourceId = Client.Result.UserId;
-                    tempMoneyTransaction.DestinationId = Product.Result.UserId;
-                    tempMoneyTransaction.Code = "BK" + entity.Id;
-                    tempMoneyTransaction.Status = "O";
-                    tempMoneyTransaction.Value = entity.ProductValue;
-                    tempMoneyTransaction.CreatedDate = DateTime.Now;
-                    tempMoneyTransaction.Id = 0;
-                    if (entity.PaymentMode == "1")
-                    {
-                        tempMoneyTransaction.CCExpiredYear = Client.Result.CCExpiredYear;
-                        tempMoneyTransaction.CCExpiredMonth = Client.Result.CCExpiredMonth;
-                        tempMoneyTransaction.CCName = Client.Result.CCHolder;
-                        tempMoneyTransaction.CCNumber = Client.Result.CCNumber;
-                        tempMoneyTransaction.CCPin = Client.Result.CCPin;
-                    }
-                    var result1 = tempMoney.Save(tempMoneyTransaction);
+                    TrackingBusinessService tempTrack = new TrackingBusinessService();
+                    Tracking trackingBook = new Tracking();
+                    trackingBook.BookingId = entity.Id;
+                    trackingBook.ProductConfirm = "O";
                     if (entity.DeliveryId != null)
+                        trackingBook.DeliveryConfirm = "O";
+                    else
+                        trackingBook.DeliveryConfirm = "NULL";
+                    trackingBook.ClientConfirm = "O";
+                    trackingBook.DateTime = entity.DateTime.Value;
+                    var returnedtracking = SaveTracking(trackingBook);
+                    if (returnedtracking.IsSuccess && returnedtracking.Result != null)
                     {
-                        var Delivery = tempDelivery.GetById(entity.DeliveryId.Value);
-                        MoneyTransaction deliverypaye = new MoneyTransaction();
-                        deliverypaye.Id = 0;
-                        deliverypaye.Trandate = trandate;
-                        deliverypaye.Remark = "Transaction for Delivery Id " + entity.DeliveryId;
-                        deliverypaye.PaymentDate = trandate;
-                        deliverypaye.SourceId = Client.Result.UserId;
-                        deliverypaye.DestinationId = Delivery.Result.UserId;
-                        deliverypaye.Code = "BK" + entity.Id;
-                        deliverypaye.Status = "O";
-                        deliverypaye.Value = entity.DeliveryValue;
-                        deliverypaye.CreatedDate = DateTime.Now;
-                        if (entity.PaymentMode == "1")
+                        entity.TrackingId = returnedtracking.Result.Id;
+                        entity.Status = "P";
+                        var trandate = DateTime.Now;
+                        var Client = tempClient.GetById(entity.ClientId);
+                        var Product = tempProduct.GetById(entity.ProductId);
+                        MoneyTransaction tempMoneyTransaction = new MoneyTransaction();
+                        tempMoneyTransaction.Trandate = trandate;
+                        tempMoneyTransaction.Remark = "Transaction for Product Id " + entity.ProductId;
+                        tempMoneyTransaction.PaymentDate = trandate;
+                        tempMoneyTransaction.SourceId = Client.Result.UserId;
+                        tempMoneyTransaction.DestinationId = Product.Result.UserId;
+                        tempMoneyTransaction.Code = "BK" + entity.Id;
+                        tempMoneyTransaction.Status = "O";
+                        tempMoneyTransaction.Value = entity.ProductValue.Value;
+                        tempMoneyTransaction.CreatedDate = DateTime.Now;
+                        tempMoneyTransaction.Id = 0;
+                        if (entity.PaymentMode == "2")
                         {
-                            deliverypaye.CCExpiredYear = Client.Result.CCExpiredYear;
-                            deliverypaye.CCExpiredMonth = Client.Result.CCExpiredMonth;
-                            deliverypaye.CCName = Client.Result.CCHolder;
-                            deliverypaye.CCNumber = Client.Result.CCNumber;
-                            deliverypaye.CCPin = Client.Result.CCPin;
+                            tempMoneyTransaction.CCExpiredYear = Client.Result.CCExpiredYear;
+                            tempMoneyTransaction.CCExpiredMonth = Client.Result.CCExpiredMonth;
+                            tempMoneyTransaction.CCName = Client.Result.CCHolder;
+                            tempMoneyTransaction.CCNumber = Client.Result.CCNumber;
+                            tempMoneyTransaction.CCPin = Client.Result.CCPin;
                         }
-                        var result2 = tempMoney.Save(deliverypaye);
+                        tempMoneyTransaction.TrackingId = returnedtracking.Result.Id;
+                        var result1 = tempMoney.Save(tempMoneyTransaction);
+                        if (entity.DeliveryId != null)
+                        {
+                            var Delivery = tempDelivery.GetById(entity.DeliveryId.Value);
+                            MoneyTransaction deliverypaye = new MoneyTransaction();
+                            deliverypaye.Id = 0;
+                            deliverypaye.Trandate = trandate;
+                            deliverypaye.Remark = "Transaction for Delivery Id " + entity.DeliveryId;
+                            deliverypaye.PaymentDate = trandate;
+                            deliverypaye.SourceId = Client.Result.UserId;
+                            deliverypaye.DestinationId = Delivery.Result.UserId;
+                            deliverypaye.Code = "BK" + entity.Id;
+                            deliverypaye.Status = "O";
+                            deliverypaye.Value = entity.DeliveryValue.Value;
+                            deliverypaye.CreatedDate = DateTime.Now;
+                            if (entity.PaymentMode == "2")
+                            {
+                                deliverypaye.CCExpiredYear = Client.Result.CCExpiredYear;
+                                deliverypaye.CCExpiredMonth = Client.Result.CCExpiredMonth;
+                                deliverypaye.CCName = Client.Result.CCHolder;
+                                deliverypaye.CCNumber = Client.Result.CCNumber;
+                                deliverypaye.CCPin = Client.Result.CCPin;
+                            }
+                            deliverypaye.TrackingId = returnedtracking.Result.Id;
+                            var result2 = tempMoney.Save(deliverypaye);
+                        }
+                    }
+                    else {
+                        return new ReturnType<Booking>() { IsSuccess = false, ErrorMessage = "Fails to save tracking", Result = null };
                     }
                 }
             }
+            
             return (new BookingBusinessService()).Save(entity);
         }
 

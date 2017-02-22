@@ -1,58 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:complexType name="ReturnTypeOfArrayOfBooking">
+  <xs:complexType name="ReturnTypeOfArrayOfTracking">
     <xs:annotation>
       <xs:appinfo>
         <GenericType Name="ReturnTypeOf{0}" Namespace="http://schemas.datacontract.org/2004/07/Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="ArrayOfBooking" Namespace="http://schemas.datacontract.org/2004/07/Models" />
+          <GenericParameter Name="ArrayOfTracking" Namespace="http://schemas.datacontract.org/2004/07/Models" />
         </GenericType>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
       <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfBooking" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfTracking" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ReturnTypeOfArrayOfBooking" nillable="true" type="tns:ReturnTypeOfArrayOfBooking" />
-  <xs:complexType name="ArrayOfBooking">
+  <xs:element name="ReturnTypeOfArrayOfTracking" nillable="true" type="tns:ReturnTypeOfArrayOfTracking" />
+  <xs:complexType name="ArrayOfTracking">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Booking" nillable="true" type="tns:Booking" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Tracking" nillable="true" type="tns:Tracking" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfBooking" nillable="true" type="tns:ArrayOfBooking" />
-  <xs:complexType name="Booking">
+  <xs:element name="ArrayOfTracking" nillable="true" type="tns:ArrayOfTracking" />
+  <xs:complexType name="Tracking">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:ModelBase">
         <xs:sequence>
-          <xs:element minOccurs="0" name="Client" nillable="true" type="tns:Client" />
-          <xs:element minOccurs="0" name="ClientId" type="xs:long" />
-          <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="DateTime" nillable="true" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="Delivery" nillable="true" type="tns:Delivery" />
-          <xs:element minOccurs="0" name="DeliveryId" nillable="true" type="xs:long" />
-          <xs:element minOccurs="0" name="DeliveryPrice" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="DeliveryRespond" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="DeliveryValue" type="xs:decimal" />
-          <xs:element minOccurs="0" name="IsDeleted" nillable="true" type="xs:boolean" />
-          <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Booking" nillable="true" type="tns:Booking" />
+          <xs:element minOccurs="0" name="BookingId" type="xs:long" />
+          <xs:element minOccurs="0" name="Bookings" nillable="true" type="tns:ArrayOfBooking" />
+          <xs:element minOccurs="0" name="ClientConfirm" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DateTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DeliveryConfirm" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="PaymentMode" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
-          <xs:element minOccurs="0" name="ProductId" type="xs:long" />
-          <xs:element minOccurs="0" name="ProductPrice" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="ProductRespond" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="ProductType" type="xs:long" />
-          <xs:element minOccurs="0" name="ProductValue" type="xs:decimal" />
-          <xs:element minOccurs="0" name="Reports" nillable="true" type="tns:ArrayOfReport" />
-          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="TotalCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MoneyTransactions" nillable="true" type="tns:ArrayOfMoneyTransaction" />
+          <xs:element minOccurs="0" name="ProductConfirm" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RemarkClient" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RemarkDelivery" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RemarkProduct" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="Booking" nillable="true" type="tns:Booking" />
+  <xs:element name="Tracking" nillable="true" type="tns:Tracking" />
   <xs:complexType name="ModelBase">
     <xs:sequence>
       <xs:element minOccurs="0" name="Id" type="xs:long" />
@@ -104,6 +95,40 @@
     </xs:list>
   </xs:simpleType>
   <xs:element name="ModelState" nillable="true" type="tns:ModelState" />
+  <xs:complexType name="Booking">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Client" nillable="true" type="tns:Client" />
+          <xs:element minOccurs="0" name="ClientId" type="xs:long" />
+          <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DateTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Delivery" nillable="true" type="tns:Delivery" />
+          <xs:element minOccurs="0" name="DeliveryId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="DeliveryPrice" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="DeliveryRespond" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DeliveryValue" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="IsDeleted" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PaymentMode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
+          <xs:element minOccurs="0" name="ProductId" type="xs:long" />
+          <xs:element minOccurs="0" name="ProductPrice" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ProductRespond" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProductType" type="xs:long" />
+          <xs:element minOccurs="0" name="ProductValue" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Reports" nillable="true" type="tns:ArrayOfReport" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TotalCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Tracking" nillable="true" type="tns:Tracking" />
+          <xs:element minOccurs="0" name="TrackingId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="Trackings" nillable="true" type="tns:ArrayOfTracking" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Booking" nillable="true" type="tns:Booking" />
   <xs:complexType name="Client">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:ModelBase">
@@ -129,6 +154,12 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="Client" nillable="true" type="tns:Client" />
+  <xs:complexType name="ArrayOfBooking">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Booking" nillable="true" type="tns:Booking" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBooking" nillable="true" type="tns:ArrayOfBooking" />
   <xs:complexType name="ArrayOfClientComment">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="ClientComment" nillable="true" type="tns:ClientComment" />
@@ -314,6 +345,8 @@
           <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="SourceId" type="xs:long" />
           <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Tracking" nillable="true" type="tns:Tracking" />
+          <xs:element minOccurs="0" name="TrackingId" nillable="true" type="xs:long" />
           <xs:element minOccurs="0" name="Trandate" type="xs:dateTime" />
           <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
           <xs:element minOccurs="0" name="User1" nillable="true" type="tns:User" />
@@ -470,21 +503,21 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="Report" nillable="true" type="tns:Report" />
-  <xs:complexType name="ReturnTypeOfBooking">
+  <xs:complexType name="ReturnTypeOfTracking">
     <xs:annotation>
       <xs:appinfo>
         <GenericType Name="ReturnTypeOf{0}" Namespace="http://schemas.datacontract.org/2004/07/Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="Booking" Namespace="http://schemas.datacontract.org/2004/07/Models" />
+          <GenericParameter Name="Tracking" Namespace="http://schemas.datacontract.org/2004/07/Models" />
         </GenericType>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
       <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:Booking" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:Tracking" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ReturnTypeOfBooking" nillable="true" type="tns:ReturnTypeOfBooking" />
+  <xs:element name="ReturnTypeOfTracking" nillable="true" type="tns:ReturnTypeOfTracking" />
   <xs:complexType name="ReturnTypeOfboolean">
     <xs:annotation>
       <xs:appinfo>
@@ -500,6 +533,36 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ReturnTypeOfboolean" nillable="true" type="tns:ReturnTypeOfboolean" />
+  <xs:complexType name="ReturnTypeOfArrayOfBooking">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ReturnTypeOf{0}" Namespace="http://schemas.datacontract.org/2004/07/Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfBooking" Namespace="http://schemas.datacontract.org/2004/07/Models" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfBooking" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnTypeOfArrayOfBooking" nillable="true" type="tns:ReturnTypeOfArrayOfBooking" />
+  <xs:complexType name="ReturnTypeOfBooking">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ReturnTypeOf{0}" Namespace="http://schemas.datacontract.org/2004/07/Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Booking" Namespace="http://schemas.datacontract.org/2004/07/Models" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:Booking" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnTypeOfBooking" nillable="true" type="tns:ReturnTypeOfBooking" />
   <xs:complexType name="ReturnTypeOfClientComment">
     <xs:annotation>
       <xs:appinfo>

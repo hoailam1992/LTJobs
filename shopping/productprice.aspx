@@ -72,17 +72,17 @@ Sample Employee Information
 				("ProductTypeId") %>'></asp:Label>
            </ItemTemplate>
            <EditItemTemplate >
-                <Label ID="DropDownList1" runat="server"  Text='<%# Eval
+                <asp:Label ID="lbl2" runat="server"  Text='<%# Eval
 				("ProductTypeId") %>'>                
-               </Label>             
+               </asp:Label>             
            </EditItemTemplate>
            </asp:TemplateField> 
            <asp:TemplateField HeaderText="Price">
            <ItemTemplate>
-               <asp:Label ID="Label5" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
+               <asp:Label ID="Label5" runat="server" Text='<%#Eval("Price") %>'></asp:Label>
            </ItemTemplate>
           <EditItemTemplate >
-               <asp:TextBox ID="TextBox1" runat="server" Text='<%# Eval("Price")%>'></asp:TextBox>
+              <asp:TextBox ID="TextBox1" runat="server" TextMode="Number" Text='<%#Eval("Price")%>'></asp:TextBox>
            </EditItemTemplate>
            </asp:TemplateField>              
            <asp:TemplateField HeaderText="Edit" ShowHeader="false">

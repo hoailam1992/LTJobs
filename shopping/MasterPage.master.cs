@@ -98,7 +98,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 else
                 {
                     tempClient = new MasterServiceClient();
-                    var result = new ObservableCollection<Product>(tempClient.GetAllProduct().Result ?? new List<Product>());
+                    var result = new ObservableCollection<Product>(tempClient.GetAllProduct().Result.Where(c=>c.IsActive) ?? new List<Product>());
                     if (result.Count > 0)
                     {
                         var carouselInnerHtml = new StringBuilder();
@@ -138,54 +138,58 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
     protected void btnLog_Load(object sender, EventArgs e)
     {
-        NodifyDiv.Visible = false;
-        bookingdiv.Visible = false;
-        if (Session["UserName"] == null)
+        if (!Page.IsPostBack)
         {
-            lblLog.Text = "Log In";
-            lblLog.NavigateUrl = "login.aspx";
-            idAccountDetail.Visible = false;
-            idBookingStatus.Visible = false;           
-        }
-        else {
-            lblLog.Text = "Log Out";
-            lblLog.NavigateUrl = "login.aspx?logout=" + true;
-            idAccountDetail.Visible = true;
-            idBookingStatus.Visible = true;
-            long id,userid;
-            
-            if (Session["UserId"] != null && long.TryParse(Session["UserId"].ToString(), out userid))
+            NodifyDiv.Visible = false;
+            bookingdiv.Visible = false;
+            if (Session["UserName"] == null)
             {
-                var tempMess = tempClient.GetMessageByUserId(userid);
-                if (tempMess.IsSuccess && tempMess.Result != null && tempMess.Result.FirstOrDefault(c=>c.Status==false)!=null)
-                {
-                    NodifyDiv.Visible = true;
-                }
+                lblLog.Text = "Log In";
+                lblLog.NavigateUrl = "login.aspx";
+                idAccountDetail.Visible = false;
+                idBookingStatus.Visible = false;
             }
-            if (Session["UserType"] != null && Session["UserType"].ToString()!="1")
+            else
             {
-                switch (Session["UserType"].ToString())
+                lblLog.Text = "Log Out";
+                lblLog.NavigateUrl = "login.aspx?logout=" + true;
+                idAccountDetail.Visible = true;
+                idBookingStatus.Visible = true;
+                long id, userid;
+
+                if (Session["UserId"] != null && long.TryParse(Session["UserId"].ToString(), out userid))
                 {
-                    case "2":
-                        if (Session["ProductId"] != null && long.TryParse(Session["ProductId"].ToString(), out id))
-                        {
-                            var tempProductBook = tempClient.GetNewBookingByProductId(id);
-                            if (tempProductBook.IsSuccess && tempProductBook.Result != null && tempProductBook.Result.Count > 0)
+                    var tempMess = tempClient.GetMessageByUserId(userid);
+                    if (tempMess.IsSuccess && tempMess.Result != null && tempMess.Result.FirstOrDefault(c => c.Status == false) != null)
+                    {
+                        NodifyDiv.Visible = true;
+                    }
+                }
+                if (Session["UserType"] != null && Session["UserType"].ToString() != "1")
+                {
+                    switch (Session["UserType"].ToString())
+                    {
+                        case "2":
+                            if (Session["ProductId"] != null && long.TryParse(Session["ProductId"].ToString(), out id))
                             {
-                                bookingdiv.Visible = true;
+                                var tempProductBook = tempClient.GetNewBookingByProductId(id);
+                                if (tempProductBook.IsSuccess && tempProductBook.Result != null && tempProductBook.Result.Count > 0)
+                                {
+                                    bookingdiv.Visible = true;
+                                }
                             }
-                        }
-                        break;
-                    case "3":
-                        if (Session["DeliveryId"] != null && long.TryParse(Session["DeliveryId"].ToString(), out id))
-                        {
-                            var tempDeliveryBook = tempClient.GetNewBookingByDeliveryId(id);
-                            if (tempDeliveryBook.IsSuccess && tempDeliveryBook.Result != null && tempDeliveryBook.Result.Count > 0)
+                            break;
+                        case "3":
+                            if (Session["DeliveryId"] != null && long.TryParse(Session["DeliveryId"].ToString(), out id))
                             {
-                                bookingdiv.Visible = true;
+                                var tempDeliveryBook = tempClient.GetNewBookingByDeliveryId(id);
+                                if (tempDeliveryBook.IsSuccess && tempDeliveryBook.Result != null && tempDeliveryBook.Result.Count > 0)
+                                {
+                                    bookingdiv.Visible = true;
+                                }
                             }
-                        }
-                        break;
+                            break;
+                    }
                 }
             }
         }

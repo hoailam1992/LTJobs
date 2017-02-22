@@ -77,7 +77,7 @@ public partial class register : System.Web.UI.Page
             else {
                 errormessage += "Please Input Your Birthday\\n";
             }
-            if (string.IsNullOrEmpty(inputPass.Value) || inputPass.Value.Length<=8)
+            if (string.IsNullOrEmpty(inputPass.Value) || inputPass.Value.Length<6)
             {             
                 errormessage += "Password have to be more than 8 character \\n";
             }
@@ -91,6 +91,10 @@ public partial class register : System.Web.UI.Page
             if (inputPass.Value == inputRetypePass.Value)
             {
                 RegisterUser.Password = inputRetypePass.Value;
+                if (!rdClient.Checked && !rdDelivery.Checked && !rdProduct.Checked)
+                {
+                    errormessage += "Please Select A User Type \\n";
+                }
                 if (rdClient.Checked)
                 {
                     Client clientregister = new Client();
@@ -236,16 +240,19 @@ public partial class register : System.Web.UI.Page
                 if (!string.IsNullOrEmpty(errormessage))
                 {
                     this.Page.RegisterClientScriptBlock("Key", string.Format("<script>alert('{0}')</script>", errormessage));
-                    return;
-                }
-                var Result = tempClient.RegisterUser(RegisterUser);
-                if (Result.IsSuccess)
-                {
-                    Response.Redirect("login.aspx");
+
                 }
                 else
                 {
-                    this.Page.RegisterClientScriptBlock("Key", string.Format("<script>alert('{0}')</script>", "Register Fails"));
+                    var Result = tempClient.RegisterUser(RegisterUser);
+                    if (Result.IsSuccess)
+                    {
+                        Response.Redirect("login.aspx");
+                    }
+                    else
+                    {
+                        this.Page.RegisterClientScriptBlock("Key", string.Format("<script>alert('{0}')</script>", "Register Fails"));
+                    }
                 }
             }
             else {

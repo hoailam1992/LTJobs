@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="RestContract\IRestfulService.cs" />
     <Compile Include="RestImplement\RestfulService.cs" />
+    <Compile Include="ServiceContract\ITrackingService.cs" />
     <Compile Include="ServiceContract\IBookingService.cs" />
     <Compile Include="ServiceContract\IClientCommemtService.cs" />
     <Compile Include="ServiceContract\IClientService.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="ServiceContract\IMasterService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceContract\IVideoService.cs" />
+    <Compile Include="ServiceImplement\TrackingService.cs" />
     <Compile Include="ServiceImplement\BookingService.cs" />
     <Compile Include="ServiceImplement\ClientCommentService.cs" />
     <Compile Include="ServiceImplement\ClientService.cs" />

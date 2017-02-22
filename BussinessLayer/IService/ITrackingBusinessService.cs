@@ -11,12 +11,9 @@ namespace BusinessLayer.IService
 {
     
     public interface ITrackingBusinessService : IBusinessServiceBase<Tracking>
-    {
-        ReturnType<IList<Tracking>> GetTrackingByClientId(long id);
-        ReturnType<IList<Tracking>> GetTrackingByBookingId(long id);
+    {        
+        ReturnType<Tracking> GetTrackingByBookingId(long id);
         ReturnType<bool> DeleteTrackingById(long enity);
-        ReturnType<Tracking> GetTrackingById(long id);
-        ReturnType<IList<Tracking>> GetTrackingByProductId(long id);
-        ReturnType<IList<Tracking>> GetTrackingByDeliveryId(long id);
+        ReturnType<Tracking> GetTrackingById(long id);       
     }
 }

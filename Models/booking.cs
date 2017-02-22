@@ -22,8 +22,7 @@ namespace Models
             this.Reports = new HashSet<Report>();
             this.Trackings = new HashSet<Tracking>();
         }
-        [DataMember]
-        public long Id { get; set; }
+       
         [DataMember]
         public long ClientId { get; set; }
         [DataMember]

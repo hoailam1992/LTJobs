@@ -8,6 +8,36 @@
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IMasterService_GetAllTracking_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTracking" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetAllTracking_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTrackingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetTrackingByBookingId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackingByBookingId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetTrackingByBookingId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackingByBookingIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveTracking_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveTracking" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveTracking_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveTrackingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeleteTrackingById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTrackingById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeleteTrackingById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTrackingByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetTrackingById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackingById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetTrackingById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackingByIdResponse" />
+  </wsdl:message>
   <wsdl:message name="IMasterService_GetAllBooking_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllBooking" />
   </wsdl:message>
@@ -248,6 +278,12 @@
   <wsdl:message name="IMasterService_GetMoneyTransactionByDestinationId_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetMoneyTransactionByDestinationIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IMasterService_GetMoneyTransactionByTrackingId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoneyTransactionByTrackingId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetMoneyTransactionByTrackingId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoneyTransactionByTrackingIdResponse" />
+  </wsdl:message>
   <wsdl:message name="IMasterService_GetMoneyTransactionById_InputMessage">
     <wsdl:part name="parameters" element="tns:GetMoneyTransactionById" />
   </wsdl:message>
@@ -477,6 +513,26 @@
     <wsdl:part name="parameters" element="tns:GetVideoByIdResponse" />
   </wsdl:message>
   <wsdl:portType name="IMasterService">
+    <wsdl:operation name="GetAllTracking">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetAllTracking" message="tns:IMasterService_GetAllTracking_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetAllTrackingResponse" message="tns:IMasterService_GetAllTracking_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackingByBookingId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetTrackingByBookingId" message="tns:IMasterService_GetTrackingByBookingId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetTrackingByBookingIdResponse" message="tns:IMasterService_GetTrackingByBookingId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveTracking">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/SaveTracking" message="tns:IMasterService_SaveTracking_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/SaveTrackingResponse" message="tns:IMasterService_SaveTracking_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrackingById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/DeleteTrackingById" message="tns:IMasterService_DeleteTrackingById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/DeleteTrackingByIdResponse" message="tns:IMasterService_DeleteTrackingById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackingById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetTrackingById" message="tns:IMasterService_GetTrackingById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetTrackingByIdResponse" message="tns:IMasterService_GetTrackingById_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetAllBooking">
       <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetAllBooking" message="tns:IMasterService_GetAllBooking_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetAllBookingResponse" message="tns:IMasterService_GetAllBooking_OutputMessage" />
@@ -637,6 +693,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetMoneyTransactionByDestinationId" message="tns:IMasterService_GetMoneyTransactionByDestinationId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetMoneyTransactionByDestinationIdResponse" message="tns:IMasterService_GetMoneyTransactionByDestinationId_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetMoneyTransactionByTrackingId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetMoneyTransactionByTrackingId" message="tns:IMasterService_GetMoneyTransactionByTrackingId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetMoneyTransactionByTrackingIdResponse" message="tns:IMasterService_GetMoneyTransactionByTrackingId_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetMoneyTransactionById">
       <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetMoneyTransactionById" message="tns:IMasterService_GetMoneyTransactionById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetMoneyTransactionByIdResponse" message="tns:IMasterService_GetMoneyTransactionById_OutputMessage" />
@@ -792,6 +852,51 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IMasterService" type="tns:IMasterService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllTracking">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetAllTracking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackingByBookingId">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetTrackingByBookingId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTracking">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/SaveTracking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrackingById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/DeleteTrackingById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackingById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetTrackingById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAllBooking">
       <soap:operation soapAction="http://tempuri.org/IMasterService/GetAllBooking" style="document" />
       <wsdl:input>
@@ -1145,6 +1250,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetMoneyTransactionByDestinationId">
       <soap:operation soapAction="http://tempuri.org/IMasterService/GetMoneyTransactionByDestinationId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoneyTransactionByTrackingId">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetMoneyTransactionByTrackingId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

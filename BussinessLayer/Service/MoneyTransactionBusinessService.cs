@@ -38,7 +38,10 @@ namespace BusinessLayer.Service
         {
             return GetList(c => c.DestinationId == id,c=>c.User,c=>c.User1);
         }
-
+        public ReturnType<IList<MoneyTransaction>> GetMoneyTransactionByTrackingId(long id)
+        {
+            return GetList(c => c.TrackingId == id, c => c.User, c => c.User1);
+        }
         public ReturnType<MoneyTransaction> GetMoneyTransactionById(long id)
         {
             return GetSingle(c => c.Id == id, c => c.User, c => c.User1);

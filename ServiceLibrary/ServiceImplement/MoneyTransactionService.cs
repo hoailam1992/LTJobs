@@ -32,6 +32,8 @@ namespace ServiceLibrary
         {
             return (new MoneyTransactionBusinessService()).GetMoneyTransactionBySourceId(id);
         }
-
+        public ReturnType<IList<MoneyTransaction>> GetMoneyTransactionByTrackingId(long id) {
+            return (new MoneyTransactionBusinessService()).GetMoneyTransactionByTrackingId(id);
+        }
     }
 }

@@ -64,7 +64,7 @@ public partial class editUser : System.Web.UI.Page
                                     deliverydiv.Visible = false;
                                     productdiv.Visible = true;
                                     inputPrdDes.Value = tempProductBook.Result.ProductDescription;
-                                    inputPriceMember.Value = String.Format("{0:c}", tempProductBook.Result.Price);
+                                    inputPriceMember.Value = String.Format("{0}", tempProductBook.Result.Price);
                                     inputBankAccount.Value = tempProductBook.Result.BankAccNumber;
                                     inputAccountName.Value = tempProductBook.Result.BankAccount;
                                     selectBankName.Value = tempProductBook.Result.BankName;
@@ -86,8 +86,8 @@ public partial class editUser : System.Web.UI.Page
                                     productdiv.Visible = false;
                                     inputAddress.Value = tempDelivery.Result.Address;
                                     inputDistrict.Value = tempDelivery.Result.Disctrict;
-                                    inputHighest.Value = String.Format("{0:c}", tempDelivery.Result.HighestPrice);
-                                    inputLowest.Value = String.Format("{0:c}", tempDelivery.Result.LowestPrice);
+                                    inputHighest.Value = String.Format("{0}", tempDelivery.Result.HighestPrice);
+                                    inputLowest.Value = String.Format("{0}", tempDelivery.Result.LowestPrice);
                                     inputHotelName.Value = tempDelivery.Result.Name;
                                     inputHotelPhoneNumber.Value = tempDelivery.Result.Phone;
                                     inputHotelEmail.Value = tempDelivery.Result.Email;
@@ -213,7 +213,7 @@ public partial class editUser : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            this.Page.RegisterClientScriptBlock("Key", string.Format("<script>alert('{0}')</script>", ex.InnerException));
+            this.Page.RegisterClientScriptBlock("Key", string.Format("<script>alert('{0}')</script>", ex.Message));
         }
     }
 }

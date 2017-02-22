@@ -1,52 +1,83 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="detail_delivery.aspx.cs" Inherits="detail_delivery" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPage.master" CodeFile="clientupdate.aspx.cs" Inherits="clientupdate" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style>
-        .title {
+      
+        label {
             font-weight: normal !important;
+        }
+
+        .required:after {
+            content: "*";
+            color: red;
+        }
+
+        .form-control {
+            width: 57%;
+            float: left;
+        }     
+
+        .title {
+            font-weight: bold;
+            border-bottom: 1px solid #e5e5e5;
+            width: 100%;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .slash {
+            width: 3%;
+            float: left;
+            vertical-align: middle;
+            text-align: center;
+            line-height: 32px;
+        }
+
+        .expiredWidth {
+            width: 27% !important;
+        }
+
+        .file {
+            visibility: hidden;
+            position: absolute;
         }
     </style>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <legend style="text-align: center">Delivery Details</legend>
-    <div style="width: 77%; margin: 0 auto">
-        <div class="col-sm-6">
-            <div class="row">
-                <div class="col-sm-5">
-                    <label>Name</label>
-                </div>
-                <div class="col-sm-7" id="lblName" runat="server">5 Stars</div>
-            </div>
-            <div class="row">
-                <div class="col-sm-5">
-                    <label>Lowest Price</label>
-                </div>
-                <div class="col-sm-7" id="lblLowestPrice" runat="server">2000USD</div>
-            </div>
-              <div class="row">
-                <div class="col-sm-5">
-                    <label>Highest Price</label>
-                </div>
-                <div class="col-sm-7" id="lblHighestPrice" runat="server">2000USD</div>
-            </div>
-            <div class="row">
-                <div class="col-sm-5">
-                    <label>Address</label>
-                </div>
-                <div class="col-sm-7" id="lblAddress" runat="server">ho chi minh</div>
-            </div>
-            <div class="row">
-                <div class="col-sm-5">
-                    <label>Quality</label>
-                </div>
-                <div class="col-sm-7" id="lblQuality" runat="server">2 stars</div>
-            </div>          
-            <div class="row">
-                <div class="col-sm-5"></div>
-                <div class="col-sm-7" style="margin-top: 10px">                    
-                    <button onclick="javascript:history.go(-1);">Back</button>
-                </div>
+        <div class="form-group">
+            <label for="inputCode" class="col-sm-4 control-label">Time</label>
+            <div class="col-sm-8">
+                <input type="text" readonly="true" class="form-control" runat="server" id="inputCode" />
             </div>
         </div>
+     <div class="form-group"  id="divRadio1" runat="server" >
+              <label class="col-sm-4 control-label">Payment Mode</label>
+                <div class="col-sm-8">
+                    <label class="radio-inline">
+                        <input type="radio" name="paymentradio"  onchange="setAccountType(this);" runat="server" id="rdStart" />Start Job</label>                   
+                </div>
+            </div>
+     <div class="form-group" id="divRadio" runat="server">
+         <label class="col-sm-4 control-label">Payment Mode</label>
+         <div class="col-sm-8">
+              <label class="radio-inline">
+                        <input type="radio" name="paymentradio"  onchange="setAccountType(this);" runat="server" id="rdFinish" />Finish</label>
+            </div>    
+    </div>
+   <div class="form-group">
+       <label class="col-sm-4 control-label"></label>
+         <div class="col-sm-8">
+              <label class="radio-inline">
+                  <input type="radio" name="paymentradio" onchange="setAccountType(this);" runat="server"  value="Cancel" id="rdCancel" />Cancel</label>
+            </div>    
+    </div>
+     <div class="form-horizontal" id="divHidden" hidden="hidden">
+         <label for="inputRemark" class="col-sm-4 control-label">Reason</label>
+         <div class="col-sm-8 required">             
+                 <textarea class="form-control" row="2" runat="server" id="inputRemark" />
+         </div>    
+    </div>
         <div class="col-sm-6">
           <div id="jssor_2" style="position:relative;margin:0 auto;top:0px;left:0px;width:400px;height:300px;overflow:hidden;visibility:hidden;">
         <!-- Loading Screen -->
@@ -75,21 +106,14 @@
         <span data-u="arrowleft" class="jssora02l" style="top:0px;left:8px;width:55px;height:55px;" data-autocenter="2"></span>
         <span data-u="arrowright" class="jssora02r" style="top:0px;right:8px;width:55px;height:55px;" data-autocenter="2"></span>
     </div>
-    </div>
-  
-    <div style="width: 77%; margin: 0 auto">
-        <div class="col-sm-8">
-            <div class="form-group">
-                <label for="comment">Comment:</label>
-                <textarea class="form-control" rows="5" id="comment"></textarea>
             </div>
-        </div>
-    </div>
-    </div>
-     
-    <!-- #endregion Jssor Slider End -->
-  
-    <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
+              <div class="form-group" runat="server" style="margin: 0 auto; width: 31%">
+            <div class="col-sm-12">               
+                <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit"/>
+                <button onclick="javascript:history.go(-1); return false;">Back</button>
+            </div>
+       </div>   
+                <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
     <script src="js/jssor.slider-22.1.7.mini.js" type="text/javascript"></script>
     <script type="text/javascript">
         jQuery(document).ready(function ($) {
@@ -150,4 +174,25 @@
         .jssora02r.jssora02rds { background-position: -63px -33px; opacity: .3; pointer-events: none; }
         /* jssor slider thumbnail navigator skin 03 css *//*.jssort03 .p            (normal).jssort03 .p:hover      (normal mouseover).jssort03 .pav          (active).jssort03 .pdn          (mousedown)*/.jssort03 .p {    position: absolute;    top: 0;    left: 0;    width: 62px;    height: 32px;}.jssort03 .t {    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 100%;    border: none;}.jssort03 .w, .jssort03 .pav:hover .w {    position: absolute;    width: 60px;    height: 30px;    border: white 1px dashed;    box-sizing: content-box;}.jssort03 .pdn .w, .jssort03 .pav .w {    border-style: solid;}.jssort03 .c {    position: absolute;    top: 0;    left: 0;    width: 62px;    height: 32px;    background-color: #000;    filter: alpha(opacity=45);    opacity: .45;    transition: opacity .6s;    -moz-transition: opacity .6s;    -webkit-transition: opacity .6s;    -o-transition: opacity .6s;}.jssort03 .p:hover .c, .jssort03 .pav .c {    filter: alpha(opacity=0);    opacity: 0;}.jssort03 .p:hover .c {    transition: none;    -moz-transition: none;    -webkit-transition: none;    -o-transition: none;}* html .jssort03 .w {    width /**/: 62px;    height /**/: 32px;}
     </style>
+    <script type="text/javascript">
+        var setAccountType = function (typeRadio) {
+            if (typeRadio.value == "Cancel") {
+                $('#divHidden').show(1000);
+            } else {
+                $('#divHidden').hide(1000);
+            }
+        };       
+    </script>
+    <input id="idhidden" runat="server" type="hidden" />
+    <input id="idbooking" runat="server" type="hidden" />
+    <input id="clconfirm" runat="server" type="hidden" />
+    <input id="proconfirm" runat="server" type="hidden" />
+    <input id="deliveryconfirm" runat="server" type="hidden" />
+    <input id="clremark" runat="server" type="hidden" />
+    <input id="proremark" runat="server" type="hidden" />
+    <input id="deliremark" runat="server" type="hidden" />
+    <input id="createddate" runat="server" type="hidden" />
+    <input id="modifieddate" runat="server" type="hidden" />
+    <input id="datetime" runat="server" type="hidden" />
+
 </asp:Content>

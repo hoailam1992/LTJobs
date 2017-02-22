@@ -13,14 +13,20 @@ public partial class productprice : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         tempClient = new MasterServiceClient();
-        if (Session["ProductId"] != null)
-        {
-            var flag = long.TryParse(Session["ProductId"].ToString(), out productid);
-            showgrid();
-        }
-        else {
-            Response.Redirect("login.aspx");
-        }
+       
+            if (Session["ProductId"] != null)
+            {
+                var flag = long.TryParse(Session["ProductId"].ToString(), out productid);
+                if (!IsPostBack)
+                {
+                    showgrid();
+                }
+            }
+            else
+            {
+                Response.Redirect("login.aspx");
+            }
+        
     }
     protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
     {
@@ -46,10 +52,11 @@ public partial class productprice : System.Web.UI.Page
         ProductPrice pptemp = new ProductPrice();
         pptemp.ProductId = productid;
         pptemp.Id =Convert.ToInt64(((Label) GridView1.Rows[e.RowIndex].FindControl("Label6")).Text);
-        Label ddl = (Label)GridView1.Rows[e.RowIndex].FindControl("DropDownList1");
+        Label ddl = (Label)GridView1.Rows[e.RowIndex].FindControl("lbl2");
         pptemp.ProductTypeId =Convert.ToInt64(ddl.Text);
         pptemp.Active = true;
         TextBox tx1 = (TextBox)GridView1.Rows[e.RowIndex].FindControl("TextBox1");
+        
         pptemp.Price =Convert.ToDecimal(tx1.Text);
         var result = tempClient.SaveProductPrice(pptemp);
         GridView1.EditIndex = -1;

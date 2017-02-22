@@ -46,122 +46,71 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
         <div class="form-group">
-            <label for="inputProductCode" class="col-sm-4 control-label">Product Code</label>
-            <div class="col-sm-8 required">
-                <input type="text" readonly="true" class="form-control" runat="server" id="inputProductCode" />
+            <label for="inputCode" class="col-sm-4 control-label">Code</label>
+            <div class="col-sm-8">
+                <input type="text" readonly="true" class="form-control" runat="server" id="inputCode" />
             </div>
         </div>
-        <div class="form-group">
-            <label for="inputDate" class="col-sm-4 control-label">Set Time</label>
-            <div class="col-sm-8 required">                
-                <input type="date" class="form-control" runat="server" id="inputDate" />    
-                <input type="time" class="form-control input-time" runat="server" lang="en" id="inputtime"/>
-            </div>
-        </div>
-   <%-- <div class="form-groupDate" id="setDate" hidden="hidden">     
-        <label for="datetimepicker" class="col-sm-4 control-label">Please Select One</label>
-        <div id="datetimepicker" class="col-sm-8 required"></div>
-    </div>--%>
     <div class="form-group">
-            <label for="SelectType" class="col-sm-4 control-label">Dating Type</label>
-            <div class="col-sm-8 required">
-                <asp:DropDownList id="SelectType" runat="server" OnSelectedIndexChanged="SelectType_SelectedIndexChanged">   
-                   <asp:ListItem value="0">Please Select Type</asp:ListItem>              
-                </asp:DropDownList>
+            <label for="inputFrom" class="col-sm-4 control-label">From</label>
+            <div class="col-sm-8">                
+                <input type="text" class="form-control" readonly="true" runat="server" id="inputFrom" />                   
             </div>
-        </div>
-       <div class="form-group">
-            <label for="SelectDelivery" class="col-sm-4 control-label">Select Delivery</label>
-            <div class="col-sm-8 required">
-               <asp:DropDownList id="SelectDelivery" runat="server" OnSelectedIndexChanged="SelectDelivery_SelectedIndexChanged">   
-                   <asp:ListItem value="0">Please Select Location</asp:ListItem>              
-                </asp:DropDownList>
-                 <asp:Button ID="btnLinkView" runat="server" Text="View" OnClick="btnLinkView_Click" />
-                 <asp:Button ID="btnTake" runat="server" Text="Take" OnClick="btnTake_Click" />
-                 <asp:DropDownList id="SelectDeliveryType" runat="server" OnSelectedIndexChanged="SelectDeliveryType_SelectedIndexChanged" >   
-                   <asp:ListItem value="0">Please Select Delivery Type</asp:ListItem>              
-                </asp:DropDownList>
-                <%--<a id="hrefView" runat="server">View</a>--%>
-            </div>          
-        </div>
-        <div class="form-group">     
-                        <label for="SelectDelivery" class="col-sm-4 control-label"></label>
-                <div>
-                     <label class="radio-inline">
-                     <input type="checkbox" id="ckSetLocation" onclick="setAccountType();" runat="server"/> Set own location  </label>
-                </div> 
-        </div>
-        <div class="form-group" id="setownlocation" hidden="hidden">
-                 <label for="inputOwnLocation" class="col-sm-4 control-label">Delivery</label>
-                <div class="col-sm-8 required">
-                    <textarea  cols="20" rows="2" id="inputOwnLocation"  class="form-control" runat="server"  style="margin:auto"></textarea>
-            </div> 
-        </div>
-         <div class="form-group">
+        </div> 
+     <div class="form-group">
+            <label for="inputTo" class="col-sm-4 control-label">To</label>
+            <div class="col-sm-8">                
+                <input type="text" class="form-control" readonly="true" runat="server" id="inputTo" />                   
+            </div>
+        </div> 
+        <div class="form-group">
+            <label for="inputDate" class="col-sm-4 control-label">Transaction Date</label>
+            <div class="col-sm-8">                
+                <input type="text" class="form-control" readonly="true"  runat="server" id="inputDate" />                   
+            </div>
+        </div>     
+    <div class="form-group">
+            <label for="inputRemark" class="col-sm-4 control-label">Remark</label>
+            <div class="col-sm-8">                
+                <input type="text" class="form-control" readonly="true" runat="server" id="inputRemark" />                   
+            </div>
+        </div> 
+      <div class="form-group">
+            <label for="inputStatus" class="col-sm-4 control-label">Status</label>
+            <div class="col-sm-8">                
+                <input type="text" class="form-control" readonly="true" runat="server" id="inputStatus" />                   
+            </div>
+        </div> 
+           <div class="form-group">
+            <label for="inputPaymentDate" class="col-sm-4 control-label">Payment Date</label>
+            <div class="col-sm-8">                
+                <input type="text" class="form-control" readonly="true" runat="server" id="inputPaymentDate" />                   
+            </div>
+        </div> 
+     <div class="form-group">
               <label class="col-sm-4 control-label">Payment Mode</label>
-                <div class="col-sm-8 required">
+                <div class="col-sm-8">
                     <label class="radio-inline">
-                        <input type="radio" name="paymentradio" checked="true" runat="server" id="rdCCard" />Credit Card</label>
+                        <input type="radio" name="paymentradio" disabled="disabled" runat="server" id="rdCCard" />Credit Card</label>
                     <label class="radio-inline">
-                        <input type="radio" name="paymentradio" runat="server" id="rdCash" />Cash</label>
+                        <input type="radio" name="paymentradio" disabled="disabled" runat="server" id="rdCash" />Cash</label>
                 </div>
             </div>
-        <div class="form-group">
-            <label for="inputProductCost" class="col-sm-4 control-label">Product Price </label>
+         <div class="form-group">
+            <label for="inputValue" class="col-sm-4 control-label">Value </label>
             <div class="col-sm-8">                
-               <input type="Text"  class="form-control" readonly="true" runat="server" id="inputProductCost" />
+               <input type="Text"  class="form-control" readonly="true" runat="server" id="inputValue" />
             </div>
         </div>  
-        <div class="form-group">
-            <label for="inputDeliveryCost" class="col-sm-4 control-label">Delivery Price </label>
+          <div class="form-group">
+            <label for="inputPhoto" class="col-sm-4 control-label">Receipt Photo</label>
             <div class="col-sm-8">                
-                <input type="Text"  class="form-control" readonly="true" runat="server" id="inputDeliveryCost" />
+                <input type="image" class="form-control" readonly="true" runat="server" id="inputPhoto" />                   
             </div>
-        </div
-      <div class="form-group">
-            <label for="inputCost" class="col-sm-4 control-label">Total</label>
-            <div class="col-sm-8">                
-                <input type="Text"  class="form-control" readonly="true" runat="server" id="inputCost" />
-            </div>
-        </div>
+        </div> 
      <div class="form-group" runat="server" style="margin: 0 auto; width: 31%">
-            <div class="col-sm-12">
-                <asp:Button runat="server" ID="btnCalculate" OnClick="btnCalculate_Click" Text="Calculate Total" />
-                <asp:Button runat="server" ID="btnBook" OnClick="btnBook_Click" Text="Book" />
+            <div class="col-sm-12">               
                 <button onclick="javascript:history.go(-1); return false;">Back</button>
             </div>
-       </div>
-    <asp:HiddenField runat="server" ID="inputProductPrice"/>
-    <asp:HiddenField runat="server" ID="inputDeliveryPrice"/>
-<script type="text/javascript" src="lib/jquery.1.4.2.js"></script>
-<script type="text/javascript" src="lib/jsDatePick.jquery.min.1.3.js"></script>
-<link rel="stylesheet" type="text/css" media="all" href="lib/jsDatePick_ltr.min.css" />
-
-<script type="text/javascript">
-    $(function(){
-      // bind change event to select
-        $('#dynamic_select').on('change', function () {
-          var url = $(this).val(); // get selected value
-          if (url) { // require a URL
-              document.getElementById("hrefView").href = "detail_delivery.aspx?DeliveryId=" + url;; // redirect
-          }
-          return false;
-      });
-    });
-     
-</script>
-    <script type="text/javascript">
-        var setAccountType = function () {   
-            $('#setownlocation').toggle(1000);
-        };
-        var hyperlink = function () {
-            var url = $('#SelectDelivery').val();
-            $('#hrefView').attr('href', "detail_delivery.aspx?DeliveryId=" + url);
-        };
-        $('#inputDate').datepicker({
-            minDate: new Date(Date.now),
-            maxDate: new Date(Date.now),
-            setDate: new Date(Date.now)
-        });
-    </script>
+       </div>   
 </asp:Content>
