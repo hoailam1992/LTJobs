@@ -39,6 +39,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "shopping", "shopping\", "{7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Host.Service", "Host.Service\Host.Service.csproj", "{13511199-1E93-4DC2-8A04-B26F31FC6080}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebEmpty", "WebEmpty\WebEmpty.csproj", "{54703A0D-051D-4424-9DB6-1A577050E8F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,10 @@ Global
 		{13511199-1E93-4DC2-8A04-B26F31FC6080}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13511199-1E93-4DC2-8A04-B26F31FC6080}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13511199-1E93-4DC2-8A04-B26F31FC6080}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54703A0D-051D-4424-9DB6-1A577050E8F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54703A0D-051D-4424-9DB6-1A577050E8F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54703A0D-051D-4424-9DB6-1A577050E8F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54703A0D-051D-4424-9DB6-1A577050E8F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

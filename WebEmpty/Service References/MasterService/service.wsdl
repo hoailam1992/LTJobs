@@ -1,0 +1,1636 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MasterService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Models" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMasterService_GetAllTracking_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTracking" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetAllTracking_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTrackingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetTrackingByBookingId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackingByBookingId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetTrackingByBookingId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackingByBookingIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveTracking_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveTracking" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveTracking_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveTrackingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeleteTrackingById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTrackingById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeleteTrackingById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTrackingByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetTrackingById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackingById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetTrackingById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackingByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetAllBooking_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBooking" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetAllBooking_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBookingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetBookingByClientId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookingByClientId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetBookingByClientId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookingByClientIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetBookingByDeliveryId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookingByDeliveryId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetBookingByDeliveryId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookingByDeliveryIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetBookingByProductId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookingByProductId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetBookingByProductId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookingByProductIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveBooking_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveBooking" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveBooking_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveBookingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeleteBookingById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBookingById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeleteBookingById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBookingByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetBookingById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookingById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetBookingById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookingByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetNewBookingByProductId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewBookingByProductId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetNewBookingByProductId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewBookingByProductIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetNewBookingByDeliveryId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewBookingByDeliveryId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetNewBookingByDeliveryId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewBookingByDeliveryIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveClientComment_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveClientComment" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveClientComment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveClientCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeleteClientCommentById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClientCommentById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeleteClientCommentById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClientCommentByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetClientCommentByClientId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientCommentByClientId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetClientCommentByClientId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientCommentByClientIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetClientCommentByProductId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientCommentByProductId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetClientCommentByProductId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientCommentByProductIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetClientCommentByDeliveryId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientCommentByDeliveryId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetClientCommentByDeliveryId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientCommentByDeliveryIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetClientCommentById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientCommentById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetClientCommentById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientCommentByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveClient" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeleteClientById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClientById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeleteClientById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClientByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetClientByUserId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientByUserId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetClientByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetClientById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetClientById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetClientByClientCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientByClientCode" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetClientByClientCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientByClientCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveDelivery_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveDelivery" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveDelivery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveDeliveryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeleteDeliveryById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDeliveryById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeleteDeliveryById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDeliveryByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetDeliveryByUserId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeliveryByUserId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetDeliveryByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeliveryByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetDeliveryById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeliveryById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetDeliveryById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeliveryByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetAllDelivery_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDelivery" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetAllDelivery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDeliveryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveDeliveryType_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveDeliveryType" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveDeliveryType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveDeliveryTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeleteDeliveryTypeById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDeliveryTypeById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeleteDeliveryTypeById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDeliveryTypeByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetDeliveryTypeById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeliveryTypeById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetDeliveryTypeById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeliveryTypeByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetAllDeliveryTypeByDeliveryId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDeliveryTypeByDeliveryId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetAllDeliveryTypeByDeliveryId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDeliveryTypeByDeliveryIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveFeedBack_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveFeedBack" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveFeedBack_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveFeedBackResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeleteFeedbackById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFeedbackById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeleteFeedbackById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFeedbackByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetFeedBackById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFeedBackById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetFeedBackById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFeedBackByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeleteMessageById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMessageById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeleteMessageById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMessageByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetMessageByUserId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessageByUserId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetMessageByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessageByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetMessageById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessageById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetMessageById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessageByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveMoneyTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveMoneyTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveMoneyTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveMoneyTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveMoneyTransactionDeposit_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveMoneyTransactionDeposit" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveMoneyTransactionDeposit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveMoneyTransactionDepositResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeleteMoneyTransactionById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMoneyTransactionById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeleteMoneyTransactionById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMoneyTransactionByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetMoneyTransactionBySourceId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoneyTransactionBySourceId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetMoneyTransactionBySourceId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoneyTransactionBySourceIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetMoneyTransactionByDestinationId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoneyTransactionByDestinationId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetMoneyTransactionByDestinationId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoneyTransactionByDestinationIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetMoneyTransactionByTrackingId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoneyTransactionByTrackingId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetMoneyTransactionByTrackingId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoneyTransactionByTrackingIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetMoneyTransactionById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoneyTransactionById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetMoneyTransactionById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoneyTransactionByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SavePhoto_InputMessage">
+    <wsdl:part name="parameters" element="tns:SavePhoto" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SavePhoto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SavePhotoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeletePhotoById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePhotoById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeletePhotoById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePhotoByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetPhotoByUserId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPhotoByUserId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetPhotoByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPhotoByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetPhotoById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPhotoById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetPhotoById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPhotoByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetDefaultPhotoByUserId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultPhotoByUserId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetDefaultPhotoByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultPhotoByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveProductPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProductPrice" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveProductPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProductPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeleteProductPriceById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProductPriceById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeleteProductPriceById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProductPriceByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetProductPriceByProductId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductPriceByProductId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetProductPriceByProductId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductPriceByProductIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetProductPriceByProductTypeId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductPriceByProductTypeId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetProductPriceByProductTypeId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductPriceByProductTypeIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetProductPriceByProductAndTypeId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductPriceByProductAndTypeId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetProductPriceByProductAndTypeId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductPriceByProductAndTypeIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetProductPriceById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductPriceById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetProductPriceById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductPriceByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProduct" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeleteProductById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProductById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeleteProductById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProductByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetProductByUserId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByUserId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetProductByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetProductById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetProductById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetProductByCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByCode" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetProductByCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetAllProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProduct" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetAllProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetAllProductAndUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProductAndUser" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetAllProductAndUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProductAndUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveProductType_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProductType" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveProductType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProductTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeleteProductTypeById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProductTypeById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeleteProductTypeById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProductTypeByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetProductTypeById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductTypeById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetProductTypeById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductTypeByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetAllProductType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProductType" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetAllProductType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProductTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveReport" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeleteReportById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteReportById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeleteReportById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteReportByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetReportByBookingId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportByBookingId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetReportByBookingId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportByBookingIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetReportById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetReportById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveUser" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_LoginUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginUser" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_LoginUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetUserById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetUserById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_CheckUserName_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUserName" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_CheckUserName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_RegisterUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUser" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_RegisterUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_ExecuteStoreQuery_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteStoreQuery" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_ExecuteStoreQuery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteStoreQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_ExecuteQuery_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteQuery" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_ExecuteQuery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveVideo_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveVideo" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SaveVideo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveVideoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeleteVideoById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVideoById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_DeleteVideoById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVideoByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetVideoByProductId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVideoByProductId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetVideoByProductId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVideoByProductIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetVideoById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVideoById" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetVideoById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVideoByIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IMasterService">
+    <wsdl:operation name="GetAllTracking">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetAllTracking" message="tns:IMasterService_GetAllTracking_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetAllTrackingResponse" message="tns:IMasterService_GetAllTracking_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackingByBookingId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetTrackingByBookingId" message="tns:IMasterService_GetTrackingByBookingId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetTrackingByBookingIdResponse" message="tns:IMasterService_GetTrackingByBookingId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveTracking">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/SaveTracking" message="tns:IMasterService_SaveTracking_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/SaveTrackingResponse" message="tns:IMasterService_SaveTracking_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrackingById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/DeleteTrackingById" message="tns:IMasterService_DeleteTrackingById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/DeleteTrackingByIdResponse" message="tns:IMasterService_DeleteTrackingById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackingById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetTrackingById" message="tns:IMasterService_GetTrackingById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetTrackingByIdResponse" message="tns:IMasterService_GetTrackingById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBooking">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetAllBooking" message="tns:IMasterService_GetAllBooking_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetAllBookingResponse" message="tns:IMasterService_GetAllBooking_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBookingByClientId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetBookingByClientId" message="tns:IMasterService_GetBookingByClientId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetBookingByClientIdResponse" message="tns:IMasterService_GetBookingByClientId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBookingByDeliveryId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetBookingByDeliveryId" message="tns:IMasterService_GetBookingByDeliveryId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetBookingByDeliveryIdResponse" message="tns:IMasterService_GetBookingByDeliveryId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBookingByProductId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetBookingByProductId" message="tns:IMasterService_GetBookingByProductId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetBookingByProductIdResponse" message="tns:IMasterService_GetBookingByProductId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveBooking">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/SaveBooking" message="tns:IMasterService_SaveBooking_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/SaveBookingResponse" message="tns:IMasterService_SaveBooking_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBookingById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/DeleteBookingById" message="tns:IMasterService_DeleteBookingById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/DeleteBookingByIdResponse" message="tns:IMasterService_DeleteBookingById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBookingById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetBookingById" message="tns:IMasterService_GetBookingById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetBookingByIdResponse" message="tns:IMasterService_GetBookingById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewBookingByProductId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetNewBookingByProductId" message="tns:IMasterService_GetNewBookingByProductId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetNewBookingByProductIdResponse" message="tns:IMasterService_GetNewBookingByProductId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewBookingByDeliveryId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetNewBookingByDeliveryId" message="tns:IMasterService_GetNewBookingByDeliveryId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetNewBookingByDeliveryIdResponse" message="tns:IMasterService_GetNewBookingByDeliveryId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveClientComment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/SaveClientComment" message="tns:IMasterService_SaveClientComment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/SaveClientCommentResponse" message="tns:IMasterService_SaveClientComment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClientCommentById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/DeleteClientCommentById" message="tns:IMasterService_DeleteClientCommentById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/DeleteClientCommentByIdResponse" message="tns:IMasterService_DeleteClientCommentById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientCommentByClientId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetClientCommentByClientId" message="tns:IMasterService_GetClientCommentByClientId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetClientCommentByClientIdResponse" message="tns:IMasterService_GetClientCommentByClientId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientCommentByProductId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetClientCommentByProductId" message="tns:IMasterService_GetClientCommentByProductId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetClientCommentByProductIdResponse" message="tns:IMasterService_GetClientCommentByProductId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientCommentByDeliveryId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetClientCommentByDeliveryId" message="tns:IMasterService_GetClientCommentByDeliveryId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetClientCommentByDeliveryIdResponse" message="tns:IMasterService_GetClientCommentByDeliveryId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientCommentById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetClientCommentById" message="tns:IMasterService_GetClientCommentById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetClientCommentByIdResponse" message="tns:IMasterService_GetClientCommentById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/SaveClient" message="tns:IMasterService_SaveClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/SaveClientResponse" message="tns:IMasterService_SaveClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClientById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/DeleteClientById" message="tns:IMasterService_DeleteClientById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/DeleteClientByIdResponse" message="tns:IMasterService_DeleteClientById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientByUserId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetClientByUserId" message="tns:IMasterService_GetClientByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetClientByUserIdResponse" message="tns:IMasterService_GetClientByUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetClientById" message="tns:IMasterService_GetClientById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetClientByIdResponse" message="tns:IMasterService_GetClientById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientByClientCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetClientByClientCode" message="tns:IMasterService_GetClientByClientCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetClientByClientCodeResponse" message="tns:IMasterService_GetClientByClientCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveDelivery">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/SaveDelivery" message="tns:IMasterService_SaveDelivery_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/SaveDeliveryResponse" message="tns:IMasterService_SaveDelivery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDeliveryById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/DeleteDeliveryById" message="tns:IMasterService_DeleteDeliveryById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/DeleteDeliveryByIdResponse" message="tns:IMasterService_DeleteDeliveryById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveryByUserId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetDeliveryByUserId" message="tns:IMasterService_GetDeliveryByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetDeliveryByUserIdResponse" message="tns:IMasterService_GetDeliveryByUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveryById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetDeliveryById" message="tns:IMasterService_GetDeliveryById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetDeliveryByIdResponse" message="tns:IMasterService_GetDeliveryById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDelivery">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetAllDelivery" message="tns:IMasterService_GetAllDelivery_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetAllDeliveryResponse" message="tns:IMasterService_GetAllDelivery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveDeliveryType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/SaveDeliveryType" message="tns:IMasterService_SaveDeliveryType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/SaveDeliveryTypeResponse" message="tns:IMasterService_SaveDeliveryType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDeliveryTypeById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/DeleteDeliveryTypeById" message="tns:IMasterService_DeleteDeliveryTypeById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/DeleteDeliveryTypeByIdResponse" message="tns:IMasterService_DeleteDeliveryTypeById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveryTypeById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetDeliveryTypeById" message="tns:IMasterService_GetDeliveryTypeById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetDeliveryTypeByIdResponse" message="tns:IMasterService_GetDeliveryTypeById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDeliveryTypeByDeliveryId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetAllDeliveryTypeByDeliveryId" message="tns:IMasterService_GetAllDeliveryTypeByDeliveryId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetAllDeliveryTypeByDeliveryIdResponse" message="tns:IMasterService_GetAllDeliveryTypeByDeliveryId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveFeedBack">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/SaveFeedBack" message="tns:IMasterService_SaveFeedBack_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/SaveFeedBackResponse" message="tns:IMasterService_SaveFeedBack_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFeedbackById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/DeleteFeedbackById" message="tns:IMasterService_DeleteFeedbackById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/DeleteFeedbackByIdResponse" message="tns:IMasterService_DeleteFeedbackById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFeedBackById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetFeedBackById" message="tns:IMasterService_GetFeedBackById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetFeedBackByIdResponse" message="tns:IMasterService_GetFeedBackById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/SaveMessage" message="tns:IMasterService_SaveMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/SaveMessageResponse" message="tns:IMasterService_SaveMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMessageById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/DeleteMessageById" message="tns:IMasterService_DeleteMessageById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/DeleteMessageByIdResponse" message="tns:IMasterService_DeleteMessageById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageByUserId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetMessageByUserId" message="tns:IMasterService_GetMessageByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetMessageByUserIdResponse" message="tns:IMasterService_GetMessageByUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetMessageById" message="tns:IMasterService_GetMessageById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetMessageByIdResponse" message="tns:IMasterService_GetMessageById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveMoneyTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/SaveMoneyTransaction" message="tns:IMasterService_SaveMoneyTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/SaveMoneyTransactionResponse" message="tns:IMasterService_SaveMoneyTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveMoneyTransactionDeposit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/SaveMoneyTransactionDeposit" message="tns:IMasterService_SaveMoneyTransactionDeposit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/SaveMoneyTransactionDepositResponse" message="tns:IMasterService_SaveMoneyTransactionDeposit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMoneyTransactionById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/DeleteMoneyTransactionById" message="tns:IMasterService_DeleteMoneyTransactionById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/DeleteMoneyTransactionByIdResponse" message="tns:IMasterService_DeleteMoneyTransactionById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoneyTransactionBySourceId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetMoneyTransactionBySourceId" message="tns:IMasterService_GetMoneyTransactionBySourceId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetMoneyTransactionBySourceIdResponse" message="tns:IMasterService_GetMoneyTransactionBySourceId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoneyTransactionByDestinationId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetMoneyTransactionByDestinationId" message="tns:IMasterService_GetMoneyTransactionByDestinationId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetMoneyTransactionByDestinationIdResponse" message="tns:IMasterService_GetMoneyTransactionByDestinationId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoneyTransactionByTrackingId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetMoneyTransactionByTrackingId" message="tns:IMasterService_GetMoneyTransactionByTrackingId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetMoneyTransactionByTrackingIdResponse" message="tns:IMasterService_GetMoneyTransactionByTrackingId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoneyTransactionById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetMoneyTransactionById" message="tns:IMasterService_GetMoneyTransactionById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetMoneyTransactionByIdResponse" message="tns:IMasterService_GetMoneyTransactionById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SavePhoto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/SavePhoto" message="tns:IMasterService_SavePhoto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/SavePhotoResponse" message="tns:IMasterService_SavePhoto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePhotoById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/DeletePhotoById" message="tns:IMasterService_DeletePhotoById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/DeletePhotoByIdResponse" message="tns:IMasterService_DeletePhotoById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotoByUserId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetPhotoByUserId" message="tns:IMasterService_GetPhotoByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetPhotoByUserIdResponse" message="tns:IMasterService_GetPhotoByUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotoById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetPhotoById" message="tns:IMasterService_GetPhotoById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetPhotoByIdResponse" message="tns:IMasterService_GetPhotoById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultPhotoByUserId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetDefaultPhotoByUserId" message="tns:IMasterService_GetDefaultPhotoByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetDefaultPhotoByUserIdResponse" message="tns:IMasterService_GetDefaultPhotoByUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveProductPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/SaveProductPrice" message="tns:IMasterService_SaveProductPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/SaveProductPriceResponse" message="tns:IMasterService_SaveProductPrice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProductPriceById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/DeleteProductPriceById" message="tns:IMasterService_DeleteProductPriceById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/DeleteProductPriceByIdResponse" message="tns:IMasterService_DeleteProductPriceById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductPriceByProductId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetProductPriceByProductId" message="tns:IMasterService_GetProductPriceByProductId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetProductPriceByProductIdResponse" message="tns:IMasterService_GetProductPriceByProductId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductPriceByProductTypeId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetProductPriceByProductTypeId" message="tns:IMasterService_GetProductPriceByProductTypeId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetProductPriceByProductTypeIdResponse" message="tns:IMasterService_GetProductPriceByProductTypeId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductPriceByProductAndTypeId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetProductPriceByProductAndTypeId" message="tns:IMasterService_GetProductPriceByProductAndTypeId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetProductPriceByProductAndTypeIdResponse" message="tns:IMasterService_GetProductPriceByProductAndTypeId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductPriceById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetProductPriceById" message="tns:IMasterService_GetProductPriceById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetProductPriceByIdResponse" message="tns:IMasterService_GetProductPriceById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/SaveProduct" message="tns:IMasterService_SaveProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/SaveProductResponse" message="tns:IMasterService_SaveProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProductById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/DeleteProductById" message="tns:IMasterService_DeleteProductById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/DeleteProductByIdResponse" message="tns:IMasterService_DeleteProductById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByUserId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetProductByUserId" message="tns:IMasterService_GetProductByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetProductByUserIdResponse" message="tns:IMasterService_GetProductByUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetProductById" message="tns:IMasterService_GetProductById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetProductByIdResponse" message="tns:IMasterService_GetProductById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetProductByCode" message="tns:IMasterService_GetProductByCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetProductByCodeResponse" message="tns:IMasterService_GetProductByCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetAllProduct" message="tns:IMasterService_GetAllProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetAllProductResponse" message="tns:IMasterService_GetAllProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProductAndUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetAllProductAndUser" message="tns:IMasterService_GetAllProductAndUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetAllProductAndUserResponse" message="tns:IMasterService_GetAllProductAndUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveProductType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/SaveProductType" message="tns:IMasterService_SaveProductType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/SaveProductTypeResponse" message="tns:IMasterService_SaveProductType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProductTypeById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/DeleteProductTypeById" message="tns:IMasterService_DeleteProductTypeById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/DeleteProductTypeByIdResponse" message="tns:IMasterService_DeleteProductTypeById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductTypeById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetProductTypeById" message="tns:IMasterService_GetProductTypeById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetProductTypeByIdResponse" message="tns:IMasterService_GetProductTypeById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProductType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetAllProductType" message="tns:IMasterService_GetAllProductType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetAllProductTypeResponse" message="tns:IMasterService_GetAllProductType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/SaveReport" message="tns:IMasterService_SaveReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/SaveReportResponse" message="tns:IMasterService_SaveReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReportById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/DeleteReportById" message="tns:IMasterService_DeleteReportById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/DeleteReportByIdResponse" message="tns:IMasterService_DeleteReportById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportByBookingId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetReportByBookingId" message="tns:IMasterService_GetReportByBookingId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetReportByBookingIdResponse" message="tns:IMasterService_GetReportByBookingId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetReportById" message="tns:IMasterService_GetReportById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetReportByIdResponse" message="tns:IMasterService_GetReportById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/SaveUser" message="tns:IMasterService_SaveUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/SaveUserResponse" message="tns:IMasterService_SaveUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/LoginUser" message="tns:IMasterService_LoginUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/LoginUserResponse" message="tns:IMasterService_LoginUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetUserById" message="tns:IMasterService_GetUserById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetUserByIdResponse" message="tns:IMasterService_GetUserById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/CheckUserName" message="tns:IMasterService_CheckUserName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/CheckUserNameResponse" message="tns:IMasterService_CheckUserName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/RegisterUser" message="tns:IMasterService_RegisterUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/RegisterUserResponse" message="tns:IMasterService_RegisterUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteStoreQuery">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/ExecuteStoreQuery" message="tns:IMasterService_ExecuteStoreQuery_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/ExecuteStoreQueryResponse" message="tns:IMasterService_ExecuteStoreQuery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteQuery">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/ExecuteQuery" message="tns:IMasterService_ExecuteQuery_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/ExecuteQueryResponse" message="tns:IMasterService_ExecuteQuery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveVideo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/SaveVideo" message="tns:IMasterService_SaveVideo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/SaveVideoResponse" message="tns:IMasterService_SaveVideo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVideoById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/DeleteVideoById" message="tns:IMasterService_DeleteVideoById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/DeleteVideoByIdResponse" message="tns:IMasterService_DeleteVideoById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVideoByProductId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetVideoByProductId" message="tns:IMasterService_GetVideoByProductId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetVideoByProductIdResponse" message="tns:IMasterService_GetVideoByProductId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVideoById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetVideoById" message="tns:IMasterService_GetVideoById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetVideoByIdResponse" message="tns:IMasterService_GetVideoById_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IMasterService" type="tns:IMasterService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllTracking">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetAllTracking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackingByBookingId">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetTrackingByBookingId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTracking">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/SaveTracking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrackingById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/DeleteTrackingById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackingById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetTrackingById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBooking">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetAllBooking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookingByClientId">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetBookingByClientId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookingByDeliveryId">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetBookingByDeliveryId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookingByProductId">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetBookingByProductId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveBooking">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/SaveBooking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBookingById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/DeleteBookingById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookingById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetBookingById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewBookingByProductId">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetNewBookingByProductId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewBookingByDeliveryId">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetNewBookingByDeliveryId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveClientComment">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/SaveClientComment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClientCommentById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/DeleteClientCommentById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientCommentByClientId">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetClientCommentByClientId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientCommentByProductId">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetClientCommentByProductId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientCommentByDeliveryId">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetClientCommentByDeliveryId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientCommentById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetClientCommentById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveClient">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/SaveClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClientById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/DeleteClientById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientByUserId">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetClientByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetClientById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientByClientCode">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetClientByClientCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveDelivery">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/SaveDelivery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDeliveryById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/DeleteDeliveryById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveryByUserId">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetDeliveryByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveryById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetDeliveryById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDelivery">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetAllDelivery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveDeliveryType">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/SaveDeliveryType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDeliveryTypeById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/DeleteDeliveryTypeById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveryTypeById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetDeliveryTypeById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDeliveryTypeByDeliveryId">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetAllDeliveryTypeByDeliveryId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveFeedBack">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/SaveFeedBack" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFeedbackById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/DeleteFeedbackById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFeedBackById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetFeedBackById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMessage">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/SaveMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMessageById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/DeleteMessageById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageByUserId">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetMessageByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetMessageById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMoneyTransaction">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/SaveMoneyTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMoneyTransactionDeposit">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/SaveMoneyTransactionDeposit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMoneyTransactionById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/DeleteMoneyTransactionById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoneyTransactionBySourceId">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetMoneyTransactionBySourceId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoneyTransactionByDestinationId">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetMoneyTransactionByDestinationId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoneyTransactionByTrackingId">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetMoneyTransactionByTrackingId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoneyTransactionById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetMoneyTransactionById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePhoto">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/SavePhoto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePhotoById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/DeletePhotoById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotoByUserId">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetPhotoByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotoById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetPhotoById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultPhotoByUserId">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetDefaultPhotoByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveProductPrice">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/SaveProductPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProductPriceById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/DeleteProductPriceById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductPriceByProductId">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetProductPriceByProductId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductPriceByProductTypeId">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetProductPriceByProductTypeId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductPriceByProductAndTypeId">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetProductPriceByProductAndTypeId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductPriceById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetProductPriceById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveProduct">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/SaveProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProductById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/DeleteProductById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByUserId">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetProductByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetProductById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByCode">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetProductByCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProduct">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetAllProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProductAndUser">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetAllProductAndUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveProductType">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/SaveProductType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProductTypeById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/DeleteProductTypeById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductTypeById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetProductTypeById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProductType">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetAllProductType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveReport">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/SaveReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReportById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/DeleteReportById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportByBookingId">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetReportByBookingId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetReportById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveUser">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/SaveUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginUser">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/LoginUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetUserById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserName">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/CheckUserName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterUser">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/RegisterUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteStoreQuery">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/ExecuteStoreQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteQuery">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/ExecuteQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveVideo">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/SaveVideo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVideoById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/DeleteVideoById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVideoByProductId">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetVideoByProductId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVideoById">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetVideoById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MasterService">
+    <wsdl:port name="BasicHttpBinding_IMasterService" binding="tns:BasicHttpBinding_IMasterService">
+      <soap:address location="http://localhost:8080/WCFHost/MasterService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

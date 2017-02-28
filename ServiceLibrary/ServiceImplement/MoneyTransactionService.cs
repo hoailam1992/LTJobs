@@ -25,7 +25,7 @@ namespace ServiceLibrary
 
         public ReturnType<MoneyTransaction> GetMoneyTransactionById(long id)
         {
-            return (new MoneyTransactionBusinessService()).GetById(id);
+            return (new MoneyTransactionBusinessService()).GetMoneyTransactionById(id);
         }
 
         public ReturnType<IList<MoneyTransaction>> GetMoneyTransactionBySourceId(long id)
@@ -34,6 +34,18 @@ namespace ServiceLibrary
         }
         public ReturnType<IList<MoneyTransaction>> GetMoneyTransactionByTrackingId(long id) {
             return (new MoneyTransactionBusinessService()).GetMoneyTransactionByTrackingId(id);
+        }
+        public ReturnType<MoneyTransaction> SaveMoneyTransactionDeposit(MoneyTransaction entity)
+        {
+            entity.CreatedDate = DateTime.Now;
+            entity.Code = "DP" + entity.CreatedDate;
+            entity.ModifiedDate = DateTime.Now;
+            entity.PaymentDate = DateTime.Now;
+            entity.Remark = "Deposit from client";
+            entity.DestinationId = entity.SourceId;
+            entity.Trandate = DateTime.Now;
+            entity.Status = "O";
+            return (new MoneyTransactionBusinessService()).Save(entity);
         }
     }
 }

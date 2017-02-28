@@ -1,0 +1,678 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{54703A0D-051D-4424-9DB6-1A577050E8F5}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebEmpty</RootNamespace>
+    <AssemblyName>WebEmpty</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MSCaptcha, Version=4.0.4250.31585, Culture=neutral, PublicKeyToken=b9ff12f28cdcf412, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\MSCaptcha.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Old_App_WebReferences\MasterService\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Old_App_WebReferences\MasterService\Models.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Old_App_WebReferences\MasterService\service.wsdl" />
+    <None Include="Old_App_WebReferences\MasterService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Old_App_WebReferences\MasterService\service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="bin\MSCaptcha.dll.refresh" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="MasterPage.master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="about.aspx" />
+    <Content Include="account.aspx" />
+    <None Include="Old_App_WebReferences\MasterService\configuration.svcinfo" />
+    <None Include="Old_App_WebReferences\MasterService\configuration91.svcinfo" />
+    <None Include="Old_App_WebReferences\MasterService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="bin\MSCaptcha.dll" />
+    <Content Include="bin\MSCaptcha.xml" />
+    <Content Include="booking.aspx" />
+    <Content Include="bookingstatus.aspx" />
+    <Content Include="booking_success.aspx" />
+    <Content Include="clientupdate.aspx" />
+    <Content Include="contact.aspx" />
+    <Content Include="Coral.aspx" />
+    <Content Include="CustomControl\ItemControl.ascx" />
+    <Content Include="Default.aspx" />
+    <Content Include="deliveryprice.aspx" />
+    <Content Include="deliveryrespond.aspx" />
+    <Content Include="deliveryupdate.aspx" />
+    <Content Include="depositupload.aspx" />
+    <Content Include="detail_delivery.aspx" />
+    <Content Include="detail_product.aspx" />
+    <Content Include="editUser.aspx" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="img\a02.png" />
+    <Content Include="img\a03.png" />
+    <Content Include="img\aqua_dayDown.gif" />
+    <Content Include="img\aqua_dayNormal.gif" />
+    <Content Include="img\aqua_dayOver.gif" />
+    <Content Include="img\armygreen_dayDown.gif" />
+    <Content Include="img\armygreen_dayNormal.gif" />
+    <Content Include="img\armygreen_dayOver.gif" />
+    <Content Include="img\b03.png" />
+    <Content Include="img\bananasplit_dayDown.gif" />
+    <Content Include="img\bananasplit_dayNormal.gif" />
+    <Content Include="img\bananasplit_dayOver.gif" />
+    <Content Include="img\beige_dayDown.gif" />
+    <Content Include="img\beige_dayNormal.gif" />
+    <Content Include="img\beige_dayOver.gif" />
+    <Content Include="img\boxBottomLeftCorner.png" />
+    <Content Include="img\boxBottomRightCorner.png" />
+    <Content Include="img\boxSideWallPx.gif" />
+    <Content Include="img\boxSideWallPx.png" />
+    <Content Include="img\boxTopLeftCorner.png" />
+    <Content Include="img\boxTopPx.gif" />
+    <Content Include="img\boxTopPx.png" />
+    <Content Include="img\boxTopRightCorner.png" />
+    <Content Include="img\closeButton_down.gif" />
+    <Content Include="img\closeButton_normal.gif" />
+    <Content Include="img\closeButton_over.gif" />
+    <Content Include="img\deepblue_dayDown.gif" />
+    <Content Include="img\deepblue_dayNormal.gif" />
+    <Content Include="img\deepblue_dayOver.gif" />
+    <Content Include="img\greenish_dayDown.gif" />
+    <Content Include="img\greenish_dayNormal.gif" />
+    <Content Include="img\greenish_dayOver.gif" />
+    <Content Include="img\lightgreen_dayDown.gif" />
+    <Content Include="img\lightgreen_dayNormal.gif" />
+    <Content Include="img\lightgreen_dayOver.gif" />
+    <Content Include="img\loading.gif" />
+    <Content Include="img\love.jpg" />
+    <Content Include="img\love1.jpg" />
+    <Content Include="img\monthBackward_down.gif" />
+    <Content Include="img\monthBackward_normal.gif" />
+    <Content Include="img\monthBackward_over.gif" />
+    <Content Include="img\monthForward_down.gif" />
+    <Content Include="img\monthForward_normal.gif" />
+    <Content Include="img\monthForward_over.gif" />
+    <Content Include="img\ocean_blue_dayDown.gif" />
+    <Content Include="img\ocean_blue_dayNormal.gif" />
+    <Content Include="img\ocean_blue_dayOver.gif" />
+    <Content Include="img\orange_dayDown.gif" />
+    <Content Include="img\orange_dayNormal.gif" />
+    <Content Include="img\orange_dayOver.gif" />
+    <Content Include="img\peppermint_dayDown.gif" />
+    <Content Include="img\peppermint_dayNormal.gif" />
+    <Content Include="img\peppermint_dayOver.gif" />
+    <Content Include="img\pink_dayDown.gif" />
+    <Content Include="img\pink_dayNormal.gif" />
+    <Content Include="img\pink_dayOver.gif" />
+    <Content Include="img\purple_dayDown.gif" />
+    <Content Include="img\purple_dayNormal.gif" />
+    <Content Include="img\purple_dayOver.gif" />
+    <Content Include="img\silde.jpg" />
+    <Content Include="img\silde1.jpg" />
+    <Content Include="img\silde2.jpg" />
+    <Content Include="img\torqoise_dayDown.gif" />
+    <Content Include="img\torqoise_dayNormal.gif" />
+    <Content Include="img\torqoise_dayOver.gif" />
+    <Content Include="img\yearBackward_down.gif" />
+    <Content Include="img\yearBackward_normal.gif" />
+    <Content Include="img\yearBackward_over.gif" />
+    <Content Include="img\yearForward_down.gif" />
+    <Content Include="img\yearForward_normal.gif" />
+    <Content Include="img\yearForward_over.gif" />
+    <Content Include="js\register.js" />
+    <Content Include="lib\bootstrap.min.css" />
+    <Content Include="lib\bootstrap.min.js" />
+    <Content Include="lib\custom.css" />
+    <Content Include="lib\img\a02.png" />
+    <Content Include="lib\img\a03.png" />
+    <Content Include="lib\img\aqua_dayDown.gif" />
+    <Content Include="lib\img\aqua_dayNormal.gif" />
+    <Content Include="lib\img\aqua_dayOver.gif" />
+    <Content Include="lib\img\armygreen_dayDown.gif" />
+    <Content Include="lib\img\armygreen_dayNormal.gif" />
+    <Content Include="lib\img\armygreen_dayOver.gif" />
+    <Content Include="lib\img\b03.png" />
+    <Content Include="lib\img\bananasplit_dayDown.gif" />
+    <Content Include="lib\img\bananasplit_dayNormal.gif" />
+    <Content Include="lib\img\bananasplit_dayOver.gif" />
+    <Content Include="lib\img\beige_dayDown.gif" />
+    <Content Include="lib\img\beige_dayNormal.gif" />
+    <Content Include="lib\img\beige_dayOver.gif" />
+    <Content Include="lib\img\boxBottomLeftCorner.png" />
+    <Content Include="lib\img\boxBottomRightCorner.png" />
+    <Content Include="lib\img\boxSideWallPx.gif" />
+    <Content Include="lib\img\boxSideWallPx.png" />
+    <Content Include="lib\img\boxTopLeftCorner.png" />
+    <Content Include="lib\img\boxTopPx.gif" />
+    <Content Include="lib\img\boxTopPx.png" />
+    <Content Include="lib\img\boxTopRightCorner.png" />
+    <Content Include="lib\img\closeButton_down.gif" />
+    <Content Include="lib\img\closeButton_normal.gif" />
+    <Content Include="lib\img\closeButton_over.gif" />
+    <Content Include="lib\img\deepblue_dayDown.gif" />
+    <Content Include="lib\img\deepblue_dayNormal.gif" />
+    <Content Include="lib\img\deepblue_dayOver.gif" />
+    <Content Include="lib\img\greenish_dayDown.gif" />
+    <Content Include="lib\img\greenish_dayNormal.gif" />
+    <Content Include="lib\img\greenish_dayOver.gif" />
+    <Content Include="lib\img\lightgreen_dayDown.gif" />
+    <Content Include="lib\img\lightgreen_dayNormal.gif" />
+    <Content Include="lib\img\lightgreen_dayOver.gif" />
+    <Content Include="lib\img\loading.gif" />
+    <Content Include="lib\img\love.jpg" />
+    <Content Include="lib\img\love1.jpg" />
+    <Content Include="lib\img\monthBackward_down.gif" />
+    <Content Include="lib\img\monthBackward_normal.gif" />
+    <Content Include="lib\img\monthBackward_over.gif" />
+    <Content Include="lib\img\monthForward_down.gif" />
+    <Content Include="lib\img\monthForward_normal.gif" />
+    <Content Include="lib\img\monthForward_over.gif" />
+    <Content Include="lib\img\ocean_blue_dayDown.gif" />
+    <Content Include="lib\img\ocean_blue_dayNormal.gif" />
+    <Content Include="lib\img\ocean_blue_dayOver.gif" />
+    <Content Include="lib\img\orange_dayDown.gif" />
+    <Content Include="lib\img\orange_dayNormal.gif" />
+    <Content Include="lib\img\orange_dayOver.gif" />
+    <Content Include="lib\img\peppermint_dayDown.gif" />
+    <Content Include="lib\img\peppermint_dayNormal.gif" />
+    <Content Include="lib\img\peppermint_dayOver.gif" />
+    <Content Include="lib\img\pink_dayDown.gif" />
+    <Content Include="lib\img\pink_dayNormal.gif" />
+    <Content Include="lib\img\pink_dayOver.gif" />
+    <Content Include="lib\img\purple_dayDown.gif" />
+    <Content Include="lib\img\purple_dayNormal.gif" />
+    <Content Include="lib\img\purple_dayOver.gif" />
+    <Content Include="lib\img\silde.jpg" />
+    <Content Include="lib\img\silde1.jpg" />
+    <Content Include="lib\img\silde2.jpg" />
+    <Content Include="lib\img\torqoise_dayDown.gif" />
+    <Content Include="lib\img\torqoise_dayNormal.gif" />
+    <Content Include="lib\img\torqoise_dayOver.gif" />
+    <Content Include="lib\img\yearBackward_down.gif" />
+    <Content Include="lib\img\yearBackward_normal.gif" />
+    <Content Include="lib\img\yearBackward_over.gif" />
+    <Content Include="lib\img\yearForward_down.gif" />
+    <Content Include="lib\img\yearForward_normal.gif" />
+    <Content Include="lib\img\yearForward_over.gif" />
+    <Content Include="lib\jquery-1.11.3.min.js" />
+    <Content Include="lib\jquery.1.4.2.js" />
+    <Content Include="lib\jquery.js" />
+    <Content Include="lib\jsDatePick.full.1.3.js" />
+    <Content Include="lib\jsDatePick.jquery.full.1.3.js" />
+    <Content Include="lib\jsDatePick.jquery.min.1.3.js" />
+    <Content Include="lib\jsDatePick.min.1.3.js" />
+    <Content Include="lib\jsDatePick_ltr.css" />
+    <Content Include="lib\jsDatePick_ltr.min.css" />
+    <Content Include="lib\jsDatePick_rtl.css" />
+    <Content Include="lib\jsDatePick_rtl.min.css" />
+    <Content Include="lib\jssor.slider-22.0.15.debug.js" />
+    <Content Include="lib\jssor.slider-22.0.15.min.js" />
+    <Content Include="lib\jssor.slider-22.0.15.mini.js" />
+    <Content Include="lib\jssor.slider-22.1.7.debug.js" />
+    <Content Include="lib\jssor.slider-22.1.7.min.js" />
+    <Content Include="lib\jssor.slider-22.1.7.mini.js" />
+    <Content Include="login.aspx" />
+    <Content Include="messagedetail.aspx" />
+    <Content Include="Notify.aspx" />
+    <Content Include="productprice.aspx" />
+    <Content Include="productrespond.aspx" />
+    <Content Include="productupdate.aspx" />
+    <Content Include="register.aspx" />
+    <Content Include="Search.aspx" />
+    <None Include="Service References\MasterService\configuration91.svcinfo" />
+    <None Include="Service References\MasterService\configuration.svcinfo" />
+    <None Include="Service References\MasterService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="transactioninfo.aspx" />
+    <Content Include="transactions.aspx" />
+    <Content Include="upload_photo.aspx" />
+    <Content Include="Web.config" />
+    <None Include="Service References\MasterService\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MasterService\Models.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MasterService\service.wsdl" />
+    <None Include="Service References\MasterService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MasterService\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\MasterService\WebEmpty.MasterService.ReturnTypeOfArrayOfBooking.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MasterService\WebEmpty.MasterService.ReturnTypeOfArrayOfClientComment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MasterService\WebEmpty.MasterService.ReturnTypeOfArrayOfDelivery.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MasterService\WebEmpty.MasterService.ReturnTypeOfArrayOfDeliveryType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MasterService\WebEmpty.MasterService.ReturnTypeOfArrayOfMessage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MasterService\WebEmpty.MasterService.ReturnTypeOfArrayOfMoneyTransaction.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MasterService\WebEmpty.MasterService.ReturnTypeOfArrayOfPhoto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MasterService\WebEmpty.MasterService.ReturnTypeOfArrayOfProduct.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MasterService\WebEmpty.MasterService.ReturnTypeOfArrayOfProductPrice.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MasterService\WebEmpty.MasterService.ReturnTypeOfArrayOfProductType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MasterService\WebEmpty.MasterService.ReturnTypeOfArrayOfTracking.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MasterService\WebEmpty.MasterService.ReturnTypeOfArrayOfVideo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MasterService\WebEmpty.MasterService.ReturnTypeOfBooking.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MasterService\WebEmpty.MasterService.ReturnTypeOfboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MasterService\WebEmpty.MasterService.ReturnTypeOfClient.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MasterService\WebEmpty.MasterService.ReturnTypeOfClientComment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MasterService\WebEmpty.MasterService.ReturnTypeOfDelivery.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MasterService\WebEmpty.MasterService.ReturnTypeOfDeliveryType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MasterService\WebEmpty.MasterService.ReturnTypeOfFeedBack.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MasterService\WebEmpty.MasterService.ReturnTypeOfMessage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MasterService\WebEmpty.MasterService.ReturnTypeOfMoneyTransaction.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MasterService\WebEmpty.MasterService.ReturnTypeOfPhoto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MasterService\WebEmpty.MasterService.ReturnTypeOfProduct.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MasterService\WebEmpty.MasterService.ReturnTypeOfProductPrice.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MasterService\WebEmpty.MasterService.ReturnTypeOfProductType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MasterService\WebEmpty.MasterService.ReturnTypeOfReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MasterService\WebEmpty.MasterService.ReturnTypeOfTracking.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MasterService\WebEmpty.MasterService.ReturnTypeOfUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MasterService\WebEmpty.MasterService.ReturnTypeOfVideo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="about.aspx.cs">
+      <DependentUpon>about.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="about.aspx.designer.cs">
+      <DependentUpon>about.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="account.aspx.cs">
+      <DependentUpon>account.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="account.aspx.designer.cs">
+      <DependentUpon>account.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="booking.aspx.designer.cs">
+      <DependentUpon>booking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bookingstatus.aspx.designer.cs">
+      <DependentUpon>bookingstatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="booking_success.aspx.designer.cs">
+      <DependentUpon>booking_success.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="clientupdate.aspx.designer.cs">
+      <DependentUpon>clientupdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="contact.aspx.designer.cs">
+      <DependentUpon>contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Coral.aspx.designer.cs">
+      <DependentUpon>Coral.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControl\ItemControl.ascx.designer.cs">
+      <DependentUpon>ItemControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="deliveryprice.aspx.designer.cs">
+      <DependentUpon>deliveryprice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="deliveryrespond.aspx.designer.cs">
+      <DependentUpon>deliveryrespond.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="deliveryupdate.aspx.designer.cs">
+      <DependentUpon>deliveryupdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="depositupload.aspx.designer.cs">
+      <DependentUpon>depositupload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="detail_delivery.aspx.designer.cs">
+      <DependentUpon>detail_delivery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="detail_product.aspx.designer.cs">
+      <DependentUpon>detail_product.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="editUser.aspx.designer.cs">
+      <DependentUpon>editUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage.master.designer.cs">
+      <DependentUpon>MasterPage.master</DependentUpon>
+    </Compile>
+    <Compile Include="messagedetail.aspx.designer.cs">
+      <DependentUpon>messagedetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Notify.aspx.designer.cs">
+      <DependentUpon>Notify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Old_App_Code\Models.cs" />
+    <Compile Include="Old_App_WebReferences\MasterService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="booking.aspx.cs">
+      <DependentUpon>booking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bookingstatus.aspx.cs">
+      <DependentUpon>bookingstatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="booking_success.aspx.cs">
+      <DependentUpon>booking_success.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="clientupdate.aspx.cs">
+      <DependentUpon>clientupdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contact.aspx.cs">
+      <DependentUpon>contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Coral.aspx.cs">
+      <DependentUpon>Coral.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomControl\ItemControl.ascx.cs">
+      <DependentUpon>ItemControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="deliveryprice.aspx.cs">
+      <DependentUpon>deliveryprice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="deliveryrespond.aspx.cs">
+      <DependentUpon>deliveryrespond.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="deliveryupdate.aspx.cs">
+      <DependentUpon>deliveryupdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="depositupload.aspx.cs">
+      <DependentUpon>depositupload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="detail_delivery.aspx.cs">
+      <DependentUpon>detail_delivery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="detail_product.aspx.cs">
+      <DependentUpon>detail_product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="editUser.aspx.cs">
+      <DependentUpon>editUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage.master.cs">
+      <DependentUpon>MasterPage.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="messagedetail.aspx.cs">
+      <DependentUpon>messagedetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Notify.aspx.cs">
+      <DependentUpon>Notify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="productprice.aspx.cs">
+      <DependentUpon>productprice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="productprice.aspx.designer.cs">
+      <DependentUpon>productprice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="productrespond.aspx.cs">
+      <DependentUpon>productrespond.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="productrespond.aspx.designer.cs">
+      <DependentUpon>productrespond.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="productupdate.aspx.cs">
+      <DependentUpon>productupdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="productupdate.aspx.designer.cs">
+      <DependentUpon>productupdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="register.aspx.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="register.aspx.designer.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\MasterService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="transactioninfo.aspx.cs">
+      <DependentUpon>transactioninfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="transactioninfo.aspx.designer.cs">
+      <DependentUpon>transactioninfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="transactions.aspx.cs">
+      <DependentUpon>transactions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="transactions.aspx.designer.cs">
+      <DependentUpon>transactions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="upload_photo.aspx.cs">
+      <DependentUpon>upload_photo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="upload_photo.aspx.designer.cs">
+      <DependentUpon>upload_photo.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UploadedImage\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\MasterService\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>61234</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:61234/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -33,7 +33,10 @@ namespace BusinessLayer.Service
             }
             return this.Save(entity);
         }
-
+        public ReturnType<MoneyTransaction> GetTransactionById(long id)
+        {
+            return GetSingle(c => c.Id == id, c => c.User, c => c.User1,c=>c.Tracking);
+        }
         public ReturnType<IList<MoneyTransaction>> GetMoneyTransactionByDestinationId(long id)
         {
             return GetList(c => c.DestinationId == id,c=>c.User,c=>c.User1);

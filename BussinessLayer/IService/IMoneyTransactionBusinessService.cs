@@ -14,5 +14,6 @@ namespace BusinessLayer.IService
         ReturnType<IList<MoneyTransaction>> GetMoneyTransactionByDestinationId(long id);
         ReturnType<MoneyTransaction> GetMoneyTransactionById(long id);
         ReturnType<MoneyTransaction> SaveMoneyTransaction(MoneyTransaction entity);
+        ReturnType<MoneyTransaction> GetTransactionById(long id);
     }
 }

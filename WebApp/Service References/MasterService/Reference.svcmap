@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6345bf97-53f8-4209-aee1-9c2ee9a3a4ca" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8080/WCFHost/MasterService.svc/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="2a756d48-186f-4f2d-bbb0-24ace2ca4c14" SourceId="1" SourceUrl="http://localhost:8080/WCFHost/MasterService.svc/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="b2cee8f0-d4b3-4ff5-9ec5-cc40dbf2cd36" SourceId="1" SourceUrl="http://localhost:8080/WCFHost/MasterService.svc/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="4b79eab4-9d2e-4821-89b5-ad4d58ac098a" SourceId="1" SourceUrl="http://localhost:8080/WCFHost/MasterService.svc/mex" />
+    <MetadataFile FileName="Models.xsd" MetadataType="Schema" ID="2655a717-0fea-45c0-883e-2b1b3eb28914" SourceId="1" SourceUrl="http://localhost:8080/WCFHost/MasterService.svc/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="fb273e8d-210b-4b66-a392-f8241984c3a8" SourceId="1" SourceUrl="http://localhost:8080/WCFHost/MasterService.svc/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

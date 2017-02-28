@@ -1,0 +1,374 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="MasterPage" Codebehind="MasterPage.master.cs" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+     <style>
+        /* jssor slider bullet navigator skin 03 css */
+        /*
+        .jssorb03 div           (normal)
+        .jssorb03 div:hover     (normal mouseover)
+        .jssorb03 .av           (active)
+        .jssorb03 .av:hover     (active mouseover)
+        .jssorb03 .dn           (mousedown)
+        */
+        /* Dropdown Button */
+
+.dropbtn {
+    background-color: transparent;
+    color:darkblue;
+    font-weight:bold;
+    padding: 16px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: transparent;
+}
+        .jssorb03 {
+            position: absolute;
+        }
+        .jssorb03 div, .jssorb03 div:hover, .jssorb03 .av {
+            position: absolute;
+            /* size of bullet elment */
+            width: 21px;
+            height: 21px;
+            text-align: center;
+            line-height: 21px;
+            color: white;
+            font-size: 12px;
+            background: url('img/b03.png') no-repeat;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .jssorb03 div { background-position: -5px -4px; }
+        .jssorb03 div:hover, .jssorb03 .av:hover { background-position: -35px -4px; }
+        .jssorb03 .av { background-position: -65px -4px; }
+        .jssorb03 .dn, .jssorb03 .dn:hover { background-position: -95px -4px; }
+
+        /* jssor slider arrow navigator skin 03 css */
+        /*
+        .jssora03l                  (normal)
+        .jssora03r                  (normal)
+        .jssora03l:hover            (normal mouseover)
+        .jssora03r:hover            (normal mouseover)
+        .jssora03l.jssora03ldn      (mousedown)
+        .jssora03r.jssora03rdn      (mousedown)
+        .jssora03l.jssora03ldn      (disabled)
+        .jssora03r.jssora03rdn      (disabled)
+        */
+        .jssora03l, .jssora03r {
+            display: block;
+            position: absolute;
+            /* size of arrow element */
+            width: 55px;
+            height: 55px;
+            cursor: pointer;
+            background: url('img/a03.png') no-repeat;
+            overflow: hidden;
+        }
+        .jssora03l { background-position: -3px -33px; }
+        .jssora03r { background-position: -63px -33px; }
+        .jssora03l:hover { background-position: -123px -33px; }
+        .jssora03r:hover { background-position: -183px -33px; }
+        .jssora03l.jssora03ldn { background-position: -243px -33px; }
+        .jssora03r.jssora03rdn { background-position: -303px -33px; }
+        .jssora03l.jssora03lds { background-position: -3px -33px; opacity: .3; pointer-events: none; }
+        .jssora03r.jssora03rds { background-position: -63px -33px; opacity: .3; pointer-events: none; }
+    </style>
+    <title>Shopping</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="fonts/glyphicons-halflings-regular.ttf" />
+    <link rel="stylesheet" href="fonts/glyphicons-halflings-regular.woff" />
+    <link rel="stylesheet" href="lib/bootstrap.min.css"/>
+    <link rel="stylesheet" href="lib/custom.css"/>
+    <script src="lib/jquery.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+<form class="form-horizontal" runat="server">
+    <div class="container">
+    <div class="panel-warning" id="NodifyDiv" runat="server">
+        <a href="Notify.aspx" id="notify" runat="server" style="color:red;width:100%" >
+        <asp:Panel runat="server" ForeColor="Yellow" BackColor="OrangeRed" HorizontalAlign="Center" class="panel-warning">
+        <h3>>>>>>> You Have New Messages <<<<<<<</h3>
+        </asp:Panel></a>
+    </div>
+    <div class="panel-warning" id="bookingdiv" runat="server">
+        <a href="bookingstatus.aspx" id="bookingstatus" runat="server" style="color:red;width:100%" >
+     <asp:Panel runat="server" ForeColor="Yellow" BackColor="OrangeRed" HorizontalAlign="Center" class="panel-warning">
+     <h3>>>>> You Have Been Booked <<<<</h3>
+      </asp:Panel></a>
+    </div>
+    </div>
+    <div class="container">
+        <img src="img/love.jpg" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 100%; height: 200px; overflow: hidden;" class="img-thumbnail"/>
+    </div>
+    
+    <div class="container">
+        <nav class="navbar navbar-default" style="margin-bottom: 2px">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="Default.aspx">Home <span class="sr-only">(current)</span></a></li>
+                       <%-- <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                aria-expanded="false">Products <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Miền Bắc</a></li>
+                                <li><a href="#">Miền Nam</a></li>
+                            </ul>
+                        </li>--%>
+                        <li><a href="Search.aspx">Search</a></li>
+                        <li><a href="about.aspx">About Us</a></li>
+                        <li><a href="contact.aspx">Contact</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><asp:HyperLink runat="server" ID="idBookingStatus" NavigateUrl="bookingstatus.aspx">Booking Status</asp:HyperLink></li>
+                        <li> <div class="dropdown" id="idAccountDetail" runat="server">
+                              <button class="dropbtn" id="idDropdownMenu" runat="server"></button>
+                              <div class="dropdown-content">
+                                <a href="editUser.aspx" id="idUpdateInfo" runat="server">Update Info</a>
+                                <a href="bookingstatus.aspx" id="idBooking" runat="server">Booking Status</a>      
+                                <a href="upload_photo.aspx" id="iduploadphoto" runat="server">Upload Photo</a>  
+                                <a href="productprice.aspx" id="idproductprice" runat="server">Product Price</a> 
+                                <a href="deliveryprice.aspx" id="iddeliveryprice" runat="server">Delivery Price</a>      
+                                <a href="transactions.aspx" id="idtransaction" runat="server">Transactions</a>
+                                <a href="depositupload.aspx" id="iddeposit" runat="server">Deposit</a>
+                              </div>
+                            </div>
+                        </li>
+                        <li><asp:HyperLink runat="server" ID="lblRegister" OnLoad="lblRegister_Load" ></asp:HyperLink></li>
+                        <li><asp:HyperLink runat="server" ID="lblLog" OnLoad="btnLog_Load" >Log In</asp:HyperLink></li>
+                        <li><a class="glyphicon glyphicon-search" style="font-size: 24px; cursor: pointer;" href="Search.aspx"></a></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+    </div>
+   <%-- <div class="container">
+        <header id="myCarousel" class="carousel slide">
+            <!-- Indicators -->
+            <ol class="carousel-indicators" id="indicators" runat="server">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active ">
+                    <div class="fill" style="background-image: url('img/silde.jpg');"></div>
+                    <div class="carousel-caption">
+                        <h2>Caption 1</h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="fill" style="background-image: url('img/silde1.jpg');"></div>
+                    <div class="carousel-caption">
+                        <h2>Caption 2</h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="fill" style="background-image: url('img/silde2.jpg');"></div>
+                    <div class="carousel-caption">
+                        <h2>Caption 3</h2>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="icon-prev"></span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="icon-next"></span>
+            </a>
+        </header>
+    </div>--%>
+  <%--  <div class="container">--%>
+<%--    <header id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <asp:Literal ID="ltlCarouselIndicators" runat="server" />
+    <!-- Images-->
+    <div class="carousel-inner" role="listbox">
+        <asp:Literal ID="ltlCarouselImages" runat="server" />
+    </div>
+    <!-- Left Right Arrows -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    </header>--%>
+         
+   
+ 
+    <div id="jssor_1" class="container" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 809px; height: 200px; overflow: hidden; visibility: hidden;">
+        <!-- Loading Screen -->
+        <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
+            <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+            <div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+        </div>
+        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 809px; height: 200px; overflow: hidden;">           
+            <asp:Literal ID="ltlCarouselImages" runat="server" />
+        </div>
+        <!-- Bullet Navigator -->
+        <div data-u="navigator" class="jssorb03" style="bottom:10px;right:10px;">
+            <!-- bullet navigator item prototype -->
+            <div data-u="prototype" style="width:21px;height:21px;">
+                <div data-u="numbertemplate"></div>
+            </div>
+        </div>
+        <!-- Arrow Navigator -->
+        <span data-u="arrowleft" class="jssora03l" style="left:8px;width:55px;height:55px;margin:auto" data-autocenter="2"></span>
+        <span data-u="arrowright" class="jssora03r" style="right:8px;width:55px;height:55px;margin:auto" data-autocenter="2"></span>
+    </div>
+    <!-- #endregion Jssor Slider End -->
+
+        <%--</div>--%>
+ 
+    <!--New-->
+<%--     <div class="container">
+    <header id="myCarouselNew" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <asp:Literal ID="ltlCarouselIndicatorsNew" runat="server" />
+    <!-- Images-->
+    <div class="carousel-inner" role="listbox">
+        <asp:Literal ID="ltlCarouselImagesNew" runat="server" />
+    </div>
+    <!-- Left Right Arrows -->
+    <a class="left carousel-control" href="#myCarouselNew" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarouselNew" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    </header>
+        </div>--%>
+       <div class="container" style="margin-top: 10px; margin-bottom: 30px">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <div class="container" style="margin-top: 10px; margin-bottom: 30px">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <script>
+        $('.carousel').carousel({
+            interval: 1000 //changes the speed
+        })
+    </script>
+    <script src="lib/jquery-1.11.3.min.js" type="text/javascript" data-library="jquery" data-version="1.11.3"></script>
+    <script src="lib/jssor.slider-22.0.15.mini.js" type="text/javascript" data-library="jssor.slider.mini" data-version="22.0.15"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            $("h2")
+                .wrapInner("<span>")
+
+            $("h2 br")
+                .before("<span class='spacer'>")
+                .after("<span class='spacer'>");
+
+        });
+        jQuery(document).ready(function ($) {
+            
+            var jssor_1_options = {
+              $AutoPlay: true,
+              $AutoPlaySteps: 1,
+              $SlideDuration: 160,
+              $SlideWidth: 200,
+              $SlideSpacing: 3,
+              $Cols: 4,
+              $ArrowNavigatorOptions: {
+                $Class: $JssorArrowNavigator$,
+                $Steps: 1
+              },
+              $BulletNavigatorOptions: {
+                $Class: $JssorBulletNavigator$,
+                $SpacingX: 1,
+                $SpacingY: 1
+              }
+            };
+            var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+            /*responsive code begin*/
+            /*you can remove responsive code if you don't want the slider scales while window resizing*/
+            function ScaleSlider() {
+                var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+                if (refSize) {
+                    refSize = Math.min(refSize, 809);
+                    jssor_1_slider.$ScaleWidth(refSize);
+                }
+                else {
+                    window.setTimeout(ScaleSlider, 30);
+                }
+            }
+            ScaleSlider();
+            $(window).bind("load", ScaleSlider);
+            $(window).bind("resize", ScaleSlider);
+            $(window).bind("orientationchange", ScaleSlider);
+            /*responsive code end*/
+        });
+    </script>
+</form>
+</body>
+</html>

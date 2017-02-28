@@ -14,6 +14,8 @@ namespace ServiceLibrary
         [OperationContract]
         ReturnType<MoneyTransaction> SaveMoneyTransaction(MoneyTransaction entity);
         [OperationContract]
+        ReturnType<MoneyTransaction> SaveMoneyTransactionDeposit(MoneyTransaction entity);
+        [OperationContract]
         ReturnType<bool> DeleteMoneyTransactionById(long enity);   
         [OperationContract]
         ReturnType<IList<MoneyTransaction>> GetMoneyTransactionBySourceId(long id);
@@ -23,6 +25,6 @@ namespace ServiceLibrary
         ReturnType<IList<MoneyTransaction>> GetMoneyTransactionByTrackingId(long id);
         [OperationContract]
         ReturnType<MoneyTransaction> GetMoneyTransactionById(long id);
-      
+        
     }
 }
